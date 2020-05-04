@@ -9,4 +9,7 @@ namespace ZealandDrive.MVM
     class Class1
     {
     }
+    class bangeForMorke
+    {
+    }
 }
