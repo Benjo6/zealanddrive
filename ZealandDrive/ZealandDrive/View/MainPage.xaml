@@ -2,13 +2,17 @@
     x:Class="ZealandDrive.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ZealandDrive"
+    xmlns:local="using:ZealandDrive.VM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
         <ImageBrush ImageSource="Assets\Not_logget_in_@1x.png"/>
     </Page.Background>
+    <Page.DataContext>
+        <local:MainVM/>
+    </Page.DataContext>
+    
     <Grid Width="432">
         <Grid.RowDefinitions>
             <RowDefinition Height="400"/>
@@ -24,7 +28,7 @@
 
         <TextBlock VerticalAlignment="Center" FontSize="16" Foreground="White" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"  Grid.Row="2" Text="Hvorfor køre alene, når du kan køre med andre? Opret din bruger i dag, og kør sammen med dine klassekammerater allerede i morgen." Height="64" Margin="26,0,26,0" />
         <Image VerticalAlignment="Bottom" Grid.Row="0" Source="Assets\zealand-DRIVE-NEW-logo(hvid).png"  Height="100"/>
-        <Button Height="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#F2DF80" Width="260" Grid.Row="5" CornerRadius="7" Content="LOGIN" Foreground="White"/>
+        <Button Height="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#F2DF80" Width="260" Grid.Row="5" CornerRadius="7" Content="LOGIN" Foreground="White" Command="{Binding GoToLogin}"/>
         <Button Grid.Row="6" FontSize="18" HorizontalAlignment="Center" Background="Transparent" Content="OPRET BRUGER" VerticalAlignment="Top" FontWeight="Bold" Foreground="White"/>
 
     </Grid>
