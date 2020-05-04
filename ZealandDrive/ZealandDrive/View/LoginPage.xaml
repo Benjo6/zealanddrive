@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="ZealandDrive.View.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZealandDrive.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush ImageSource="Assets\Not_logget_in_@1x.png"/>
+    </Page.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image VerticalAlignment="Bottom" Grid.Row="0" Source="Assets\zealand-DRIVE-NEW-logo(hvid).png" Height="130" />
+        <TextBlock Text="Email" Foreground="White" Grid.Row="1" HorizontalAlignment="Left" Margin="32,0,0,0"/>
+        <TextBox Grid.Row="1" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1"/>
+
+        <TextBlock Text="Password" Foreground="White" Grid.Row="2" HorizontalAlignment="Left" Margin="32,0,0,0"/>
+        <TextBox Grid.Row="2" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1"/>
+
+        <CheckBox Content="Husk mit password til næste gang" Grid.Row="3"  HorizontalAlignment="Left" Margin="35,0,0,0" Foreground="White" />
+
+        <Button Height="50" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="260" Grid.Row="5" CornerRadius="7" Content="LOGIN" Foreground="White" VerticalAlignment="Top"/>
+        <TextBlock Text="Har du ikke en bruger i nu?" FontSize="14" Foreground="White" Grid.Row="6" HorizontalAlignment="Center"/>
+        <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+
+
+    </Grid>
+</Page>
