@@ -31,7 +31,7 @@
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="5" />
 
 
-        <Button Background="White"  Height="70" Width="70" Grid.Column="2" HorizontalAlignment="Right">
+        <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right">
             <Image Source="Assets\new-icon.svg"/>
         </Button>
     </Grid>

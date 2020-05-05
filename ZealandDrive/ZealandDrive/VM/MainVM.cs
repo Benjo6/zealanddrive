@@ -36,6 +36,8 @@ namespace ZealandDrive.VM
 
         public RelayCommand GoToOverview => c.GoOverviewPage;
 
+        public RelayCommand GoBack => c.Tilbage;
+
         #endregion
 
         #region Method

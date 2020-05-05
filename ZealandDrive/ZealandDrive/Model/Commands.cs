@@ -14,6 +14,7 @@ namespace ZealandDrive.Model
         private NavigationService navigationService;
         public RelayCommand oRutePage;
         public RelayCommand overviewPage;
+        public RelayCommand tilbagePage;
         #endregion
 
         #region Constructor
@@ -23,7 +24,7 @@ namespace ZealandDrive.Model
             loginPage = new RelayCommand(GotoLogin);
             oRutePage = new RelayCommand(GotoOpretRute);
             overviewPage = new RelayCommand(GotoOverview);
-
+            tilbagePage = new RelayCommand(GoBack);
         }
         #endregion
 
@@ -40,9 +41,18 @@ namespace ZealandDrive.Model
         public RelayCommand OpretRute => oRutePage;
 
         public RelayCommand GoOverviewPage => overviewPage;
+
+        public RelayCommand Tilbage => tilbagePage;
         #endregion
 
         #region Method
+
+        public void GoBack()
+        {
+            var frame = (Frame)Window.Current.Content;
+            if (frame.CanGoBack)
+                frame.GoBack();
+        }
 
         public void GotoLogin()
         {
