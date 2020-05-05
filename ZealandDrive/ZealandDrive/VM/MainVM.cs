@@ -32,6 +32,10 @@ namespace ZealandDrive.VM
             }
         }
 
+        public RelayCommand GoToOpretRute => c.OpretRute;
+
+        public RelayCommand GoToOverview => c.GoOverviewPage;
+
         #endregion
 
         #region Method

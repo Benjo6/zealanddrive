@@ -12,6 +12,8 @@ namespace ZealandDrive.Model
         #region Instance
         public RelayCommand loginPage;
         private NavigationService navigationService;
+        public RelayCommand oRutePage;
+        public RelayCommand overviewPage;
         #endregion
 
         #region Constructor
@@ -19,6 +21,9 @@ namespace ZealandDrive.Model
         {
             navigationService = new NavigationService();
             loginPage = new RelayCommand(GotoLogin);
+            oRutePage = new RelayCommand(GotoOpretRute);
+            overviewPage = new RelayCommand(GotoOverview);
+
         }
         #endregion
 
@@ -32,6 +37,9 @@ namespace ZealandDrive.Model
             }
         }
 
+        public RelayCommand OpretRute => oRutePage;
+
+        public RelayCommand GoOverviewPage => overviewPage;
         #endregion
 
         #region Method
@@ -40,6 +48,18 @@ namespace ZealandDrive.Model
         {
             {
                 navigationService.navigate(typeof(View.LoginPage));
+            }
+        }
+        public void GotoOpretRute()
+        {
+            {
+                navigationService.navigate(typeof(View.OpretRutePage));
+            }
+        }
+        public void GotoOverview()
+        {
+            {
+                navigationService.navigate(typeof(View.OverviewPage));
             }
         }
         #endregion
