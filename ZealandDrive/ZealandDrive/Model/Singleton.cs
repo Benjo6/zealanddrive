@@ -14,7 +14,6 @@ namespace ZealandDrive.Model
 
         private Singleton()
         {
-            _selectedItem = new Rute();
         }
 
         public static Singleton Instance
@@ -23,24 +22,5 @@ namespace ZealandDrive.Model
         }
         // Singleton slut
 
-        private Rute _selectedItem;
-
-        public Rute SelectedItem
-        {
-            get => _selectedItem;
-            set
-            {
-                if (Equals(value, _selectedItem)) return;
-                _selectedItem = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

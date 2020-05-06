@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.View;
+using ZealandDrive.VM;
+
 
 namespace ZealandDrive.Model
 {
@@ -48,6 +50,8 @@ namespace ZealandDrive.Model
         #endregion
 
         #region Method
+
+        
 
         public void GoBack()
         {

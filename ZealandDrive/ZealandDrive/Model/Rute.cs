@@ -18,21 +18,24 @@ namespace ZealandDrive.Model
 
         private string _bil;
 
-        private DateTime _tidspunkt;
+        private TimeSpan _tid;
+
+        private DateTime _date;
 
         private string _besked;
 
-        public Rute() : this("", "", "", DateTime.MinValue, "")
+        public Rute() : this("", "", "", TimeSpan.MinValue ,DateTime.MinValue, "")
         {
         }
 
-        public Rute(string startSted, string slutSted, string bil, DateTime tidspunkt, string besked)
+        public Rute(string startSted, string slutSted, string bil, TimeSpan Tid, DateTime Date, string besked)
         {
             _id = Counter++;
             _startSted = startSted;
             _slutSted = slutSted;
             _bil = bil;
-            _tidspunkt = tidspunkt;
+            _tid = Tid;
+            _date = Date;
             _besked = besked;
         }
 
@@ -58,10 +61,16 @@ namespace ZealandDrive.Model
             get => _bil;
             set => _bil = value;
         }
-        public DateTime Tidspunkt
+
+        public TimeSpan Tid
         {
-            get => _tidspunkt;
-            set => _tidspunkt = value;
+            get => _tid;
+            set => _tid = value;
+        }
+        public DateTime Date
+        {
+            get => _date;
+            set => _date = value;
         }
         public string Besked
         {
@@ -70,7 +79,7 @@ namespace ZealandDrive.Model
         }
         public override string ToString()
         {
-            return $"{nameof(Id)}: {Id}, {nameof(Start)}: {Start}, {nameof(Slut)}: {Slut}, {nameof(Bil)}: {Bil}, {nameof(Tidspunkt)}: {Tidspunkt}, {nameof(Besked)}: {Besked} ";
+            return $"{nameof(Id)}: {Id}, {nameof(Start)}: {Start}, {nameof(Slut)}: {Slut}, {nameof(Bil)}: {Bil}, {nameof(Tid)}: {Tid}, {nameof(Date)}: {Date}, {nameof(Besked)}: {Besked} ";
         }
 
     }
