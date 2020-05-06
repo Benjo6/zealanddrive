@@ -122,6 +122,8 @@
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\NavigationService.cs" />
     <Compile Include="Model\Relaycommand.cs" />
+    <Compile Include="Model\Rute.cs" />
+    <Compile Include="Model\Singleton.cs" />
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -178,7 +180,9 @@
       <Version>6.2.9</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Lists\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
