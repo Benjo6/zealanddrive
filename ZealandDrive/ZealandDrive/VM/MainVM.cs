@@ -31,7 +31,7 @@ namespace ZealandDrive.VM
             c = new Commands();
             _nyRute = new Rute("", "", "", TimeSpan.MaxValue ,DateTime.MinValue, "");
             _rutes = new ObservableCollection<Rute>();
-            _rutes.Add(new Rute("Frederikssund", "Roskilde Zealand", "BMW",TimeSpan.MinValue, DateTime.Now, "Dummy"));
+            _rutes.Add(new Rute("Frederikssund", "Roskilde Zealand", "BMW",TimeSpan.MinValue, DateTime.MinValue, "Dummy"));
             altiind = new CompositeCommand();
             altiind.Execute(AddRuter);
             altiind.Execute(c.GoOverviewPage);
