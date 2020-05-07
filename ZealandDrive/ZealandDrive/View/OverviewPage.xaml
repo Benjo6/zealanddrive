@@ -36,10 +36,10 @@
 
         <TextBlock Text="Ruter" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <GridView ItemsSource="{Binding Ruter}" Grid.Row="1" Grid.Column="1" >
+        //<GridView ItemsSource="{Binding Ruter}" Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="180">
+                        <Grid Height="180">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
                             <RowDefinition/>
@@ -63,11 +63,14 @@
                         <TextBlock Foreground="#656565" Text="Fra" Grid.Row="3" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
                         <TextBlock Foreground="#656565" Text="Til" Grid.Row="5" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
                         <TextBlock Text="{Binding Start}" Grid.Row="4" Grid.Column="2" FontSize="11" VerticalAlignment="Top" />
-                        <TextBlock Text="{Binding Slut}" Grid.Row="6" Grid.Column="2" FontSize="11" VerticalAlignment="Top" />
-                        <TextBlock Text="10.00" Grid.Row="1" Grid.Column="3"/>
-                        <TextBlock Text="8 Nov" Grid.Row="2" Grid.Column="1" FontSize="9"/>
-                        <TextBlock Text="{Binding Id}" Grid.Row="6" Grid.Column="0" FontSize="9"/>
+                        <TextBlock Text="{Binding Slut}" Grid.Row="6" Grid.Column="2" FontSize="12" VerticalAlignment="Top" />
+                        <TextBlock Text="{Binding Date}" Grid.Row="1" Grid.Column="3" FontSize="9" />
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                            <TextBlock Text="{Binding Hour}"  FontSize="9" Grid.ColumnSpan="2"/>
+                            <TextBlock Text=":" FontSize="9" Grid.ColumnSpan="2"/>
+                            <TextBlock Text="{Binding Minute}"  FontSize="9" Grid.ColumnSpan="2"/>
 
+                        </StackPanel>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>

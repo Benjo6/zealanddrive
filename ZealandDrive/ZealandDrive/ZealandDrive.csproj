@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\NavigationService.cs" />
     <Compile Include="Model\Relaycommand.cs" />
@@ -185,9 +186,7 @@
       <Version>7.2.0.1422</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Lists\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
