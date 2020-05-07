@@ -39,7 +39,7 @@
         //<GridView ItemsSource="{Binding Ruter}" Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
-                        <Grid Height="180">
+                    <Grid Height="180">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30"/>
                             <RowDefinition/>

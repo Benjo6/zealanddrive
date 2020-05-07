@@ -138,6 +138,9 @@
     <Compile Include="View\OverviewPage.xaml.cs">
       <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SpecificRoutePage.xaml.cs">
+      <DependentUpon>SpecificRoutePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VM\MainVM.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OverviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SpecificRoutePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

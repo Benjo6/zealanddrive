@@ -39,6 +39,9 @@ namespace ZealandDrive.VM
             _rutes.Add(new Rute("Frederikssund", "Roskilde Zealand", "BMW","11","00", DateTimeOffset.Now,"Dummy"));
             _rutes.Add(new Rute("Frederikssund", "Roskilde Zealand", "BMW", "12", "00", DateTimeOffset.Now, "Dummy"));
 
+            _nyRute = new Rute("", "", "", TimeSpan.Zero ,DateTime.Now, "");
+            _rutes = new ObservableCollection<Rute>();
+            _rutes.Add(new Rute("Frederikssund", "Roskilde Zealand", "BMW",TimeSpan.Zero, DateTime.Now, "Dummy"));
             altiind = new CompositeCommand();
             altiind.Execute(AddRuter);
             altiind.Execute(c.GoOverviewPage);
@@ -75,7 +78,7 @@ namespace ZealandDrive.VM
 
         public CompositeCommand OpretRuteKnap => altiind; 
 
-
+       //public RelayCommand test => c.sRutePage;
 
 
 
