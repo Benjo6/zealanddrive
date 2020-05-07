@@ -36,7 +36,7 @@
 
         <TextBlock Text="Ruter" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        //<GridView ItemsSource="{Binding Ruter}" Grid.Row="1" Grid.Column="1" >
+        <GridView ItemsSource="{Binding Ruter}" Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="180">
