@@ -19,7 +19,7 @@ namespace ZealandDrive.Model
         public RelayCommand oRutePage;
         public RelayCommand overviewPage;
         public RelayCommand tilbagePage;
-        //public RelayCommand sRutePage;
+        public RelayCommand sRutePage;
         #endregion
 
         #region Constructor
@@ -30,7 +30,7 @@ namespace ZealandDrive.Model
             oRutePage = new RelayCommand(GotoOpretRute);
             overviewPage = new RelayCommand(GotoOverview);
             tilbagePage = new RelayCommand(GoBack);
-           // sRutePage = new RelayCommand(GotoRute);
+            sRutePage = new RelayCommand(GotoSpecificRutePage);
         }
         #endregion
 
@@ -44,13 +44,23 @@ namespace ZealandDrive.Model
             }
         }
 
+        public RelayCommand GoToSpecificRutePage
+        {
+            get
+            {
+                return sRutePage;
+            }
+        }
+
         public RelayCommand OpretRute => oRutePage;
 
         public RelayCommand GoOverviewPage => overviewPage;
 
         public RelayCommand Tilbage => tilbagePage;
 
-       // public RelayCommand test => sRutePage;
+        //public RelayCommand test => sRutePage;
+
+        public RelayCommand SRutePage => GoToSpecificRutePage; 
         #endregion
 
 
@@ -84,12 +94,12 @@ namespace ZealandDrive.Model
             }
         }
 
-        //public void GotoRute()
-        //{
-        //    {
-        //        navigationService.navigate(typeof(View.LoginPage));
-        //    }
-        //}
+        public void GotoSpecificRutePage()
+        {
+            {
+                navigationService.navigate(typeof(View.SpecificRoutePage));
+            }
+        }
         #endregion
     }
 }
