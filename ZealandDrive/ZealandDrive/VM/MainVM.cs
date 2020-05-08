@@ -20,7 +20,7 @@ namespace ZealandDrive.VM
         #region Instance
         
         private Commands c;
-        private Singleton _shared;
+        private Singleton x;
         private ObservableCollection<Rute> _rutes;
         private RelayCommand _addRuteCommand;
         private Rute _nyRute;
@@ -31,11 +31,9 @@ namespace ZealandDrive.VM
         #region Constructor
         public MainVM()
         {
+            x = Singleton.Instance;
             lists = new Listerne();
             c = new Commands();
-            _rutes = new ObservableCollection<Rute>();
-            _rutes.Add(new Rute("Frederikssund", "Roskilde Zealand", "BMW","11","00", DateTimeOffset.Now,"Dummy"));
-            _rutes.Add(new Rute("Frederikssund", "Roskilde Zealand", "BMW", "12", "00", DateTimeOffset.Now, "Dummy"));
 
             altiind = new CompositeCommand();
             altiind.Execute(AddRuter);
@@ -43,7 +41,6 @@ namespace ZealandDrive.VM
 
             
             _addRuteCommand = new RelayCommand(AddRute);
-            _nyRute = new Rute();
   
         }
 
@@ -58,16 +55,15 @@ namespace ZealandDrive.VM
 
         public RelayCommand GoToLogin => c.Login;
 
-        public Rute NyRute { get => _nyRute; set => _nyRute = value;  }
+        public Rute NyRute { get => x.NyRute; }
 
-        public ObservableCollection<Rute> Ruter { get => _rutes;}
+        public ObservableCollection<Rute> Ruter { get => x.Ruter;}
         public RelayCommand GoToOpretRute => c.OpretRute;
 
         public RelayCommand GoToOverview => c.GoOverviewPage;
 
         public RelayCommand GoBack => c.Tilbage;
 
-        public Singleton Shared => _shared;
 
         public RelayCommand AddRuter {get => _addRuteCommand;}
 
@@ -83,7 +79,7 @@ namespace ZealandDrive.VM
 
         public void AddRute()
         {
-            Ruter.Add(_nyRute);
+            Ruter.Add(NyRute);
         }
         
         
