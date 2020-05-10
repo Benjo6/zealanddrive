@@ -121,6 +121,8 @@
     </Compile>
     <Compile Include="CommandPattern\CC.cs" />
     <Compile Include="CommandPattern\ICC.cs" />
+    <Compile Include="Common\RCO.cs" />
+    <Compile Include="Common\SharedKnowledge.cs" />
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\NavigationService.cs" />
@@ -188,6 +190,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Hangfire.Core">
+      <Version>1.7.11</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>

@@ -8,18 +8,21 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using ZealandDrive.CommandPattern;
+using ZealandDrive.Common;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
+using ZealandDrive.View;
 
 namespace ZealandDrive.VM
 {
-    class MainVM
+    class MainVM : INotifyPropertyChanged
     {
         #region Instance
-        
+
         private Commands c;
         private Singleton x;
         private ObservableCollection<Rute> _rutes;
@@ -30,6 +33,9 @@ namespace ZealandDrive.VM
 
 
         private ICC _iCC;
+
+        private readonly SharedKnowledge _shared;
+        private RCO _nextCommand;
         #endregion
 
         #region Constructor
@@ -45,6 +51,12 @@ namespace ZealandDrive.VM
             ApplicationCommands.OpretRuteCommand.RegisterCommand(_addRuter);
 
             
+
+            _addRuteCommand = new RelayCommand(AddRute);
+
+            _nextCommand = new RCO(Next);
+            _shared = SharedKnowledge.Instance;
+
         }
 
         #endregion
@@ -60,7 +72,7 @@ namespace ZealandDrive.VM
 
         public Rute NyRute { get => x.NyRute; }
 
-        public ObservableCollection<Rute> Ruter { get => x.Ruter;}
+        public ObservableCollection<Rute> Ruter { get => x.Ruter; }
         public RelayCommand GoToOpretRute => c.OpretRute;
 
         public RelayCommand GoToOverview => c.GoOverviewPage;
@@ -75,8 +87,20 @@ namespace ZealandDrive.VM
         public RelayCommand AddRuter {get => _addRuter;}
 
 
-       //public RelayCommand test => c.sRutePage;
+        public RelayCommand AddRuter { get => _addRuteCommand; }
 
+        public CompositeCommand OpretRuteKnap => altiind;
+
+        public SharedKnowledge Instance
+        {
+            get { return _shared; }
+        }
+        public RCO NextCommand
+        {
+            get { return _nextCommand; }
+        }
+        public ObservableCollection<Rute> rutes
+        { get { return _rutes; } }
 
 
         #endregion
@@ -87,10 +111,19 @@ namespace ZealandDrive.VM
         {
             Ruter.Add(NyRute);
         }
-        
-        
+
+        private void Next(object obj)
+        {
+            var rutePair = (KeyValuePair<int, Rute>)obj;
+            _shared.SelectedRute = rutePair.Value;
+
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(SpecificRoutePage));
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         //[NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -98,6 +131,6 @@ namespace ZealandDrive.VM
         }
         #endregion
 
-     
+
     }
 }
