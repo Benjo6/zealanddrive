@@ -81,50 +81,12 @@
         </StackPanel>
 
 
-        <Button Height="50" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="300" Grid.Row="7" CornerRadius="7" Content="OPRET RUTE" Foreground="White" VerticalAlignment="Center" Command="{Binding AddRuter, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6"/>
+        <Button Height="50" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="300" Grid.Row="7" CornerRadius="7" Content="OPRET RUTE" Foreground="White" VerticalAlignment="Center" Command="{Binding OpretRuteKnap, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6"/>
 
         <TextBlock Text="Opret Rute" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
       
         
         
-        <!--<GridView ItemsSource="{Binding Ruter}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="7" Grid.ColumnSpan="2" >
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Height="180">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30"/>
-                            <RowDefinition/>
-                            <RowDefinition Height="25"/>
-                            <RowDefinition Height="18"/>
-
-                            <RowDefinition/>
-                            <RowDefinition Height="18"/>
-
-                            <RowDefinition/>
-
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="28"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="38"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Foreground="#6B6B6B" Text="{Binding Besked}" Height="30" FontSize="18" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="4"/>
-                        <Button CornerRadius="4" Background="White" Height="150" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="268" Grid.ColumnSpan="4" Grid.RowSpan="7" Grid.Row="1"/>
-                        <TextBlock Foreground="#656565" Text="Fra" Grid.Row="3" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
-                        <TextBlock Foreground="#656565" Text="Til" Grid.Row="5" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
-                        <TextBlock Text="{Binding Start}" Grid.Row="4" Grid.Column="2" FontSize="11" VerticalAlignment="Top" />
-                        <TextBlock Text="{Binding Slut}" Grid.Row="6" Grid.Column="2" FontSize="12" VerticalAlignment="Top" />
-                        <TextBlock Text="{Binding Date}" Grid.Row="1" Grid.Column="3" FontSize="9" />
-                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                            <TextBlock Text="{Binding Hour}"  FontSize="9" Grid.ColumnSpan="2"/>
-                            <TextBlock Text=":" FontSize="9" Grid.ColumnSpan="2"/>
-                            <TextBlock Text="{Binding Minute}"  FontSize="9" Grid.ColumnSpan="2"/>
-
-                        </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>-->
+        
     </Grid>
 </Page>
