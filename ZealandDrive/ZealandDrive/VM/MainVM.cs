@@ -47,12 +47,9 @@ namespace ZealandDrive.VM
 
             ApplicationCommands = _iCC; ;
             _addRuter = new RelayCommand(AddRute);
-            TilføjRute = new DelegateCommand(_addRuter);
-            ApplicationCommands.OpretRuteCommand.RegisterCommand(_addRuter);
 
             
 
-            _addRuteCommand = new RelayCommand(AddRute);
 
             _nextCommand = new RCO(Next);
             _shared = SharedKnowledge.Instance;
@@ -87,9 +84,7 @@ namespace ZealandDrive.VM
         public RelayCommand AddRuter {get => _addRuter;}
 
 
-        public RelayCommand AddRuter { get => _addRuteCommand; }
 
-        public CompositeCommand OpretRuteKnap => altiind;
 
         public SharedKnowledge Instance
         {

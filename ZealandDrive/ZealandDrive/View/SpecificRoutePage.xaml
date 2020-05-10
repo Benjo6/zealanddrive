@@ -6,11 +6,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:VM="using:ZealandDrive.VM"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="#F6F6F6">
     <Page.DataContext>
-        <VM:MainVM></VM:MainVM>
+        <VM:MainVM/>
     </Page.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
+        <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
+        </Button>
         <TextBlock Text="{Binding Instance.SelectedRute.Bil }"></TextBlock>
+
+        <Button Name="Tilmeld Knap" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
     </Grid>
 </Page>
