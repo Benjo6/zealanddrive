@@ -29,10 +29,6 @@ namespace ZealandDrive.VM
         private DelegateCommand TilføjRute;
         private Rute _nyRute;
         private Listerne lists;
-
-
-
-        private readonly SharedKnowledge _shared;
         private RCO _nextCommand;
         #endregion
 
