@@ -32,7 +32,6 @@ namespace ZealandDrive.VM
 
 
 
-        private readonly SharedKnowledge _shared;
         private RCO _nextCommand;
         #endregion
 

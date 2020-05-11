@@ -23,7 +23,6 @@ namespace ZealandDrive.Model
         {
             _nyRute = new Rute();
             _rutes = new ObservableCollection<Rute>();
-            Rute a = new Rute();
 
         }
         public Rute SelectedRute
