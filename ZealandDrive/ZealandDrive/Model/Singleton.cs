@@ -14,6 +14,7 @@ namespace ZealandDrive.Model
         private static Singleton _x = new Singleton();
         private ObservableCollection<Rute> _rutes;
         private Rute _nyRute;
+        private Rute _selectedRute;
 
 
 
@@ -22,9 +23,19 @@ namespace ZealandDrive.Model
         {
             _nyRute = new Rute();
             _rutes = new ObservableCollection<Rute>();
+            Rute a = new Rute();
 
         }
-
+        public Rute SelectedRute
+        {
+            get { return _selectedRute; }
+            set
+            {
+                if (Equals(value, _selectedRute)) return;
+                _selectedRute = value;
+                OnPropertyChanged();
+            }
+        }
         public ObservableCollection<Rute> Ruter
         {
             get { return _rutes; }
@@ -42,6 +53,11 @@ namespace ZealandDrive.Model
             get { return _x; }
         }
         // Singleton slut
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        //[NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

@@ -11,7 +11,6 @@ using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
-using ZealandDrive.CommandPattern;
 using ZealandDrive.Common;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
@@ -32,7 +31,6 @@ namespace ZealandDrive.VM
         private Listerne lists;
 
 
-        private ICC _iCC;
 
         private readonly SharedKnowledge _shared;
         private RCO _nextCommand;
@@ -45,7 +43,6 @@ namespace ZealandDrive.VM
             lists = new Listerne();
             c = new Commands();
 
-            ApplicationCommands = _iCC; ;
             _addRuter = new RelayCommand(AddRute);
 
 
@@ -53,7 +50,6 @@ namespace ZealandDrive.VM
 
 
             _nextCommand = new RCO(Next);
-            _shared = SharedKnowledge.Instance;
 
         }
 
@@ -77,26 +73,18 @@ namespace ZealandDrive.VM
 
         public RelayCommand GoBack => c.Tilbage;
 
-        public ICC ApplicationCommands
-        {
-            get { return _iCC; }
-            set { _iCC = value; }
-        }
+        public Singleton Instance => x;
+
+
+  
         public RelayCommand AddRuter {get => _addRuter;}
 
-
-
-
-        public SharedKnowledge Instance
-        {
-            get { return _shared; }
-        }
+        
         public RCO NextCommand
         {
             get { return _nextCommand; }
         }
-        public ObservableCollection<Rute> rutes
-        { get { return _rutes; } }
+
 
 
         #endregion
@@ -112,13 +100,6 @@ namespace ZealandDrive.VM
 
         private void Next(object obj)
         {
-            int ix = _rutes.IndexOf(_shared.SelectedRute);
-
-            if (ix + 1 < _rutes.Count)
-            {
-                _shared.SelectedRute = _rutes[ix + 1];
-            }
-
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
         }
