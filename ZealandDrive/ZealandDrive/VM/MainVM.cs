@@ -48,6 +48,7 @@ namespace ZealandDrive.VM
             ApplicationCommands = _iCC; ;
             _addRuter = new RelayCommand(AddRute);
 
+
             
 
 
@@ -105,6 +106,8 @@ namespace ZealandDrive.VM
         public void AddRute()
         {
             Ruter.Add(NyRute);
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(OverviewPage));
         }
 
         private void Next(object obj)

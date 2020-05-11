@@ -30,6 +30,6 @@
         </Button>
         <TextBlock Text="{Binding Instance.SelectedRute.Bil }"></TextBlock>
 
-        <Button Name="Tilmeld Knap" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
+        <Button Name="TilmeldKnap" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
     </Grid>
 </Page>
