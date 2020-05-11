@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CommandPattern\CC.cs" />
+    <Compile Include="CommandPattern\ICC.cs" />
     <Compile Include="Common\RCO.cs" />
     <Compile Include="Common\SharedKnowledge.cs" />
     <Compile Include="Lists\Listerne.cs" />

@@ -67,7 +67,8 @@ namespace RestServer.DBUtil
                 using (SqlCommand cmd = new SqlCommand("INSERT INTO Comments (id, comment, fk_userId, fk_routeId) VALUES (@id, @comment, @userId, @routeId )", conn))
                 {
                     cmd.Parameters.AddWithValue("@id", Comments.UserId);
-                    cmd.Parameters.AddWithValue("@comment", Comments.comment);
+                    cmd.Parameters.AddWithValue("@comment", Comments.Text);
+
                     cmd.Parameters.AddWithValue("@userId", Comments.UserId);
                     cmd.Parameters.AddWithValue("@routeId", Comments.RouteId);
 

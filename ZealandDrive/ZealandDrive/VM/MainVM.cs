@@ -11,6 +11,7 @@ using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
+using ZealandDrive.CommandPattern;
 using ZealandDrive.Common;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
@@ -25,10 +26,14 @@ namespace ZealandDrive.VM
         private Commands c;
         private Singleton x;
         private ObservableCollection<Rute> _rutes;
-        private RelayCommand _addRuteCommand;
+        private RelayCommand _addRuter;
+        private DelegateCommand TilføjRute;
         private Rute _nyRute;
-        private CompositeCommand altiind;
         private Listerne lists;
+
+
+        private ICC _iCC;
+
         private readonly SharedKnowledge _shared;
         private RCO _nextCommand;
         #endregion
@@ -40,12 +45,11 @@ namespace ZealandDrive.VM
             lists = new Listerne();
             c = new Commands();
 
-            altiind = new CompositeCommand();
-            altiind.Execute(AddRuter);
-            altiind.Execute(c.GoOverviewPage);
+            ApplicationCommands = _iCC; ;
+            _addRuter = new RelayCommand(AddRute);
 
+            
 
-            _addRuteCommand = new RelayCommand(AddRute);
 
             _nextCommand = new RCO(Next);
             _shared = SharedKnowledge.Instance;
@@ -72,10 +76,15 @@ namespace ZealandDrive.VM
 
         public RelayCommand GoBack => c.Tilbage;
 
+        public ICC ApplicationCommands
+        {
+            get { return _iCC; }
+            set { _iCC = value; }
+        }
+        public RelayCommand AddRuter {get => _addRuter;}
 
-        public RelayCommand AddRuter { get => _addRuteCommand; }
 
-        public CompositeCommand OpretRuteKnap => altiind;
+
 
         public SharedKnowledge Instance
         {
