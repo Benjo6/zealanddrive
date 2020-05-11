@@ -96,12 +96,17 @@ namespace ZealandDrive.VM
         public void AddRute()
         {
             Ruter.Add(NyRute);
+            // 2 private metoder? Clean code
         }
 
         private void Next(object obj)
         {
-            var rutePair = (KeyValuePair<int, Rute>)obj;
-            _shared.SelectedRute = rutePair.Value;
+            int ix = _rutes.IndexOf(_shared.SelectedRute);
+
+            if (ix + 1 < _rutes.Count)
+            {
+                _shared.SelectedRute = _rutes[ix + 1];
+            }
 
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
