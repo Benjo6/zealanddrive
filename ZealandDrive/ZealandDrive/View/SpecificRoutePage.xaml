@@ -25,6 +25,22 @@
         </Grid.RowDefinitions>
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
+        <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4" Canvas.ZIndex="1">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum">
+
+            </Button>
+
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
+
+            </Button>
+        </StackPanel>
+
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
         <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>

@@ -33,6 +33,26 @@
 
         </Grid.ColumnDefinitions>
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="8" Grid.ColumnSpan="5" />
+        <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
+                
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="">
+                
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum">
+                
+            </Button>
+            
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
+                
+            </Button>
+        </StackPanel>
+
+        
+
+
+
         <Rectangle Fill="White" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.RowSpan="7" Height="588" Width="332" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
 
@@ -40,17 +60,37 @@
             <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
         </Button>
 
-        <TextBlock Text="Hvor starter ruten?" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <TextBox  Text="{Binding NyRute.Start, Mode=TwoWay}" TextWrapping="Wrap" Background="White" Grid.Row="1" CornerRadius="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Bottom"/>
+        <TextBlock Text="Hvor starter ruten?" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Canvas.ZIndex="5" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+        <TextBox  Text="{Binding NyRute.Start, Mode=TwoWay}" TextWrapping="Wrap" Background="White" Grid.Row="1" CornerRadius="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+        <Button Content="Tilføje Ny Start" Grid.Row="1" VerticalAlignment="Center" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,2" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" Grid.RowSpan="2" ></Button>
 
-        <TextBlock Text="Hvor slutter ruten?" FontWeight="Bold" Grid.Column="1" Grid.Row="2" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <TextBox Text="{Binding NyRute.Slut, Mode=TwoWay}" TextWrapping="Wrap" Background="White" CornerRadius="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Bottom"/>
 
-        <TextBlock Text="Hvilken bil kør du i?" FontWeight="Bold" Grid.Column="1" Grid.Row="3" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <TextBox Text="{Binding NyRute.Bil, Mode=TwoWay}" TextWrapping="Wrap" CornerRadius="3" Background="White" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Bottom"/>
+        <TextBlock Text="Hvor slutter ruten?" FontWeight="Bold" Grid.Column="1" Grid.Row="2" Canvas.ZIndex="5" VerticalAlignment="Top" Margin="0,0,0,50" HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding NyRute.Slut, Mode=TwoWay}" TextWrapping="Wrap" Background="White" CornerRadius="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Center" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+        <Button Content="Tilføje Ny Slut" Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,0" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" >
+           
+        </Button>
 
+
+
+
+        <TextBlock Text="Hvilken bil kør du i?" FontWeight="Bold" Grid.Column="1" Grid.Row="3" Canvas.ZIndex="5" VerticalAlignment="Top" Margin="0,0,0,50" HorizontalAlignment="Center"/>
+            <ComboBox SelectedItem="{Binding NyRute.Bil, Mode=TwoWay}" ItemsSource="{Binding BilDatabase}" PlaceholderText="Vælg"  HorizontalAlignment="Center" CornerRadius="3" Background="White" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Center" Margin="0,5,0,0">
+                <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button Content="Tilføje Ny Bil" Grid.Row="3" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,0" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" >
+           
+        </Button>
+        
+        
         <TextBlock Text="Hvad tid køre du?" FontWeight="Bold" Grid.Column="1" Grid.Row="4" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <DatePicker  SelectedDate="{Binding NyRute.Date,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15"  />
+        <DatePicker  SelectedDate="{Binding NyRute.Dates,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
+        
 
         <TextBlock Text="Hvilke dag køre du?" FontWeight="Bold" Grid.Column="1" Grid.Row="5" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
         <TextBox Text="{Binding NyRute.Besked, Mode=TwoWay}" CornerRadius="3" Background="#F6F6F6" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="100" VerticalAlignment="Bottom"/>
