@@ -27,9 +27,7 @@ namespace ZealandDrive.Model
         private string _minute;
 
 
-        private string _months;
-
-        private string _dates;
+        private DateTimeOffset _date;
 
         private string _besked;
 
@@ -37,11 +35,11 @@ namespace ZealandDrive.Model
         #endregion
 
         #region Konstruktør
-        public Rute() : this(null, null, null, "", "" ,"","", "")
+        public Rute() : this(null, null, null, "", "" ,DateTime.Now, "")
         {
         }
 
-        public Rute(Tur startSted, Tur slutSted, Bil bil, string hour, string minute, string months, string dates, string besked)
+        public Rute(Tur startSted, Tur slutSted, Bil bil, string hour, string minute, DateTimeOffset date, string besked)
         {
             _id = Counter++;
             _startSted = startSted;
@@ -49,8 +47,7 @@ namespace ZealandDrive.Model
             _bil = bil;
             _hour = hour;
             _minute = minute;
-            _months = months
-            _dates = dates;
+            _date = date;
             _besked = besked;
           
         }
@@ -91,26 +88,17 @@ namespace ZealandDrive.Model
             get => _minute;
             set => _minute = value;
         }
-        public string Dates
+        public DateTimeOffset Dates
         {
-            get => _dates;
+            get => _date;
             set
             {
-                _dates = value;
+                _date = value;
             }
             
             
         }
-        public string Months
-        {
-            get => _months;
-            set
-            {
-                _months = value;
-            }
-
-
-        }
+      
         public string Besked
         {
             get => _besked;

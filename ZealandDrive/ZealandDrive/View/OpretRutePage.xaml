@@ -89,7 +89,7 @@
         
         
         <TextBlock Text="Hvad tid køre du?" FontWeight="Bold" Grid.Column="1" Grid.Row="4" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <DatePicker  SelectedDate="{Binding NyRute.Date,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
+        <DatePicker  SelectedDate="{Binding NyRute.Dates,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
         
 
         <TextBlock Text="Hvilke dag køre du?" FontWeight="Bold" Grid.Column="1" Grid.Row="5" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
