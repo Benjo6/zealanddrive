@@ -21,6 +21,7 @@ namespace ZealandDrive.Model
         public RelayCommand tilbagePage;
         public RelayCommand sRutePage;
         public RelayCommand settingPage;
+        public RelayCommand opretBruger;
         #endregion
 
         #region Constructor
@@ -33,6 +34,7 @@ namespace ZealandDrive.Model
             tilbagePage = new RelayCommand(GoBack);
             sRutePage = new RelayCommand(GotoSpecificRutePage);
             settingPage = new RelayCommand(GoSetting);
+            opretBruger = new RelayCommand(GotoOpretBruger);
         }
         #endregion
 
@@ -43,6 +45,14 @@ namespace ZealandDrive.Model
             get
             {
                 return loginPage;
+            }
+        }
+
+        public RelayCommand Opret
+        {
+            get
+            {
+                return opretBruger;
             }
         }
 
