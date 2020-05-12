@@ -34,7 +34,7 @@ namespace ZealandDrive.Model
             }
         }
 
-        private async Task<bool> OpretGuest(User g)
+        private async Task<bool> OpretUser(User g)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -53,7 +53,7 @@ namespace ZealandDrive.Model
             return false;
         }
 
-        private async Task<bool> OpdaterGuest(User u, int id)
+        private async Task<bool> OpdaterUser(User u, int id)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -72,7 +72,7 @@ namespace ZealandDrive.Model
             return false;
         }
 
-        private async Task<User> SletGuest(int id)
+        private async Task<User> SletUser(int id)
         {
             using (HttpClient client = new HttpClient())
             {
