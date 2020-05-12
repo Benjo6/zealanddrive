@@ -122,6 +122,7 @@
     <Compile Include="Common\RCO.cs" />
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
+    <Compile Include="Model\Data.cs" />
     <Compile Include="Model\NavigationService.cs" />
     <Compile Include="Model\Relaycommand.cs" />
     <Compile Include="Model\Rute.cs" />
