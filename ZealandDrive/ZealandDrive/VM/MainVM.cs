@@ -66,6 +66,7 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Properties
+        public RelayCommand GoToOpretBruger => c.Opret;
 
         public ObservableCollection<string> H => lists.Timer;
 

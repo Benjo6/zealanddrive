@@ -106,7 +106,7 @@ namespace ZealandDrive.Model
         }
         public override string ToString()
         {
-            return $"{nameof(Id)}: {Id}, {nameof(Start)}: {Start}, {nameof(Slut)}: {Slut}, {nameof(Bil)}: {Bil}, {nameof(Hour)}: {Hour},{nameof(Minute)}: {Minute}, {nameof(Date)}: {Date}, {nameof(Besked)}: {Besked} ";
+            return $"{nameof(Id)}: {Id}, {nameof(Start)}: {Start}, {nameof(Slut)}: {Slut}, {nameof(Bil)}: {Bil}, {nameof(Hour)}: {Hour}, {nameof(Dates)}: {Dates}, {nameof(Besked)}: {Besked} ";
         }
 
         #endregion
