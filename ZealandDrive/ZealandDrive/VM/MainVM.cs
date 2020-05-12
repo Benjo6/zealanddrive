@@ -15,6 +15,7 @@ using ZealandDrive.Common;
 using ZealandDrive.Data;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
+using ZealandDrive.Model.Persistens;
 using ZealandDrive.View;
 
 namespace ZealandDrive.VM
@@ -26,15 +27,23 @@ namespace ZealandDrive.VM
         private Commands c;
         private Singleton x;
         private ObservableCollection<Rute> _rutes;
-        private ICommand _opretUser;
         private RelayCommand _addRuter;
-        private IPersistens _persistence;
-        private User _userToBeCreated;
         private Rute _nyRute;
         private Listerne lists;
         private Bil bil;
         private ObservableCollection<Bil> _bils;
+
+        private User _userToBeCreated;
+        private ICommand _createOne;
+        private IPersistens _persistence;
+        private ICommand _loadUser;
+        private ICommand _saveUser;
+        private ICommand _updateOneUser;
+        private ICommand _deleteOneUser;
+        private ICommand _clearCreateOneUser;
+        private User _selectedUser;
         private ObservableCollection<User> _users;
+
 
         private RCO _nextCommand;
         #endregion
@@ -48,19 +57,21 @@ namespace ZealandDrive.VM
 
             _addRuter = new RelayCommand(AddRute);
 
-            
-
-
             _nextCommand = new RCO(Next);
 
+
             _userToBeCreated = new User();
-
             _users = new ObservableCollection<User>();
+            _createOne = new RelayCommand(OpretUser);
+            _selectedUser = new User();
+            _loadUser = new RelayCommand(LoadMethod);
+            _saveUser = new RelayCommand(SaveMethod);
+            _updateOneUser = new RelayCommand(UpdateUser);
+            _deleteOneUser = new RelayCommand(DeleteUser);
+            _clearCreateOneUser = new RelayCommand(ClearCreate);
+            _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
+            LoadMethod();
 
-            _opretUser = new RelayCommand(OpretUser);
-
-            //_persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
-            //LoadMethod();
         }
 
         #endregion
@@ -77,19 +88,6 @@ namespace ZealandDrive.VM
         public Rute NyRute { get => x.NyRute; }
 
         public ObservableCollection<Rute> Ruter { get => x.Ruter; }
-
-        public User UserToBeCreated
-        {
-            get => _userToBeCreated;
-            set
-            {
-                if (Equals(value, _userToBeCreated)) return;
-                _userToBeCreated = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public ObservableCollection<User> Users => _users;
 
         public RelayCommand GoToOpretRute => c.OpretRute;
 
@@ -114,6 +112,43 @@ namespace ZealandDrive.VM
         }
 
 
+        public ObservableCollection<User> Users => _users;
+
+        public User SelectedUser
+        {
+            get => _selectedUser;
+            set
+            {
+                if (Equals(value, _selectedUser)) return;
+                _selectedUser = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public User UserToBeCreated
+        {
+            get => _userToBeCreated;
+            set
+            {
+                if (Equals(value, _userToBeCreated)) return;
+                _userToBeCreated = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand Load => _loadUser;
+
+        public ICommand Save => _saveUser;
+
+        public ICommand UpdateOne => _updateOneUser;
+
+        public ICommand DeleteOne => _deleteOneUser;
+
+        public ICommand CreateOne => _createOne;
+
+        public ICommand ClearCreateOne => _clearCreateOneUser;
+
+
 
         #endregion
 
@@ -132,6 +167,7 @@ namespace ZealandDrive.VM
             f.Navigate(typeof(SpecificRoutePage));
         }
 
+
         private void OpretUser()
         {
             if (_userToBeCreated != null && _userToBeCreated.Id != -1)
@@ -141,6 +177,52 @@ namespace ZealandDrive.VM
                 _users.Add(_userToBeCreated);
             }
         }
+
+        private async void LoadMethod()
+        {
+            _users.Clear();
+            var liste = await _persistence.LoadUsers();
+            foreach (User u in liste)
+            {
+                _users.Add(u);
+            }
+        }
+
+        private void SaveMethod()
+        {
+            _persistence.SaveUser(_users);
+        }
+
+        private void UpdateUser()
+        {
+            if (_selectedUser != null)
+            {
+                //todo give error message
+                _persistence.UpdateUser(_selectedUser);
+            }
+        }
+
+        private void DeleteUser()
+        {
+            if (_selectedUser != null)
+            {
+                //todo give error message
+                _persistence.DeleteUser(_selectedUser);
+                _users.Remove(_selectedUser);
+            }
+        }
+
+        private void ClearCreate()
+        {
+            UserToBeCreated = new User();
+        }
+
+
+
+
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

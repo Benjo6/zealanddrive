@@ -33,14 +33,15 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" 
                     Grid.RowSpan="5" Background="#F2DF80" Margin="0,0,0,0" Width="310" Height="620" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <TextBlock Text="Navn: "  FontSize="30" Margin="30,15,30,15"/>
+            <TextBlock Text="Navn: "  FontSize="20" Margin="30,15,30,15"/>
             <TextBox Text="{Binding UserToBeCreated.Name}" PlaceholderText="Indtast navn" FontSize="20" Margin="30,15,30,15"/>
-            <TextBlock Text="Efternavn: " FontSize="30" Margin="30,15,30,15"/>
+            <TextBlock Text="Efternavn: " FontSize="20" Margin="30,15,30,15"/>
             <TextBox Text="{Binding UserToBeCreated.Lastname}"  PlaceholderText="Indtast efternavn" FontSize="20" Margin="30,15,30,15"/>
-            <TextBlock Text="Email: " FontSize="30" Margin="30,15,30,15"/>
+            <TextBlock Text="Email: " FontSize="20" Margin="30,15,30,15"/>
             <TextBox Text="{Binding UserToBeCreated.Email}" PlaceholderText="Indtast Email" FontSize="20" Margin="30,15,30,15"/>
-            <TextBlock Text="Kodeord: " FontSize="30" Margin="30,15,30,15"/>
+            <TextBlock Text="Kodeord: " FontSize="20" Margin="30,15,30,15"/>
             <TextBox Text="{Binding UserToBeCreated.Password}" PlaceholderText="Indtast Kodeord" FontSize="20" Margin="30,15,30,15"/>
+            <Button Content="Opret" HorizontalAlignment="Center" Command="{Binding OpretUser, Mode=TwoWay}" />
         </StackPanel>
 
     </Grid>

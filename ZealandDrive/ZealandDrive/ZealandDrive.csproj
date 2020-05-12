@@ -125,8 +125,12 @@
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Data.cs" />
-    <Compile Include="Model\IPersistens.cs" />
+    <Compile Include="Model\Persistens\DBPersistence.cs" />
+    <Compile Include="Model\Persistens\FilePersistence.cs" />
+    <Compile Include="Model\Persistens\IPersistens.cs" />
     <Compile Include="Model\NavigationService.cs" />
+    <Compile Include="Model\Persistens\PersitenceFactory.cs" />
+    <Compile Include="Model\Persistens\SimpelPersistens.cs" />
     <Compile Include="Model\Relaycommand.cs" />
     <Compile Include="Model\Rute.cs" />
     <Compile Include="Model\Singleton.cs" />
