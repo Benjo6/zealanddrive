@@ -28,7 +28,8 @@
         <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
         </Button>
-        <TextBlock Text="{Binding Instance.SelectedRute.Bil }"></TextBlock>
+        <TextBlock Text="{Binding Instance.SelectedRute.Bil}" Grid.Row="1" Grid.Column="1" /> 
+        <TextBlock Text="VIRK" Grid.Row="1" Grid.Column="1" />
 
         <Button Name="TilmeldKnap" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
     </Grid>

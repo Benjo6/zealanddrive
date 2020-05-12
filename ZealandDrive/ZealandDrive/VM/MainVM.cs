@@ -41,8 +41,10 @@ namespace ZealandDrive.VM
 
             _addRuter = new RelayCommand(AddRute);
 
+            //Rute test = new Rute("køge", "roskilde", "kia", "13", "00", DateTimeOffset.Now, "test");
+            //_rutes.Add(test);
 
-            
+
 
 
             _nextCommand = new RCO(Next);
@@ -63,6 +65,7 @@ namespace ZealandDrive.VM
         public Rute NyRute { get => x.NyRute; }
 
         public ObservableCollection<Rute> Ruter { get => x.Ruter; }
+
         public RelayCommand GoToOpretRute => c.OpretRute;
 
         public RelayCommand GoToOverview => c.GoOverviewPage;
