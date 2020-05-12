@@ -118,7 +118,6 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Method
-
         public void AddRute()
         {
             Ruter.Add(NyRute);
