@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:VM="using:ZealandDrive.VM"
     mc:Ignorable="d"
     Background="#F6F6F6">
+
     <Page.DataContext>
         <VM:MainVM/>
     </Page.DataContext>
@@ -16,20 +17,140 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        
+
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
         <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
         </Button>
-        <TextBlock Text="{Binding Instance.SelectedRute.Bil }"></TextBlock>
 
+        <Grid  Width="375" Height="881" Background="#fff7f7fa" Grid.Row="1" Grid.Column="1">
+            <StackPanel  Width="375" Height="308" Margin="0,-14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel.Background>
+
+                    <ImageBrush ImageSource="Assets/valgtRuteBillede.png" Opacity="0.8"></ImageBrush>
+                </StackPanel.Background>
+
+                <StackPanel  Width="375" Height="308" Canvas.Left="0" Canvas.Top="0" >
+                    <Border  Width="375" Height="307" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                    <Border  Width="375" Height="308" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                </StackPanel>
+            </StackPanel>
+            <Canvas  Width="154" Height="97" Margin="182,82,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid  Width="132" Height="35" Canvas.Left="0" Canvas.Top="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Fra" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" />
+                    <TextBlock  Text="Zealand Roskilde" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="3" TextDecorations="Underline" />
+                    <TextBlock
+                        Foreground="LightSlateGray"
+                        Text="Zealand Roskilde" 
+                        TextAlignment="Right"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontFamily="Helvetica"  FontSize="16"
+                        TextDecorations="Underline">
+                        <TextBlock.RenderTransform>
+                            <TranslateTransform X="0" Y="1" />
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                    
+                </Grid>
+
+                
+                  
+                    <Grid  Width="132" Height="35" Canvas.Left="0" Canvas.Top="65">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Til" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" />
+                        <TextBlock  Text="Din Mor" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="3" TextDecorations="Underline" />
+                        <TextBlock
+                            Foreground="LightSlateGray"
+                            Text="Din Mor" 
+                            TextAlignment="Right"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="Helvetica"  FontSize="16"
+                            TextDecorations="Underline">
+                            <TextBlock.RenderTransform>
+                                <TranslateTransform X="0" Y="1" />
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                       
+                </Grid>
+
+                
+                <Canvas  Width="11" Height="96" Canvas.Left="143" Canvas.Top="0" >
+                    <Grid  Width="7" Height="52" Canvas.Left="3.30517578125" Canvas.Top="21.98046875">
+                        <StackPanel  Width="5" Height="5" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
+                        </StackPanel>
+                        <StackPanel  Width="5" Height="5" Margin="0,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
+                        </StackPanel>
+                        <StackPanel  Width="5" Height="5" Margin="0,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
+                        </StackPanel>
+                        <StackPanel  Width="5" Height="5" Margin="0,27,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
+                        </StackPanel>
+                        <StackPanel  Width="5" Height="5" Margin="0,36,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
+                        </StackPanel>
+                        <StackPanel  Width="5" Height="5" Margin="0,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
+                        </StackPanel>
+                    </Grid>
+                    <Ellipse  Width="15" Height="15" Stretch="uniform" Fill="#fff2df80" Stroke="#ff707070" Canvas.Left="-2" Canvas.Top="0"  />
+                    <Rectangle Stroke="#ff707070" Fill="#fff2df80" Width="15" Height="15"  Canvas.Left="-2" Canvas.Top="80"  />
+                </Canvas>
+            </Canvas>
+            <Grid Width="330" Height="90" Margin="20,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Canvas Grid.Column="0"  Width="68" Height="66" Margin="0,24,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border  Width="68" Height="66" Background="#ff92dd77" BorderBrush="#ff92dd77" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="MANDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="15" Canvas.Top="7"  />
+                    <TextBlock  Text="23" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+                <Canvas Grid.Column="1"  Width="68" Height="66" Margin="0,24,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border  Width="68" Height="66" Background="#ffd94141" BorderBrush="#ffd94141" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="TIRSDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="7"  />
+                    <TextBlock  Text="24" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+                <Canvas Grid.Column="2"  Width="68" Height="66" Margin="0,24,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border  Width="68" Height="66" Background="#ffd94141" BorderBrush="#ffd94141" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="ONSDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="15" Canvas.Top="7"  />
+                    <TextBlock  Text="25" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+
+                <Canvas Grid.Column="3" Height="66" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="68">
+                    <Border  Width="68" Height="66" Background="#ffd94141" BorderBrush="#ffd94141" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="TORSDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="15" Canvas.Top="7"  />
+                    <TextBlock  Text="26" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+            </Grid>
+            <TextBlock  Text="Overskrift 2" TextAlignment="left" FontFamily="Helvetica"  FontSize="32" Width="303" Height="38" TextWrapping="Wrap" Foreground="#fff2df80" Margin="36,313,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBlock  Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu tempor nulla. Curabitur vel condimentum lacus, vel vestibulum metus. 
+Aliquam ut purus sapien. Phasellus cursus augue quis sem porta, eget rutrum sapien tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam lacinia, maximus lorem laoreet, tincidunt ex. 
+Phasellus viverra sem sed metus porta, et consequat sem lobortis. feugiat, vitae posuere quam tristique. Phasellus finibus enim suscipit dapibus ornare. Cras eu tellus eu turpis ultrices convallis.
+ Quisque vestibulum semper urna, ac volutpat massa porta a. Integer eget varius eros. Nam rhoncus nibh enim. Aliquam quis tortor ac sem scelerisque luctus id iaculis augue. Sed dolor ligula, faucibus id mauris eu, placerat lobortis ipsum. 
+Pellentesque interdum ante lectus, non lobortis risus ultricies in. Suspendisse sem lectus, sollicitudin ut malesuada eu, tristique in neque. Aliquam eu risus tortor. Ut tempus elementum interdum." TextAlignment="left" FontFamily="Helvetica"  FontSize="13" Width="302" Height="478" TextWrapping="Wrap" Foreground="#ff616161" Margin="36.5,365,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        </Grid>
         <Button Name="TilmeldKnap" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
     </Grid>
 </Page>

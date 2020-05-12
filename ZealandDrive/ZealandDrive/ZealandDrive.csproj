@@ -160,6 +160,7 @@
     <Content Include="View\Assets\new-icon.svg" />
     <Content Include="View\Assets\Not_logget_in_%401x.png" />
     <Content Include="View\Assets\SplashScreen.scale-200.png" />
+    <Content Include="View\Assets\valgtRuteBillede.png" />
     <Content Include="View\Assets\zealand-DRIVE-NEW-logo%28hvid%29.png" />
     <Content Include="View\Assets\zealand-DRIVE-NEW-logo.png" />
     <Content Include="Properties\Default.rd.xml" />
