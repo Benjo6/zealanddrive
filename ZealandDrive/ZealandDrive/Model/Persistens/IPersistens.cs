@@ -8,6 +8,15 @@ namespace ZealandDrive.Model
 {
     interface IPersistens
     {
+        Task<ICollection<User>> LoadUsers();
+        void SaveUser(ICollection<User> user);
+
         bool OpretUser(User user);
+
+        bool UpdateUser(User user);
+
+
+        User DeleteUser(User user);
+
     }
 }

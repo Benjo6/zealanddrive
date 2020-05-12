@@ -125,8 +125,12 @@
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Data.cs" />
-    <Compile Include="Model\IPersistens.cs" />
+    <Compile Include="Model\Persistens\DBPersistence.cs" />
+    <Compile Include="Model\Persistens\FilePersistence.cs" />
+    <Compile Include="Model\Persistens\IPersistens.cs" />
     <Compile Include="Model\NavigationService.cs" />
+    <Compile Include="Model\Persistens\PersitenceFactory.cs" />
+    <Compile Include="Model\Persistens\SimpelPersistens.cs" />
     <Compile Include="Model\Relaycommand.cs" />
     <Compile Include="Model\Rute.cs" />
     <Compile Include="Model\Singleton.cs" />
@@ -168,6 +172,7 @@
     <Content Include="View\Assets\new-icon.svg" />
     <Content Include="View\Assets\Not_logget_in_%401x.png" />
     <Content Include="View\Assets\SplashScreen.scale-200.png" />
+    <Content Include="View\Assets\valgtRuteBillede.png" />
     <Content Include="View\Assets\zealand-DRIVE-NEW-logo%28hvid%29.png" />
     <Content Include="View\Assets\zealand-DRIVE-NEW-logo.png" />
     <Content Include="Properties\Default.rd.xml" />
