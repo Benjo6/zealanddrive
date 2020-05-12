@@ -108,6 +108,14 @@ namespace ZealandDrive.Model
                 navigationService.navigate(typeof(View.SpecificRoutePage));
             }
         }
+
+        public void GotoOpretBruger()
+        {
+            {
+                navigationService.navigate(typeof(View.OpretBruger));
+            }
+        }
+
         #endregion
     }
 }
