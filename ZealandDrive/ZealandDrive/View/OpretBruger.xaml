@@ -18,23 +18,21 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Opret Bruger " FontSize="50" Margin="1,1,1,1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" TextAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
+        <TextBlock Text="Opret Bruger " FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" TextAlignment="Center" FontWeight="Bold" Grid.Column="1"/>
 
-        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1" 
-                    Grid.RowSpan="5" Background="#F2DF80" Margin="50,50,50,50">
+        <StackPanel Grid.Row="1" Grid.Column="1" 
+                    Grid.RowSpan="5" Background="#F2DF80" Margin="0,0,0,0" Width="310" Height="620" VerticalAlignment="Top" HorizontalAlignment="Center">
             <TextBlock Text="Navn: "  FontSize="30" Margin="30,15,30,15"/>
             <TextBox Text="{Binding UserToBeCreated.Name}" PlaceholderText="Indtast navn" FontSize="20" Margin="30,15,30,15"/>
             <TextBlock Text="Efternavn: " FontSize="30" Margin="30,15,30,15"/>
