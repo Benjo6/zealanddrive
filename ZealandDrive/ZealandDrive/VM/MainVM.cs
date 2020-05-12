@@ -50,6 +50,7 @@ namespace ZealandDrive.VM
 
             _nextCommand = new RCO(Next);
 
+
         }
 
         #endregion
@@ -89,6 +90,7 @@ namespace ZealandDrive.VM
         }
 
 
+        public RelayCommand OpretUser { get; set; }
 
         #endregion
 
