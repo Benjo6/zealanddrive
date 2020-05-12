@@ -25,6 +25,22 @@
         </Grid.ColumnDefinitions>
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
+        <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4" Canvas.ZIndex="1">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" >
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum">
+
+            </Button>
+
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
+
+            </Button>
+        </StackPanel>
+        
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
 
         <Button Background="White" Height="80" Width="80">
@@ -64,8 +80,8 @@
                             <Button CornerRadius="4" Background="White" Height="150" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="268" Grid.ColumnSpan="4" Grid.RowSpan="7" Grid.Row="1"/>
                             <TextBlock Foreground="#656565" Text="Fra" Grid.Row="3" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
                             <TextBlock Foreground="#656565" Text="Til" Grid.Row="5" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
-                            <TextBlock Text="{Binding Start}" Grid.Row="4" Grid.Column="2" FontSize="11" VerticalAlignment="Top" />
-                            <TextBlock Text="{Binding Slut}" Grid.Row="6" Grid.Column="2" FontSize="12" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding Start.Adresse}" Grid.Row="4" Grid.Column="2" FontSize="11" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding Slut.Adresse}" Grid.Row="6" Grid.Column="2" FontSize="12" VerticalAlignment="Top" />
                             <TextBlock Text="{Binding Date}" Grid.Row="1" Grid.Column="3" FontSize="9" />
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
                                 <TextBlock Text="{Binding Hour}"  FontSize="9" Grid.ColumnSpan="2"/>

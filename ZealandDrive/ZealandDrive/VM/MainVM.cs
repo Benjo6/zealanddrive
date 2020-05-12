@@ -12,6 +12,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using ZealandDrive.Common;
+using ZealandDrive.Data;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
 using ZealandDrive.View;
@@ -26,8 +27,11 @@ namespace ZealandDrive.VM
         private Singleton x;
         private ObservableCollection<Rute> _rutes;
         private RelayCommand _addRuter;
+        
         private Rute _nyRute;
         private Listerne lists;
+        private Bil bil;
+        private ObservableCollection<Bil> _bils;
 
         private RCO _nextCommand;
         #endregion
@@ -40,7 +44,6 @@ namespace ZealandDrive.VM
             c = new Commands();
 
             _addRuter = new RelayCommand(AddRute);
-
 
             
 
@@ -71,11 +74,15 @@ namespace ZealandDrive.VM
         public RelayCommand GoBack => c.Tilbage;
 
         public Singleton Instance => x;
+        public Bil Bil
+        {
+            get => bil;
+            set => bil = value; 
+        }
 
-
-  
+        public ObservableCollection<Bil> BilDatabase => _bils;
         public RelayCommand AddRuter {get => _addRuter;}
-
+        public RelayCommand Setting => c.SettingPage;
         
         public RCO NextCommand
         {

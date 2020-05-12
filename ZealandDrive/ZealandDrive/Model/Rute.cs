@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using ZealandDrive.Data;
 
 namespace ZealandDrive.Model
 {
@@ -15,18 +16,20 @@ namespace ZealandDrive.Model
 
         private int _id;
 
-        private string _startSted;
+        private Tur _startSted;
 
-        private string _slutSted;
+        private Tur _slutSted;
 
-        private string _bil;
+        private Bil _bil;
 
         private string _hour;
 
         private string _minute;
 
 
-        private DateTimeOffset _date;
+        private string _months;
+
+        private string _dates;
 
         private string _besked;
 
@@ -34,11 +37,11 @@ namespace ZealandDrive.Model
         #endregion
 
         #region Konstruktør
-        public Rute() : this("", "", "", "", "" ,DateTime.Now, "")
+        public Rute() : this(null, null, null, "", "" ,"","", "")
         {
         }
 
-        public Rute(string startSted, string slutSted, string bil, string hour, string minute, DateTimeOffset Date, string besked)
+        public Rute(Tur startSted, Tur slutSted, Bil bil, string hour, string minute, string months, string dates, string besked)
         {
             _id = Counter++;
             _startSted = startSted;
@@ -46,7 +49,8 @@ namespace ZealandDrive.Model
             _bil = bil;
             _hour = hour;
             _minute = minute;
-            _date = Date;
+            _months = months
+            _dates = dates;
             _besked = besked;
           
         }
@@ -61,17 +65,17 @@ namespace ZealandDrive.Model
         }
         public int Id => _id;
 
-        public string Start
+        public Tur Start
         {
             get => _startSted;
             set => _startSted = value;
         }
-        public string Slut
+        public Tur Slut
         {
             get => _slutSted;
             set => _slutSted = value;
         }
-        public string Bil
+        public Bil Bil
         {
             get => _bil;
             set => _bil = value;
@@ -87,15 +91,25 @@ namespace ZealandDrive.Model
             get => _minute;
             set => _minute = value;
         }
-        public DateTimeOffset Date
+        public string Dates
         {
-            get => _date;
+            get => _dates;
             set
             {
-                _date = value;
+                _dates = value;
             }
             
             
+        }
+        public string Months
+        {
+            get => _months;
+            set
+            {
+                _months = value;
+            }
+
+
         }
         public string Besked
         {
