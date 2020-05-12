@@ -26,9 +26,9 @@ namespace ZealandDrive.VM
         private Singleton x;
         private ObservableCollection<Rute> _rutes;
         private RelayCommand _addRuter;
-        private DelegateCommand TilføjRute;
         private Rute _nyRute;
         private Listerne lists;
+
         private RCO _nextCommand;
         #endregion
 
