@@ -41,7 +41,7 @@
             <TextBox Text="{Binding UserToBeCreated.Email}" PlaceholderText="Indtast Email" FontSize="20" Margin="30,15,30,15"/>
             <TextBlock Text="Kodeord: " FontSize="20" Margin="30,15,30,15"/>
             <TextBox Text="{Binding UserToBeCreated.Password}" PlaceholderText="Indtast Kodeord" FontSize="20" Margin="30,15,30,15"/>
-            <Button Content="Opret" HorizontalAlignment="Center" Command="{Binding OpretUser, Mode=TwoWay}" />
+            <Button Content="Opret" HorizontalAlignment="Center" Command="{Binding CreateOne, Mode=TwoWay}" />
         </StackPanel>
 
     </Grid>

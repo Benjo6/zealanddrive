@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZealandDrive.Model.Persistens
 {
-    class SimpelPersistens : IPersistens
+    class SimpelPersistens : IPersistens<User>
     {
         
         // simple list in memory  disappear when shutting down the app
@@ -19,47 +19,30 @@ namespace ZealandDrive.Model.Persistens
 
 
 
-        public async Task<ICollection<User>> LoadUsers()
+        public async Task<ICollection<User>> Load()
         {
             return new List<User>(_users);
         }
 
-        public void SaveUser(ICollection<User> users)
-        {
-            _users.Clear();
-            foreach (User user in users)
+        public void  Save(Task<ICollection<User>> users)
+        
             {
-                _users.Add(user);
-            }
-        }
-
-        public bool UpdateUser(User user)
-        {
-            User userToBeUpdated = _users.Find(k => k.Id == user.Id);
-            if (userToBeUpdated == null)
-            {
-                return false;
+                throw new NotImplementedException();
             }
 
-            userToBeUpdated.Name = user.Name;
-            userToBeUpdated.Lastname = user.Lastname;
-            userToBeUpdated.Email = user.Email;
-            userToBeUpdated.Password = user.Password;
-
-            return true;
+        public Task<bool> Update(User user)
+        {
+            throw new NotImplementedException();
         }
 
-        public bool OpretUser(User user)
+        public Task<bool> Opret(User user)
         {
-            _users.Add(user);
-            return true;
+            throw new NotImplementedException();
         }
 
-        public User DeleteUser(User user)
+        public Task<User> Delete(User user)
         {
-            User userToBeDeleted = _users.Find(k => k.Id == user.Id);
-            _users.Remove(userToBeDeleted);
-            return userToBeDeleted;
+            throw new NotImplementedException();
         }
 
 

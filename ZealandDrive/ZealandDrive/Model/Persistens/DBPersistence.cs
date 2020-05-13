@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ClassLibrary;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace ZealandDrive.Model.Persistens
 {
-    class DBPersistence : IPersistens
+    class DBPersistence : IPersistens <User>
     {
-        private string URI = "data source=zealand-drive.database.windows.net;initial catalog=ZealandDrive;persist security info=True;user id=zealand-drive-admin;password=Secret1!;MultipleActiveResultSets=True;App=EntityFramework";
-        public async Task<ICollection<User>> LoadUsers()
+        private string URI = @"http://localhost:60951/api/users/";
+        public async Task<ICollection<User>> Load()
         {
             List<User> liste = new List<User>();
 
@@ -24,24 +25,42 @@ namespace ZealandDrive.Model.Persistens
             return liste;
         }
 
-        public void SaveUser(ICollection<User> users)
+        public async Task<bool> Update(User user)
         {
-            throw new NotImplementedException();
+            using (HttpClient client = new HttpClient())
+            {
+
+                string json = JsonConvert.SerializeObject(user);
+                StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+                var x = await client.PutAsync(URI + user.Id, stringContent);
+                return x.IsSuccessStatusCode;
+            }
         }
 
-        public bool UpdateUser(User user)
+        public async Task <bool> Opret(User user)
         {
-            throw new NotImplementedException();
+            using (HttpClient client = new HttpClient())
+            {
+
+                    string json = JsonConvert.SerializeObject(user);
+                    StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+                    var x = await client.PostAsync(URI, stringContent);
+                    return x.IsSuccessStatusCode;
+            }
         }
 
-        public bool OpretUser(User user)
+        public async Task <User> Delete(User user)
         {
-            throw new NotImplementedException();
-        }
-
-        public User DeleteUser(User user)
-        {
-            throw new NotImplementedException();
+            using (HttpClient client = new HttpClient())
+            {
+                var x = await client.DeleteAsync(URI + user.Id);
+                if (x.IsSuccessStatusCode)
+                {
+                    string str = await x.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<User>(str);
+                }
+                return null;
+            }
         }
     }
 }

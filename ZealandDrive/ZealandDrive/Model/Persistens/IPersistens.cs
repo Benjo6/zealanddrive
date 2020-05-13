@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace ZealandDrive.Model
 {
-    interface IPersistens
+    interface IPersistens<T>
     {
-        Task<ICollection<User>> LoadUsers();
-        void SaveUser(ICollection<User> user);
+        Task<ICollection<T>> Load();
 
-        bool OpretUser(User user);
+        Task<bool> Opret(T t);
 
-        bool UpdateUser(User user);
+        Task <bool> Update(T t);
 
 
-        User DeleteUser(User user);
+        Task <T> Delete(T t);
 
     }
 }
