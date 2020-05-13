@@ -168,10 +168,11 @@ namespace ZealandDrive.VM
 
         private void Opret()
         {
-            if (_selectedUser != null)
+            if (_userToBeCreated != null)
             {
                 //todo give error message
                 _persistence.Opret(_userToBeCreated);
+
                 //_users.Add(_userToBeCreated);
                 Frame f = (Frame)Window.Current.Content;
                 f.Navigate(typeof(LoginPage));

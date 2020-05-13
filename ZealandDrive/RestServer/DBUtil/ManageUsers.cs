@@ -9,8 +9,8 @@ namespace RestServer.DBUtil
 {
     public class ManageUsers
     {
-        private const String connString =
-    @" Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ZealandDrive;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private const String connString = @"Server=tcp:zealand-drive.database.windows.net,1433;Initial Catalog=ZealandDrive;Persist Security Info=False;User ID=zealand-drive-admin;Password=Secret1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+    
 
         public IList<Users> HentAlle()
         {
