@@ -35,7 +35,7 @@ namespace ZealandDrive.VM
 
         private User _userToBeCreated;
         private ICommand _createOne;
-        private IPersistens _persistence;
+        private IPersistens<User> _persistence;
         private ICommand _loadUser;
         private ICommand _saveUser;
         private ICommand _updateOneUser;
@@ -65,15 +65,14 @@ namespace ZealandDrive.VM
 
             _userToBeCreated = new User();
             _users = new ObservableCollection<User>();
-            _createOne = new RelayCommand(OpretUser);
+            _createOne = new RelayCommand(Opret);
             _selectedUser = new User();
-            _loadUser = new RelayCommand(LoadMethod);
-            _saveUser = new RelayCommand(SaveMethod);
+            //_loadUser = new RelayCommand(LoadMethod);
             _updateOneUser = new RelayCommand(UpdateUser);
             _deleteOneUser = new RelayCommand(DeleteUser);
             _clearCreateOneUser = new RelayCommand(ClearCreate);
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
-            LoadMethod();
+            //LoadMethod();
 
         }
 
@@ -201,37 +200,36 @@ namespace ZealandDrive.VM
         }
 
 
-        private void OpretUser()
+        private void Opret()
         {
-            if (_userToBeCreated != null && _userToBeCreated.Id != -1)
+            if (_userToBeCreated != null)
             {
                 //todo give error message
-                _persistence.OpretUser(_userToBeCreated);
-                _users.Add(_userToBeCreated);
+                _persistence.Opret(_userToBeCreated);
+
+                //_users.Add(_userToBeCreated);
+                Frame f = (Frame)Window.Current.Content;
+                f.Navigate(typeof(LoginPage));
             }
         }
 
-        private async void LoadMethod()
-        {
-            _users.Clear();
-            var liste = await _persistence.LoadUsers();
-            foreach (User u in liste)
-            {
-                _users.Add(u);
-            }
-        }
+        //private async void LoadMethod()
+        //{
+        //    _users.Clear();
+        //    var liste = await _persistence.Load();
+        //    foreach (User u in liste)
+        //    {
+        //        _users.Add(u);
+        //    }
+        //}
 
-        private void SaveMethod()
-        {
-            _persistence.SaveUser(_users);
-        }
 
         private void UpdateUser()
         {
             if (_selectedUser != null)
             {
                 //todo give error message
-                _persistence.UpdateUser(_selectedUser);
+                _persistence.Update(_selectedUser);
             }
         }
 
@@ -240,7 +238,7 @@ namespace ZealandDrive.VM
             if (_selectedUser != null)
             {
                 //todo give error message
-                _persistence.DeleteUser(_selectedUser);
+                _persistence.Delete(_selectedUser);
                 _users.Remove(_selectedUser);
             }
         }

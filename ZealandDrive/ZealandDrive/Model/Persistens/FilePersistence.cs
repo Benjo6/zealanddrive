@@ -8,14 +8,14 @@ using Windows.Storage;
 
 namespace ZealandDrive.Model.Persistens
 {
-    class FilePersistence : IPersistens
+    class FilePersistence : IPersistens<User>
     {
         private static StorageFolder folder = ApplicationData.Current.LocalFolder;
         private const String FileName = "UsersFil.json";
         private List<User> _cacheUsers = new List<User>();
 
 
-        public async Task<ICollection<User>> LoadUsers()
+        public async Task<ICollection<User>> Load()
         {
             if (await DoesExists(FileName))
             {
@@ -29,7 +29,7 @@ namespace ZealandDrive.Model.Persistens
             return _cacheUsers;
         }
 
-        public async void SaveUser(ICollection<User> users)
+        public async void Save(ICollection<User> users)
         {
             _cacheUsers = new List<User>(users);
 
@@ -46,42 +46,19 @@ namespace ZealandDrive.Model.Persistens
             await FileIO.WriteTextAsync(file, JsonConvert.SerializeObject(users));
         }
 
-        public bool UpdateUser(User user)
+        public Task<bool> Update(User user)
         {
-            User fundetuser = _cacheUsers.Find(k => k.Id == user.Id);
-
-            if (fundetuser != null)
-            {
-                fundetuser.Name = user.Name;
-                fundetuser.Lastname = user.Lastname;
-                fundetuser.Email = user.Email;
-                fundetuser.Password = user.Password;
-
-                SaveUser(_cacheUsers);
-                return true;
-            }
-
-            return false;
+            throw new NotImplementedException();
         }
 
-        public bool OpretUser(User user)
+        public Task<bool> Opret(User user)
         {
-            _cacheUsers.Add(user);
-            SaveUser(_cacheUsers);
-            return true;
+            throw new NotImplementedException();
         }
 
-        public User DeleteUser(User user)
+        public Task<User> Delete(User user)
         {
-            User fundetuser = _cacheUsers.Find(k => k.Id == user.Id);
-
-            if (fundetuser != null)
-            {
-                _cacheUsers.Remove(fundetuser);
-                SaveUser(_cacheUsers);
-            }
-
-            return user;
+            throw new NotImplementedException();
         }
 
 

@@ -16,7 +16,7 @@ namespace ZealandDrive.Model.Persistens
 
     class PersitenceFactory
     {
-        public static IPersistens GetPersistency(PersistenceType peristenceType)
+        public static IPersistens<User> GetPersistency(PersistenceType peristenceType)
         {
             switch (peristenceType)
             {
