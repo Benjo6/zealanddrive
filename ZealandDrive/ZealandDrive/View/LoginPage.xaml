@@ -25,19 +25,25 @@
             <RowDefinition Height="25"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Image VerticalAlignment="Bottom" Grid.Row="0" Source="Assets\zealand-DRIVE-NEW-logo(hvid).png" Height="130" />
-        <TextBlock Text="Email" Foreground="White" Grid.Row="1" HorizontalAlignment="Left" Margin="32,0,0,0"/>
-        <TextBox Grid.Row="1" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBlock Text="Password" Foreground="White" Grid.Row="2" HorizontalAlignment="Left" Margin="32,0,0,0"/>
-        <TextBox Grid.Row="2" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Image VerticalAlignment="Bottom" Grid.Row="0" Source="Assets\zealand-DRIVE-NEW-logo(hvid).png" Height="130" Grid.Column="1" />
+        <TextBlock Text="Email" Foreground="White" Grid.Row="1" HorizontalAlignment="Left" Margin="32,0,0,0" Grid.Column="1"/>
+        <TextBox Grid.Row="1" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
 
-        <CheckBox Content="Husk mit password til næste gang" Grid.Row="3"  HorizontalAlignment="Left" Margin="35,0,0,0" Foreground="White" />
+        <TextBlock Text="Password" Foreground="White" Grid.Row="2" HorizontalAlignment="Left" Margin="32,0,0,0" Grid.Column="1"/>
+        <TextBox Grid.Row="2" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
 
-        <Button Height="50" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="260" Grid.Row="5" CornerRadius="7" Content="LOGIN" Foreground="White" VerticalAlignment="Top" Command="{Binding GoToOverview}"/>
-        <TextBlock Text="Har du ikke en bruger i nu?" FontSize="14" Foreground="White" Grid.Row="6" HorizontalAlignment="Center"/>
-        <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Command="{Binding GoToOpretBruger}"/>
-        <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding GoToOpretBruger}" Foreground="White" />
+        <CheckBox Content="Husk mit password til næste gang" x:Name="RememberMe" Grid.Row="3"  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="White" Grid.Column="1"  Command="{Binding CheckCommand, Mode=TwoWay}" CommandParameter="{Binding IsChecked}"/>
+
+        <Button Height="50" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="260" Grid.Row="5" CornerRadius="7" Content="LOGIN" Foreground="White" VerticalAlignment="Top" Command="{Binding GoToOverview}" Grid.Column="1"/>
+        <TextBlock Text="Har du ikke en bruger i nu?" FontSize="14" Foreground="White" Grid.Row="6" HorizontalAlignment="Center" Grid.Column="1"/>
+        <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Command="{Binding GoToOpretBruger}" Grid.Column="1"/>
+        <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding GoToOpretBruger}" Foreground="White" Grid.Column="1" />
 
 
     </Grid>

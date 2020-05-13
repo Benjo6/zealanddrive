@@ -44,6 +44,9 @@ namespace ZealandDrive.VM
         private User _selectedUser;
         private ObservableCollection<User> _users;
 
+        private bool isChecked;
+        private ICommand checkCommand;
+
 
         private RCO _nextCommand;
         #endregion
@@ -58,7 +61,7 @@ namespace ZealandDrive.VM
             _addRuter = new RelayCommand(AddRute);
 
             _nextCommand = new RCO(Next);
-
+            IsChecked = true;
 
             _userToBeCreated = new User();
             _users = new ObservableCollection<User>();
@@ -77,6 +80,31 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Properties
+        public bool IsChecked
+        {
+            get { return isChecked; }
+            set
+            {
+                isChecked = value;
+                OnPropertyChanged("IsChecked");
+            }
+        }
+
+        public ICommand CheckCommand
+        {
+            get
+            {
+                if (checkCommand == null)
+                    checkCommand = new RelayCommand(Checkprocess(object), null);
+                return checkCommand;
+            }
+            set
+            {
+                checkCommand = value;
+                OnPropertyChanged("CheckCommand");
+            }
+        }
+
         public RelayCommand GoToOpretBruger => c.Opret;
 
         public ObservableCollection<string> H => lists.Timer;
@@ -153,6 +181,12 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Method
+        public void Checkprocess(object sender)
+        {
+            //this DOES react when the checkbox is checked or unchecked
+        }
+
+
         public void AddRute()
         {
             Ruter.Add(NyRute);
