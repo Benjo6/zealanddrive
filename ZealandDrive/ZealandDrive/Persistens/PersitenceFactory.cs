@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZealandDrive.Model;
+using ZealandDrive.Persistens.Bil;
 
 namespace ZealandDrive.Persistens
 {
@@ -32,6 +33,11 @@ namespace ZealandDrive.Persistens
             }
 
 
+        }
+
+        public static IPersistens<Car> GetPersistens(PersistenceType persistenceType)
+        {
+            PersistenceType.Database: return new DBPersistenceCar();
         }
     }
 }

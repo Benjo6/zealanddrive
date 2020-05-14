@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ZealandDrive.Persistens.Bil
 {
-    class DBPersistence : IPersistens<Car>
+    class DBPersistenceCar : IPersistens<Car>
     {
         private string URI = @"http://zealand-drive.azurewebsites.net/api/car/";
         public async Task<ICollection<Car>> Load()

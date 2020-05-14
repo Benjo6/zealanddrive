@@ -125,7 +125,7 @@
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Data.cs" />
-    <Compile Include="Persistens\Bil\DBPersistence.cs" />
+    <Compile Include="Persistens\Bil\DBPersistenceCar.cs" />
     <Compile Include="Persistens\Rute\DBPersistence.cs" />
     <Compile Include="Persistens\Bruger\DBPersistence.cs" />
     <Compile Include="Persistens\FilePersistence.cs" />
