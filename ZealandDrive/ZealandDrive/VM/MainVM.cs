@@ -349,7 +349,7 @@ namespace ZealandDrive.VM
             }
         }
 
-        private void ClearCreateCar()
+        private void ClearCreateOneCar()
         {
             CarToBeCreated = new Car();
         }

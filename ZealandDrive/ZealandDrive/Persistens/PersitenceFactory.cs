@@ -37,7 +37,12 @@ namespace ZealandDrive.Persistens
 
         public static IPersistens<Car> GetPersistens(PersistenceType persistenceType)
         {
-            PersistenceType.Database: return new DBPersistenceCar();
+            switch (persistenceType)
+            {
+                 case PersistenceType.Database: return new DBPersistenceCar();
+
+            default: return new DBPersistenceCar();
+            }
         }
     }
 }
