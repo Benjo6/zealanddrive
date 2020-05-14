@@ -12,44 +12,44 @@ using RestServer.Model;
 
 namespace RestServer.Controllers
 {
-    public class UsersController : ApiController
+    public class CarsController : ApiController
     {
         private ZealandModel db = new ZealandModel();
 
-        // GET: api/Users
-        public IQueryable<Users> GetUsers()
+        // GET: api/Cars
+        public IQueryable<Car> GetCar()
         {
-            return db.Users;
+            return db.Car;
         }
 
-        // GET: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult GetUsers(int id)
+        // GET: api/Cars/5
+        [ResponseType(typeof(Car))]
+        public IHttpActionResult GetCar(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Car car = db.Car.Find(id);
+            if (car == null)
             {
                 return NotFound();
             }
 
-            return Ok(users);
+            return Ok(car);
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Cars/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsers(int id, Users users)
+        public IHttpActionResult PutCar(int id, Car car)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != users.id)
+            if (id != car.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(users).State = EntityState.Modified;
+            db.Entry(car).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace RestServer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsersExists(id))
+                if (!CarExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace RestServer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult PostUsers(Users users)
+        // POST: api/Cars
+        [ResponseType(typeof(Car))]
+        public IHttpActionResult PostCar(Car car)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(users);
+            db.Car.Add(car);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = users.id }, users);
+            return CreatedAtRoute("DefaultApi", new { id = car.id }, car);
         }
 
-        // DELETE: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult DeleteUsers(int id)
+        // DELETE: api/Cars/5
+        [ResponseType(typeof(Car))]
+        public IHttpActionResult DeleteCar(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Car car = db.Car.Find(id);
+            if (car == null)
             {
                 return NotFound();
             }
 
-            db.Users.Remove(users);
+            db.Car.Remove(car);
             db.SaveChanges();
 
-            return Ok(users);
+            return Ok(car);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace RestServer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool UsersExists(int id)
+        private bool CarExists(int id)
         {
-            return db.Users.Count(e => e.id == id) > 0;
+            return db.Car.Count(e => e.id == id) > 0;
         }
     }
 }

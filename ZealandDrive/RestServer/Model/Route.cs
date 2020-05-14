@@ -6,12 +6,12 @@ namespace RestServer.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Users
+    [Table("Route")]
+    public partial class Route
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public Route()
         {
-            Car = new HashSet<Car>();
             Comments = new HashSet<Comments>();
             Passenger = new HashSet<Passenger>();
         }
@@ -19,23 +19,21 @@ namespace RestServer.Model
         public int id { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string email { get; set; }
+        [StringLength(30)]
+        public string routestart { get; set; }
 
         [Required]
         [StringLength(30)]
-        public string name { get; set; }
+        public string routeend { get; set; }
 
-        [Required]
-        [StringLength(30)]
-        public string lastname { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime date { get; set; }
 
-        [Required]
-        [StringLength(30)]
-        public string password { get; set; }
+        public DateTime starttime { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Car> Car { get; set; }
+        public int fk_carId { get; set; }
+
+        public virtual Car Car { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comments> Comments { get; set; }

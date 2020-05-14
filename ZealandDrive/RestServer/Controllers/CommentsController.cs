@@ -12,44 +12,44 @@ using RestServer.Model;
 
 namespace RestServer.Controllers
 {
-    public class UsersController : ApiController
+    public class CommentsController : ApiController
     {
         private ZealandModel db = new ZealandModel();
 
-        // GET: api/Users
-        public IQueryable<Users> GetUsers()
+        // GET: api/Comments
+        public IQueryable<Comments> GetComments()
         {
-            return db.Users;
+            return db.Comments;
         }
 
-        // GET: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult GetUsers(int id)
+        // GET: api/Comments/5
+        [ResponseType(typeof(Comments))]
+        public IHttpActionResult GetComments(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Comments comments = db.Comments.Find(id);
+            if (comments == null)
             {
                 return NotFound();
             }
 
-            return Ok(users);
+            return Ok(comments);
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Comments/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsers(int id, Users users)
+        public IHttpActionResult PutComments(int id, Comments comments)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != users.id)
+            if (id != comments.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(users).State = EntityState.Modified;
+            db.Entry(comments).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace RestServer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsersExists(id))
+                if (!CommentsExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace RestServer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult PostUsers(Users users)
+        // POST: api/Comments
+        [ResponseType(typeof(Comments))]
+        public IHttpActionResult PostComments(Comments comments)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(users);
+            db.Comments.Add(comments);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = users.id }, users);
+            return CreatedAtRoute("DefaultApi", new { id = comments.id }, comments);
         }
 
-        // DELETE: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult DeleteUsers(int id)
+        // DELETE: api/Comments/5
+        [ResponseType(typeof(Comments))]
+        public IHttpActionResult DeleteComments(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Comments comments = db.Comments.Find(id);
+            if (comments == null)
             {
                 return NotFound();
             }
 
-            db.Users.Remove(users);
+            db.Comments.Remove(comments);
             db.SaveChanges();
 
-            return Ok(users);
+            return Ok(comments);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace RestServer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool UsersExists(int id)
+        private bool CommentsExists(int id)
         {
-            return db.Users.Count(e => e.id == id) > 0;
+            return db.Comments.Count(e => e.id == id) > 0;
         }
     }
 }

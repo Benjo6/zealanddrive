@@ -96,21 +96,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\CarController.cs" />
-    <Compile Include="Controllers\CommentController.cs" />
-    <Compile Include="Controllers\PassengerController.cs" />
-    <Compile Include="Controllers\RouteController.cs" />
+    <Compile Include="Controllers\CarsController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\PassengersController.cs" />
+    <Compile Include="Controllers\RoutesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="DBUtil\ManageCar.cs" />
-    <Compile Include="DBUtil\ManageComments.cs" />
-    <Compile Include="DBUtil\ManagePassenger.cs" />
-    <Compile Include="DBUtil\ManageRoute.cs" />
-    <Compile Include="DBUtil\ManageUsers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\Comments.cs" />
+    <Compile Include="Model\Passenger.cs" />
+    <Compile Include="Model\Route.cs" />
     <Compile Include="Model\Users.cs" />
+    <Compile Include="Model\ZealandModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

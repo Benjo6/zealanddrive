@@ -12,44 +12,44 @@ using RestServer.Model;
 
 namespace RestServer.Controllers
 {
-    public class UsersController : ApiController
+    public class RoutesController : ApiController
     {
         private ZealandModel db = new ZealandModel();
 
-        // GET: api/Users
-        public IQueryable<Users> GetUsers()
+        // GET: api/Routes
+        public IQueryable<Route> GetRoute()
         {
-            return db.Users;
+            return db.Route;
         }
 
-        // GET: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult GetUsers(int id)
+        // GET: api/Routes/5
+        [ResponseType(typeof(Route))]
+        public IHttpActionResult GetRoute(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Route route = db.Route.Find(id);
+            if (route == null)
             {
                 return NotFound();
             }
 
-            return Ok(users);
+            return Ok(route);
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Routes/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsers(int id, Users users)
+        public IHttpActionResult PutRoute(int id, Route route)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != users.id)
+            if (id != route.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(users).State = EntityState.Modified;
+            db.Entry(route).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace RestServer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsersExists(id))
+                if (!RouteExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace RestServer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult PostUsers(Users users)
+        // POST: api/Routes
+        [ResponseType(typeof(Route))]
+        public IHttpActionResult PostRoute(Route route)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(users);
+            db.Route.Add(route);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = users.id }, users);
+            return CreatedAtRoute("DefaultApi", new { id = route.id }, route);
         }
 
-        // DELETE: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult DeleteUsers(int id)
+        // DELETE: api/Routes/5
+        [ResponseType(typeof(Route))]
+        public IHttpActionResult DeleteRoute(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            Route route = db.Route.Find(id);
+            if (route == null)
             {
                 return NotFound();
             }
 
-            db.Users.Remove(users);
+            db.Route.Remove(route);
             db.SaveChanges();
 
-            return Ok(users);
+            return Ok(route);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace RestServer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool UsersExists(int id)
+        private bool RouteExists(int id)
         {
-            return db.Users.Count(e => e.id == id) > 0;
+            return db.Route.Count(e => e.id == id) > 0;
         }
     }
 }
