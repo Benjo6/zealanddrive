@@ -8,14 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using ZealandDrive.Model;
 
-namespace ZealandDrive.Persistens.Bruger
+namespace ZealandDrive.Persistens
 {
     class DBPersistence : IPersistens<Users>
     {
-
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/users/";
-
-        public async Task<ICollection<Users>> Load();
+        private string URI = @"http://zealand-drive.azurewebsites.net/api/users";
+        public async Task<ICollection<Users>> Load()
         {
             List<Users> liste = new List<Users>();
 
@@ -40,19 +38,19 @@ namespace ZealandDrive.Persistens.Bruger
             }
         }
 
-        public async Task <bool> Opret(Users users)
+        public async Task<bool> Opret(Users users)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                    string json = JsonConvert.SerializeObject(users);
-                    StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                    var x = await client.PostAsync(URI, stringContent);
-                    return x.IsSuccessStatusCode;
+                string json = JsonConvert.SerializeObject(users);
+                StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+                var x = await client.PostAsync(URI, stringContent);
+                return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task <Users> Delete(Users users)
+        public async Task<Users> Delete(Users users)
         {
             using (HttpClient client = new HttpClient())
             {
