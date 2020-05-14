@@ -12,7 +12,8 @@ namespace ZealandDrive.Persistens
     public enum PersistenceType
     {
         File,
-        Database
+        Database,
+        CarDatabase
     };
 
 
@@ -29,20 +30,21 @@ namespace ZealandDrive.Persistens
                 // Database
                 case PersistenceType.Database: return new DBPersistence();
 
+
                 default: return new FilePersistence();
             }
 
 
         }
 
-        public static IPersistens<Car> GetPersistens(PersistenceType persistenceType)
-        {
-            switch (persistenceType)
-            {
-                 case PersistenceType.Database: return new DBPersistenceCar();
+        //public static IPersistens<Car> GetPersistens(PersistenceType persistenceType)
+        //{
+        //    switch (persistenceType)
+        //    {
+        //         case PersistenceType.Database: return new DBPersistenceCar();
 
-            default: return new DBPersistenceCar();
-            }
-        }
+        //    default: return new DBPersistenceCar();
+        //    }
+        //}
     }
 }

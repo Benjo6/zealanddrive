@@ -75,7 +75,7 @@ namespace ZealandDrive.VM
 
             //_loadUser = new RelayCommand(LoadMethod);
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
-            _persistenceCar = PersitenceFactory.GetPersistens(PersistenceType.Database);
+            _persistenceCar = new DBPersistenceCar();
             //_persistenceRoute = PersitenceFactory.GetPersistency(PersistenceType.Database);
 
             //LoadMethod();
