@@ -207,17 +207,16 @@ namespace ZealandDrive.VM
         }
 
 
-        private void Opret()
+        private async void Opret()
         {
-            if (_userToBeCreated != null)
-            {
+
                 //todo give error message
-                _persistence.Opret(_userToBeCreated);
+                await _persistence.Opret(_userToBeCreated);
 
                 //_users.Add(_userToBeCreated);
                 Frame f = (Frame)Window.Current.Content;
                 f.Navigate(typeof(LoginPage));
-            }
+            
         }
 
         //private async void LoadMethod()

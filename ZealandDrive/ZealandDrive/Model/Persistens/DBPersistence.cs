@@ -11,7 +11,7 @@ namespace ZealandDrive.Model.Persistens
 {
     class DBPersistence : IPersistens <User>
     {
-        private string URI = @"http://localhost:60951/api/users/";
+        private string URI = @"http://zealand-drive.azurewebsites.net/api/users/";
         public async Task<ICollection<User>> Load()
         {
             List<User> liste = new List<User>();

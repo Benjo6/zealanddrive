@@ -64,7 +64,7 @@ namespace RestServer.DBUtil
             {
                 conn.Open();
                 // sql kald
-                using (SqlCommand cmd = new SqlCommand("INSERT INTO Users (id, email, name, lastname, password) VALUES (@id, @email, @name, @lastname, @password)", conn))
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO Users (email, name, lastname, password) VALUES (@email, @name, @lastname, @password)", conn))
                 {
                     cmd.Parameters.AddWithValue("@id", Users.Id);
                     cmd.Parameters.AddWithValue("@email", Users.Email);
@@ -91,9 +91,8 @@ namespace RestServer.DBUtil
             {
                 conn.Open();
                 // sql kald
-                using (SqlCommand cmd = new SqlCommand("UPDATE Users SET id = @id, email = @email, name = @name, lastname = @lastname, password = @password WHERE id = @id", conn))
+                using (SqlCommand cmd = new SqlCommand("UPDATE Users SET email = @email, name = @name, lastname = @lastname, password = @password WHERE id = @id", conn))
                 {
-                    cmd.Parameters.AddWithValue("@id", Users.Id);
                     cmd.Parameters.AddWithValue("@email", Users.Email);
                     cmd.Parameters.AddWithValue("@name", Users.Name);
                     cmd.Parameters.AddWithValue("@lastname", Users.Lastname);
