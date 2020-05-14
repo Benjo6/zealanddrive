@@ -1,18 +1,11 @@
-﻿using Prism.Commands;
-using System;
-using System.Collections.Generic;
+﻿using ClassLibrary;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
 using ZealandDrive.Common;
-using ZealandDrive.Data;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
 using ZealandDrive.Model.Persistens;
@@ -26,12 +19,13 @@ namespace ZealandDrive.VM
 
         private Commands c;
         private Singleton x;
-        private ObservableCollection<Rute> _rutes;
+        private ObservableCollection<Route> _rutes;
         private RelayCommand _addRuter;
-        private Rute _nyRute;
+        private Route _nyRute;
         private Listerne lists;
-        private Bil bil;
-        private ObservableCollection<Bil> _bils;
+        private Car bil;
+        private ObservableCollection<Car> _bils;
+        private RelayCommand _addCar;
 
         private User _userToBeCreated;
         private ICommand _createOne;
@@ -58,11 +52,11 @@ namespace ZealandDrive.VM
             lists = new Listerne();
             c = new Commands();
 
-            _addRuter = new RelayCommand(AddRute);
+           // _addRuter = new RelayCommand(AddRute);
 
             _nextCommand = new RCO(Next);
-            IsChecked = true;
-
+            //IsChecked = true;
+            //_addCar = new RelayCommand(AddCar);
             _userToBeCreated = new User();
             _users = new ObservableCollection<User>();
             _createOne = new RelayCommand(Opret);
@@ -79,30 +73,30 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Properties
-        public bool IsChecked
-        {
-            get { return isChecked; }
-            set
-            {
-                isChecked = value;
-                OnPropertyChanged("IsChecked");
-            }
-        }
+        //public bool IsChecked
+        //{
+        //    get { return isChecked; }
+        //    set
+        //    {
+        //        isChecked = value;
+        //        OnPropertyChanged("IsChecked");
+        //    }
+        //}
 
-        public ICommand CheckCommand
-        {
-            get
-            {
-                if (checkCommand == null)
-                    checkCommand = new RelayCommand(Checkprocess(object), null);
-                return checkCommand;
-            }
-            set
-            {
-                checkCommand = value;
-                OnPropertyChanged("CheckCommand");
-            }
-        }
+        //public ICommand CheckCommand
+        //{
+        //    get
+        //    {
+        //        if (checkCommand == null)
+        //            checkCommand = new RelayCommand(Checkprocess(object), null);
+        //        return checkCommand;
+        //    }
+        //    set
+        //    {
+        //        checkCommand = value;
+        //        OnPropertyChanged("CheckCommand");
+        //    }
+        //}
 
         public RelayCommand GoToOpretBruger => c.Opret;
 
@@ -112,9 +106,9 @@ namespace ZealandDrive.VM
 
         public RelayCommand GoToLogin => c.Login;
 
-        public Rute NyRute { get => x.NyRute; }
+        public Route NyRute { get => x.NyRute; }
 
-        public ObservableCollection<Rute> Ruter { get => x.Ruter; }
+        public ObservableCollection<Route> Ruter { get => x.Ruter; }
 
         public RelayCommand GoToOpretRute => c.OpretRute;
 
@@ -123,13 +117,13 @@ namespace ZealandDrive.VM
         public RelayCommand GoBack => c.Tilbage;
 
         public Singleton Instance => x;
-        public Bil Bil
+        public Car NewCar
         {
             get => bil;
             set => bil = value; 
         }
 
-        public ObservableCollection<Bil> BilDatabase => _bils;
+        public ObservableCollection<Car> BilDatabase => _bils;
         public RelayCommand AddRuter {get => _addRuter;}
         public RelayCommand Setting => c.SettingPage;
         
@@ -180,18 +174,31 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Method
-        public void Checkprocess(object sender)
-        {
-            //this DOES react when the checkbox is checked or unchecked
-        }
+        //public void Checkprocess(object sender)
+        //{
+        //    //this DOES react when the checkbox is checked or unchecked
+        //}
 
+       //public void AddCar()
+       // {
+       //     if (NewCar != null)
+       //     {
+       //         _persistence.Opret(NewCar);
+       //         Frame f = (Frame)Window.Current.Content;
+       //         f.Navigate(typeof(OverviewPage));
+       //     }
 
-        public void AddRute()
-        {
-            Ruter.Add(NyRute);
-            Frame f = (Frame)Window.Current.Content;
-            f.Navigate(typeof(OverviewPage));
-        }
+       // }
+
+        //public void AddRute()
+        //{
+        //    if (NyRute != null)
+        //    {
+        //        _persistence.Opret(NyRute);
+        //        Frame f = (Frame)Window.Current.Content;
+        //        f.Navigate(typeof(OverviewPage));
+        //    }
+        //}
 
         private void Next(object obj)
         {

@@ -120,8 +120,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RCO.cs" />
-    <Compile Include="Data\Bil.cs" />
-    <Compile Include="Data\Tur.cs" />
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Data.cs" />
@@ -132,7 +130,6 @@
     <Compile Include="Model\Persistens\PersitenceFactory.cs" />
     <Compile Include="Model\Persistens\SimpelPersistens.cs" />
     <Compile Include="Model\Relaycommand.cs" />
-    <Compile Include="Model\Rute.cs" />
     <Compile Include="Model\Singleton.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="View\LoginPage.xaml.cs">

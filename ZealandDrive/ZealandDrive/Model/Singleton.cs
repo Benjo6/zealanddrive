@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,20 +13,20 @@ namespace ZealandDrive.Model
     class Singleton
     {
         private static Singleton _x = new Singleton();
-        private ObservableCollection<Rute> _rutes;
-        private Rute _nyRute;
-        private Rute _selectedRute;
+        private ObservableCollection<Route> _rutes;
+        private Route _nyRute;
+        private Route _selectedRute;
 
 
 
 
         private Singleton()
         {
-            _nyRute = new Rute();
-            _rutes = new ObservableCollection<Rute>();
+            _nyRute = new Route();
+            _rutes = new ObservableCollection<Route>();
 
         }
-        public Rute SelectedRute
+        public Route SelectedRute
         {
             get { return _selectedRute; }
             set
@@ -35,13 +36,13 @@ namespace ZealandDrive.Model
                 OnPropertyChanged();
             }
         }
-        public ObservableCollection<Rute> Ruter
+        public ObservableCollection<Route> Ruter
         {
             get { return _rutes; }
             set { _rutes = value; }
         }
 
-        public Rute NyRute
+        public Route NyRute
         {
             get { return _nyRute; }
             set { _nyRute = value; }
