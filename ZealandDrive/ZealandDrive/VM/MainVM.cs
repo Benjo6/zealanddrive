@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
-using ZealandDrive.Model.Persistens;
+using ZealandDrive.Persistens;
 using ZealandDrive.View;
 
 namespace ZealandDrive.VM
@@ -27,16 +27,18 @@ namespace ZealandDrive.VM
         private ObservableCollection<Car> _bils;
         private RelayCommand _addCar;
 
-        private User _userToBeCreated;
+        private Users _userToBeCreated;
         private ICommand _createOne;
-        private IPersistens<User> _persistence;
+        private IPersistens<Users> _persistence;
+        private IPersistens<Car> _persistenceCar;
+        private IPersistens<Route> _persistenceRoute;
         private ICommand _loadUser;
         private ICommand _saveUser;
         private ICommand _updateOneUser;
         private ICommand _deleteOneUser;
         private ICommand _clearCreateOneUser;
-        private User _selectedUser;
-        private ObservableCollection<User> _users;
+        private Users _selectedUser;
+        private ObservableCollection<Users> _users;
 
         private bool isChecked;
         private ICommand checkCommand;
@@ -52,20 +54,23 @@ namespace ZealandDrive.VM
             lists = new Listerne();
             c = new Commands();
 
-           // _addRuter = new RelayCommand(AddRute);
+            // _addRuter = new RelayCommand(AddRute);
 
             _nextCommand = new RCO(Next);
             //IsChecked = true;
             //_addCar = new RelayCommand(AddCar);
-            _userToBeCreated = new User();
-            _users = new ObservableCollection<User>();
+            _userToBeCreated = new Users();
+            _users = new ObservableCollection<Users>();
             _createOne = new RelayCommand(Opret);
-            _selectedUser = new User();
+            _selectedUser = new Users();
             //_loadUser = new RelayCommand(LoadMethod);
             _updateOneUser = new RelayCommand(UpdateUser);
             _deleteOneUser = new RelayCommand(DeleteUser);
             _clearCreateOneUser = new RelayCommand(ClearCreate);
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
+            //_persistenceCar = PersitenceFactory.GetPersistency(PersistenceType.Database);
+            //_persistenceRoute = PersitenceFactory.GetPersistency(PersistenceType.Database);
+
             //LoadMethod();
 
         }
@@ -133,9 +138,9 @@ namespace ZealandDrive.VM
         }
 
 
-        public ObservableCollection<User> Users => _users;
+        public ObservableCollection<Users> Users => _users;
 
-        public User SelectedUser
+        public Users SelectedUser
         {
             get => _selectedUser;
             set
@@ -146,7 +151,7 @@ namespace ZealandDrive.VM
             }
         }
 
-        public User UserToBeCreated
+        public Users UserToBeCreated
         {
             get => _userToBeCreated;
             set
@@ -252,9 +257,8 @@ namespace ZealandDrive.VM
 
         private void ClearCreate()
         {
-            UserToBeCreated = new User();
+            UserToBeCreated = new Users();
         }
-
 
 
 

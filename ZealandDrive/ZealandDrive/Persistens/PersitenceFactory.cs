@@ -1,14 +1,15 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZealandDrive.Model;
 
-namespace ZealandDrive.Model.Persistens
+namespace ZealandDrive.Persistens
 {
     public enum PersistenceType
     {
-        Simple,
         File,
         Database
     };
@@ -16,11 +17,10 @@ namespace ZealandDrive.Model.Persistens
 
     class PersitenceFactory
     {
-        public static IPersistens<User> GetPersistency(PersistenceType peristenceType)
+        public static IPersistens<Users> GetPersistency(PersistenceType peristenceType)
         {
             switch (peristenceType)
             {
-                case PersistenceType.Simple: return new SimpelPersistens();
 
                 // File
                 case PersistenceType.File: return new FilePersistence();
@@ -28,7 +28,7 @@ namespace ZealandDrive.Model.Persistens
                 // Database
                 case PersistenceType.Database: return new DBPersistence();
 
-                default: return new SimpelPersistens();
+                default: return new FilePersistence();
             }
 
 

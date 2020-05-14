@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZealandDrive.Model
+namespace ZealandDrive.Persistens
 {
     interface IPersistens<T>
     {

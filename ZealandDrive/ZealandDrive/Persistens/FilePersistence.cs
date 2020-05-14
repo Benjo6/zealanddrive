@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ClassLibrary;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,32 +7,32 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace ZealandDrive.Model.Persistens
+namespace ZealandDrive.Persistens
 {
-    class FilePersistence : IPersistens<User>
+    class FilePersistence : IPersistens<Users>
     {
         private static StorageFolder folder = ApplicationData.Current.LocalFolder;
         private const String FileName = "UsersFil.json";
-        private List<User> _cacheUsers = new List<User>();
+        private List<Users> _cacheUsers = new List<Users>();
 
 
-        public async Task<ICollection<User>> Load()
+        public async Task<ICollection<Users>> Load()
         {
             if (await DoesExists(FileName))
             {
                 StorageFile dataFile = await folder.GetFileAsync(FileName);
                 string dataJSON = await FileIO.ReadTextAsync(dataFile);
 
-                _cacheUsers = JsonConvert.DeserializeObject<List<User>>(dataJSON);
+                _cacheUsers = JsonConvert.DeserializeObject<List<Users>>(dataJSON);
             }
 
-            _cacheUsers = (_cacheUsers == null) ? new List<User>() : new List<User>(_cacheUsers);
+            _cacheUsers = (_cacheUsers == null) ? new List<Users>() : new List<Users>(_cacheUsers);
             return _cacheUsers;
         }
 
-        public async void Save(ICollection<User> users)
+        public async void Save(ICollection<Users> users)
         {
-            _cacheUsers = new List<User>(users);
+            _cacheUsers = new List<Users>(users);
 
             StorageFile file;
             if (await DoesExists(FileName))
@@ -46,17 +47,17 @@ namespace ZealandDrive.Model.Persistens
             await FileIO.WriteTextAsync(file, JsonConvert.SerializeObject(users));
         }
 
-        public Task<bool> Update(User user)
+        public Task<bool> Update(Users user)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> Opret(User user)
+        public Task<bool> Opret(Users user)
         {
             throw new NotImplementedException();
         }
 
-        public Task<User> Delete(User user)
+        public Task<Users> Delete(Users user)
         {
             throw new NotImplementedException();
         }

@@ -120,18 +120,20 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RCO.cs" />
+    <Compile Include="Fuck\Car.cs" />
+    <Compile Include="Fuck\Users.cs" />
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Data.cs" />
-    <Compile Include="Model\Persistens\DBPersistence.cs" />
-    <Compile Include="Model\Persistens\FilePersistence.cs" />
-    <Compile Include="Model\Persistens\IPersistens.cs" />
-    <Compile Include="Model\NavigationService.cs" />
-    <Compile Include="Model\Persistens\PersitenceFactory.cs" />
-    <Compile Include="Model\Persistens\SimpelPersistens.cs" />
-    <Compile Include="Model\Relaycommand.cs" />
-    <Compile Include="Model\Singleton.cs" />
-    <Compile Include="Model\User.cs" />
+    <Compile Include="Persistens\Bil\DBPersistence.cs" />
+    <Compile Include="Persistens\Rute\DBPersistence.cs" />
+    <Compile Include="Persistens\Bruger\DBPersistence.cs" />
+    <Compile Include="Persistens\FilePersistence.cs" />
+    <Compile Include="Persistens\IPersistens.cs" />
+    <Compile Include="Common\NavigationService.cs" />
+    <Compile Include="Persistens\PersitenceFactory.cs" />
+    <Compile Include="Common\Relaycommand.cs" />
+    <Compile Include="Common\Singleton.cs" />
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>

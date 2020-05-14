@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ZealandDrive.Model
+namespace ZealandDrive.Common
 {
     class RelayCommand : ICommand
     {

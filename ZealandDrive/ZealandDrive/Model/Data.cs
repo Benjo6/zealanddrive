@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -13,28 +14,28 @@ namespace ZealandDrive.Model
 
         private static string conn = "data source=zealand-drive.database.windows.net;initial catalog=ZealandDrive;persist security info=True;user id=zealand-drive-admin;password=Secret1!;multipleactiveresultsets=True;application name=EntityFramework";
 
-        private async Task<IList<User>> HentAlleUser()
+        private async Task<IList<Users>> HentAlleUser()
         {
 
             using (HttpClient client = new HttpClient())
             {
                 string content = await client.GetStringAsync(conn);
-                IList<User> users = Newtonsoft.Json.JsonConvert.DeserializeObject<IList<User>>(content);
+                IList<Users> users = Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Users>>(content);
                 return users;
             }
         }
 
-        private async Task<User> HentEn(int id)
+        private async Task<Users> HentEn(int id)
         {
             using (HttpClient client = new HttpClient())
             {
                 string content = await client.GetStringAsync(conn + id);
-                User users = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(content);
+                Users users = Newtonsoft.Json.JsonConvert.DeserializeObject<Users>(content);
                 return users;
             }
         }
 
-        private async Task<bool> OpretUser(User g)
+        private async Task<bool> OpretUser(Users g)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -53,7 +54,7 @@ namespace ZealandDrive.Model
             return false;
         }
 
-        private async Task<bool> OpdaterUser(User u, int id)
+        private async Task<bool> OpdaterUser(Users u, int id)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -72,7 +73,7 @@ namespace ZealandDrive.Model
             return false;
         }
 
-        private async Task<User> SletUser(int id)
+        private async Task<Users> SletUser(int id)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -81,7 +82,7 @@ namespace ZealandDrive.Model
                 if (resultMessage.IsSuccessStatusCode)
                 {
                     string okRes = await resultMessage.Content.ReadAsStringAsync();
-                    User res = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(okRes);
+                    Users res = Newtonsoft.Json.JsonConvert.DeserializeObject<Users>(okRes);
                     return res;
                 }
                 return null;

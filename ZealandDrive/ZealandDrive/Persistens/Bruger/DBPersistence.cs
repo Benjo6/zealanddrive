@@ -6,58 +6,59 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using ZealandDrive.Model;
 
-namespace ZealandDrive.Model.Persistens
+namespace ZealandDrive.Persistens.Bruger
 {
-    class DBPersistence : IPersistens <User>
+    class DBPersistence : IPersistens <Users>
     {
-        private string URI = @"http://localhost:60951/api/users/";
-        public async Task<ICollection<User>> Load()
+        private string URI = @"http://localhost:60951/api/Users/";
+        public async Task<ICollection<Users>> Load()
         {
-            List<User> liste = new List<User>();
+            List<Users> liste = new List<Users>();
 
             using (HttpClient client = new HttpClient())
             {
                 string json = await client.GetStringAsync(URI);
-                liste = JsonConvert.DeserializeObject<List<User>>(json);
+                liste = JsonConvert.DeserializeObject<List<Users>>(json);
             }
 
             return liste;
         }
 
-        public async Task<bool> Update(User user)
+        public async Task<bool> Update(Users users)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                string json = JsonConvert.SerializeObject(user);
+                string json = JsonConvert.SerializeObject(users);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var x = await client.PutAsync(URI + user.Id, stringContent);
+                var x = await client.PutAsync(URI + users.Id, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task <bool> Opret(User user)
+        public async Task <bool> Opret(Users users)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                    string json = JsonConvert.SerializeObject(user);
+                    string json = JsonConvert.SerializeObject(users);
                     StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
                     var x = await client.PostAsync(URI, stringContent);
                     return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task <User> Delete(User user)
+        public async Task <Users> Delete(Users users)
         {
             using (HttpClient client = new HttpClient())
             {
-                var x = await client.DeleteAsync(URI + user.Id);
+                var x = await client.DeleteAsync(URI + users.Id);
                 if (x.IsSuccessStatusCode)
                 {
                     string str = await x.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<User>(str);
+                    return JsonConvert.DeserializeObject<Users>(str);
                 }
                 return null;
             }

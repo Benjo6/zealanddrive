@@ -73,7 +73,7 @@ namespace ClassLibrary
             _minute = minute;
         }
 
-        public Route()
+        public Route() : this (0, "","",DateTime.Now,"","",0,"")
         {
         
         }

@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZealandDrive.Model
+namespace ZealandDrive.Common
 {
     class Singleton
     {
