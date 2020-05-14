@@ -88,6 +88,84 @@ namespace ZealandDrive.Model
                 return null;
             }
         }
+        private async Task<IList<Car>> HentAlleCar()
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                string content = await client.GetStringAsync(conn);
+                IList<Car> car = Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Car>>(content);
+                return car;
+            }
+        }
+
+        private async Task<Car> HentEnCar(int id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string content = await client.GetStringAsync(conn + id);
+                Car car = Newtonsoft.Json.JsonConvert.DeserializeObject<Car>(content);
+                return car;
+            }
+        }
+
+        private async Task<bool> OpretCar(Car c)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                String jsonStr = Newtonsoft.Json.JsonConvert.SerializeObject(c);
+                StringContent content =
+                new StringContent(jsonStr, Encoding.UTF8, "application/json");
+                HttpResponseMessage resultMessage =
+               await client.PostAsync(conn, content);
+                if (resultMessage.IsSuccessStatusCode)
+                {
+                    string okRes = await resultMessage.Content.ReadAsStringAsync();
+                    bool res = Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(okRes);
+                    return res;
+                }
+            }
+            return false;
+        }
+
+        private async Task<bool> OpdaterCar(Car c, int id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                String jsonStr = Newtonsoft.Json.JsonConvert.SerializeObject(c);
+                StringContent content =
+                new StringContent(jsonStr, Encoding.UTF8, "application/json");
+                HttpResponseMessage resultMessage =
+               await client.PutAsync(conn + id, content);
+                if (resultMessage.IsSuccessStatusCode)
+                {
+                    string okRes = await resultMessage.Content.ReadAsStringAsync();
+                    bool res = Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(okRes);
+                    return res;
+                }
+            }
+            return false;
+        }
+
+        private async Task<Car> SletCar(int id)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage resultMessage =
+               await client.DeleteAsync(conn + id);
+                if (resultMessage.IsSuccessStatusCode)
+                {
+                    string okRes = await resultMessage.Content.ReadAsStringAsync();
+                    Car res = Newtonsoft.Json.JsonConvert.DeserializeObject<Car>(okRes);
+                    return res;
+                }
+                return null;
+            }
+        }
+
+
+
+
         //private async Task<IList<Hotel>> HentAlleHotel()
         //{
 

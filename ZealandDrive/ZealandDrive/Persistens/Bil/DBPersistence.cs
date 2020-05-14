@@ -11,7 +11,7 @@ namespace ZealandDrive.Persistens.Bil
 {
     class DBPersistence : IPersistens<Car>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/cars/";
+        private string URI = @"http://zealand-drive.azurewebsites.net/api/car/";
         public async Task<ICollection<Car>> Load()
         {
             List<Car> liste = new List<Car>();
