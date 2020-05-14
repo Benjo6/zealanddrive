@@ -10,10 +10,12 @@ using ZealandDrive.Model;
 
 namespace ZealandDrive.Persistens.Bruger
 {
-    class DBPersistence : IPersistens <Users>
+    class DBPersistence : IPersistens<Users>
     {
-        private string URI = @"http://localhost:60951/api/Users/";
-        public async Task<ICollection<Users>> Load()
+
+        private string URI = @"http://zealand-drive.azurewebsites.net/api/users/";
+
+        public async Task<ICollection<Users>> Load();
         {
             List<Users> liste = new List<Users>();
 
