@@ -16,46 +16,46 @@ namespace ClassLibrary
         private string _besked;
 
 
-        public int Id
+        public int id
         {
             get => _id;
             set => _id = value;
         }
 
-        public string RouteStart
+        public string routeStart
         {
             get => _routeStart;
             set => _routeStart = value;
         }
 
-        public string RouteEnd
+        public string routeEnd
         {
             get => _routeEnd;
             set => _routeEnd = value;
         }
 
-        public DateTime StartTime
+        public DateTime startTime
         {
             get => _startTime;
             set => _startTime = value;
         }
 
-        public int CarId
+        public int carId
         {
             get => _carId;
             set => _carId = value;
         }
-        public string Hour
+        public string hour
         {
             get => _hour;
             set => _hour = value;
         }
-        public string Minute
+        public string minute
         {
             get => _minute;
             set => _minute = value;
         }
-        public string Besked
+        public string besked
         {
             get => _besked;
             set => _besked = value;

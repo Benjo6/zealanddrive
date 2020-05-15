@@ -16,24 +16,24 @@ namespace ClassLibrary
         private int _seats;
         private int _userId;
 
-        public int UserId
+        public int userId
         {
             get => _userId;
             set => _userId = value;
         }
 
 
-        public int Id
+        public int id
         {
             get { return _id; }
             set { _id = value; }
         }
 
-        public string Color { get => _color; set => _color = value; }
-        public string Brand { get => _brand; set => _brand = value; }
-        public string Model { get => _model; set => _model = value; }
-        public int Year { get => _year; set => _year = value; }
-        public int Seats { get => _seats; set => _seats = value; }
+        public string color { get => _color; set => _color = value; }
+        public string brand { get => _brand; set => _brand = value; }
+        public string model { get => _model; set => _model = value; }
+        public int year { get => _year; set => _year = value; }
+        public int seats { get => _seats; set => _seats = value; }
 
         public Car()
         {

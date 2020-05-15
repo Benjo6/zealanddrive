@@ -76,17 +76,17 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="38"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Foreground="#6B6B6B" Text="{Binding Besked}" Height="30" FontSize="18" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="4"/>
+                            <TextBlock Foreground="#6B6B6B" Text="{Binding SelectedRoute.besked}" Height="30" FontSize="18" FontWeight="Bold" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="4"/>
                             <Button CornerRadius="4" Background="White" Height="150" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Width="268" Grid.ColumnSpan="4" Grid.RowSpan="7" Grid.Row="1"/>
                             <TextBlock Foreground="#656565" Text="Fra" Grid.Row="3" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
                             <TextBlock Foreground="#656565" Text="Til" Grid.Row="5" Grid.Column="2" FontWeight="SemiBold" FontSize="10"/>
-                            <TextBlock Text="{Binding RouteStart}" Grid.Row="4" Grid.Column="2" FontSize="11" VerticalAlignment="Top" />
-                            <TextBlock Text="{Binding RouteEnd}" Grid.Row="6" Grid.Column="2" FontSize="12" VerticalAlignment="Top" />
-                            <TextBlock Text="{Binding StartTime}" Grid.Row="1" Grid.Column="3" FontSize="9" />
+                            <TextBlock Text="{Binding SelectedRoute.routeStart}" Grid.Row="4" Grid.Column="2" FontSize="11" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding SelectedRoute.routeEnd}" Grid.Row="6" Grid.Column="2" FontSize="12" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding SelectedRoute.startTime}" Grid.Row="1" Grid.Column="3" FontSize="9" />
                             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                                <TextBlock Text="{Binding Hour}"  FontSize="9" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="{Binding SelectedRoute.hour}"  FontSize="9" Grid.ColumnSpan="2"/>
                                 <TextBlock Text=":" FontSize="9" Grid.ColumnSpan="2"/>
-                                <TextBlock Text="{Binding Minute}"  FontSize="9" Grid.ColumnSpan="2"/>
+                                <TextBlock Text="{Binding SelectedRoute.minute}"  FontSize="9" Grid.ColumnSpan="2"/>
 
                             </StackPanel>
                         </Grid>

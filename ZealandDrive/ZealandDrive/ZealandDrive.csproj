@@ -120,13 +120,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RCO.cs" />
-    <Compile Include="Fuck\Car.cs" />
-    <Compile Include="Fuck\Users.cs" />
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Data.cs" />
     <Compile Include="Persistens\Bil\DBPersistenceCar.cs" />
-    <Compile Include="Persistens\Rute\DBPersistence.cs" />
+    <Compile Include="Persistens\Rute\DBPersistenceRute.cs" />
     <Compile Include="Persistens\Bruger\DBPersistence.cs" />
     <Compile Include="Persistens\FilePersistence.cs" />
     <Compile Include="Persistens\IPersistens.cs" />

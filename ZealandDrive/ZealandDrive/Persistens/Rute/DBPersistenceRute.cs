@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ZealandDrive.Persistens.Rute
 {
-    class DBPersistence : IPersistens<Route>
+    class DBPersistenceRute : IPersistens<Route>
     {
-        private string URI = @"http://localhost:60951/api/Car/";
+        private string URI = @"http://zealand-drive.azurewebsites.net/api/routes/";
         public async Task<ICollection<Route>> Load()
         {
             List<Route> liste = new List<Route>();
@@ -25,35 +25,35 @@ namespace ZealandDrive.Persistens.Rute
             return liste;
         }
 
-        public async Task<bool> Update(Route users)
+        public async Task<bool> Update(Route ruter)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                string json = JsonConvert.SerializeObject(users);
+                string json = JsonConvert.SerializeObject(ruter);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var x = await client.PutAsync(URI + users.Id, stringContent);
+                var x = await client.PutAsync(URI + ruter.id, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task<bool> Opret(Route users)
+        public async Task<bool> Opret(Route ruter)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                string json = JsonConvert.SerializeObject(users);
+                string json = JsonConvert.SerializeObject(ruter);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
                 var x = await client.PostAsync(URI, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task<Route> Delete(Route users)
+        public async Task<Route> Delete(Route ruter)
         {
             using (HttpClient client = new HttpClient())
             {
-                var x = await client.DeleteAsync(URI + users.Id);
+                var x = await client.DeleteAsync(URI + ruter.id);
                 if (x.IsSuccessStatusCode)
                 {
                     string str = await x.Content.ReadAsStringAsync();
