@@ -134,6 +134,18 @@
     <Compile Include="Persistens\PersitenceFactory.cs" />
     <Compile Include="Common\Relaycommand.cs" />
     <Compile Include="Common\Singleton.cs" />
+    <Compile Include="View\AdgangskodeogSikkerhed.xaml.cs">
+      <DependentUpon>AdgangskodeogSikkerhed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GemAdresse.xaml.cs">
+      <DependentUpon>GemAdresse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GemteAdresser.xaml.cs">
+      <DependentUpon>GemteAdresser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GemteBiler.xaml.cs">
+      <DependentUpon>GemteBiler.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -150,11 +162,20 @@
     <Compile Include="View\OverviewPage.xaml.cs">
       <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PersonligeInformation.xaml.cs">
+      <DependentUpon>PersonligeInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Privatlivsindstillinger.xaml.cs">
+      <DependentUpon>Privatlivsindstillinger.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SpecificRoutePage.xaml.cs">
       <DependentUpon>SpecificRoutePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sprog.xaml.cs">
+      <DependentUpon>Sprog.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\MainVM.cs" />
   </ItemGroup>
@@ -181,6 +202,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\AdgangskodeogSikkerhed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GemAdresse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GemteAdresser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GemteBiler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,11 +238,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PersonligeInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Privatlivsindstillinger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SpecificRoutePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sprog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

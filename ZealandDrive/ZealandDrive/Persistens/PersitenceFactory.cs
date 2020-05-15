@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZealandDrive.Model;
 using ZealandDrive.Persistens.Bil;
+using ZealandDrive.Persistens.Bruger;
 
 namespace ZealandDrive.Persistens
 {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZealandDrive.Model;
 
-namespace ZealandDrive.Persistens
+namespace ZealandDrive.Persistens.Bruger
 {
     class DBPersistence : IPersistens<Users>
     {

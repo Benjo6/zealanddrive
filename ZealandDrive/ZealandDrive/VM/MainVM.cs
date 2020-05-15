@@ -28,6 +28,7 @@ namespace ZealandDrive.VM
         private ObservableCollection<Car> _bils;
         private RelayCommand _addCar;
 
+        private ObservableCollection<string> _adresseList;
 
         private IPersistens<Users> _persistence;
         private IPersistens<Car> _persistenceCar;
@@ -42,6 +43,8 @@ namespace ZealandDrive.VM
         private ICommand _clearCreateOneUser;
         private Users _selectedUser;
         private ObservableCollection<Users> _users;
+
+        private ICommand _loadRute;
 
         private Car _carToBeCreated;
         private ICommand _createOneCar;
@@ -63,6 +66,9 @@ namespace ZealandDrive.VM
         #region Constructor
         public MainVM()
         {
+
+            _adresseList = new ObservableCollection<string>();
+
             x = Singleton.Instance;
             lists = new Listerne();
             c = new Commands();
@@ -73,12 +79,13 @@ namespace ZealandDrive.VM
             //IsChecked = true;
             //_addCar = new RelayCommand(AddCar);
 
-            //_loadUser = new RelayCommand(LoadMethod);
+            _loadUser = new RelayCommand(LoadUsers);
+            //_loadCar = new RelayCommand(LoadCar);
+            //_loadRute = new RelayCommand(LoadRoute);
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
             _persistenceCar = new DBPersistenceCar();
             //_persistenceRoute = PersitenceFactory.GetPersistency(PersistenceType.Database);
 
-            //LoadMethod();
 
             _userToBeCreated = new Users();
             _users = new ObservableCollection<Users>();
@@ -94,7 +101,7 @@ namespace ZealandDrive.VM
             _selectedCar = new Car();
             _updateOneCar = new RelayCommand(UpdateCar);
             _deleteOneCar = new RelayCommand(DeleteCar);
-            _clearCreateOneCar = new RelayCommand(ClearCreateOneCar);
+            _clearCreateOneCar = new RelayCommand(ClearCreateOneBil);
         }
 
         #endregion
@@ -135,8 +142,6 @@ namespace ZealandDrive.VM
 
         public Route NyRute { get => x.NyRute; }
 
-        public ObservableCollection<Route> Ruter { get => x.Ruter; }
-
         public RelayCommand GoToOpretRute => c.OpretRute;
 
         public RelayCommand GoToOverview => c.GoOverviewPage;
@@ -150,7 +155,6 @@ namespace ZealandDrive.VM
             set => bil = value; 
         }
 
-        public ObservableCollection<Car> BilDatabase => _bils;
         public RelayCommand AddRuter {get => _addRuter;}
         public RelayCommand Setting => c.SettingPage;
         
@@ -184,7 +188,7 @@ namespace ZealandDrive.VM
             }
         }
 
-        public ICommand Load => _loadUser;
+        public ICommand LoadUser => _loadUser;
 
         public ICommand Save => _saveUser;
 
@@ -221,6 +225,8 @@ namespace ZealandDrive.VM
             }
         }
 
+        public ICommand LoadRoute => _loadRute;
+
         public ICommand LoadCar => _loadCar;
 
         public ICommand SaveCar => _saveCar;
@@ -233,6 +239,7 @@ namespace ZealandDrive.VM
 
         public ICommand ClearCreateOneCar => _clearCreateOneCar;
 
+        public ObservableCollection<string> AdresseList => _adresseList;
 
         #endregion
 
@@ -282,16 +289,35 @@ namespace ZealandDrive.VM
             
         }
 
-        //private async void LoadMethod()
+        private async void LoadUsers()
+        {
+            _users.Clear();
+            var liste = await _persistence.Load();
+            foreach (Users u in liste)
+            {
+                _users.Add(u);
+            }
+        }
+
+        //private async void LoadRoute()
         //{
-        //    _users.Clear();
+        //    _rutes.Clear();
         //    var liste = await _persistence.Load();
-        //    foreach (User u in liste)
+        //    foreach (Route u in liste)
         //    {
-        //        _users.Add(u);
+        //        _rutes.Add(u);
         //    }
         //}
 
+        //private async void LoadCar()
+        //{
+        //    _bils.Clear();
+        //    var liste = await _persistenceCar.Load();
+        //    foreach (Car u in liste)
+        //    {
+        //        _bils.Add(u);
+        //    }
+        //}
 
         private void UpdateUser()
         {
@@ -349,7 +375,7 @@ namespace ZealandDrive.VM
             }
         }
 
-        private void ClearCreateOneCar()
+        private void ClearCreateOneBil()
         {
             CarToBeCreated = new Car();
         }
