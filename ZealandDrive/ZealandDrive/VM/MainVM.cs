@@ -11,6 +11,7 @@ using ZealandDrive.Model;
 using ZealandDrive.Persistens;
 using ZealandDrive.View;
 using ZealandDrive.Persistens.Bil;
+using ZealandDrive.Persistens.Rute;
 
 namespace ZealandDrive.VM
 {
@@ -61,7 +62,6 @@ namespace ZealandDrive.VM
         private ObservableCollection<Route> _ruter;
 
 
-
         private bool isChecked;
         private ICommand checkCommand;
 
@@ -82,6 +82,7 @@ namespace ZealandDrive.VM
 
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
             _persistenceCar = new DBPersistenceCar();
+            _persistenceRoute = new DBPersistenceRute();
 
             _loadUser = new RelayCommand(LoadUsers);
             _userToBeCreated = new Users();
