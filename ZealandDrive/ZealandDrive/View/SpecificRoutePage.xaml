@@ -65,20 +65,7 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Text="Fra" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" />
-                    <TextBlock  Text="Zealand Roskilde" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="3" TextDecorations="Underline" />
-                    <TextBlock
-                        Foreground="LightSlateGray"
-                        Text="Zealand Roskilde" 
-                        TextAlignment="Right"
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        FontFamily="Helvetica"  FontSize="16"
-                        TextDecorations="Underline">
-                        <TextBlock.RenderTransform>
-                            <TranslateTransform X="0" Y="1" />
-                        </TextBlock.RenderTransform>
-                    </TextBlock>
-                    
+                    <TextBlock Text="{Binding SelectedRute.routeStart, Mode=TwoWay}" FontSize="20" Margin="30,15,30,15"/>
                 </Grid>
 
                 
@@ -89,47 +76,9 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="Til" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" />
-                        <TextBlock  Text="Din Mor" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="3" TextDecorations="Underline" />
-                        <TextBlock
-                            Foreground="LightSlateGray"
-                            Text="Din Mor" 
-                            TextAlignment="Right"
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            FontFamily="Helvetica"  FontSize="16"
-                            TextDecorations="Underline">
-                            <TextBlock.RenderTransform>
-                                <TranslateTransform X="0" Y="1" />
-                            </TextBlock.RenderTransform>
-                        </TextBlock>
-                       
+                    <TextBlock  Text="{Binding SelectedRute.routeEnd}" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="3" TextDecorations="Underline" />
                 </Grid>
 
-                
-                <Canvas  Width="11" Height="96" Canvas.Left="143" Canvas.Top="0" >
-                    <Grid  Width="7" Height="52" Canvas.Left="3.30517578125" Canvas.Top="21.98046875">
-                        <StackPanel  Width="5" Height="5" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
-                        </StackPanel>
-                        <StackPanel  Width="5" Height="5" Margin="0,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
-                        </StackPanel>
-                        <StackPanel  Width="5" Height="5" Margin="0,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
-                        </StackPanel>
-                        <StackPanel  Width="5" Height="5" Margin="0,27,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
-                        </StackPanel>
-                        <StackPanel  Width="5" Height="5" Margin="0,36,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
-                        </StackPanel>
-                        <StackPanel  Width="5" Height="5" Margin="0,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <Border  Width="5" Height="5" Background="#fff2df80" BorderBrush="#ff707070"   />
-                        </StackPanel>
-                    </Grid>
-                    <Ellipse  Width="15" Height="15" Stretch="uniform" Fill="#fff2df80" Stroke="#ff707070" Canvas.Left="-2" Canvas.Top="0"  />
-                    <Rectangle Stroke="#ff707070" Fill="#fff2df80" Width="15" Height="15"  Canvas.Left="-2" Canvas.Top="80"  />
-                </Canvas>
             </Canvas>
             <Grid Width="330" Height="90" Margin="20,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
@@ -165,7 +114,7 @@
 Aliquam ut purus sapien. Phasellus cursus augue quis sem porta, eget rutrum sapien tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam lacinia, maximus lorem laoreet, tincidunt ex. 
 Phasellus viverra sem sed metus porta, et consequat sem lobortis. feugiat, vitae posuere quam tristique. Phasellus finibus enim suscipit dapibus ornare. Cras eu tellus eu turpis ultrices convallis.
  Quisque vestibulum semper urna, ac volutpat massa porta a. Integer eget varius eros. Nam rhoncus nibh enim. Aliquam quis tortor ac sem scelerisque luctus id iaculis augue. Sed dolor ligula, faucibus id mauris eu, placerat lobortis ipsum. 
-Pellentesque interdum ante lectus, non lobortis risus ultricies in. Suspendisse sem lectus, sollicitudin ut malesuada eu, tristique in neque. Aliquam eu risus tortor. Ut tempus elementum interdum." TextAlignment="left" FontFamily="Helvetica"  FontSize="13" Width="302" Height="478" TextWrapping="Wrap" Foreground="#ff616161" Margin="36.5,365,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+Pellentesque interdum ante lectus, non lobortis risus ultricies in. Suspendisse sem lectus, sollicitudin ut malesuada eu, tristique in neque. Aliquam eu risus tortor. Ut tempus elementum interdum." TextAlignment="left" FontFamily="Helvetica"  FontSize="13" Width="302" Height="478" TextWrapping="Wrap" Foreground="#ff616161" Margin="36.5,365,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" />
         </Grid>
         <Button Name="TilmeldKnap" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
     </Grid>
