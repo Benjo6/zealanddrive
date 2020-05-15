@@ -12,7 +12,7 @@ namespace ZealandDrive.Persistens.Bruger
 {
     class DBPersistence : IPersistens<Users>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/users";
+        private string URI = @"http://zealand-drive.azurewebsites.net/api/users/";
         public async Task<ICollection<Users>> Load()
         {
             List<Users> liste = new List<Users>();
@@ -33,7 +33,7 @@ namespace ZealandDrive.Persistens.Bruger
 
                 string json = JsonConvert.SerializeObject(users);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var x = await client.PutAsync(URI + users.Id, stringContent);
+                var x = await client.PutAsync(URI + users.id, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
@@ -54,7 +54,7 @@ namespace ZealandDrive.Persistens.Bruger
         {
             using (HttpClient client = new HttpClient())
             {
-                var x = await client.DeleteAsync(URI + users.Id);
+                var x = await client.DeleteAsync(URI + users.id);
                 if (x.IsSuccessStatusCode)
                 {
                     string str = await x.Content.ReadAsStringAsync();

@@ -12,7 +12,7 @@ namespace RestServer.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Car()
         {
-            Route = new HashSet<Route>();
+            //Route = new HashSet<Route>();
         }
 
         public int id { get; set; }
@@ -35,9 +35,9 @@ namespace RestServer.Model
 
         public int fk_userId { get; set; }
 
-        public virtual Users Users { get; set; }
+        //public virtual Users Users { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Route> Route { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Route> Route { get; set; }
     }
 }

@@ -237,7 +237,7 @@ namespace ZealandDrive.VM
 
         public ICommand CreateOneCar => _createOneCar;
 
-        public ICommand ClearCreateOneCar => _clearCreateOneCar;
+        public ICommand ClearCreateOneCars => _clearCreateOneCar;
 
         public ObservableCollection<string> AdresseList => _adresseList;
 
