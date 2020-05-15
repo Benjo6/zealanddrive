@@ -107,6 +107,16 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Properties
+        public RelayCommand GoGemBiler => c.GemBiler;
+        public RelayCommand GoAOS => c.AOS;
+        public RelayCommand GoGemteBiler => c.GemteBiler;
+        public RelayCommand GoGemAdresse => c.GemAdresse;
+        public RelayCommand GoGemteAdresse => c.GemteAdresse;
+        public RelayCommand GoPI => c.PI;
+        public RelayCommand GoPrivat => c.Privat;
+        public RelayCommand GoSprog => c.Sprog;
+
+
         //public bool IsChecked
         //{
         //    get { return isChecked; }

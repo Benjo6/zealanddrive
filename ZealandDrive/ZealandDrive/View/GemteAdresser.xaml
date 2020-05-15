@@ -38,6 +38,20 @@
             </ListView.ItemTemplate>
         </ListView>
 
-       
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="2">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
+
+            </Button>
+            <Button  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum">
+
+            </Button>
+
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
+
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

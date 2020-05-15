@@ -37,7 +37,7 @@
             <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
                 
             </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="">
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
                 
             </Button>
             <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum">

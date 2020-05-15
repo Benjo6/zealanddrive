@@ -140,6 +140,9 @@
     <Compile Include="View\GemAdresse.xaml.cs">
       <DependentUpon>GemAdresse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GemBiler.xaml.cs">
+      <DependentUpon>GemBiler.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GemteAdresser.xaml.cs">
       <DependentUpon>GemteAdresser.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\GemAdresse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GemBiler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

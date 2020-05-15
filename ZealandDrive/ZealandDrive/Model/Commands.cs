@@ -23,6 +23,14 @@ namespace ZealandDrive.Model
         public RelayCommand sRutePage;
         public RelayCommand settingPage;
         public RelayCommand opretBruger;
+        private RelayCommand aOS;
+        private RelayCommand gemadresse;
+        private RelayCommand gemBiler;
+        private RelayCommand gemteadresser;
+        private RelayCommand gemteBiler;
+        private RelayCommand personligeinf;
+        private RelayCommand privat;
+        private RelayCommand sprog;
         #endregion
 
         #region Constructor
@@ -36,10 +44,28 @@ namespace ZealandDrive.Model
             sRutePage = new RelayCommand(GotoSpecificRutePage);
             settingPage = new RelayCommand(GoSetting);
             opretBruger = new RelayCommand(GotoOpretBruger);
+            aOS = new RelayCommand(GOAOS);
+
+            gemadresse = new RelayCommand(GOGemAdresse);
+            gemBiler = new RelayCommand(GOGemBil);
+            gemteadresser = new RelayCommand(GOGemteAdresse);
+            gemteBiler = new RelayCommand(GOGemteBil);
+            personligeinf = new RelayCommand(GoPersonligeInformation);
+            privat = new RelayCommand(GoPrivatlivsindstillinger);
+            sprog = new RelayCommand(GoSprog);
+            
+
         }
         #endregion
 
         #region Properties
+        public RelayCommand GemAdresse => gemadresse;
+        public RelayCommand GemteAdresse => gemteadresser;
+        public RelayCommand GemBiler => gemBiler;
+        public RelayCommand GemteBiler => gemteBiler;
+        public RelayCommand PI => personligeinf;
+        public RelayCommand Privat => privat;
+        public RelayCommand Sprog => sprog;
 
         public RelayCommand Login
         {
@@ -64,6 +90,7 @@ namespace ZealandDrive.Model
                 return sRutePage;
             }
         }
+        public RelayCommand AOS => aOS;
 
         public RelayCommand OpretRute => oRutePage;
 
@@ -76,6 +103,7 @@ namespace ZealandDrive.Model
         public RelayCommand SRutePage => GoToSpecificRutePage;
 
         public RelayCommand SettingPage => settingPage;
+
         #endregion
 
 
@@ -126,7 +154,54 @@ namespace ZealandDrive.Model
                 navigationService.navigate(typeof(View.OpretBruger));
             }
         }
-
+        public void GOAOS()
+        {
+            {
+                navigationService.navigate(typeof(View.AdgangskodeogSikkerhed));
+            }
+        }
+        public void GOGemAdresse()
+        {
+            {
+                navigationService.navigate(typeof(View.GemRute));
+            }
+        }
+        public void GOGemBil()
+        {
+            {
+                navigationService.navigate(typeof(View.GemBiler));
+            }
+        }
+        public void GOGemteBil()
+        {
+            {
+                navigationService.navigate(typeof(View.GemteBiler));
+            }
+        }
+        public void GOGemteAdresse()
+        {
+            {
+                navigationService.navigate(typeof(View.GemteAdresser));
+            }
+        }
+        public void GoPersonligeInformation()
+        {
+            {
+                navigationService.navigate(typeof(View.PersonligeInformation));
+            }
+        }
+        public void GoPrivatlivsindstillinger()
+        {
+            {
+                navigationService.navigate(typeof(View.Privatlivsindstillinger));
+            }
+        }
+        public void GoSprog()
+        {
+            {
+                navigationService.navigate(typeof(View.Sprog));
+            }
+        }
         #endregion
     }
 }

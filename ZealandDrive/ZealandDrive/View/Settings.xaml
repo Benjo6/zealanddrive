@@ -23,23 +23,39 @@
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
+        
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="2">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum">
+
+            </Button>
+
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
+
+            </Button>
+        </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" Background="White" Margin="0,18,0,0">
             <TextBlock Text="Gemte Adresser" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" />
+            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoGemteAdresse}" />
             <TextBlock Text="Biler" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" />
+            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoGemteBiler}" />
 
             <TextBlock Text="Personlige Information" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" />
+            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoPI}"/>
             <TextBlock Text="Adgangskode og Sikkerhed" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" />
+            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoAOS}" />
 
             <TextBlock Text="Sprog" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" />
+            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoSprog}"/>
 
             <TextBlock Text="Privatlivsindstillinger" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" />
+            <Button Content="Vælg" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoPrivat}"/>
         </StackPanel>
 
     </Grid>
