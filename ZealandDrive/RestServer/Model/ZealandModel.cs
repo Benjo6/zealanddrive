@@ -54,17 +54,17 @@ namespace RestServer.Model
                 .Property(e => e.routeend)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Route>()
-                .HasMany(e => e.Comments)
-                .WithRequired(e => e.Route)
-                .HasForeignKey(e => e.fk_routeId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Route>()
+            //    .HasMany(e => e.Comments)
+            //    .WithRequired(e => e.Route)
+            //    .HasForeignKey(e => e.fk_routeId)
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Route>()
-                .HasMany(e => e.Passenger)
-                .WithRequired(e => e.Route)
-                .HasForeignKey(e => e.fk_routeId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Route>()
+            //    .HasMany(e => e.Passenger)
+            //    .WithRequired(e => e.Route)
+            //    .HasForeignKey(e => e.fk_routeId)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Users>()
                 .Property(e => e.email)

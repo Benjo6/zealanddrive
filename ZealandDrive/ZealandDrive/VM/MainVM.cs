@@ -20,19 +20,14 @@ namespace ZealandDrive.VM
 
         private Commands c;
         private Singleton x;
-        private ObservableCollection<Route> _rutes;
-        private RelayCommand _addRuter;
-        private Route _nyRute;
         private Listerne lists;
-        private Car bil;
-        private ObservableCollection<Car> _bils;
-        private RelayCommand _addCar;
 
         private ObservableCollection<string> _adresseList;
 
         private IPersistens<Users> _persistence;
         private IPersistens<Car> _persistenceCar;
         private IPersistens<Route> _persistenceRoute;
+        
 
         private Users _userToBeCreated;
         private ICommand _createOne;
@@ -44,8 +39,6 @@ namespace ZealandDrive.VM
         private Users _selectedUser;
         private ObservableCollection<Users> _users;
 
-        private ICommand _loadRute;
-
         private Car _carToBeCreated;
         private ICommand _createOneCar;
         private ICommand _loadCar;
@@ -55,6 +48,19 @@ namespace ZealandDrive.VM
         private ICommand _clearCreateOneCar;
         private Car _selectedCar;
         private ObservableCollection<Car> _cars;
+
+
+        private Route _ruteToBeCreated;
+        private ICommand _createOneRute;
+        private ICommand _loadRute;
+        private ICommand _saveRute;
+        private ICommand _updateOneRute;
+        private ICommand _deleteOneRute;
+        private ICommand _clearCreateOneRute;
+        private Route _selectedRute;
+        private ObservableCollection<Route> _ruter;
+
+
 
         private bool isChecked;
         private ICommand checkCommand;
@@ -72,36 +78,37 @@ namespace ZealandDrive.VM
             x = Singleton.Instance;
             lists = new Listerne();
             c = new Commands();
-
-            // _addRuter = new RelayCommand(AddRute);
-
             _nextCommand = new RCO(Next);
-            //IsChecked = true;
-            //_addCar = new RelayCommand(AddCar);
 
-            _loadUser = new RelayCommand(LoadUsers);
-            //_loadCar = new RelayCommand(LoadCar);
-            //_loadRute = new RelayCommand(LoadRoute);
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
             _persistenceCar = new DBPersistenceCar();
-            //_persistenceRoute = PersitenceFactory.GetPersistency(PersistenceType.Database);
 
-
+            _loadUser = new RelayCommand(LoadUsers);
             _userToBeCreated = new Users();
             _users = new ObservableCollection<Users>();
             _createOne = new RelayCommand(Opret);
             _selectedUser = new Users();
             _updateOneUser = new RelayCommand(UpdateUser);
             _deleteOneUser = new RelayCommand(DeleteUser);
-            _clearCreateOneUser = new RelayCommand(ClearCreate);
+            _clearCreateOneUser = new RelayCommand(ClearCreateUser);
 
+            _loadCar = new RelayCommand(LoadCars);
             _carToBeCreated = new Car();
             _cars = new ObservableCollection<Car>();
             _createOneCar = new RelayCommand(OpretCar);
             _selectedCar = new Car();
             _updateOneCar = new RelayCommand(UpdateCar);
             _deleteOneCar = new RelayCommand(DeleteCar);
-            _clearCreateOneCar = new RelayCommand(ClearCreateOneBil);
+            _clearCreateOneCar = new RelayCommand(ClearCreateCar);
+
+            _loadCar = new RelayCommand(LoadRutes);
+            _carToBeCreated = new Car();
+            _cars = new ObservableCollection<Car>();
+            _createOneCar = new RelayCommand(OpretRute);
+            _selectedCar = new Car();
+            _updateOneCar = new RelayCommand(UpdateRute);
+            _deleteOneCar = new RelayCommand(DeleteRute);
+            _clearCreateOneCar = new RelayCommand(ClearCreateRute);
         }
 
         #endregion
@@ -140,8 +147,6 @@ namespace ZealandDrive.VM
 
         public RelayCommand GoToLogin => c.Login;
 
-        public Route NyRute { get => x.NyRute; }
-
         public RelayCommand GoToOpretRute => c.OpretRute;
 
         public RelayCommand GoToOverview => c.GoOverviewPage;
@@ -149,13 +154,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoBack => c.Tilbage;
 
         public Singleton Instance => x;
-        public Car NewCar
-        {
-            get => bil;
-            set => bil = value; 
-        }
 
-        public RelayCommand AddRuter {get => _addRuter;}
         public RelayCommand Setting => c.SettingPage;
         
         public RCO NextCommand
@@ -198,7 +197,7 @@ namespace ZealandDrive.VM
 
         public ICommand CreateOne => _createOne;
 
-        public ICommand ClearCreateOne => _clearCreateOneUser;
+        public ICommand ClearCreateOneUser => _clearCreateOneUser;
 
 
         public ObservableCollection<Car> Cars => _cars;
@@ -225,10 +224,9 @@ namespace ZealandDrive.VM
             }
         }
 
-        public ICommand LoadRoute => _loadRute;
 
         public ICommand LoadCar => _loadCar;
-
+        
         public ICommand SaveCar => _saveCar;
 
         public ICommand UpdateOneCar => _updateOneCar;
@@ -237,9 +235,45 @@ namespace ZealandDrive.VM
 
         public ICommand CreateOneCar => _createOneCar;
 
-        public ICommand ClearCreateOneCars => _clearCreateOneCar;
+        public ICommand ClearCreateOneCar => _clearCreateOneCar;
 
         public ObservableCollection<string> AdresseList => _adresseList;
+
+        public ObservableCollection<Route> Ruter => _ruter;
+
+        public Route SelectedRute
+        {
+            get => _selectedRute;
+            set
+            {
+                if (Equals(value, _selectedRute)) return;
+                _selectedRute = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Route RouteToBeCreated
+        {
+            get => _ruteToBeCreated;
+            set
+            {
+                if (Equals(value, _ruteToBeCreated)) return;
+                _ruteToBeCreated = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand LoadRute => _loadRute;
+
+        public ICommand SaveRute => _saveRute;
+
+        public ICommand UpdateOneRute => _updateOneRute;
+
+        public ICommand DeleteOneRute => _deleteOneRute;
+
+        public ICommand CreateOneRute => _createOneRute;
+
+        public ICommand ClearCreateOneRutes => _clearCreateOneCar;
 
         #endregion
 
@@ -249,26 +283,7 @@ namespace ZealandDrive.VM
         //    //this DOES react when the checkbox is checked or unchecked
         //}
 
-        //public void AddCar()
-        // {
-        //     if (NewCar != null)
-        //     {
-        //         _persistence.Opret(NewCar);
-        //         Frame f = (Frame)Window.Current.Content;
-        //         f.Navigate(typeof(OverviewPage));
-        //     }
 
-        // }
-
-        //public void AddRute()
-        //{
-        //    if (NyRute != null)
-        //    {
-        //        _persistence.Opret(NyRute);
-        //        Frame f = (Frame)Window.Current.Content;
-        //        f.Navigate(typeof(OverviewPage));
-        //    }
-        //}
 
         private void Next(object obj)
         {
@@ -299,26 +314,6 @@ namespace ZealandDrive.VM
             }
         }
 
-        //private async void LoadRoute()
-        //{
-        //    _rutes.Clear();
-        //    var liste = await _persistence.Load();
-        //    foreach (Route u in liste)
-        //    {
-        //        _rutes.Add(u);
-        //    }
-        //}
-
-        //private async void LoadCar()
-        //{
-        //    _bils.Clear();
-        //    var liste = await _persistenceCar.Load();
-        //    foreach (Car u in liste)
-        //    {
-        //        _bils.Add(u);
-        //    }
-        //}
-
         private void UpdateUser()
         {
             if (_selectedUser != null)
@@ -338,12 +333,10 @@ namespace ZealandDrive.VM
             }
         }
 
-        private void ClearCreate()
+        private void ClearCreateUser()
         {
             UserToBeCreated = new Users();
         }
-
-
 
         private async void OpretCar()
         {
@@ -365,6 +358,16 @@ namespace ZealandDrive.VM
             }
         }
 
+        private async void LoadCars()
+        {
+            _cars.Clear();
+            var liste = await _persistenceCar.Load();
+            foreach (Car c in liste)
+            {
+                _cars.Add(c);
+            }
+        }
+
         private void DeleteCar()
         {
             if (_selectedCar != null)
@@ -375,9 +378,57 @@ namespace ZealandDrive.VM
             }
         }
 
-        private void ClearCreateOneBil()
+        private void ClearCreateCar()
         {
             CarToBeCreated = new Car();
+        }
+
+
+
+        private async void OpretRute()
+        {
+
+            //todo give error message
+            await _persistenceRoute.Opret(_ruteToBeCreated);
+
+            //_users.Add(_userToBeCreated);
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(OverviewPage));
+
+        }
+
+        private async void LoadRutes()
+        {
+            _ruter.Clear();
+            var liste = await _persistenceRoute.Load();
+            foreach (Route r in liste)
+            {
+                _ruter.Add(r);
+            }
+        }
+
+        private void UpdateRute()
+        {
+            if (_selectedUser != null)
+            {
+                //todo give error message
+                _persistenceRoute.Update(_selectedRute);
+            }
+        }
+
+        private void DeleteRute()
+        {
+            if (_selectedRute != null)
+            {
+                //todo give error message
+                _persistenceRoute.Delete(_selectedRute);
+                _ruter.Remove(_selectedRute);
+            }
+        }
+
+        private void ClearCreateRute()
+        {
+            RouteToBeCreated = new Route();
         }
 
 
@@ -390,7 +441,5 @@ namespace ZealandDrive.VM
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
-
-
     }
 }

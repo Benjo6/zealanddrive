@@ -32,7 +32,7 @@ namespace ZealandDrive.Persistens.Bil
 
                 string json = JsonConvert.SerializeObject(users);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var x = await client.PutAsync(URI + users.Id, stringContent);
+                var x = await client.PutAsync(URI + users.id, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
@@ -53,7 +53,7 @@ namespace ZealandDrive.Persistens.Bil
         {
             using (HttpClient client = new HttpClient())
             {
-                var x = await client.DeleteAsync(URI + users.Id);
+                var x = await client.DeleteAsync(URI + users.id);
                 if (x.IsSuccessStatusCode)
                 {
                     string str = await x.Content.ReadAsStringAsync();
