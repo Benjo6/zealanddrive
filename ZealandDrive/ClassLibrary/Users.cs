@@ -12,14 +12,14 @@ namespace ClassLibrary
         private string _email;
         private string _password;
 
-        public string Name { get => _name; set => _name =value ; }
+        public string name { get => _name; set => _name =value ; }
 
-        public string Lastname { get=> _lastName; set => _lastName = value; }
+        public string lastname { get=> _lastName; set => _lastName = value; }
 
-        public string Email { get => _email; set => _email = value; }
+        public string email { get => _email; set => _email = value; }
 
-        public string Password { get => _password; set => _password = value; }
-        public int Id { get => _id; set => _id = value; }
+        public string password { get => _password; set => _password = value; }
+        public int id { get => _id; set => _id = value; }
 
 
         public Users()
@@ -37,7 +37,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"name is: {Name}, lastname is: {Lastname}, Email is: {Email}, Password is: {Password}";
+            return $"name is: {name}, lastname is: {lastname}, Email is: {email}, Password is: {password}";
         }
     }
 }

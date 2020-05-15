@@ -32,11 +32,11 @@ namespace RestServer.Model
                 .Property(e => e.model)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Car>()
-                .HasMany(e => e.Route)
-                .WithRequired(e => e.Car)
-                .HasForeignKey(e => e.fk_carId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Car>()
+            //    .HasMany(e => e.Route)
+            //    .WithRequired(e => e.Car)
+            //    .HasForeignKey(e => e.fk_carId)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Comments>()
                 .Property(e => e.comment)
@@ -82,23 +82,23 @@ namespace RestServer.Model
                 .Property(e => e.password)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Users>()
-                .HasMany(e => e.Car)
-                .WithRequired(e => e.Users)
-                .HasForeignKey(e => e.fk_userId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Users>()
+            //    .HasMany(e => e.Car)
+            //    .WithRequired(e => e.Users)
+            //    .HasForeignKey(e => e.fk_userId)
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Users>()
-                .HasMany(e => e.Comments)
-                .WithRequired(e => e.Users)
-                .HasForeignKey(e => e.fk_userId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Users>()
+            //    .HasMany(e => e.Comments)
+            //    .WithRequired(e => e.Users)
+            //    .HasForeignKey(e => e.fk_userId)
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Users>()
-                .HasMany(e => e.Passenger)
-                .WithRequired(e => e.Users)
-                .HasForeignKey(e => e.fk_userId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Users>()
+            //    .HasMany(e => e.Passenger)
+            //    .WithRequired(e => e.Users)
+            //    .HasForeignKey(e => e.fk_userId)
+            //    .WillCascadeOnDelete(false);
         }
     }
 }
