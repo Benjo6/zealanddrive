@@ -334,9 +334,8 @@ namespace ZealandDrive.Model
             //todo give error message
             await _persistenceCar.Opret(_carToBeCreated);
 
-            //_users.Add(_userToBeCreated);
-            //Frame f = (Frame)Window.Current.Content;
-            //f.Navigate(typeof(LoginPage));
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(OverviewPage));
 
         }
         private void UpdateCar()
@@ -517,4 +516,5 @@ namespace ZealandDrive.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             #endregion
         }
+    }
 }

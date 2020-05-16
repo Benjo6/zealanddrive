@@ -11,7 +11,7 @@ namespace ZealandDrive.Persistens.Bil
 {
     class DBPersistenceCar : IPersistens<Car>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/car/";
+        private string URI = @"http://zealand-drive.azurewebsites.net/api/cars/";
         public async Task<ICollection<Car>> Load()
         {
             List<Car> liste = new List<Car>();
@@ -37,12 +37,12 @@ namespace ZealandDrive.Persistens.Bil
             }
         }
 
-        public async Task<bool> Opret(Car users)
+        public async Task<bool> Opret(Car c)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                string json = JsonConvert.SerializeObject(users);
+                string json = JsonConvert.SerializeObject(c);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
                 var x = await client.PostAsync(URI, stringContent);
                 return x.IsSuccessStatusCode;
