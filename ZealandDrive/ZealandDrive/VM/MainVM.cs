@@ -25,12 +25,6 @@ namespace ZealandDrive.VM
 
         private ObservableCollection<string> _adresseList;
 
-        private IPersistens<Users> _persistence;
-        private IPersistens<Car> _persistenceCar;
-        private IPersistens<Route> _persistenceRoute;
-        
-
-
         private bool isChecked;
         private ICommand checkCommand;
 

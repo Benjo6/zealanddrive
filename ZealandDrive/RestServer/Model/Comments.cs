@@ -18,8 +18,8 @@ namespace RestServer.Model
 
         public int fk_routeId { get; set; }
 
-        public virtual Route Route { get; set; }
+        //public virtual Route Route { get; set; }
 
-        public virtual Users Users { get; set; }
+        //public virtual Users Users { get; set; }
     }
 }

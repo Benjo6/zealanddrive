@@ -14,19 +14,19 @@ namespace RestServer.Controllers
 {
     public class CarsController : ApiController
     {
-        private ZealandModel db = new ZealandModel();
+        private ZealandModel dbc = new ZealandModel();
 
         // GET: api/Cars
         public IQueryable<Car> GetCar()
         {
-            return db.Car;
+            return dbc.Car;
         }
 
         // GET: api/Cars/5
         [ResponseType(typeof(Car))]
         public IHttpActionResult GetCar(int id)
         {
-            Car car = db.Car.Find(id);
+            Car car = dbc.Car.Find(id);
             if (car == null)
             {
                 return NotFound();
@@ -49,11 +49,11 @@ namespace RestServer.Controllers
                 return BadRequest();
             }
 
-            db.Entry(car).State = EntityState.Modified;
+            dbc.Entry(car).State = EntityState.Modified;
 
             try
             {
-                db.SaveChanges();
+                dbc.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -79,8 +79,8 @@ namespace RestServer.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Car.Add(car);
-            db.SaveChanges();
+            dbc.Car.Add(car);
+            dbc.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = car.id }, car);
         }
@@ -89,14 +89,14 @@ namespace RestServer.Controllers
         [ResponseType(typeof(Car))]
         public IHttpActionResult DeleteCar(int id)
         {
-            Car car = db.Car.Find(id);
+            Car car = dbc.Car.Find(id);
             if (car == null)
             {
                 return NotFound();
             }
 
-            db.Car.Remove(car);
-            db.SaveChanges();
+            dbc.Car.Remove(car);
+            dbc.SaveChanges();
 
             return Ok(car);
         }
@@ -105,14 +105,14 @@ namespace RestServer.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                dbc.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool CarExists(int id)
         {
-            return db.Car.Count(e => e.id == id) > 0;
+            return dbc.Car.Count(e => e.id == id) > 0;
         }
     }
 }

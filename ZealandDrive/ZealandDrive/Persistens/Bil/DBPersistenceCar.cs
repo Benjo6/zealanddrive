@@ -25,35 +25,37 @@ namespace ZealandDrive.Persistens.Bil
             return liste;
         }
 
-        public async Task<bool> Update(Car users)
+        public async Task<bool> Update(Car car)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                string json = JsonConvert.SerializeObject(users);
+                string json = JsonConvert.SerializeObject(car);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var x = await client.PutAsync(URI + users.id, stringContent);
+                var x = await client.PutAsync(URI + car.id, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task<bool> Opret(Car c)
+        public async Task<bool> Opret(Car car)
         {
             using (HttpClient client = new HttpClient())
             {
 
-                string json = JsonConvert.SerializeObject(c);
+                string json = JsonConvert.SerializeObject(car);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
                 var x = await client.PostAsync(URI, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task<Car> Delete(Car users)
+
+
+        public async Task<Car> Delete(Car car)
         {
             using (HttpClient client = new HttpClient())
             {
-                var x = await client.DeleteAsync(URI + users.id);
+                var x = await client.DeleteAsync(URI + car.id);
                 if (x.IsSuccessStatusCode)
                 {
                     string str = await x.Content.ReadAsStringAsync();

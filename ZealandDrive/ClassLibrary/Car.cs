@@ -53,7 +53,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"Id = {_id}, color = {_color}, brand = {_brand}, model = {_model}, year = {_year}, seats = {_seats}, userId = {_userId}";
+            return $"color = {_color}, brand = {_brand}, model = {_model}, year = {_year}, seats = {_seats}";
         }
     }
 }
