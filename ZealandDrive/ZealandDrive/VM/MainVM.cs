@@ -2,16 +2,14 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
 using ZealandDrive.Lists;
 using ZealandDrive.Model;
-using ZealandDrive.Persistens;
 using ZealandDrive.View;
-using ZealandDrive.Persistens.Bil;
-using ZealandDrive.Persistens.Rute;
+using Windows.Web.Http;
+using System.Windows.Input;
 
 namespace ZealandDrive.VM
 {
@@ -57,24 +55,26 @@ namespace ZealandDrive.VM
         public RelayCommand GoPI => c.PI;
         public RelayCommand GoPrivat => c.Privat;
         public RelayCommand GoSprog => c.Sprog;
+        public RelayCommand GoFo => c.FOPage;
+        public RelayCommand GoFOO => c.FOOPage;
 
 
-        //public bool IsChecked
-        //{
-        //    get { return isChecked; }
-        //    set
-        //    {
-        //        isChecked = value;
-        //        OnPropertyChanged("IsChecked");
-        //    }
-        //}
+        public bool IsChecked
+        {
+            get { return isChecked; }
+            set
+            {
+                isChecked = value;
+                OnPropertyChanged("IsChecked");
+            }
+        }
 
         //public ICommand CheckCommand
         //{
         //    get
         //    {
         //        if (checkCommand == null)
-        //            checkCommand = new RelayCommand(Checkprocess(object), null);
+        //            checkCommand = new RelayCommand(Checkprocess(), null);
         //        return checkCommand;
         //    }
         //    set
@@ -140,6 +140,8 @@ namespace ZealandDrive.VM
         public RelayCommand CreateOneRute => c.CreateOneRute;
         public RelayCommand ClearCreateOneRutes => c.ClearCreateOneRutes;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
 
 
         #endregion
@@ -147,7 +149,13 @@ namespace ZealandDrive.VM
         #region Method
         //public void Checkprocess(object sender)
         //{
-        //    //this DOES react when the checkbox is checked or unchecked
+        //    if (CheckCommand.IsChecked)
+        //    {
+        //        HttpCookie cookie = new HttpCookie();
+        //        cookie.Values.Add(“username”, txtUsername.Text);
+        //        cookie.Expires = DateTime.Now.AddDays(15);
+        //        Response.Cookies.Add(cookie);
+        //    }
         //}
 
 

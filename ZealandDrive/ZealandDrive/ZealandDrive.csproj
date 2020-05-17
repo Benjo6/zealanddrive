@@ -135,6 +135,9 @@
     <Compile Include="View\AdgangskodeogSikkerhed.xaml.cs">
       <DependentUpon>AdgangskodeogSikkerhed.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ForumOverview.xaml.cs">
+      <DependentUpon>ForumOverview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GemAdresse.xaml.cs">
       <DependentUpon>GemAdresse.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\OpretBruger.xaml.cs">
       <DependentUpon>OpretBruger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OpretForum.xaml.cs">
+      <DependentUpon>OpretForum.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\OpretRutePage.xaml.cs">
       <DependentUpon>OpretRutePage.xaml</DependentUpon>
@@ -207,6 +213,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ForumOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GemAdresse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +242,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\OpretBruger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OpretForum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,6 +287,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="MySql.Data">
+      <Version>8.0.20</Version>
     </PackageReference>
     <PackageReference Include="Prism.Core">
       <Version>7.2.0.1422</Version>

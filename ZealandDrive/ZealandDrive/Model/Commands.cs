@@ -39,6 +39,8 @@ namespace ZealandDrive.Model
         private RelayCommand personligeinf;
         private RelayCommand privat;
         private RelayCommand sprog;
+        private RelayCommand fo;
+        private RelayCommand foo;
         //User
         private IPersistens<Users> _persistence;
         private RelayCommand _createOne;
@@ -74,7 +76,7 @@ namespace ZealandDrive.Model
         private ObservableCollection<Route> _ruter;
 
         #endregion
-
+        
         #region Constructor
         public Commands()
         {
@@ -95,6 +97,8 @@ namespace ZealandDrive.Model
             personligeinf = new RelayCommand(GoPersonligeInformation);
             privat = new RelayCommand(GoPrivatlivsindstillinger);
             sprog = new RelayCommand(GoSprog);
+            fo = new RelayCommand(GoFO);
+            foo = new RelayCommand(GoFOO);
 
             //User
             _loadUser = new RelayCommand(LoadUsers);
@@ -281,6 +285,8 @@ namespace ZealandDrive.Model
         public RelayCommand SRutePage => GoToSpecificRutePage;
 
         public RelayCommand SettingPage => settingPage;
+        public RelayCommand FOPage => fo;
+        public RelayCommand FOOPage => foo;
 
         #endregion
 
@@ -420,7 +426,16 @@ namespace ZealandDrive.Model
             navigationService.navigate(typeof(View.Settings));
 
         }
+        public void GoFO()
+        {
+            navigationService.navigate(typeof(View.ForumOverview));
 
+        }
+        public void GoFOO()
+        {
+            navigationService.navigate(typeof(View.OpretForum));
+
+        }
         public void GoBack()
         {
             var frame = (Frame)Window.Current.Content;
