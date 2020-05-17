@@ -55,10 +55,10 @@
 
         <TextBlock Text="Forum" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <GridView ItemsSource="{Binding Ruter}" SelectedItem="{Binding Instance.SelectedRute, Mode=TwoWay}" x:Name="OuterRef"  Grid.Row="1" Grid.Column="1" >
+        <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding Instance.SelectedForum, Mode=TwoWay}" x:Name="InnerRef"  Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding ElementName=OuterRef, Path=DataContext.NextCommand}" CommandParameter="{Binding Mode=TwoWay}" >
+                    <Button Command="{Binding ElementName=InnerRef, Path=DataContext.Next1Command}" CommandParameter="{Binding Mode=TwoWay}" >
                     
                     </Button>
                 </DataTemplate>

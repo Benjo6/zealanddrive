@@ -16,6 +16,7 @@ namespace ZealandDrive.Common
         private ObservableCollection<Route> _rutes;
         private Route _nyRute;
         private Route _selectedRute;
+        private Forum _selectedForum;
 
 
 
@@ -33,6 +34,16 @@ namespace ZealandDrive.Common
             {
                 if (Equals(value, _selectedRute)) return;
                 _selectedRute = value;
+                OnPropertyChanged();
+            }
+        }
+        public Forum SelectedForum
+        {
+            get { return _selectedForum; }
+            set
+            {
+                if (Equals(value, _selectedForum)) return;
+                _selectedForum = value;
                 OnPropertyChanged();
             }
         }

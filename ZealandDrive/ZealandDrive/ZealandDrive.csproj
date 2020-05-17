@@ -124,6 +124,7 @@
     <Compile Include="Model\Commands.cs" />
     <Compile Include="Model\Data.cs" />
     <Compile Include="Persistens\Bil\DBPersistenceCar.cs" />
+    <Compile Include="Persistens\Forum\DBPersistenceForum.cs" />
     <Compile Include="Persistens\Rute\DBPersistenceRute.cs" />
     <Compile Include="Persistens\Bruger\DBPersistence.cs" />
     <Compile Include="Persistens\FilePersistence.cs" />
@@ -177,6 +178,9 @@
     </Compile>
     <Compile Include="View\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SpecficForumPost.xaml.cs">
+      <DependentUpon>SpecficForumPost.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SpecificRoutePage.xaml.cs">
       <DependentUpon>SpecificRoutePage.xaml</DependentUpon>
@@ -266,6 +270,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SpecficForumPost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

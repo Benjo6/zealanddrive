@@ -28,6 +28,7 @@ namespace ZealandDrive.VM
 
 
         private RCO _nextCommand;
+        private RCO _next1Command;
         #endregion
 
         #region Constructor
@@ -40,6 +41,7 @@ namespace ZealandDrive.VM
             lists = new Listerne();
             c = new Commands();
             _nextCommand = new RCO(Next);
+            _next1Command = new RCO(Next1);
 
 
         }
@@ -107,6 +109,7 @@ namespace ZealandDrive.VM
             get { return _nextCommand; }
         }
 
+        public RCO Next1Command => _next1Command;
         //Users
         public ObservableCollection<Users> Users => c.Users;
         public Users SelectedUser => c.SelectedUser;
@@ -139,8 +142,16 @@ namespace ZealandDrive.VM
         public RelayCommand DeleteOneRute => c.DeleteOneRute;
         public RelayCommand CreateOneRute => c.CreateOneRute;
         public RelayCommand ClearCreateOneRutes => c.ClearCreateOneRutes;
-
-        public event PropertyChangedEventHandler PropertyChanged;
+        //Forum
+        public ObservableCollection<Forum> Forum => c.Forum;
+        public Forum SelectedForum => c.SelectedForum;
+        public Forum ForumToBeCreated => c.ForumToBeCreated;
+        public RelayCommand LoadForum => c.LoadForum;
+        public RelayCommand SaveForum => c.SaveForum;
+        public RelayCommand UpdateOneForum => c.UpdateOneForum;
+        public RelayCommand DeleteOneForum => c.DeleteOneForum;
+        public RelayCommand CreateOneForum => c.CreateOneForum;
+        public RelayCommand ClearCreateOneForum => c.ClearCreateOneForum;
 
 
 
@@ -166,6 +177,11 @@ namespace ZealandDrive.VM
             f.Navigate(typeof(SpecificRoutePage));
         }
 
+        private void Next1(object obj)
+        {
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(SpecificRoutePage));
+        }
 
 
 
