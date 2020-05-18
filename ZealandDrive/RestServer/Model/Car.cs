@@ -29,7 +29,7 @@ namespace RestServer.Model
         [StringLength(30)]
         public string model { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(7)]
         public string nummerplade { get; set; }
 
@@ -37,7 +37,8 @@ namespace RestServer.Model
 
         public int seats { get; set; }
 
-        public int fk_userId { get; set; }
+        [Column ("fk_userId")]
+        public int userId { get; set; }
 
       //  public virtual User User { get; set; }
 
