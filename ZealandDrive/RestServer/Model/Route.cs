@@ -31,7 +31,8 @@ namespace RestServer.Model
 
         public DateTime starttime { get; set; }
 
-        public int fk_carId { get; set; }
+        [Column("fk_carId")]
+        public int carId { get; set; }
 
        // public virtual Car Car { get; set; }
 

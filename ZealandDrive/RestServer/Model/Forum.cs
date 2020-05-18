@@ -19,7 +19,8 @@ namespace RestServer.Model
         [StringLength(3000)]
         public string content { get; set; }
 
-        public int fk_userId { get; set; }
+        [Column("fk_userId")]
+        public int userId { get; set; }
 
         //public virtual User User { get; set; }
     }

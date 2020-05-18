@@ -10,14 +10,14 @@ namespace RestServer.Model
     public partial class Passenger
     {
         [Key]
-        [Column(Order = 0)]
+        [Column ("fk_userId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int fk_userId { get; set; }
 
         [Key]
-        [Column(Order = 1)]
+        [Column("fk_routeId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int fk_routeId { get; set; }
+        public int routeId { get; set; }
 
         [Required]
         [StringLength(30)]
