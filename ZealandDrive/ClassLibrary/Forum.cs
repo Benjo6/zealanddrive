@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    class Forum
+    public class Forum
     {
         private int _id;
         private string _header;

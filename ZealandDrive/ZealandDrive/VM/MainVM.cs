@@ -143,10 +143,10 @@ namespace ZealandDrive.VM
         public RelayCommand CreateOneRute => c.CreateOneRute;
         public RelayCommand ClearCreateOneRutes => c.ClearCreateOneRutes;
         //Forum
-        //public ObservableCollection<Forum> Forum => c.Forum;
-        //public Forum SelectedForum => c.SelectedForum;
-        //public Forum ForumToBeCreated => c.ForumToBeCreated;
-       // public RelayCommand LoadForum => c.LoadForum;
+        public ObservableCollection<Forum> Forum => c.Forum;
+        public Forum SelectedForum => c.SelectedForum;
+        public Forum ForumToBeCreated => c.ForumToBeCreated;
+        public RelayCommand LoadForum => c.LoadForum;
         public RelayCommand SaveForum => c.SaveForum;
         public RelayCommand UpdateOneForum => c.UpdateOneForum;
         public RelayCommand DeleteOneForum => c.DeleteOneForum;

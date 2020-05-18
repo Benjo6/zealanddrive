@@ -13,10 +13,9 @@ using ZealandDrive.Common;
 using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.Bil;
 using ZealandDrive.Persistens.Rute;
-using ZealandDrive.Persistens.Forum;
+using ZealandDrive.Persistens.F;
 using ZealandDrive.View;
 using ZealandDrive.VM;
-
 
 namespace ZealandDrive.Model
 {
@@ -76,16 +75,16 @@ namespace ZealandDrive.Model
         private RelayCommand _clearCreateOneRute;
         private ObservableCollection<Route> _ruter;
         //Forum
-       // private IPersistens<Forum> _persistenceForum;
+        private IPersistens<Forum> _persistenceForum;
         private RelayCommand _createOneForum;
-      //  private Forum _selectedForum;
+        private Forum _selectedForum;
         private RelayCommand _loadForum;
-       // private Forum _forumToBeCreated;
+        private Forum _forumToBeCreated;
         private RelayCommand _saveForum;
         private RelayCommand _updateOneForum;
         private RelayCommand _deleteOneForum;
         private RelayCommand _clearCreateOneForum;
-        private ObservableCollection<Route> _forum;
+        private ObservableCollection<Forum> _forum;
 
         #endregion
 
@@ -142,20 +141,20 @@ namespace ZealandDrive.Model
             _clearCreateOneRute = new RelayCommand(ClearCreateRute);
 
             //Forum
-            //_loadForum = new RelayCommand(LoadForum);
-            //_forumToBeCreated = new Route();
-            //_forum = new ObservableCollection<Route>();
-            //_createOneForum = new RelayCommand(OpretForum1);
-            //_selectedForum = new Route();
-            //_updateOneForum = new RelayCommand(UpdateForum);
-            //_deleteOneForum = new RelayCommand(DeleteForum);
-            //_clearCreateOneForum = new RelayCommand(ClearCreateForum);
+            _loadForum = new RelayCommand(LoadForum1);
+            _forumToBeCreated = new Forum();
+            _forum = new ObservableCollection<Forum>();
+            _createOneForum = new RelayCommand(OpretForum1);
+            _selectedForum = new Forum();
+            _updateOneForum = new RelayCommand(UpdateForum);
+            _deleteOneForum = new RelayCommand(DeleteForum);
+            _clearCreateOneForum = new RelayCommand(ClearCreateForum);
 
             //Persistence
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
             _persistenceCar = new DBPersistenceCar();
-            //_persistenceRoute = new DBPersistenceRute();
-           // _persistenceForum = new DBPersistenceForum();
+            _persistenceRoute = new DBPersistenceRute();
+            _persistenceForum = new DBPersistenceForum();
 
         }
         #endregion
@@ -265,33 +264,33 @@ namespace ZealandDrive.Model
         }
 
         //Forum
-        //public ObservableCollection<Forum> Forum => _forum;
-        //public RelayCommand LoadForum => _loadForum;
+        public ObservableCollection<Forum> Forum => _forum;
+        public RelayCommand LoadForum => _loadForum;
         public RelayCommand SaveForum => _saveForum;
         public RelayCommand UpdateOneForum => _updateOneForum;
         public RelayCommand DeleteOneForum => _deleteOneForum;
         public RelayCommand CreateOneForum => _createOneForum;
         public RelayCommand ClearCreateOneForum => _clearCreateOneForum;
-        //public Forum SelectedForum
-        //{
-        //    get => _selectedRute;
-        //    set
-        //    {
-        //        if (Equals(value, _selectedRute)) return;
-        //        _selectedRute = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-        //public Forum ForumToBeCreated
-        //{
-        //    get => _ruteToBeCreated;
-        //    set
-        //    {
-        //        if (Equals(value, _ruteToBeCreated)) return;
-        //        _ruteToBeCreated = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public Forum SelectedForum
+        {
+            get => _selectedForum;
+            set
+            {
+                if (Equals(value, _selectedForum)) return;
+                _selectedForum = value;
+                OnPropertyChanged();
+            }
+        }
+        public Forum ForumToBeCreated
+        {
+            get => _forumToBeCreated;
+            set
+            {
+                if (Equals(value, _forumToBeCreated)) return;
+                _forumToBeCreated = value;
+                OnPropertyChanged();
+            }
+        }
         //Sideskift
         public RelayCommand GemAdresse => gemadresse;
         public RelayCommand GemteAdresse => gemteadresser;
@@ -345,46 +344,46 @@ namespace ZealandDrive.Model
 
         #region Method
         //Forum Commands
-        //private async void OpretForum1()
-        //{
+        private async void OpretForum1()
+        {
 
-        //    //todo give error message
-        //    await _persistenceRoute.Opret(_forumToBeCreated);
+            //todo give error message
+            await _persistenceForum.Opret(_forumToBeCreated);
 
-        //    //_users.Add(_userToBeCreated);
-        //    Frame f = (Frame)Window.Current.Content;
-        //    f.Navigate(typeof(View.ForumOverview));
-        //}
-        //private async void LoadForum()
-        //{
-        //    _ruter.Clear();
-        //    var liste = await _persistenceForum.Load();
-        //    foreach (Forum r in liste)
-        //    {
-        //        _ruter.Add(r);
-        //    }
-        //}
-        //private void UpdateForum()
-        //{
-        //    if (_selectedUser != null)
-        //    {
-        //        //todo give error message
-        //        _persistenceForum.Update(_selectedForum);
-        //    }
-        //}
-        //private void DeleteForum()
-        //{
-        //    if (_selectedRute != null)
-        //    {
-        //        //todo give error message
-        //        _persistenceForum.Delete(_selectedForum);
-        //        _forum.Remove(_selectedForum);
-        //    }
-        //}
-        //private void ClearCreateForum()
-        //{
-        //    ForumToBeCreated = new Forum();
-        //}
+            //_users.Add(_userToBeCreated);
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(View.ForumOverview));
+        }
+        private async void LoadForum1()
+        {
+            _forum.Clear();
+            var liste = await _persistenceForum.Load();
+            foreach (Forum r in liste)
+            {
+                _forum.Add(r);
+            }
+        }
+        private void UpdateForum()
+        {
+            if (_selectedUser != null)
+            {
+                //todo give error message
+                _persistenceForum.Update(_selectedForum);
+            }
+        }
+        private void DeleteForum()
+        {
+            if (_selectedRute != null)
+            {
+                //todo give error message
+                _persistenceForum.Delete(_selectedForum);
+                _forum.Remove(_selectedForum);
+            }
+        }
+        private void ClearCreateForum()
+        {
+            ForumToBeCreated = new Forum();
+        }
 
 
         //Rute Commands
