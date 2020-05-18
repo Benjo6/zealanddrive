@@ -17,7 +17,7 @@ namespace RestServer.Controllers
         private ZealandModel db = new ZealandModel();
 
         // GET: api/Cars
-        public IQueryable<Car> GetCar()
+        public IQueryable<Car> GetCars()
         {
             return db.Cars;
         }

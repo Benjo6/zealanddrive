@@ -8,7 +8,7 @@ namespace RestServer.Model
     public partial class ZealandModel : DbContext
     {
         public ZealandModel()
-            : base("name=ZealandModel")
+            : base("name=ZealandModel3")
         {
         }
 

@@ -9,22 +9,19 @@ namespace RestServer.Model
     [Table("Passenger")]
     public partial class Passenger
     {
-        [Key]
-        [Column ("fk_userId")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
+
         public int fk_userId { get; set; }
 
-        [Key]
-        [Column("fk_routeId")]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int routeId { get; set; }
+        public int fk_routeId { get; set; }
 
         [Required]
         [StringLength(30)]
         public string status { get; set; }
 
-     //   public virtual Route Route { get; set; }
+        //public virtual Route Route { get; set; }
 
-      //  public virtual User User { get; set; }
+        //public virtual User User { get; set; }
     }
 }

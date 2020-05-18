@@ -12,17 +12,17 @@ using RestServer.Model;
 
 namespace RestServer.Controllers
 {
-    public class ForumController : ApiController
+    public class ForaController : ApiController
     {
         private ZealandModel db = new ZealandModel();
 
-        // GET: api/Forum
+        // GET: api/Fora
         public IQueryable<Forum> GetFora()
         {
             return db.Fora;
         }
 
-        // GET: api/Forum/5
+        // GET: api/Fora/5
         [ResponseType(typeof(Forum))]
         public IHttpActionResult GetForum(int id)
         {
@@ -35,7 +35,7 @@ namespace RestServer.Controllers
             return Ok(forum);
         }
 
-        // PUT: api/Forum/5
+        // PUT: api/Fora/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutForum(int id, Forum forum)
         {
@@ -70,7 +70,7 @@ namespace RestServer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Forum
+        // POST: api/Fora
         [ResponseType(typeof(Forum))]
         public IHttpActionResult PostForum(Forum forum)
         {
@@ -85,7 +85,7 @@ namespace RestServer.Controllers
             return CreatedAtRoute("DefaultApi", new { id = forum.id }, forum);
         }
 
-        // DELETE: api/Forum/5
+        // DELETE: api/Fora/5
         [ResponseType(typeof(Forum))]
         public IHttpActionResult DeleteForum(int id)
         {

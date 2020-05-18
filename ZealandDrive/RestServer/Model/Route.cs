@@ -31,10 +31,9 @@ namespace RestServer.Model
 
         public DateTime starttime { get; set; }
 
-        [Column("fk_carId")]
-        public int carId { get; set; }
+        public int fk_carId { get; set; }
 
-       // public virtual Car Car { get; set; }
+        //public virtual Car Car { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         //public virtual ICollection<Comment> Comments { get; set; }

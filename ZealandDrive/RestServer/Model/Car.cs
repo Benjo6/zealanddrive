@@ -29,7 +29,6 @@ namespace RestServer.Model
         [StringLength(30)]
         public string model { get; set; }
 
-        //[Required]
         [StringLength(7)]
         public string nummerplade { get; set; }
 
@@ -37,12 +36,11 @@ namespace RestServer.Model
 
         public int seats { get; set; }
 
-        [Column ("fk_userId")]
-        public int userId { get; set; }
+        public int fk_userId { get; set; }
 
-      //  public virtual User User { get; set; }
+        //public virtual User User { get; set; }
 
-      //  [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-      //  public virtual ICollection<Route> Routes { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Route> Routes { get; set; }
     }
 }

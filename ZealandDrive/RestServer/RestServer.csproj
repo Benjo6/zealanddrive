@@ -98,7 +98,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
-    <Compile Include="Controllers\ForumController.cs" />
+    <Compile Include="Controllers\ForaController.cs" />
     <Compile Include="Controllers\PassengersController.cs" />
     <Compile Include="Controllers\RoutesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
