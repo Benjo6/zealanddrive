@@ -17,39 +17,39 @@ namespace RestServer.Controllers
         private ZealandModel db = new ZealandModel();
 
         // GET: api/Users
-        public IQueryable<Users> GetUsers()
+        public IQueryable<User> GetUsers()
         {
             return db.Users;
         }
 
         // GET: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult GetUsers(int id)
+        [ResponseType(typeof(User))]
+        public IHttpActionResult GetUser(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return Ok(users);
+            return Ok(user);
         }
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsers(int id, Users users)
+        public IHttpActionResult PutUser(int id, User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != users.id)
+            if (id != user.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(users).State = EntityState.Modified;
+            db.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace RestServer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsersExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -71,34 +71,34 @@ namespace RestServer.Controllers
         }
 
         // POST: api/Users
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult PostUsers(Users users)
+        [ResponseType(typeof(User))]
+        public IHttpActionResult PostUser(User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(users);
+            db.Users.Add(user);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = users.id }, users);
+            return CreatedAtRoute("DefaultApi", new { id = user.id }, user);
         }
 
         // DELETE: api/Users/5
-        [ResponseType(typeof(Users))]
-        public IHttpActionResult DeleteUsers(int id)
+        [ResponseType(typeof(User))]
+        public IHttpActionResult DeleteUser(int id)
         {
-            Users users = db.Users.Find(id);
-            if (users == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            db.Users.Remove(users);
+            db.Users.Remove(user);
             db.SaveChanges();
 
-            return Ok(users);
+            return Ok(user);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,7 +110,7 @@ namespace RestServer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool UsersExists(int id)
+        private bool UserExists(int id)
         {
             return db.Users.Count(e => e.id == id) > 0;
         }

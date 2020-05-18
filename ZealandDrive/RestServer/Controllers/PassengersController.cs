@@ -17,16 +17,16 @@ namespace RestServer.Controllers
         private ZealandModel db = new ZealandModel();
 
         // GET: api/Passengers
-        public IQueryable<Passenger> GetPassenger()
+        public IQueryable<Passenger> GetPassengers()
         {
-            return db.Passenger;
+            return db.Passengers;
         }
 
         // GET: api/Passengers/5
         [ResponseType(typeof(Passenger))]
         public IHttpActionResult GetPassenger(int id)
         {
-            Passenger passenger = db.Passenger.Find(id);
+            Passenger passenger = db.Passengers.Find(id);
             if (passenger == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace RestServer.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Passenger.Add(passenger);
+            db.Passengers.Add(passenger);
 
             try
             {
@@ -104,13 +104,13 @@ namespace RestServer.Controllers
         [ResponseType(typeof(Passenger))]
         public IHttpActionResult DeletePassenger(int id)
         {
-            Passenger passenger = db.Passenger.Find(id);
+            Passenger passenger = db.Passengers.Find(id);
             if (passenger == null)
             {
                 return NotFound();
             }
 
-            db.Passenger.Remove(passenger);
+            db.Passengers.Remove(passenger);
             db.SaveChanges();
 
             return Ok(passenger);
@@ -127,7 +127,7 @@ namespace RestServer.Controllers
 
         private bool PassengerExists(int id)
         {
-            return db.Passenger.Count(e => e.fk_userId == id) > 0;
+            return db.Passengers.Count(e => e.fk_userId == id) > 0;
         }
     }
 }

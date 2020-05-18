@@ -23,8 +23,8 @@ namespace RestServer.Model
         [StringLength(30)]
         public string status { get; set; }
 
-        //public virtual Route Route { get; set; }
+     //   public virtual Route Route { get; set; }
 
-        //public virtual Users Users { get; set; }
+      //  public virtual User User { get; set; }
     }
 }

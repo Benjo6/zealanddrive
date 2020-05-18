@@ -98,6 +98,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\PassengersController.cs" />
     <Compile Include="Controllers\RoutesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -105,10 +106,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\Car.cs" />
-    <Compile Include="Model\Comments.cs" />
+    <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\Forum.cs" />
     <Compile Include="Model\Passenger.cs" />
     <Compile Include="Model\Route.cs" />
-    <Compile Include="Model\Users.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Model\ZealandModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
