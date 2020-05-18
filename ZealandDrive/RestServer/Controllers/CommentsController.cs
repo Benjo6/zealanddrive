@@ -17,39 +17,39 @@ namespace RestServer.Controllers
         private ZealandModel db = new ZealandModel();
 
         // GET: api/Comments
-        public IQueryable<Comments> GetComments()
+        public IQueryable<Comment> GetComments()
         {
             return db.Comments;
         }
 
         // GET: api/Comments/5
-        [ResponseType(typeof(Comments))]
-        public IHttpActionResult GetComments(int id)
+        [ResponseType(typeof(Comment))]
+        public IHttpActionResult GetComment(int id)
         {
-            Comments comments = db.Comments.Find(id);
-            if (comments == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return NotFound();
             }
 
-            return Ok(comments);
+            return Ok(comment);
         }
 
         // PUT: api/Comments/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutComments(int id, Comments comments)
+        public IHttpActionResult PutComment(int id, Comment comment)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != comments.id)
+            if (id != comment.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(comments).State = EntityState.Modified;
+            db.Entry(comment).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace RestServer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CommentsExists(id))
+                if (!CommentExists(id))
                 {
                     return NotFound();
                 }
@@ -71,34 +71,34 @@ namespace RestServer.Controllers
         }
 
         // POST: api/Comments
-        [ResponseType(typeof(Comments))]
-        public IHttpActionResult PostComments(Comments comments)
+        [ResponseType(typeof(Comment))]
+        public IHttpActionResult PostComment(Comment comment)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Comments.Add(comments);
+            db.Comments.Add(comment);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = comments.id }, comments);
+            return CreatedAtRoute("DefaultApi", new { id = comment.id }, comment);
         }
 
         // DELETE: api/Comments/5
-        [ResponseType(typeof(Comments))]
-        public IHttpActionResult DeleteComments(int id)
+        [ResponseType(typeof(Comment))]
+        public IHttpActionResult DeleteComment(int id)
         {
-            Comments comments = db.Comments.Find(id);
-            if (comments == null)
+            Comment comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return NotFound();
             }
 
-            db.Comments.Remove(comments);
+            db.Comments.Remove(comment);
             db.SaveChanges();
 
-            return Ok(comments);
+            return Ok(comment);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,7 +110,7 @@ namespace RestServer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool CommentsExists(int id)
+        private bool CommentExists(int id)
         {
             return db.Comments.Count(e => e.id == id) > 0;
         }

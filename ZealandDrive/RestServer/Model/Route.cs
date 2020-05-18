@@ -12,8 +12,8 @@ namespace RestServer.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Route()
         {
-            //Comments = new HashSet<Comments>();
-            //Passenger = new HashSet<Passenger>();
+            //Comments = new HashSet<Comment>();
+            //Passengers = new HashSet<Passenger>();
         }
 
         public int id { get; set; }
@@ -33,12 +33,12 @@ namespace RestServer.Model
 
         public int fk_carId { get; set; }
 
-        //public virtual Car Car { get; set; }
+       // public virtual Car Car { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Comments> Comments { get; set; }
+        //public virtual ICollection<Comment> Comments { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Passenger> Passenger { get; set; }
+        //public virtual ICollection<Passenger> Passengers { get; set; }
     }
 }

@@ -6,14 +6,15 @@ namespace RestServer.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Users
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public User()
         {
-            //Car = new HashSet<Car>();
-            //Comments = new HashSet<Comments>();
-            //Passenger = new HashSet<Passenger>();
+            //Cars = new HashSet<Car>();
+            //Comments = new HashSet<Comment>();
+            //Fora = new HashSet<Forum>();
+            //Passengers = new HashSet<Passenger>();
         }
 
         public int id { get; set; }
@@ -34,18 +35,24 @@ namespace RestServer.Model
         [StringLength(30)]
         public string password { get; set; }
 
-        [StringLength(30)]
+        [Required]
+        [StringLength(50)]
         public string tmpPassword { get; set; }
-        [StringLength(30)]
+
+        [Required]
+        [StringLength(50)]
         public string token { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Car> Car { get; set; }
+        //public virtual ICollection<Car> Cars { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Comments> Comments { get; set; }
+        //public virtual ICollection<Comment> Comments { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        //public virtual ICollection<Passenger> Passenger { get; set; }
+        //public virtual ICollection<Forum> Fora { get; set; }
+
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Passenger> Passengers { get; set; }
     }
 }

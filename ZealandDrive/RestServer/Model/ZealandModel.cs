@@ -8,15 +8,16 @@ namespace RestServer.Model
     public partial class ZealandModel : DbContext
     {
         public ZealandModel()
-            : base("name=ZealandModel1")
+            : base("name=ZealandModel")
         {
         }
 
-        public virtual DbSet<Car> Car { get; set; }
-        public virtual DbSet<Comments> Comments { get; set; }
-        public virtual DbSet<Passenger> Passenger { get; set; }
-        public virtual DbSet<Route> Route { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Car> Cars { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Forum> Fora { get; set; }
+        public virtual DbSet<Passenger> Passengers { get; set; }
+        public virtual DbSet<Route> Routes { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,14 +33,26 @@ namespace RestServer.Model
                 .Property(e => e.model)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Car>()
+                .Property(e => e.nummerplade)
+                .IsUnicode(false);
+
             //modelBuilder.Entity<Car>()
-            //    .HasMany(e => e.Route)
+            //    .HasMany(e => e.Routes)
             //    .WithRequired(e => e.Car)
             //    .HasForeignKey(e => e.fk_carId)
             //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Comments>()
-                .Property(e => e.comment)
+            modelBuilder.Entity<Comment>()
+                .Property(e => e.comment1)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Forum>()
+                .Property(e => e.header)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Forum>()
+                .Property(e => e.content)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Passenger>()
@@ -61,42 +74,56 @@ namespace RestServer.Model
             //    .WillCascadeOnDelete(false);
 
             //modelBuilder.Entity<Route>()
-            //    .HasMany(e => e.Passenger)
+            //    .HasMany(e => e.Passengers)
             //    .WithRequired(e => e.Route)
             //    .HasForeignKey(e => e.fk_routeId)
             //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<User>()
                 .Property(e => e.email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<User>()
                 .Property(e => e.name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<User>()
                 .Property(e => e.lastname)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<User>()
                 .Property(e => e.password)
                 .IsUnicode(false);
 
-            //modelBuilder.Entity<Users>()
-            //    .HasMany(e => e.Car)
-            //    .WithRequired(e => e.Users)
+            modelBuilder.Entity<User>()
+                .Property(e => e.tmpPassword)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<User>()
+                .Property(e => e.token)
+                .IsUnicode(false);
+
+            //modelBuilder.Entity<User>()
+            //    .HasMany(e => e.Cars)
+            //    .WithRequired(e => e.User)
             //    .HasForeignKey(e => e.fk_userId)
             //    .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<Users>()
+            //modelBuilder.Entity<User>()
             //    .HasMany(e => e.Comments)
-            //    .WithRequired(e => e.Users)
+            //    .WithRequired(e => e.User)
             //    .HasForeignKey(e => e.fk_userId)
             //    .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<Users>()
-            //    .HasMany(e => e.Passenger)
-            //    .WithRequired(e => e.Users)
+            //modelBuilder.Entity<User>()
+            //    .HasMany(e => e.Fora)
+            //    .WithRequired(e => e.User)
+            //    .HasForeignKey(e => e.fk_userId)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<User>()
+            //    .HasMany(e => e.Passengers)
+            //    .WithRequired(e => e.User)
             //    .HasForeignKey(e => e.fk_userId)
             //    .WillCascadeOnDelete(false);
         }

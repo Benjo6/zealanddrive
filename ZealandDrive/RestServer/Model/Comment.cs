@@ -6,20 +6,20 @@ namespace RestServer.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Comments
+    public partial class Comment
     {
         public int id { get; set; }
 
-        [Column(TypeName = "text")]
+        [Column("comment", TypeName = "text")]
         [Required]
-        public string comment { get; set; }
+        public string comment1 { get; set; }
 
         public int fk_userId { get; set; }
 
         public int fk_routeId { get; set; }
 
-        //public virtual Route Route { get; set; }
+       // public virtual Route Route { get; set; }
 
-        //public virtual Users Users { get; set; }
+       // public virtual User User { get; set; }
     }
 }

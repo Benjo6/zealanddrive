@@ -12,44 +12,44 @@ using RestServer.Model;
 
 namespace RestServer.Controllers
 {
-    public class CarsController : ApiController
+    public class ForumController : ApiController
     {
         private ZealandModel db = new ZealandModel();
 
-        // GET: api/Cars
-        public IQueryable<Car> GetCar()
+        // GET: api/Forum
+        public IQueryable<Forum> GetFora()
         {
-            return db.Cars;
+            return db.Fora;
         }
 
-        // GET: api/Cars/5
-        [ResponseType(typeof(Car))]
-        public IHttpActionResult GetCar(int id)
+        // GET: api/Forum/5
+        [ResponseType(typeof(Forum))]
+        public IHttpActionResult GetForum(int id)
         {
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            Forum forum = db.Fora.Find(id);
+            if (forum == null)
             {
                 return NotFound();
             }
 
-            return Ok(car);
+            return Ok(forum);
         }
 
-        // PUT: api/Cars/5
+        // PUT: api/Forum/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCar(int id, Car car)
+        public IHttpActionResult PutForum(int id, Forum forum)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != car.id)
+            if (id != forum.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(car).State = EntityState.Modified;
+            db.Entry(forum).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace RestServer.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CarExists(id))
+                if (!ForumExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace RestServer.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Cars
-        [ResponseType(typeof(Car))]
-        public IHttpActionResult PostCar(Car car)
+        // POST: api/Forum
+        [ResponseType(typeof(Forum))]
+        public IHttpActionResult PostForum(Forum forum)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Cars.Add(car);
+            db.Fora.Add(forum);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = car.id }, car);
+            return CreatedAtRoute("DefaultApi", new { id = forum.id }, forum);
         }
 
-        // DELETE: api/Cars/5
-        [ResponseType(typeof(Car))]
-        public IHttpActionResult DeleteCar(int id)
+        // DELETE: api/Forum/5
+        [ResponseType(typeof(Forum))]
+        public IHttpActionResult DeleteForum(int id)
         {
-            Car car = db.Cars.Find(id);
-            if (car == null)
+            Forum forum = db.Fora.Find(id);
+            if (forum == null)
             {
                 return NotFound();
             }
 
-            db.Cars.Remove(car);
+            db.Fora.Remove(forum);
             db.SaveChanges();
 
-            return Ok(car);
+            return Ok(forum);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace RestServer.Controllers
             base.Dispose(disposing);
         }
 
-        private bool CarExists(int id)
+        private bool ForumExists(int id)
         {
-            return db.Cars.Count(e => e.id == id) > 0;
+            return db.Fora.Count(e => e.id == id) > 0;
         }
     }
 }

@@ -17,16 +17,16 @@ namespace RestServer.Controllers
         private ZealandModel db = new ZealandModel();
 
         // GET: api/Routes
-        public IQueryable<Route> GetRoute()
+        public IQueryable<Route> GetRoutes()
         {
-            return db.Route;
+            return db.Routes;
         }
 
         // GET: api/Routes/5
         [ResponseType(typeof(Route))]
         public IHttpActionResult GetRoute(int id)
         {
-            Route route = db.Route.Find(id);
+            Route route = db.Routes.Find(id);
             if (route == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace RestServer.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Route.Add(route);
+            db.Routes.Add(route);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = route.id }, route);
@@ -89,13 +89,13 @@ namespace RestServer.Controllers
         [ResponseType(typeof(Route))]
         public IHttpActionResult DeleteRoute(int id)
         {
-            Route route = db.Route.Find(id);
+            Route route = db.Routes.Find(id);
             if (route == null)
             {
                 return NotFound();
             }
 
-            db.Route.Remove(route);
+            db.Routes.Remove(route);
             db.SaveChanges();
 
             return Ok(route);
@@ -112,7 +112,7 @@ namespace RestServer.Controllers
 
         private bool RouteExists(int id)
         {
-            return db.Route.Count(e => e.id == id) > 0;
+            return db.Routes.Count(e => e.id == id) > 0;
         }
     }
 }
