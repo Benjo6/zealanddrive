@@ -14,9 +14,11 @@ namespace RestServer.Model
         [Required]
         public string comment1 { get; set; }
 
-        public int fk_userId { get; set; }
+        [Column("fk_userId")]
+        public int userId { get; set; }
 
-        public int fk_routeId { get; set; }
+        [Column("fk_routeId")]
+        public int routeId { get; set; }
 
         //public virtual Route Route { get; set; }
 

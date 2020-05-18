@@ -44,7 +44,7 @@ namespace RestServer.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != passenger.fk_userId)
+            if (id != passenger.id)
             {
                 return BadRequest();
             }
@@ -87,7 +87,7 @@ namespace RestServer.Controllers
             }
             catch (DbUpdateException)
             {
-                if (PassengerExists(passenger.fk_userId))
+                if (PassengerExists(passenger.id))
                 {
                     return Conflict();
                 }
@@ -97,7 +97,7 @@ namespace RestServer.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = passenger.fk_userId }, passenger);
+            return CreatedAtRoute("DefaultApi", new { id = passenger.id }, passenger);
         }
 
         // DELETE: api/Passengers/5
@@ -127,7 +127,7 @@ namespace RestServer.Controllers
 
         private bool PassengerExists(int id)
         {
-            return db.Passengers.Count(e => e.fk_userId == id) > 0;
+            return db.Passengers.Count(e => e.id == id) > 0;
         }
     }
 }

@@ -12,9 +12,11 @@ namespace RestServer.Model
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
 
-        public int fk_userId { get; set; }
+        [Column("fk_userId")]
+        public int userId { get; set; }
 
-        public int fk_routeId { get; set; }
+        [Column("fk_routeId")]
+        public int routeId { get; set; }
 
         [Required]
         [StringLength(30)]

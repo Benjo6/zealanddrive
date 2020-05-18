@@ -36,7 +36,8 @@ namespace RestServer.Model
 
         public int seats { get; set; }
 
-        public int fk_userId { get; set; }
+        [Column ("fk_userId")]
+        public int userId { get; set; }
 
         //public virtual User User { get; set; }
 
