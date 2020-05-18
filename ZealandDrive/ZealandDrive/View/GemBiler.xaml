@@ -18,10 +18,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="15"/>
-            <RowDefinition Height="108"/>
+            <RowDefinition Height="160"/>
             <RowDefinition Height="55"/>
             <RowDefinition Height="55"/>
-            <RowDefinition Height="15"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
@@ -40,9 +40,10 @@
 
         <TextBlock Text="Biler" FontSize="36" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  VerticalAlignment="Stretch">
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  VerticalAlignment="Stretch" >
             <TextBox Header="Antal sæder til passagerer" Text="{Binding CarToBeCreated.seats, Mode=TwoWay}" Width="200" HorizontalAlignment="Center" Grid.ColumnSpan="3" Padding="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
-            <TextBox Header="Nummerplade/userID tidligt" Text="{Binding CarToBeCreated.userId, Mode=TwoWay}"  Width="200" FontSize="12" Padding="0,0,0,0"/>
+            <TextBox Header="UserId tidligt" Text="{Binding CarToBeCreated.userId, Mode=TwoWay}"  Width="200" FontSize="12" Padding="0,0,0,0"/>
+            <TextBox Header="Nummerplade" Text="{Binding CarToBeCreated.nummerplade, Mode=TwoWay}" Width="200" FontSize="12" Padding="0,0,0,0" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="Auto">
             <TextBox Header="Årgang" Text="{Binding CarToBeCreated.year, Mode=TwoWay}" Padding="0,0,0,0" FontSize="11" HorizontalAlignment="Center" VerticalAlignment="Center" Width="93"/>
@@ -53,7 +54,7 @@
             <TextBox Header="Model" Text="{Binding CarToBeCreated.model, Mode=TwoWay}" Margin="14,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11" Width="93"/>
         </StackPanel>
 
-            <Button Command="{Binding CreateOneCar, Mode=TwoWay}" Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="7" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
+            <Button Command="{Binding CreateOneCar, Mode=TwoWay}" Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="5" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,0,0,0" Padding="0,0,0,0" FontSize="14"/>
 
         
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="7">
