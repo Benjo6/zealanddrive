@@ -6,29 +6,29 @@ namespace ClassLibrary
 {
     class Forum
     {
-        private int id;
-        private string header;
-        private string besked;
+        private int _id;
+        private string _header;
+        private string _content;
         // maybe private int userid;
 
         public Forum() : this("","",0)
         {
         }
 
-        public Forum(string Header, string Besked, int Id)
+        public Forum(string header, string content, int id)
         {
-            header = Header;
-            besked = Besked;
-            id = Id;
+            _header = header;
+            _content = content;
+            _id = id;
         }
 
-        public string Header { get => header; set => header = value; }
-        public string Besked { get => besked; set => besked = value; }
-        public int ID { get => id; set => id = value; }
+        public string Header { get => _header; set => _header = value; }
+        public string Besked { get => _content; set => _content = value; }
+        public int ID { get => _id; set => _id = value; }
 
         public override string ToString()
         {
-            return $"Header = {header}, Besked = {besked}, Id = {id}";
+            return $"header = {_header}, content = {_content}, id = {_id}";
         }
     }
 }

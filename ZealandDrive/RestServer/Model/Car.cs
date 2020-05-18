@@ -29,6 +29,9 @@ namespace RestServer.Model
         [StringLength(30)]
         public string model { get; set; }
 
+        [StringLength(7)]
+        public string nummerplade { get; set; }
+
         public int year { get; set; }
 
         public int seats { get; set; }

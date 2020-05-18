@@ -12,9 +12,11 @@ namespace ClassLibrary
         private string _color;
         private string _brand;
         private string _model;
+        private string _nummerplade;
         private int _year;
         private int _seats;
         private int _userId;
+
 
         public int userId
         {
@@ -32,6 +34,7 @@ namespace ClassLibrary
         public string color { get => _color; set => _color = value; }
         public string brand { get => _brand; set => _brand = value; }
         public string model { get => _model; set => _model = value; }
+        public string nummerplade { get => _nummerplade; set => _nummerplade = value; }
         public int year { get => _year; set => _year = value; }
         public int seats { get => _seats; set => _seats = value; }
 
@@ -40,12 +43,13 @@ namespace ClassLibrary
 
         }
 
-        public Car(int id, string color, string brand, string model, int year, int seats, int userId)
+        public Car(int id, string color, string brand, string model, string nummerplade, int year, int seats, int userId)
         {
             _id = id;
             _color = color;
             _brand = brand;
             _model = model;
+            _nummerplade = nummerplade;
             _year = year;
             _seats = seats;
             _userId = userId;
@@ -53,7 +57,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"color = {_color}, brand = {_brand}, model = {_model}, year = {_year}, seats = {_seats}";
+            return $"color = {_color}, brand = {_brand}, model = {_model}, nummerplade = {_nummerplade}, year = {_year}, seats = {_seats}";
         }
     }
 }
