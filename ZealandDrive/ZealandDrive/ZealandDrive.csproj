@@ -127,7 +127,6 @@
     </Compile>
     <Compile Include="Common\RCO.cs" />
     <Compile Include="Lists\Listerne.cs" />
-    <Compile Include="Model\CarCommand.cs" />
     <Compile Include="Model\Language.cs" />
     <Compile Include="Model\PageCommand.cs" />
     <Compile Include="Persistens\DBPersistenceCar.cs" />
@@ -199,6 +198,7 @@
     <Compile Include="VM\ForumVM.cs" />
     <Compile Include="VM\MainVM.cs" />
     <Compile Include="VM\RouteVM.cs" />
+    <Compile Include="VM\SprogVM.cs" />
     <Compile Include="VM\UserVM.cs" />
   </ItemGroup>
   <ItemGroup>

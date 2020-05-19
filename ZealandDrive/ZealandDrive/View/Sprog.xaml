@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="#F6F6F6">
     <Page.DataContext>
-        <local:MainVM/>
+        <local:SprogVM/>
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -29,14 +29,8 @@
 
         <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="300">
             <TextBlock Text="Vælg Sprog" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="35,0,0,0" />
-            <TextBlock  Text="{Binding ElementName=CBO, Path=Language}" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0" FontSize="12" />
-            <ComboBox  Background="White" Width="200" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Center" PlaceholderText="Vælg" Height="50" x:Name="CBO" ItemsSource="{Binding Lang}" SelectedItem="{Binding Language.LanguageCode, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding DisplayName}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+            <TextBlock Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0" FontSize="12" />
+            
             <Button Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="7" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
         </StackPanel>
 

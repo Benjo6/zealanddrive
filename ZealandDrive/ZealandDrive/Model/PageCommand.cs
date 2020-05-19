@@ -38,7 +38,7 @@ namespace ZealandDrive.Model
         public PageCommand()
         {
             //Sideskift
-            _userTest = new RelayCommand(GoToUserTest);
+            //_userTest = new RelayCommand(GoToUserTest);
             navigationService = new NavigationService();
             loginPage = new RelayCommand(GotoLogin);
             oRutePage = new RelayCommand(GotoOpretRute);
@@ -110,17 +110,17 @@ namespace ZealandDrive.Model
         public RelayCommand SettingPage => settingPage;
         public RelayCommand FOPage => fo;
         public RelayCommand FOOPage => foo;
-        public RelayCommand UserTest=> _userTest;
+        //public RelayCommand UserTest=> _userTest;
         #endregion
 
 
         #region Method
         
         //Page Switch
-        public void GoToUserTest()
-        {
-            navigationService.navigate(typeof(View.UserTest));
-        }
+        //public void GoToUserTest()
+        //{
+        //    navigationService.navigate(typeof(View.UserTest));
+        //}
         public void GoSetting()
         {
             navigationService.navigate(typeof(View.Settings));
