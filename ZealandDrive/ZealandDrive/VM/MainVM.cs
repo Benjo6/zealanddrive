@@ -10,6 +10,7 @@ using ZealandDrive.Model;
 using ZealandDrive.View;
 using Windows.Web.Http;
 using System.Windows.Input;
+using System.Collections.Generic;
 
 namespace ZealandDrive.VM
 {
@@ -30,9 +31,9 @@ namespace ZealandDrive.VM
         private bool isChecked;
         private ICommand checkCommand;
 
-
         private RCO _nextCommand;
         private RCO _next1Command;
+
         #endregion
 
         #region Constructor
@@ -40,7 +41,6 @@ namespace ZealandDrive.VM
         {
 
             _adresseList = new ObservableCollection<string>();
-
             x = Singleton.Instance;
             lists = new Listerne();
             c = new CarCommand();
@@ -50,7 +50,7 @@ namespace ZealandDrive.VM
             u = new UserCommand();
             _nextCommand = new RCO(Next);
             _next1Command = new RCO(Next1);
-
+          
 
         }
 
@@ -163,9 +163,11 @@ namespace ZealandDrive.VM
 
 
 
+
         #endregion
 
         #region Method
+
         //public void Checkprocess(object sender)
         //{
         //    if (CheckCommand.IsChecked)

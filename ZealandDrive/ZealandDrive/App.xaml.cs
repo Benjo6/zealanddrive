@@ -28,6 +28,7 @@ namespace ZealandDrive
         /// </summary>
         public App()
         {
+           
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }

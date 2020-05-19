@@ -23,15 +23,20 @@
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Personlige Information" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1"/>
+        <TextBlock x:Uid="Btn" Text="Sprog" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1"/>
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3"  />
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
 
         <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="300">
             <TextBlock Text="Vælg Sprog" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="35,0,0,0" />
-            <TextBlock Text="Currently Selected" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0" FontSize="12" />
-            <Button Background="White" Width="200" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Center" Content="Dansk" Height="50"/>
-            <Button Background="White" Width="200" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Center" Content="Engelsk" Height="50"/>
+            <TextBlock  Text="{Binding ElementName=CBO, Path=Language}" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0" FontSize="12" />
+            <ComboBox  Background="White" Width="200" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" HorizontalAlignment="Center" PlaceholderText="Vælg" Height="50" x:Name="CBO" ItemsSource="{Binding Lang}" SelectedItem="{Binding Language.LanguageCode, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
             <Button Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="7" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
         </StackPanel>
 
