@@ -6,12 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:ZealandDrive.VM"
-
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
     <Page.DataContext>
         <vm:UserVM/>
     </Page.DataContext>
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -21,18 +24,20 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button Content="VIRK" Command="{Binding LoadUser, Mode=TwoWay }" />
-            <ListBox ItemsSource="{Binding LoadUser, Mode=TwoWay}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding }" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            <TextBlock Text="test" />
-        </StackPanel>
+
+        <ListView ItemsSource="{Binding Users, Mode=TwoWay}" SelectedItem="{Binding SelectedUser}" Grid.Row="1" Grid.Column="1" SelectionChanged="ListView_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding email}" />
+                        <TextBlock Text="{Binding name}"/>
+                        <TextBlock Text="{Binding lastname}"/>
+                        <TextBlock Text="{Binding password}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
+
+

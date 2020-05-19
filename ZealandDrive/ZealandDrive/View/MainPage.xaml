@@ -10,7 +10,7 @@
         <ImageBrush ImageSource="Assets\Not_logget_in_@1x.png"/>
     </Page.Background>
     <Page.DataContext>
-        <local:MainVM/>
+        <local:UserVM/>
     </Page.DataContext>
     
     <Grid>

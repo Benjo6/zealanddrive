@@ -43,8 +43,7 @@ namespace ZealandDrive.VM
             _deleteOneUser = new RelayCommand(DeleteUser);
             _clearCreateOneUser = new RelayCommand(ClearCreateUser);
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
-
-
+            _users = new ObservableCollection<Users>();
         }
         #endregion
         #region Properties
@@ -53,6 +52,7 @@ namespace ZealandDrive.VM
         public RelayCommand UserTest => p.UserTest;
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoToOpretBruger => p.Opret;
+        public RelayCommand GoToLogin => p.Login;
 
         public Users SelectedUser
         {

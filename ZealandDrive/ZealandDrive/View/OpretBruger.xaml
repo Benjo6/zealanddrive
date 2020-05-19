@@ -13,7 +13,7 @@
     </Page.Background>
 
     <Page.DataContext>
-        <VM:MainVM/>
+        <VM:UserVM/>
     </Page.DataContext>
 
     <Grid>
