@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Windows.ApplicationModel.VoiceCommands;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
@@ -10,7 +11,8 @@ namespace ZealandDrive.Model
     {
         #region Instance
         private NavigationService navigationService;
-        //Sideskrift
+        //Sideskift
+        public RelayCommand _userTest;
         public RelayCommand loginPage;
         public RelayCommand oRutePage;
         public RelayCommand overviewPage;
@@ -29,12 +31,14 @@ namespace ZealandDrive.Model
         private RelayCommand fo;
         private RelayCommand foo;
 
+
         #endregion
 
         #region Constructor
         public PageCommand()
         {
             //Sideskift
+            _userTest = new RelayCommand(GoToUserTest);
             navigationService = new NavigationService();
             loginPage = new RelayCommand(GotoLogin);
             oRutePage = new RelayCommand(GotoOpretRute);
@@ -106,13 +110,17 @@ namespace ZealandDrive.Model
         public RelayCommand SettingPage => settingPage;
         public RelayCommand FOPage => fo;
         public RelayCommand FOOPage => foo;
-
+        public RelayCommand UserTest=> _userTest;
         #endregion
 
 
         #region Method
         
         //Page Switch
+        public void GoToUserTest()
+        {
+            navigationService.navigate(typeof(View.UserTest));
+        }
         public void GoSetting()
         {
             navigationService.navigate(typeof(View.Settings));

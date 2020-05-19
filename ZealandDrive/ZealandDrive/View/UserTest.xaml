@@ -22,7 +22,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button Content="VIRK" Command="{Binding LoadUser, Mode=TwoWay }" />
+            <!--<Button Content="VIRK" Command="{Binding LoadUser, Mode=TwoWay }" />-->
             <ListBox ItemsSource="{Binding LoadUser, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

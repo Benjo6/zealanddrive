@@ -130,10 +130,10 @@
     <Compile Include="Model\CarCommand.cs" />
     <Compile Include="Model\Language.cs" />
     <Compile Include="Model\PageCommand.cs" />
-    <Compile Include="Persistens\Bil\DBPersistenceCar.cs" />
-    <Compile Include="Persistens\Forum\DBPersistenceForum.cs" />
-    <Compile Include="Persistens\Rute\DBPersistenceRute.cs" />
-    <Compile Include="Persistens\Bruger\DBPersistence.cs" />
+    <Compile Include="Persistens\DBPersistenceCar.cs" />
+    <Compile Include="Persistens\DBPersistenceForum.cs" />
+    <Compile Include="Persistens\DBPersistenceRute.cs" />
+    <Compile Include="Persistens\DBPersistence.cs" />
     <Compile Include="Persistens\FilePersistence.cs" />
     <Compile Include="Persistens\IPersistens.cs" />
     <Compile Include="Common\NavigationService.cs" />
