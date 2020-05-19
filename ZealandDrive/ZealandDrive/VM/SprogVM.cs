@@ -12,6 +12,8 @@ namespace ZealandDrive.VM
     {
         static bool m_blnInitDanish = true;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public void InitDanishOnce()
         {
             if (m_blnInitDanish)

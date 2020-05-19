@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
+using ZealandDrive.Model;
 using ZealandDrive.Persistens;
 using ZealandDrive.View;
 
@@ -18,6 +19,7 @@ namespace ZealandDrive.VM
     class UserVM : INotifyPropertyChanged
     {
         #region Instance
+        private PageCommand p;
         private IPersistens<Users> _persistence;
         private RelayCommand _createOne;
         private RelayCommand _loadUser;
@@ -32,6 +34,7 @@ namespace ZealandDrive.VM
         #region Constructor
         public UserVM()
         {
+            p = new PageCommand();
             _loadUser = new RelayCommand(LoadUsers);
             _userToBeCreated = new Users();
             _createOne = new RelayCommand(OpretUser);
@@ -46,6 +49,10 @@ namespace ZealandDrive.VM
         #endregion
         #region Properties
         public ObservableCollection<Users> Users => _users;
+
+        public RelayCommand UserTest => p.UserTest;
+        public RelayCommand GoToOverview => p.GoOverviewPage;
+        public RelayCommand GoToOpretBruger => p.Opret;
 
         public Users SelectedUser
         {

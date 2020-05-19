@@ -53,7 +53,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoSprog => p.Sprog;
         public RelayCommand GoFo => p.FOPage;
         public RelayCommand GoFOO => p.FOOPage;
-        public RelayCommand UserTest => p.UserTest;
+       
 
         public bool IsChecked
         {
@@ -80,7 +80,7 @@ namespace ZealandDrive.VM
         //    }
         //}
 
-        public RelayCommand GoToOpretBruger => p.Opret;
+       
 
         public ObservableCollection<string> H => lists.Timer;
 
@@ -90,7 +90,7 @@ namespace ZealandDrive.VM
 
         public RelayCommand GoToOpretRute => p.OpretRute;
 
-        public RelayCommand GoToOverview => p.GoOverviewPage;
+        
 
         public RelayCommand GoBack => p.Tilbage;
 
