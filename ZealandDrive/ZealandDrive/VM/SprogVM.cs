@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
@@ -39,6 +40,15 @@ namespace ZealandDrive.VM
             Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
             Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().Reset();
 
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //[NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

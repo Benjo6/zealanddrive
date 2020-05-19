@@ -8,7 +8,7 @@
     xmlns:local1="using:ZealandDrive.VM"
     Background="#F6F6F6">
     <Page.DataContext>
-        <local1:MainVM/>
+        <local1:CarVM/>
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
