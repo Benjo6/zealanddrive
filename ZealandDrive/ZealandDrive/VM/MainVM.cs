@@ -67,7 +67,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoSprog => p.Sprog;
         public RelayCommand GoFo => p.FOPage;
         public RelayCommand GoFOO => p.FOOPage;
-
+        public RelayCommand UserTest => p.UserTest;
 
         public bool IsChecked
         {

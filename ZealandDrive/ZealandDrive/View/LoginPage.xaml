@@ -44,7 +44,7 @@
         <TextBlock Text="Har du ikke en bruger i nu?" FontSize="14" Foreground="White" Grid.Row="6" HorizontalAlignment="Center" Grid.Column="1"/>
         <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Command="{Binding GoToOpretBruger}" Grid.Column="1"/>
         <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding GoToOpretBruger}" Foreground="White" Grid.Column="1" />
-        <HyperlinkButton FontSize="14" Content="Test" Grid.Row="7" Grid.Column="1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding UserTestCommand}" />
+        <HyperlinkButton FontSize="14" Content="User List" Grid.Row="7" Grid.Column="1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding UserTest}" />
 
 
     </Grid>
