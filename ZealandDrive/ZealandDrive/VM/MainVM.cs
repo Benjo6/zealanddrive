@@ -140,16 +140,7 @@ namespace ZealandDrive.VM
         public RelayCommand CreateOneCar => c.CreateOneCar;
         public RelayCommand ClearCreateOneCar => c.ClearCreateOneCar;
 
-        //Rute
-        public ObservableCollection<Route> Ruter => r.Ruter;
-        public Route SelectedRute => r.SelectedRute;
-        public Route RouteToBeCreated => r.RouteToBeCreated;
-        public RelayCommand LoadRute => r.LoadRute;
-        public RelayCommand SaveRute => r.SaveRute;
-        public RelayCommand UpdateOneRute => r.UpdateOneRute;
-        public RelayCommand DeleteOneRute => r.DeleteOneRute;
-        public RelayCommand CreateOneRute => r.CreateOneRute;
-        public RelayCommand ClearCreateOneRutes => r.ClearCreateOneRutes;
+
         //Forum
         public ObservableCollection<Forum> Forum => f.Forum;
         public Forum SelectedForum => f.SelectedForum;

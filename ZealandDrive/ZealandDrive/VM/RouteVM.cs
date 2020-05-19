@@ -1,8 +1,12 @@
 ﻿using ClassLibrary;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
@@ -10,9 +14,9 @@ using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.Rute;
 using ZealandDrive.View;
 
-namespace ZealandDrive.Model
+namespace ZealandDrive.VM
 {
-    class RuteCommand
+    class RouteVM : INotifyPropertyChanged
     {
         #region Instance
         private IPersistens<Route> _persistenceRoute;
@@ -27,7 +31,7 @@ namespace ZealandDrive.Model
         private ObservableCollection<Route> _ruter;
         #endregion
         #region Constructor
-        public RuteCommand()
+        public RouteVM()
         {
             _loadRute = new RelayCommand(LoadRutes);
             _ruteToBeCreated = new Route();

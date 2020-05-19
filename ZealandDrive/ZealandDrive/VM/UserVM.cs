@@ -13,9 +13,9 @@ using ZealandDrive.Common;
 using ZealandDrive.Persistens;
 using ZealandDrive.View;
 
-namespace ZealandDrive.Model
+namespace ZealandDrive.VM
 {
-    class UserCommand
+    class UserVM : INotifyPropertyChanged
     {
         #region Instance
         private IPersistens<Users> _persistence;
@@ -30,7 +30,7 @@ namespace ZealandDrive.Model
         private ObservableCollection<Users> _users;
         #endregion
         #region Constructor
-        public UserCommand()
+        public UserVM()
         {
             _loadUser = new RelayCommand(LoadUsers);
             _userToBeCreated = new Users();
