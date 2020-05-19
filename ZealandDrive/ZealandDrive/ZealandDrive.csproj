@@ -121,8 +121,11 @@
     </Compile>
     <Compile Include="Common\RCO.cs" />
     <Compile Include="Lists\Listerne.cs" />
-    <Compile Include="Model\Commands.cs" />
-    <Compile Include="Model\Data.cs" />
+    <Compile Include="Model\CarCommand.cs" />
+    <Compile Include="Model\PageCommand.cs" />
+    <Compile Include="Model\ForumCommand.cs" />
+    <Compile Include="Model\RuteCommand.cs" />
+    <Compile Include="Model\UserCommand.cs" />
     <Compile Include="Persistens\Bil\DBPersistenceCar.cs" />
     <Compile Include="Persistens\Forum\DBPersistenceForum.cs" />
     <Compile Include="Persistens\Rute\DBPersistenceRute.cs" />

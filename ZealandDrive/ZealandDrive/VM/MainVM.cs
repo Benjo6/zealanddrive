@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using ClassLibrary;
+﻿using ClassLibrary;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
@@ -15,9 +10,6 @@ using ZealandDrive.Model;
 using ZealandDrive.View;
 using Windows.Web.Http;
 using System.Windows.Input;
-using Windows.System;
-using Newtonsoft.Json;
-using Prism.Logging;
 
 namespace ZealandDrive.VM
 {
@@ -25,7 +17,11 @@ namespace ZealandDrive.VM
     {
         #region Instance
 
-        private Commands c;
+        private CarCommand c;
+        private ForumCommand f;
+        private PageCommand p;
+        private RuteCommand r;
+        private UserCommand u;
         private Singleton x;
         private Listerne lists;
 
@@ -37,12 +33,9 @@ namespace ZealandDrive.VM
 
         private RCO _nextCommand;
         private RCO _next1Command;
-        //private string connectionString;
-
         #endregion
 
         #region Constructor
-
         public MainVM()
         {
 
@@ -50,7 +43,11 @@ namespace ZealandDrive.VM
 
             x = Singleton.Instance;
             lists = new Listerne();
-            c = new Commands();
+            c = new CarCommand();
+            f = new ForumCommand();
+            p = new PageCommand();
+            r = new RuteCommand();
+            u = new UserCommand();
             _nextCommand = new RCO(Next);
             _next1Command = new RCO(Next1);
 
@@ -60,18 +57,17 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Properties
+        public RelayCommand GoGemBiler => p.GemBiler;
+        public RelayCommand GoAOS => p.AOS;
+        public RelayCommand GoGemteBiler => p.GemteBiler;
+        public RelayCommand GoGemAdresse => p.GemAdresse;
+        public RelayCommand GoGemteAdresse => p.GemteAdresse;
+        public RelayCommand GoPI => p.PI;
+        public RelayCommand GoPrivat => p.Privat;
+        public RelayCommand GoSprog => p.Sprog;
+        public RelayCommand GoFo => p.FOPage;
+        public RelayCommand GoFOO => p.FOOPage;
 
-        public RelayCommand GoGemBiler => c.GemBiler;
-        public RelayCommand GoAOS => c.AOS;
-        public RelayCommand GoGemteBiler => c.GemteBiler;
-        public RelayCommand GoGemAdresse => c.GemAdresse;
-        public RelayCommand GoGemteAdresse => c.GemteAdresse;
-        public RelayCommand GoPI => c.PI;
-        public RelayCommand GoPrivat => c.Privat;
-        public RelayCommand GoSprog => c.Sprog;
-        public RelayCommand GoFo => c.FOPage;
-        public RelayCommand GoFOO => c.FOOPage;
-        public RelayCommand UserTestCommand => c.userTestCommand;
 
         public bool IsChecked
         {
@@ -98,41 +94,40 @@ namespace ZealandDrive.VM
         //    }
         //}
 
-        public RelayCommand GoToOpretBruger => c.Opret;
+        public RelayCommand GoToOpretBruger => p.Opret;
 
         public ObservableCollection<string> H => lists.Timer;
 
         public ObservableCollection<string> M => lists.Minutter;
 
-        public RelayCommand GoToLogin => c.Login;
+        public RelayCommand GoToLogin => p.Login;
 
-        public RelayCommand GoToOpretRute => c.OpretRute;
+        public RelayCommand GoToOpretRute => p.OpretRute;
 
-        public RelayCommand GoToOverview => c.GoOverviewPage;
+        public RelayCommand GoToOverview => p.GoOverviewPage;
 
-        public RelayCommand GoBack => c.Tilbage;
+        public RelayCommand GoBack => p.Tilbage;
 
         public Singleton Instance => x;
 
-        public RelayCommand Setting => c.SettingPage;
-
+        public RelayCommand Setting => p.SettingPage;
+        
         public RCO NextCommand
         {
             get { return _nextCommand; }
         }
 
         public RCO Next1Command => _next1Command;
-
         //Users
-        public ObservableCollection<Users> Users => c.Users;
-        public Users SelectedUser => c.SelectedUser;
-        public Users UserToBeCreated => c.UserToBeCreated;
-        public RelayCommand LoadUser => c.LoadUser;
-        public RelayCommand Save => c.Save;
-        public RelayCommand UpdateOne => c.UpdateOne;
-        public RelayCommand DeleteOne => c.DeleteOne;
-        public RelayCommand CreateOne => c.CreateOne;
-        public RelayCommand ClearCreateOneUser => c.ClearCreateOneUser;
+        public ObservableCollection<Users> Users => u.Users;
+        public Users SelectedUser => u.SelectedUser;
+        public Users UserToBeCreated => u.UserToBeCreated;
+        public RelayCommand LoadUser => u.LoadUser;
+        public RelayCommand Save => u.Save;
+        public RelayCommand UpdateOne => u.UpdateOne;
+        public RelayCommand DeleteOne => u.DeleteOne;
+        public RelayCommand CreateOne => u.CreateOne;
+        public RelayCommand ClearCreateOneUser => u.ClearCreateOneUser;
 
         //Car
         public ObservableCollection<Car> Cars => c.Cars;
@@ -146,34 +141,31 @@ namespace ZealandDrive.VM
         public RelayCommand ClearCreateOneCar => c.ClearCreateOneCar;
 
         //Rute
-        public ObservableCollection<Route> Ruter => c.Ruter;
-        public Route SelectedRute => c.SelectedRute;
-        public Route RouteToBeCreated => c.RouteToBeCreated;
-        public RelayCommand LoadRute => c.LoadRute;
-        public RelayCommand SaveRute => c.SaveRute;
-        public RelayCommand UpdateOneRute => c.UpdateOneRute;
-        public RelayCommand DeleteOneRute => c.DeleteOneRute;
-        public RelayCommand CreateOneRute => c.CreateOneRute;
-
-        public RelayCommand ClearCreateOneRutes => c.ClearCreateOneRutes;
-
+        public ObservableCollection<Route> Ruter => r.Ruter;
+        public Route SelectedRute => r.SelectedRute;
+        public Route RouteToBeCreated => r.RouteToBeCreated;
+        public RelayCommand LoadRute => r.LoadRute;
+        public RelayCommand SaveRute => r.SaveRute;
+        public RelayCommand UpdateOneRute => r.UpdateOneRute;
+        public RelayCommand DeleteOneRute => r.DeleteOneRute;
+        public RelayCommand CreateOneRute => r.CreateOneRute;
+        public RelayCommand ClearCreateOneRutes => r.ClearCreateOneRutes;
         //Forum
-        public ObservableCollection<Forum> Forum => c.Forum;
-        public Forum SelectedForum => c.SelectedForum;
-        public Forum ForumToBeCreated => c.ForumToBeCreated;
-        public RelayCommand LoadForum => c.LoadForum;
-        public RelayCommand SaveForum => c.SaveForum;
-        public RelayCommand UpdateOneForum => c.UpdateOneForum;
-        public RelayCommand DeleteOneForum => c.DeleteOneForum;
-        public RelayCommand CreateOneForum => c.CreateOneForum;
-        public RelayCommand ClearCreateOneForum => c.ClearCreateOneForum;
+        public ObservableCollection<Forum> Forum => f.Forum;
+        public Forum SelectedForum => f.SelectedForum;
+        public Forum ForumToBeCreated => f.ForumToBeCreated;
+        public RelayCommand LoadForum => f.LoadForum;
+        public RelayCommand SaveForum => f.SaveForum;
+        public RelayCommand UpdateOneForum => f.UpdateOneForum;
+        public RelayCommand DeleteOneForum => f.DeleteOneForum;
+        public RelayCommand CreateOneForum => f.CreateOneForum;
+        public RelayCommand ClearCreateOneForum => f.ClearCreateOneForum;
 
 
 
         #endregion
 
         #region Method
-
         //public void Checkprocess(object sender)
         //{
         //    if (CheckCommand.IsChecked)
@@ -189,60 +181,17 @@ namespace ZealandDrive.VM
 
         private void Next(object obj)
         {
-            Frame f = (Frame) Window.Current.Content;
+            Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
         }
 
         private void Next1(object obj)
         {
-            Frame f = (Frame) Window.Current.Content;
+            Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
         }
 
-      
 
-        //private static Users readUsersFromDB(IDataRecord reader)
-        //{
-        //    int id = reader.GetInt32(0);
-        //    string email = reader.GetString(1);
-        //    string name = reader.GetString(2);
-        //    string lastname = reader.GetString(3);
-
-
-        //    Users users = new Users()
-        //    {
-        //        id = id,
-        //        email = email,
-        //        name = name,
-        //        lastname = lastname,
-
-
-        //    };
-        //    return users;
-
-        //}
-        //public List<Users> Get()
-        //{
-        //    //return listOfCategories;
-        //    const string selectString = "SELECT * FROM Users";
-        //    using (SqlConnection databaseConnection = new SqlConnection(connectionString))
-        //    {
-        //        databaseConnection.Open();
-        //        using (SqlCommand selectCommand = new SqlCommand(selectString, databaseConnection))
-        //        {
-        //            using (SqlDataReader reader = selectCommand.ExecuteReader())
-        //            {
-        //                List<Users> userList = new List<Users>();
-        //                while (reader.Read())
-        //                {
-        //                    Users users = readUsersFromDB(reader);
-        //                    userList.Add(users);
-        //                }
-        //                return userList;
-        //            }
-        //        }
-        //    }
-        //}
 
 
         public event PropertyChangedEventHandler PropertyChanged;
