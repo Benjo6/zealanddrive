@@ -127,7 +127,6 @@
     </Compile>
     <Compile Include="Common\RCO.cs" />
     <Compile Include="Lists\Listerne.cs" />
-    <Compile Include="Model\CarCommand.cs" />
     <Compile Include="Model\Language.cs" />
     <Compile Include="Model\PageCommand.cs" />
     <Compile Include="Persistens\DBPersistenceCar.cs" />
@@ -194,6 +193,9 @@
     </Compile>
     <Compile Include="View\Sprog.xaml.cs">
       <DependentUpon>Sprog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserTest.xaml.cs">
+      <DependentUpon>UserTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\CarVM.cs" />
     <Compile Include="VM\ForumVM.cs" />
@@ -293,6 +295,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Sprog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
