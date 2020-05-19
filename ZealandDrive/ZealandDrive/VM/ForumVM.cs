@@ -1,17 +1,21 @@
 ﻿using ClassLibrary;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
 using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.F;
 
-namespace ZealandDrive.Model
+namespace ZealandDrive.VM
 {
-    class ForumCommand
+    class ForumVM : INotifyPropertyChanged
     {
         #region Instance
         private IPersistens<Forum> _persistenceForum;
@@ -26,7 +30,7 @@ namespace ZealandDrive.Model
         private ObservableCollection<Forum> _forum;
         #endregion
         #region Constructor
-        public ForumCommand()
+        public ForumVM()
         {
             _loadForum = new RelayCommand(LoadForum1);
             _forumToBeCreated = new Forum();
