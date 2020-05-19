@@ -1,7 +1,12 @@
-﻿using ClassLibrary;
+﻿using System;
+using System.Collections.Generic;
+using ClassLibrary;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
@@ -10,6 +15,9 @@ using ZealandDrive.Model;
 using ZealandDrive.View;
 using Windows.Web.Http;
 using System.Windows.Input;
+using Windows.System;
+using Newtonsoft.Json;
+using Prism.Logging;
 
 namespace ZealandDrive.VM
 {
@@ -29,9 +37,12 @@ namespace ZealandDrive.VM
 
         private RCO _nextCommand;
         private RCO _next1Command;
+        //private string connectionString;
+
         #endregion
 
         #region Constructor
+
         public MainVM()
         {
 
@@ -49,6 +60,7 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Properties
+
         public RelayCommand GoGemBiler => c.GemBiler;
         public RelayCommand GoAOS => c.AOS;
         public RelayCommand GoGemteBiler => c.GemteBiler;
@@ -59,7 +71,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoSprog => c.Sprog;
         public RelayCommand GoFo => c.FOPage;
         public RelayCommand GoFOO => c.FOOPage;
-
+        public RelayCommand UserTestCommand => c.userTestCommand;
 
         public bool IsChecked
         {
@@ -103,13 +115,14 @@ namespace ZealandDrive.VM
         public Singleton Instance => x;
 
         public RelayCommand Setting => c.SettingPage;
-        
+
         public RCO NextCommand
         {
             get { return _nextCommand; }
         }
 
         public RCO Next1Command => _next1Command;
+
         //Users
         public ObservableCollection<Users> Users => c.Users;
         public Users SelectedUser => c.SelectedUser;
@@ -141,7 +154,9 @@ namespace ZealandDrive.VM
         public RelayCommand UpdateOneRute => c.UpdateOneRute;
         public RelayCommand DeleteOneRute => c.DeleteOneRute;
         public RelayCommand CreateOneRute => c.CreateOneRute;
+
         public RelayCommand ClearCreateOneRutes => c.ClearCreateOneRutes;
+
         //Forum
         public ObservableCollection<Forum> Forum => c.Forum;
         public Forum SelectedForum => c.SelectedForum;
@@ -158,6 +173,7 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Method
+
         //public void Checkprocess(object sender)
         //{
         //    if (CheckCommand.IsChecked)
@@ -173,17 +189,60 @@ namespace ZealandDrive.VM
 
         private void Next(object obj)
         {
-            Frame f = (Frame)Window.Current.Content;
+            Frame f = (Frame) Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
         }
 
         private void Next1(object obj)
         {
-            Frame f = (Frame)Window.Current.Content;
+            Frame f = (Frame) Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
         }
 
+      
 
+        //private static Users readUsersFromDB(IDataRecord reader)
+        //{
+        //    int id = reader.GetInt32(0);
+        //    string email = reader.GetString(1);
+        //    string name = reader.GetString(2);
+        //    string lastname = reader.GetString(3);
+
+
+        //    Users users = new Users()
+        //    {
+        //        id = id,
+        //        email = email,
+        //        name = name,
+        //        lastname = lastname,
+
+
+        //    };
+        //    return users;
+
+        //}
+        //public List<Users> Get()
+        //{
+        //    //return listOfCategories;
+        //    const string selectString = "SELECT * FROM Users";
+        //    using (SqlConnection databaseConnection = new SqlConnection(connectionString))
+        //    {
+        //        databaseConnection.Open();
+        //        using (SqlCommand selectCommand = new SqlCommand(selectString, databaseConnection))
+        //        {
+        //            using (SqlDataReader reader = selectCommand.ExecuteReader())
+        //            {
+        //                List<Users> userList = new List<Users>();
+        //                while (reader.Read())
+        //                {
+        //                    Users users = readUsersFromDB(reader);
+        //                    userList.Add(users);
+        //                }
+        //                return userList;
+        //            }
+        //        }
+        //    }
+        //}
 
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -24,6 +24,7 @@ namespace ZealandDrive.Model
         #region Instance
         private NavigationService navigationService;
         //Sideskrift
+        public RelayCommand userTestCommand;
         public RelayCommand loginPage;
         public RelayCommand oRutePage;
         public RelayCommand overviewPage;
@@ -110,6 +111,7 @@ namespace ZealandDrive.Model
             sprog = new RelayCommand(GoSprog);
             fo = new RelayCommand(GoFO);
             foo = new RelayCommand(GoFOO);
+            userTestCommand = new RelayCommand(GoToUserTest);
 
             //User
             _loadUser = new RelayCommand(LoadUsers);
@@ -299,7 +301,7 @@ namespace ZealandDrive.Model
         public RelayCommand PI => personligeinf;
         public RelayCommand Privat => privat;
         public RelayCommand Sprog => sprog;
-
+        public RelayCommand userTest => userTest;
         public RelayCommand Login
         {
             get
@@ -519,6 +521,11 @@ namespace ZealandDrive.Model
         {
             navigationService.navigate(typeof(View.Settings));
 
+        }
+
+        public void GoToUserTest()
+        {
+            navigationService.navigate(typeof(View.UserTest));
         }
         public void GoFO()
         {
