@@ -23,7 +23,7 @@ namespace ZealandDrive.VM
         private IPersistens<Users> _persistence;
         private RelayCommand _createOne;
         private RelayCommand _loadUser;
-        private RelayCommand _saveUser;
+        //private RelayCommand _saveUser;
         private RelayCommand _updateOneUser;
         private RelayCommand _deleteOneUser;
         private RelayCommand _clearCreateOneUser;
@@ -44,6 +44,8 @@ namespace ZealandDrive.VM
             _clearCreateOneUser = new RelayCommand(ClearCreateUser);
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
             _users = new ObservableCollection<Users>();
+            //_saveUser = new RelayCommand(SaveMethod);
+
         }
         #endregion
         #region Properties
@@ -54,6 +56,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOpretBruger => p.Opret;
         public RelayCommand GoToLogin => p.Login;
 
+        //public RelayCommand SaveUser => _saveUser;
         public Users SelectedUser
         {
             get => _selectedUser;
@@ -78,7 +81,8 @@ namespace ZealandDrive.VM
 
         public RelayCommand LoadUser => _loadUser;
 
-        public RelayCommand Save => _saveUser;
+
+        //public RelayCommand Save => _saveUser;
 
         public RelayCommand UpdateOne => _updateOneUser;
 
@@ -131,6 +135,14 @@ namespace ZealandDrive.VM
             f.Navigate(typeof(LoginPage));
 
         }
+
+        //private void SaveMethod()
+        //{
+        //    _persistence.SaveUser(_users);
+        //}
+
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         //[NotifyPropertyChangedInvocator]
