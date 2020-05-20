@@ -14,15 +14,14 @@ namespace ZealandDrive.Persistens.Bil
         private string URI = @"http://zealand-drive.azurewebsites.net/api/cars/";
         public async Task<ICollection<Car>> Load()
         {
-            List<Car> liste = new List<Car>();
-
+            List<Car> cars;
             using (HttpClient client = new HttpClient())
             {
-                string json = await client.GetStringAsync(URI);
-                liste = JsonConvert.DeserializeObject<List<Car>>(json);
+                string jstring = await client.GetStringAsync(URI);
+                cars = JsonConvert.DeserializeObject<List<Car>>(jstring);
             }
-
-            return liste;
+            return cars;
+            //return null;
         }
 
         public async Task<bool> Update(Car car)

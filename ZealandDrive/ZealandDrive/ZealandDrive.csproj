@@ -130,7 +130,9 @@
     <Compile Include="Model\Language.cs" />
     <Compile Include="Model\PageCommand.cs" />
     <Compile Include="Persistens\DBPersistenceCar.cs" />
+    <Compile Include="Persistens\DBPersistenceComment.cs" />
     <Compile Include="Persistens\DBPersistenceForum.cs" />
+    <Compile Include="Persistens\DBPersistencePassenger.cs" />
     <Compile Include="Persistens\DBPersistenceRute.cs" />
     <Compile Include="Persistens\DBPersistence.cs" />
     <Compile Include="Persistens\FilePersistence.cs" />

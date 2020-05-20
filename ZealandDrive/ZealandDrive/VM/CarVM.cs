@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
+using ZealandDrive.Model;
 using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.Bil;
 using ZealandDrive.View;
@@ -19,18 +20,20 @@ namespace ZealandDrive.VM
     class CarVM : INotifyPropertyChanged
     {
             #region Instance
-            private IPersistens<Car> _persistenceCar;
-            private RelayCommand _createOneCar;
-            private Car _selectedCar;
-            private RelayCommand _loadCar;
-            private Car _carToBeCreated;
-            private ObservableCollection<Car> _cars;
-            private RelayCommand _saveCar;
-            private RelayCommand _updateOneCar;
-            private RelayCommand _deleteOneCar;
-            private RelayCommand _clearCreateOneCar;
-            #endregion
-            #region Constructor
+        private IPersistens<Car> _persistenceCar;
+        private RelayCommand _createOneCar;
+        private Car _selectedCar;
+        private RelayCommand _loadCar;
+        private Car _carToBeCreated;
+        private ObservableCollection<Car> _cars;
+        private RelayCommand _saveCar;
+        private RelayCommand _updateOneCar;
+        private RelayCommand _deleteOneCar;
+        private RelayCommand _clearCreateOneCar;
+        private PageCommand p;
+
+        #endregion
+        #region Constructor
             public CarVM()
             {
                 _loadCar = new RelayCommand(LoadCars);
@@ -45,21 +48,25 @@ namespace ZealandDrive.VM
 
             }
             #endregion
-            #region Properties
-            public RelayCommand LoadCar => _loadCar;
+        #region Properties
+        public RelayCommand LoadCar => _loadCar;
 
-            public RelayCommand SaveCar => _saveCar;
+        public RelayCommand SaveCar => _saveCar;
 
-            public RelayCommand UpdateOneCar => _updateOneCar;
+        public RelayCommand UpdateOneCar => _updateOneCar;
 
-            public RelayCommand DeleteOneCar => _deleteOneCar;
+        public RelayCommand DeleteOneCar => _deleteOneCar;
 
-            public RelayCommand CreateOneCar => _createOneCar;
+        public RelayCommand CreateOneCar => _createOneCar;
 
-            public RelayCommand ClearCreateOneCar => _clearCreateOneCar;
-            public ObservableCollection<Car> Cars => _cars;
+        public RelayCommand ClearCreateOneCar => _clearCreateOneCar;
+        public ObservableCollection<Car> Cars => _cars;
 
-            public Car SelectedCar
+        public RelayCommand GoBack => p.Tilbage;
+
+        public RelayCommand GoGemBiler => p.GemBiler;
+
+        public Car SelectedCar
             {
                 get => _selectedCar;
                 set

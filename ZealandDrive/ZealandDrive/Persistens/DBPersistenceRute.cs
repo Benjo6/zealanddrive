@@ -14,15 +14,13 @@ namespace ZealandDrive.Persistens.Rute
         private string URI = @"http://zealand-drive.azurewebsites.net/api/routes/";
         public async Task<ICollection<Route>> Load()
         {
-            List<Route> liste = new List<Route>();
-
+            List<Route> routes;
             using (HttpClient client = new HttpClient())
             {
-                string json = await client.GetStringAsync(URI);
-                liste = JsonConvert.DeserializeObject<List<Route>>(json);
+                string jstring = await client.GetStringAsync(URI);
+                routes = JsonConvert.DeserializeObject<List<Route>>(jstring);
             }
-
-            return liste;
+            return routes;
         }
 
         public async Task<bool> Update(Route ruter)

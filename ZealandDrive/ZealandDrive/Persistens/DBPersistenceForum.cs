@@ -15,15 +15,14 @@ namespace ZealandDrive.Persistens.F
         private string URI = @"http://zealand-drive.azurewebsites.net/api/Forums/";
         public async Task<ICollection<Forum>> Load()
         {
-            List<Forum> liste = new List<Forum>();
-
+            List<Forum> forums;
             using (HttpClient client = new HttpClient())
             {
-                string json = await client.GetStringAsync(URI);
-                liste = JsonConvert.DeserializeObject<List<Forum>>(json);
+                string jstring = await client.GetStringAsync(URI);
+                forums = JsonConvert.DeserializeObject<List<Forum>>(jstring);
             }
-
-            return liste;
+            return forums;
+            //return null;
         }
 
         public async Task<bool> Update(Forum ruter)

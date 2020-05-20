@@ -14,16 +14,16 @@ namespace ClassLibrary
 
      
 
-        public int Id { get => _id; set => _id = value; }
-        public string Text { get => _text; set => _text = value; } 
+        public int id { get => _id; set => _id = value; }
+        public string text { get => _text; set => _text = value; } 
 
-        public int UserId
+        public int userId
         {
             get => _userId;
             set => _userId = value;
         }
 
-        public int RouteId
+        public int routeId
         {
             get => _routeId;
             set => _routeId = value;
