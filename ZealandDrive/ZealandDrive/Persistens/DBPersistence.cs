@@ -65,6 +65,16 @@ namespace ZealandDrive.Persistens.Bruger
             }
         }
 
+        public async Task<Users> LogInd(Users user)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string jstring = await client.GetStringAsync(URI + user.id);
+                user = JsonConvert.DeserializeObject<Users>(jstring);
+            }
+            return user;
+        }
+
 
     }
 }

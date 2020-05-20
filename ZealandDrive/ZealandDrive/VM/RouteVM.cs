@@ -52,6 +52,7 @@ namespace ZealandDrive.VM
         private IPersistens<Car> _persistenceCar;
         private ObservableCollection<Car> _cars;
         private RelayCommand _loadCars;
+        private Car _selectedCar;
 
         #endregion
         #region Constructor
@@ -79,6 +80,10 @@ namespace ZealandDrive.VM
             _deleteOnePassenger = new RelayCommand(DeletePassenger);
             _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
             _persistencePassenger = new DBPersistencePassenger();
+            // car
+            _selectedCar = new Car();
+            _loadCars = new RelayCommand(LoadCars);
+            _cars = new ObservableCollection<Car>();
         }
         #endregion
         #region Properties
@@ -153,9 +158,21 @@ namespace ZealandDrive.VM
         }
 
         //cars
+        public ObservableCollection<Car> Cars => _cars;
         public RelayCommand LoadCar => _loadCars;
+        public Car SelectedCar
+        {
+            get => _selectedCar;
+            set
+            {
+                if (Equals(value, _selectedCar)) return;
+                _selectedCar = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
+
         #region Method
 
         // routes
