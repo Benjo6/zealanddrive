@@ -24,19 +24,26 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Button Content="Load" Command="{Binding LoadUser}"/>
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="15">
+            <TextBlock Text="Alle Brugere" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
+            <ListView ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay }">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding id}" Width="20"></TextBlock>
+                            <TextBlock Text="{Binding email}" Width="100" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding name}"  Width="40" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding lastname}"  Width="40" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding password}"  Width="40" Margin="20,0,0,0"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-        <ListView ItemsSource="{Binding Users, Mode=TwoWay}" SelectedItem="{Binding SelectedUser}" Grid.Row="1" Grid.Column="1" SelectionChanged="ListView_SelectionChanged">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding email}" />
-                        <TextBlock Text="{Binding name}"/>
-                        <TextBlock Text="{Binding lastname}"/>
-                        <TextBlock Text="{Binding password}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+
+
+        </StackPanel>
     </Grid>
 </Page>
 

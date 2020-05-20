@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using MySqlX.XDevAPI;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.System;
 using ZealandDrive.Model;
 
 namespace ZealandDrive.Persistens.Bruger
@@ -15,15 +17,14 @@ namespace ZealandDrive.Persistens.Bruger
         private string URI = @"http://zealand-drive.azurewebsites.net/api/users/";
         public async Task<ICollection<Users>> Load()
         {
-            List<Users> liste = new List<Users>();
-
+            List<Users> users;
             using (HttpClient client = new HttpClient())
             {
-                string json = await client.GetStringAsync(URI);
-                liste = JsonConvert.DeserializeObject<List<Users>>(json);
+                string jstring = await client.GetStringAsync(URI);
+                users = JsonConvert.DeserializeObject<List<Users>>(jstring);
             }
-
-            return liste;
+            return users;
+            //return null;
         }
 
         public async Task<bool> Update(Users users)
