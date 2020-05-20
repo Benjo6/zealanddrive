@@ -17,14 +17,14 @@ namespace ZealandDrive.Persistens.Bruger
         private string URI = @"http://zealand-drive.azurewebsites.net/api/users/";
         public async Task<ICollection<Users>> Load()
         {
-            Collection<Users> users;
+            List<Users> users;
             using (HttpClient client = new HttpClient())
             {
                 string jstring = await client.GetStringAsync(URI);
-                users = JsonConvert.DeserializeObject<Collection<Users>>(jstring);
+                users = JsonConvert.DeserializeObject<List<Users>>(jstring);
             }
-            //return users;
-            return null;
+            return users;
+            //return null;
         }
 
         public async Task<bool> Update(Users users)
