@@ -127,7 +127,6 @@
     </Compile>
     <Compile Include="Common\RCO.cs" />
     <Compile Include="Lists\Listerne.cs" />
-    <Compile Include="Model\Language.cs" />
     <Compile Include="Model\PageCommand.cs" />
     <Compile Include="Persistens\DBPersistenceCar.cs" />
     <Compile Include="Persistens\DBPersistenceComment.cs" />
@@ -329,19 +328,7 @@
       <Name>ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\zh-Hans\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\da-dk\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <XliffResource Include="MultilingualResources\ZealandDrive.en.xlf" />
-    <XliffResource Include="MultilingualResources\ZealandDrive.zh-Hans.xlf" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\en\Resources.resw" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
