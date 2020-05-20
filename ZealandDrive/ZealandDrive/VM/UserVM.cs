@@ -19,7 +19,10 @@ namespace ZealandDrive.VM
     class UserVM : INotifyPropertyChanged
     {
         #region Instance
+        // page
         private PageCommand p;
+
+        // users
         private IPersistens<Users> _persistence;
         private RelayCommand _createOne;
         private RelayCommand _loadUser;
@@ -49,13 +52,14 @@ namespace ZealandDrive.VM
         }
         #endregion
         #region Properties
-        public ObservableCollection<Users> Users => _users;
-
+        // page
         public RelayCommand UserTest => p.UserTest;
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoToOpretBruger => p.Opret;
         public RelayCommand GoToLogin => p.Login;
 
+        // user
+        public ObservableCollection<Users> Users => _users;
         //public RelayCommand SaveUser => _saveUser;
         public Users SelectedUser
         {

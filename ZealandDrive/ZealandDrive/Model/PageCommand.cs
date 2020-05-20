@@ -99,7 +99,13 @@ namespace ZealandDrive.Model
 
         public RelayCommand OpretRute => oRutePage;
 
-        public RelayCommand GoOverviewPage => overviewPage;
+        public RelayCommand GoOverviewPage
+        {
+            get
+            {
+                return overviewPage;
+            }
+        }
 
         public RelayCommand Tilbage => tilbagePage;
 

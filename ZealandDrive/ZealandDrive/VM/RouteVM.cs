@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
+using ZealandDrive.Model;
 using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.Rute;
 using ZealandDrive.View;
@@ -19,6 +20,11 @@ namespace ZealandDrive.VM
     class RouteVM : INotifyPropertyChanged
     {
         #region Instance
+
+        // Page
+        private PageCommand p;
+        private RCO _nextCommand;
+        // Routes
         private IPersistens<Route> _persistenceRoute;
         private RelayCommand _createOneRute;
         private Route _selectedRute;
@@ -29,10 +35,31 @@ namespace ZealandDrive.VM
         private RelayCommand _deleteOneRute;
         private RelayCommand _clearCreateOneRute;
         private ObservableCollection<Route> _ruter;
+
+        // passenger
+        private IPersistens<Passenger> _persistencePassenger;
+        private RelayCommand _createOnePassenger;
+        private Passenger _selectedPassenger;
+        private RelayCommand _loadPassenger;
+        private Passenger _passengerToBeCreated;
+        private RelayCommand _savePassenger;
+        private RelayCommand _updateOnePassenger;
+        private RelayCommand _deleteOnePassenger;
+        private RelayCommand _clearCreateOnePassenger;
+        private ObservableCollection<Passenger> _passengers;
+
+        // cars
+        private IPersistens<Car> _persistenceCar;
+        private ObservableCollection<Car> _cars;
+        private RelayCommand _loadCars;
+
         #endregion
         #region Constructor
         public RouteVM()
         {
+            //page
+            p = new PageCommand();
+            // routes
             _loadRute = new RelayCommand(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
@@ -42,10 +69,32 @@ namespace ZealandDrive.VM
             _deleteOneRute = new RelayCommand(DeleteRute);
             _clearCreateOneRute = new RelayCommand(ClearCreateRute);
             _persistenceRoute = new DBPersistenceRute();
-
+            // passenger
+            _loadPassenger = new RelayCommand(LoadPassengers);
+            _passengerToBeCreated = new Passenger();
+            _passengers = new ObservableCollection<Passenger>();
+            _createOnePassenger = new RelayCommand(OpretPassenger);
+            _selectedPassenger = new Passenger();
+            _updateOnePassenger = new RelayCommand(UpdatePassenger);
+            _deleteOnePassenger = new RelayCommand(DeletePassenger);
+            _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
+            _persistencePassenger = new DBPersistencePassenger();
         }
         #endregion
         #region Properties
+        // page
+        public RelayCommand GoToOverview => p.GoOverviewPage;
+        public RelayCommand GoFo => p.FOPage;
+        public RelayCommand Setting => p.SettingPage;
+        public RelayCommand GoBack => p.Tilbage;
+        public RelayCommand GoToOpretRute => p.OpretRute;
+        public RCO NextCommand
+        {
+            get { return _nextCommand; }
+        }
+
+
+        // routes
         public ObservableCollection<Route> Ruter => _ruter;
         public RelayCommand LoadRute => _loadRute;
         public RelayCommand SaveRute => _saveRute;
@@ -73,8 +122,43 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
+
+        // passenger
+        public ObservableCollection<Passenger> Passengers => _passengers;
+        public RelayCommand LoadPassenger => _loadPassenger;
+        public RelayCommand SavePassenger => _savePassenger;
+        public RelayCommand UpdateOnePassenger => _updateOnePassenger;
+        public RelayCommand DeleteOnePassenger => _deleteOnePassenger;
+        public RelayCommand CreateOnePassenger => _createOnePassenger;
+        public RelayCommand ClearCreateOnePassenger => _clearCreateOnePassenger;
+        public Passenger SelectedPassenger
+        {
+            get => _selectedPassenger;
+            set
+            {
+                if (Equals(value, _selectedPassenger)) return;
+                _selectedPassenger = value;
+                OnPropertyChanged();
+            }
+        }
+        public Passenger PassengerToBeCreated
+        {
+            get => _passengerToBeCreated;
+            set
+            {
+                if (Equals(value, _passengerToBeCreated)) return;
+                _passengerToBeCreated = value;
+                OnPropertyChanged();
+            }
+        }
+
+        //cars
+        public RelayCommand LoadCar => _loadCars;
+
         #endregion
         #region Method
+
+        // routes
         private async void OpretRute1()
         {
 
@@ -115,6 +199,59 @@ namespace ZealandDrive.VM
         {
             RouteToBeCreated = new Route();
         }
+
+        // passenger
+
+        private async void OpretPassenger()
+        {
+
+            //todo give error message
+            await _persistencePassenger.Opret(_passengerToBeCreated);
+            //Frame f = (Frame)Window.Current.Content;
+            //f.Navigate(typeof(OverviewPage));
+        }
+        private async void LoadPassengers()
+        {
+            _passengers.Clear();
+            var liste = await _persistencePassenger.Load();
+            foreach (Passenger p in liste)
+            {
+                _passengers.Add(p);
+            }
+        }
+        private void UpdatePassenger()
+        {
+            if (_selectedPassenger != null)
+            {
+                //todo give error message
+                _persistencePassenger.Update(_selectedPassenger);
+            }
+        }
+        private void DeletePassenger()
+        {
+            if (_selectedPassenger != null)
+            {
+                //todo give error message
+                _persistencePassenger.Delete(_selectedPassenger);
+                _passengers.Remove(_selectedPassenger);
+            }
+        }
+        private void ClearCreatePassenger()
+        {
+            PassengerToBeCreated = new Passenger();
+        }
+        // cars
+        private async void LoadCars()
+        {
+            _cars.Clear();
+            var liste = await _persistenceCar.Load();
+            foreach (Car c in liste)
+            {
+                _cars.Add(c);
+            }
+        }
+
+        // onpropertychanged
 
         public event PropertyChangedEventHandler PropertyChanged;
 
