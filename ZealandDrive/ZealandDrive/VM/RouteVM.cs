@@ -21,6 +21,9 @@ namespace ZealandDrive.VM
     {
         #region Instance
 
+        //Singleton
+        private Singleton x;
+
         // Page
         private PageCommand p;
         private RCO _nextCommand;
@@ -54,10 +57,14 @@ namespace ZealandDrive.VM
         private RelayCommand _loadCars;
         private Car _selectedCar;
 
+        //
+
         #endregion
         #region Constructor
         public RouteVM()
         {
+            //Singleton
+            x = Singleton.Instance;
             //page
             p = new PageCommand();
             // routes
@@ -119,10 +126,10 @@ namespace ZealandDrive.VM
         public RelayCommand ClearCreateOneRutes => _clearCreateOneRute;
         public Route SelectedRute
         {
-            get => _selectedRute;
+            get => x.SelectedRute;
             set
             {
-                if (Equals(value, _selectedRute)) return;
+                if (Equals(value, x.SelectedRute)) return;
                 _selectedRute = value;
                 OnPropertyChanged();
             }
