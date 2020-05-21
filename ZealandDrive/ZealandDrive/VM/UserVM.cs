@@ -145,6 +145,7 @@ namespace ZealandDrive.VM
 
         public RelayCommand ClearCreateOneUser => _clearCreateOneUser;
         #endregion
+
         #region Method
         private void DeleteUser()
         {

@@ -16,18 +16,23 @@ using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.Rute;
 using ZealandDrive.View;
 using ZealandDrive.Persistens.Bil;
+using ZealandDrive.Lists;
 
 namespace ZealandDrive.VM
 {
     class RouteVM : INotifyPropertyChanged
     {
         #region Instance
+        //lister
+        private Listerne lists;
 
         //Singleton
         private Singleton x;
+
         // Page
         private PageCommand p;
         private RCO _nextCommand;
+
         // Routes
         private IPersistens<Route> _persistenceRoute;
         private RelayCommand _createOneRute;
@@ -57,13 +62,13 @@ namespace ZealandDrive.VM
         private ObservableCollection<Car> _cars;
         private RelayCommand _loadCars;
         private Car _selectedCar;
-
-        //
-
         #endregion
+
         #region Constructor
         public RouteVM()
         {
+            //lister
+            lists = new Listerne();
             //Singleton
             x = Singleton.Instance;
             //page
@@ -97,6 +102,9 @@ namespace ZealandDrive.VM
         }
         #endregion
         #region Properties
+        //lister
+        public ObservableCollection<string> H => lists.Timer;
+        public ObservableCollection<string> M => lists.Minutter;
         // page
         public Singleton Instance => x;
         public RelayCommand GoToOverview => p.GoOverviewPage;
