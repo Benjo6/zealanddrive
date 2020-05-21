@@ -78,7 +78,6 @@ namespace ZealandDrive.VM
             _deleteOneRute = new RelayCommand(DeleteRute);
             _clearCreateOneRute = new RelayCommand(ClearCreateRute);
             _persistenceRoute = new DBPersistenceRute();
-            _nextCommand = new RCO(Next);
             // passenger
             _loadPassenger = new RelayCommand(LoadPassengers);
             _passengerToBeCreated = new Passenger();
@@ -113,10 +112,6 @@ namespace ZealandDrive.VM
         public RelayCommand GoToGemAdresse => p.GemAdresse;
 
 
-        public RCO NextCommand
-        {
-            get { return _nextCommand; }
-        }
 
 
         // routes
@@ -129,21 +124,23 @@ namespace ZealandDrive.VM
         public RelayCommand ClearCreateOneRutes => _clearCreateOneRute;
         public Route SelectedRute
         {
-            get => x.SelectedRute;
+            get { return x.SelectedRute; }
             set
             {
-                if (Equals(value, x.SelectedRute)) return;
-                _selectedRute = value;
-                OnPropertyChanged();
+                if (x.SelectedRute != value)
+                    x.SelectedRute = value;
+                HandleSelectedItem();
             }
         }
+
+
         public Route RouteToBeCreated
         {
             get => _ruteToBeCreated;
             set
             {
-                if (Equals(value, _ruteToBeCreated)) return;
                 _ruteToBeCreated = value;
+                if(_selectedRute != null)
                 OnPropertyChanged();
             }
         }
@@ -197,12 +194,6 @@ namespace ZealandDrive.VM
 
         // routes
 
-        private void Next(object obj)
-        {
-            
-            Frame f = (Frame)Window.Current.Content;
-            f.Navigate(typeof(SpecificRoutePage));
-        }
 
         private async void OpretRute1()
         {
@@ -243,6 +234,11 @@ namespace ZealandDrive.VM
         private void ClearCreateRute()
         {
             RouteToBeCreated = new Route();
+        }
+        private void HandleSelectedItem()
+        {
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(SpecificRoutePage));
         }
 
         // passenger
@@ -285,7 +281,6 @@ namespace ZealandDrive.VM
         {
             PassengerToBeCreated = new Passenger();
         }
-        // cars
         private async void LoadCars()
         {
             _cars.Clear();

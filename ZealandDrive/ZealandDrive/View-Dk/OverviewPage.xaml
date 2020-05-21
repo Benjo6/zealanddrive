@@ -55,10 +55,10 @@
 
         <Button Grid.Column="1" Content="Load" Command="{Binding LoadRute}"/>
 
-        <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding Instance.SelectedRute, Mode=TwoWay}" x:Name="OuterRef"  Grid.Row="1" Grid.Column="1" >
+        <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}" x:Name="OuterRef"  Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding ElementName=OuterRef, Path=DataContext.NextCommand}" CommandParameter="{Binding Mode=TwoWay}" >
+                    <Button >
                         <Grid Height="180">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="30"/>
