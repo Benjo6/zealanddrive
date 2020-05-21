@@ -222,14 +222,17 @@ namespace ZealandDrive.VM
         }
         public async void CheckBruger()
         {
-            await _persistence.Load();
-            foreach (Users i in _users)
+
+            //await _persistence.Load();
+            foreach (Users i in await _persistence.Load())
             {
                 if (CheckList(i.email, _userNow) && (CheckList(i.password, _passNow)))
                 {
                     UserCurrent = i;
                     UserNow = "";
                     PassNow = "";
+                    Frame f = (Frame)Window.Current.Content;
+                    f.Navigate(typeof(OverviewPage));
                     //UserCurrent = obj;
                     //UserNow = "";
                     //PassNow = "";

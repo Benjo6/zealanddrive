@@ -13,15 +13,15 @@ namespace ClassLibrary
         private string _lastName;
         private string _email;
         private string _password;
-        private string _tmpPassword;
-        private string _token;
+        //private string _tmpPassword;
+        //private string _token;
 
         public string name { get => _name; set => _name =value ; }
         public string lastname { get=> _lastName; set => _lastName = value; }
         public string email { get => _email; set => _email = value; }
         public string password { get => _password; set => _password = value; }
-        public string tmpPassword { get => _password; set => _password = value; }
-        public string token { get => _password; set => _password = value; }
+       // public string tmpPassword { get => _password; set => _password = value; }
+       // public string token { get => _password; set => _password = value; }
 
         public int id { get => _id; set => _id = value; }
 
@@ -37,8 +37,8 @@ namespace ClassLibrary
             _lastName = lastname;
             _email = email;
             _password = password;
-            _tmpPassword = tmpPassword;
-            _token = token;
+           // _tmpPassword = tmpPassword;
+            //_token = token;
         }
 
         public bool CheckInformation()
@@ -51,7 +51,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"name is: {name}, lastname is: {lastname}, Email is: {email}, Password is: {password}, tmp password is: {tmpPassword}, Password is: {token}";
+            return $"name is: {name}, lastname is: {lastname}, Email is: {email}, Password is: {password}";
         }
     }
 }
