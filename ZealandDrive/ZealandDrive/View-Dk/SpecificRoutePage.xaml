@@ -63,8 +63,8 @@
                         <RowDefinition></RowDefinition>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="Fra" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" />
-                    <TextBlock Text="{Binding SelectedRute.routeStart, Mode=TwoWay}" FontSize="20" Margin="30,15,30,15"/>
+                    <TextBlock Grid.Row="0" Text="Fra" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" Canvas.ZIndex="2" />
+                    <TextBlock Text="{Binding SelectedRute.routeStart, Mode=TwoWay}" FontSize="20" Margin="30,15,30,15" Canvas.ZIndex="3"/>
                 </Grid>
 
                 
@@ -75,7 +75,7 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Text="Til" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" />
-                    <TextBlock  Text="{Binding SelectedRute.routeEnd}" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="3" TextDecorations="Underline" />
+                    <TextBlock  Text="{Binding SelectedRute.routeEnd}" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="4" TextDecorations="Underline" />
                 </Grid>
 
             </Canvas>

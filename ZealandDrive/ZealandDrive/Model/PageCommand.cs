@@ -132,6 +132,7 @@ namespace ZealandDrive.Model
             {
                 return sRutePage;
             }
+            set => sRutePage = value;
         }
         public RelayCommand AOS => aOS;
 
