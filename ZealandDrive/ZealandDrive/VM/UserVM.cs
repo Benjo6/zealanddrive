@@ -38,7 +38,7 @@ namespace ZealandDrive.VM
         #region Constructor
         public UserVM()
         {
-            _createOne2 = new RelayCommand(AddUser);
+            _createOne2 = new RelayCommand(AddUser1);
             p = new PageCommand();
             _loadUser = new RelayCommand(LoadUsers);
             _userToBeCreated = new Users();
@@ -146,7 +146,7 @@ namespace ZealandDrive.VM
             f.Navigate(typeof(LoginPage));
 
         }
-        private async void AddUser()
+        private async void AddUser1()
         {
 
             //todo give error message

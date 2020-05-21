@@ -53,7 +53,7 @@
 
         <TextBlock Text="Ruter" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <Button Content="Load" Command="{Binding LoadRute}"/>
+        <Button Grid.Column="1" Content="Load" Command="{Binding LoadRute}"/>
 
         <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding Instance.SelectedRute, Mode=TwoWay}" x:Name="OuterRef"  Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
