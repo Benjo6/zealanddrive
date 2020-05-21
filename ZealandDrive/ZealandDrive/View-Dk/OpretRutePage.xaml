@@ -71,13 +71,15 @@
 
 
 
-        <ComboBox Header="Hvilken bil kører du i" SelectedItem="{Binding SelectedCars, Mode=TwoWay}" ItemsSource="{Binding Cars, Mode=TwoWay}" PlaceholderText="Vælg"  HorizontalAlignment="Center" CornerRadius="3" Background="White" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="62" VerticalAlignment="Top" Margin="0,0,0,0">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding model}"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <Button Content="Load" Command="{Binding LoadCar}"/>
+        <GridView ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar, Mode=TwoWay }">
+            <ComboBox>
+                <!--<TextBlock Text="{Binding brand}" Width="20"></TextBlock>-->
+                <TextBlock Text="{Binding model}" Width="100" Margin="20,0,0,0"></TextBlock>
+                <!--<TextBlock Text="{Binding color}"  Width="40" Margin="20,0,0,0"></TextBlock>
+                <TextBlock Text="{Binding nummerplade}"  Width="40" Margin="20,0,0,0"></TextBlock>-->
+            </ComboBox>
+        </GridView>
 
         <Button Content="Tilføje Ny Bil" Grid.Row="3" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,0" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" >
 

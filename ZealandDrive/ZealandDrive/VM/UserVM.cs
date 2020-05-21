@@ -50,7 +50,6 @@ namespace ZealandDrive.VM
             _persistence = PersitenceFactory.GetPersistency(PersistenceType.Database);
             _users = new ObservableCollection<Users>();
             //_saveUser = new RelayCommand(SaveMethod);
-
         }
         #endregion
         #region Properties

@@ -19,7 +19,7 @@ namespace ZealandDrive.VM
 {
     class CarVM : INotifyPropertyChanged
     {
-            #region Instance
+        #region Instance
         private IPersistens<Car> _persistenceCar;
         private RelayCommand _createOneCar;
         private Car _selectedCar;
@@ -93,7 +93,7 @@ namespace ZealandDrive.VM
                 }
             }
             #endregion
-            #region Method
+        #region Method
             private async void OpretCar()
             {
 
