@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Google.Protobuf.WellKnownTypes;
 using ZealandDrive.Common;
 using ZealandDrive.Model;
 using ZealandDrive.Persistens;
@@ -21,9 +22,13 @@ namespace ZealandDrive.VM
     {
         #region Instance
 
+        //Singleton
+        private Singleton x;
+
         // Page
         private PageCommand p;
         private RCO _nextCommand;
+        private Singleton x;
         // Routes
         private IPersistens<Route> _persistenceRoute;
         private RelayCommand _createOneRute;
@@ -54,13 +59,18 @@ namespace ZealandDrive.VM
         private RelayCommand _loadCars;
         private Car _selectedCar;
 
+        //
+
         #endregion
         #region Constructor
         public RouteVM()
         {
+            //Singleton
+            x = Singleton.Instance;
             //page
             p = new PageCommand();
             // routes
+            x = Singleton.Instance;
             _loadRute = new RelayCommand(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
@@ -89,6 +99,7 @@ namespace ZealandDrive.VM
         #endregion
         #region Properties
         // page
+        public Singleton Instance => x;
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoFo => p.FOPage;
         public RelayCommand Setting => p.SettingPage;
@@ -119,10 +130,10 @@ namespace ZealandDrive.VM
         public RelayCommand ClearCreateOneRutes => _clearCreateOneRute;
         public Route SelectedRute
         {
-            get => _selectedRute;
+            get => x.SelectedRute;
             set
             {
-                if (Equals(value, _selectedRute)) return;
+                if (Equals(value, x.SelectedRute)) return;
                 _selectedRute = value;
                 OnPropertyChanged();
             }
