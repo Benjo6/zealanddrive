@@ -23,11 +23,6 @@ namespace ZealandDrive.Common
             UserCurrent = new Users();
         }
 
-        public List<User> Users
-		{
-			get => Users;
-            set => Users = value;
-        }
 		public string PassNow
 		{
 			get => _passNow;
