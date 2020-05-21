@@ -11,7 +11,7 @@ namespace ZealandDrive.Persistens.Rute
 {
     class DBPersistenceRute : IPersistens<Route>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/routes/";
+        private string URI = @"https://restserver20200521122545.azurewebsites.net/api/routes/";
         public async Task<ICollection<Route>> Load()
         {
             List<Route> routes;

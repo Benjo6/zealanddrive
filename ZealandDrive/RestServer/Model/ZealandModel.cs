@@ -95,13 +95,6 @@ namespace RestServer.Model
                 .Property(e => e.password)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<User>()
-                .Property(e => e.tmpPassword)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.token)
-                .IsUnicode(false);
 
             //modelBuilder.Entity<User>()
             //    .HasMany(e => e.Cars)

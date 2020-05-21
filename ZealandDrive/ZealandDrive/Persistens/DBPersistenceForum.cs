@@ -12,7 +12,7 @@ namespace ZealandDrive.Persistens.F
 {
     class DBPersistenceForum : IPersistens<Forum>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/Forums/";
+        private string URI = @"https://restserver20200521122545.azurewebsites.net/api/Forums/";
         public async Task<ICollection<Forum>> Load()
         {
             List<Forum> forums;

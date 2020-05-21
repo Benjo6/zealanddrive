@@ -35,13 +35,6 @@ namespace RestServer.Model
         [StringLength(30)]
         public string password { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string tmpPassword { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string token { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         //public virtual ICollection<Car> Cars { get; set; }

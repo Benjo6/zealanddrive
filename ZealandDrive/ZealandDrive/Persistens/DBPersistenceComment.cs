@@ -11,7 +11,7 @@ namespace ZealandDrive.Persistens
 {
     class DBPersistenceComment : IPersistens<Comments>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/comments/";
+        private string URI = @"https://restserver20200521122545.azurewebsites.net/api/comments/";
         public async Task<ICollection<Comments>> Load()
         {
             List<Comments> comments;
