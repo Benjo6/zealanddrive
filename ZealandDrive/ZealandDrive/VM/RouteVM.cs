@@ -189,9 +189,11 @@ namespace ZealandDrive.VM
 
         private void Next(object obj)
         {
+            
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
         }
+
         private async void OpretRute1()
         {
 
