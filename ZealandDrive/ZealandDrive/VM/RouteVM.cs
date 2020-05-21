@@ -15,6 +15,7 @@ using ZealandDrive.Model;
 using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.Rute;
 using ZealandDrive.View;
+using ZealandDrive.Persistens.Bil;
 
 namespace ZealandDrive.VM
 {
@@ -24,11 +25,9 @@ namespace ZealandDrive.VM
 
         //Singleton
         private Singleton x;
-
         // Page
         private PageCommand p;
         private RCO _nextCommand;
-        private Singleton x;
         // Routes
         private IPersistens<Route> _persistenceRoute;
         private RelayCommand _createOneRute;
@@ -70,7 +69,6 @@ namespace ZealandDrive.VM
             //page
             p = new PageCommand();
             // routes
-            x = Singleton.Instance;
             _loadRute = new RelayCommand(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
@@ -95,6 +93,7 @@ namespace ZealandDrive.VM
             _selectedCar = new Car();
             _loadCars = new RelayCommand(LoadCars);
             _cars = new ObservableCollection<Car>();
+            _persistenceCar = new DBPersistenceCar();
         }
         #endregion
         #region Properties
@@ -200,9 +199,11 @@ namespace ZealandDrive.VM
 
         private void Next(object obj)
         {
+            
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(SpecificRoutePage));
         }
+
         private async void OpretRute1()
         {
 
