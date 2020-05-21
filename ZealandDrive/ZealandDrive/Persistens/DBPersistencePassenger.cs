@@ -11,7 +11,7 @@ namespace ZealandDrive.Persistens
 {
     class DBPersistencePassenger : IPersistens <Passenger>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/passengers/";
+        private string URI = @"https://restserver20200521122545.azurewebsites.net/api/passengers/";
         public async Task<ICollection<Passenger>> Load()
         {
             List<Passenger> passengers;

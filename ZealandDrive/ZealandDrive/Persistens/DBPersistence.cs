@@ -14,7 +14,7 @@ namespace ZealandDrive.Persistens.Bruger
 {
     class DBPersistence : IPersistens<Users>
     {
-        private string URI = @"http://zealand-drive.azurewebsites.net/api/users/";
+        private string URI = @"https://restserver20200521122545.azurewebsites.net/api/users/";
         public async Task<ICollection<Users>> Load()
         {
             List<Users> users;

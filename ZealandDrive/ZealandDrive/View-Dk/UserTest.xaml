@@ -18,13 +18,12 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50px"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Content="Load" Command="{Binding LoadUser}"/>
+        <Button Content="Load" Width="1000" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Command="{Binding LoadUser}"/>
         <StackPanel Grid.Column="0" Grid.Row="1" Margin="15">
             <TextBlock Text="Alle Brugere" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
             <ListView ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay }">

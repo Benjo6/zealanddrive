@@ -114,19 +114,5 @@ namespace RestServer.Controllers
         {
             return db.Users.Count(e => e.id == id) > 0;
         }
-
-        [ResponseType(typeof(User))]
-        public IHttpActionResult CheckUser(string password, string email)
-        {
-            User user = db.Users.Find(password, email);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(user);
-        }
-
-
     }
 }

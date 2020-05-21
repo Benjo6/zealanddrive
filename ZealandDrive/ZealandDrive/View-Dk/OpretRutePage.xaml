@@ -69,9 +69,9 @@
 
         </Button>
 
-        <ScrollViewer Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="250,10,250,10" Canvas.ZIndex="10" Background="AntiqueWhite">
+        <ScrollViewer Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Width="300" Height="80" Canvas.ZIndex="10" Background="#F6F6F6" BorderBrush="#a6a6a6" BorderThickness="2" CornerRadius="3">
             <StackPanel>
-                <TextBlock Text="Alle Biler" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
+                <TextBlock Margin="5,5,5,5" Text="Alle Biler" FontWeight="Bold" FontSize="14" ></TextBlock>
                 <ListView ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar, Mode=TwoWay }">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -93,13 +93,13 @@
         </Button>
 
 
-        <DatePicker Header="Hvilke dag køre du?" SelectedDate="{Binding RouteToBeCreated.startTime,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
+        <DatePicker Header="Hvilken dag kører du?" SelectedDate="{Binding RouteToBeCreated.startTime,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
 
 
         <TextBox Header="Besked til alle der vil køre med?" Text="{Binding RouteToBeCreated.besked , Mode=TwoWay}" CornerRadius="3" Background="#F6F6F6" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="130" VerticalAlignment="Top"/>
 
         <StackPanel  Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,15" >
-            <ComboBox Header="Hvad tid køre du?"  ItemsSource="{Binding H}" SelectedItem="{Binding RouteToBeCreated.hour ,Mode=TwoWay}" Grid.Row="4" Grid.Column="1"  Width="150" PlaceholderText="Timer">
+            <ComboBox Header="Hvad tid kører du?"  ItemsSource="{Binding H}" SelectedItem="{Binding RouteToBeCreated.hour ,Mode=TwoWay}" Grid.Row="4" Grid.Column="1"  Width="150" PlaceholderText="Timer">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}" TextWrapping="Wrap" TextAlignment="Center" FontSize ="12" />

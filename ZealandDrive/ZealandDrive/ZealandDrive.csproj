@@ -126,6 +126,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RCO.cs" />
+    <Compile Include="Common\SharedKnowledge.cs" />
     <Compile Include="Lists\Listerne.cs" />
     <Compile Include="Model\PageCommand.cs" />
     <Compile Include="Persistens\DBPersistenceCar.cs" />
