@@ -70,6 +70,7 @@ namespace ZealandDrive.VM
             _deleteOneRute = new RelayCommand(DeleteRute);
             _clearCreateOneRute = new RelayCommand(ClearCreateRute);
             _persistenceRoute = new DBPersistenceRute();
+            _nextCommand = new RCO(Next);
             // passenger
             _loadPassenger = new RelayCommand(LoadPassengers);
             _passengerToBeCreated = new Passenger();
@@ -185,6 +186,12 @@ namespace ZealandDrive.VM
         #region Method
 
         // routes
+
+        private void Next(object obj)
+        {
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(SpecificRoutePage));
+        }
         private async void OpretRute1()
         {
 
