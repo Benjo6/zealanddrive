@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="ZealandDrive.View_En.SavedAddresses"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZealandDrive.View_En"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local1="using:ZealandDrive.VM"
+    mc:Ignorable="d"
+    Background="#F6F6F6">
+    <Page.DataContext>
+        <local1:MainVM/>
+    </Page.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3"  />
+
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
+        <Button Background="White" Height="80" Width="80" Grid.Column="2" >
+            <Image Source="Assets\new-icon.svg"/>
+        </Button>
+        <TextBlock Text="Routes" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1"/>
+
+        <ListView ItemsSource="{Binding AdresseList}" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" Height="500" VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Header="Navn På Adresse" Text="{Binding}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="2">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverviewEN}">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum" Command="{Binding GoFoEN}" >
+
+            </Button>
+
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding SettingEN}">
+
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

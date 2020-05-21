@@ -25,6 +25,7 @@ namespace ZealandDrive.VM
         // users
         private IPersistens<Users> _persistence;
         private RelayCommand _createOne;
+        private RelayCommand _createOne2;
         private RelayCommand _loadUser;
         //private RelayCommand _saveUser;
         private RelayCommand _updateOneUser;
@@ -37,6 +38,7 @@ namespace ZealandDrive.VM
         #region Constructor
         public UserVM()
         {
+            _createOne2 = new RelayCommand(AddUser);
             p = new PageCommand();
             _loadUser = new RelayCommand(LoadUsers);
             _userToBeCreated = new Users();
@@ -57,6 +59,10 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoToOpretBruger => p.Opret;
         public RelayCommand GoToLogin => p.Login;
+
+        public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
+        public RelayCommand GoToOpretBrugerEN => p.OpretEN;
+        public RelayCommand GoToLoginEN => p.LoginEN;
 
         // user
         public ObservableCollection<Users> Users => _users;
@@ -84,6 +90,7 @@ namespace ZealandDrive.VM
         }
 
         public RelayCommand LoadUser => _loadUser;
+        public RelayCommand AddUser => _createOne2;
 
 
         //public RelayCommand Save => _saveUser;
@@ -139,6 +146,18 @@ namespace ZealandDrive.VM
             f.Navigate(typeof(LoginPage));
 
         }
+        private async void AddUser()
+        {
+
+            //todo give error message
+            await _persistence.Opret(_userToBeCreated);
+
+            //_users.Add(_userToBeCreated);
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(LoginPage));
+
+        }
+
 
         //private void SaveMethod()
         //{

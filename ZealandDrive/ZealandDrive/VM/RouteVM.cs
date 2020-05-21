@@ -91,8 +91,17 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoFo => p.FOPage;
         public RelayCommand Setting => p.SettingPage;
+
+        public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
+        public RelayCommand GoFoEN => p.FOPageEN;
+        public RelayCommand SettingEN => p.SettingPageEN;
         public RelayCommand GoBack => p.Tilbage;
         public RelayCommand GoToOpretRute => p.OpretRute;
+        public RelayCommand GoToOpretRuteEN => p.OpretRuteEN;
+        public RelayCommand GoToSaveAddresse => p.GemAdresseEN;
+        public RelayCommand GoToGemAdresse => p.GemAdresse;
+
+
         public RCO NextCommand
         {
             get { return _nextCommand; }

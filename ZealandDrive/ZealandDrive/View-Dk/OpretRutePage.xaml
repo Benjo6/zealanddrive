@@ -49,33 +49,30 @@
             </Button>
         </StackPanel>
 
-        
 
 
 
-        <Rectangle Fill="White" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.RowSpan="7" Height="588" Width="332" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <Rectangle Fill="White" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Margin="0,0,0,0" Grid.RowSpan="7" Width="332" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
 
 
         <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.ZIndex="1">
             <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
         </Button>
 
-        <TextBlock Text="Hvor starter ruten?" FontWeight="Bold" Grid.Column="1" Grid.Row="1" Canvas.ZIndex="5" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center"/>
-        <TextBox  Text="{Binding RouteToBeCreated.routeStart , Mode=TwoWay}" TextWrapping="Wrap" Background="White" Grid.Row="1" CornerRadius="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,15,0,0"/>
-        <Button Content="Tilføje Ny Start" Grid.Row="1" VerticalAlignment="Center" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,2" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" Grid.RowSpan="2" ></Button>
+        <TextBox Header="Hvor starter ruten?"  Text="{Binding RouteToBeCreated.routeStart , Mode=TwoWay}" TextWrapping="Wrap" Background="White" Grid.Row="1" CornerRadius="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,0" Height="62"/>
+        <Button Content="Tilføje Ny Start" Grid.Row="1" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,2" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" />
 
 
-        <TextBlock Text="Hvor slutter ruten?" FontWeight="Bold" Grid.Column="1" Grid.Row="2" Canvas.ZIndex="5" VerticalAlignment="Top" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <TextBox Text="{Binding RouteToBeCreated.routeEnd, Mode=TwoWay}" TextWrapping="Wrap" Background="White" CornerRadius="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Center" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+        <TextBox Header="Hvor slutter ruten?" Text="{Binding RouteToBeCreated.routeEnd, Mode=TwoWay}" TextWrapping="Wrap" Background="White" CornerRadius="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="62" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Center"/>
         <Button Content="Tilføje Ny Slut" Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,0" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" >
-           
+
         </Button>
 
 
 
-        <TextBlock Text="Hvilken bil kører du i"  FontWeight="Bold" Grid.Column="1" Grid.Row="3" Canvas.ZIndex="5" VerticalAlignment="Top" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <ComboBox SelectedItem="{Binding SelectedCars, Mode=TwoWay}" ItemsSource="{Binding Cars, Mode=TwoWay}" PlaceholderText="Vælg"  HorizontalAlignment="Center" CornerRadius="3" Background="White" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="45" VerticalAlignment="Center" Margin="0,5,0,0">
-                <ComboBox.ItemTemplate>
+        <ComboBox Header="Hvilken bil kører du i" SelectedItem="{Binding SelectedCars, Mode=TwoWay}" ItemsSource="{Binding Cars, Mode=TwoWay}" PlaceholderText="Vælg"  HorizontalAlignment="Center" CornerRadius="3" Background="White" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="62" VerticalAlignment="Top" Margin="0,0,0,0">
+            <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding model}"/>
                 </DataTemplate>
@@ -83,27 +80,24 @@
         </ComboBox>
 
         <Button Content="Tilføje Ny Bil" Grid.Row="3" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,0" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" >
-           
+
         </Button>
-        
-        
-        <TextBlock Text="Hvad tid køre du?" FontWeight="Bold" Grid.Column="1" Grid.Row="4" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <DatePicker  SelectedDate="{Binding RouteToBeCreated.startTime,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
-        
 
-        <TextBlock Text="Hvilke dag køre du?" FontWeight="Bold" Grid.Column="1" Grid.Row="5" Canvas.ZIndex="5" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-        <TextBox Text="{Binding RouteToBeCreated.besked , Mode=TwoWay}" CornerRadius="3" Background="#F6F6F6" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="100" VerticalAlignment="Bottom"/>
 
-        <TextBlock Text="Besked til alle der vil køre med?" FontWeight="Bold" Grid.Column="1" Grid.Row="6" Canvas.ZIndex="5" VerticalAlignment="Top" Margin="20,20,0,0" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
-        <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,15" >
-            <ComboBox ItemsSource="{Binding H}" SelectedItem="{Binding RouteToBeCreated.hour ,Mode=TwoWay}" Grid.Row="4" Grid.Column="1"  Width="150" PlaceholderText="Hours">
+        <DatePicker Header="Hvilke dag køre du?" SelectedDate="{Binding RouteToBeCreated.startTime,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
+
+
+        <TextBox Header="Besked til alle der vil køre med?" Text="{Binding RouteToBeCreated.besked , Mode=TwoWay}" CornerRadius="3" Background="#F6F6F6" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="130" VerticalAlignment="Top"/>
+
+        <StackPanel  Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,15" >
+            <ComboBox Header="Hvad tid køre du?"  ItemsSource="{Binding H}" SelectedItem="{Binding RouteToBeCreated.hour ,Mode=TwoWay}" Grid.Row="4" Grid.Column="1"  Width="150" PlaceholderText="Timer">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}" TextWrapping="Wrap" TextAlignment="Center" FontSize ="12" />
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <ComboBox ItemsSource="{Binding M}" SelectedItem="{Binding RouteToBeCreated.minute, Mode= TwoWay}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Width="150" PlaceholderText="Minutes" HorizontalAlignment="Center">
+            <ComboBox Header=" " ItemsSource="{Binding M}" SelectedItem="{Binding RouteToBeCreated.minute, Mode= TwoWay}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Width="150" PlaceholderText="Minutter" HorizontalAlignment="Center">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding}" TextWrapping="Wrap" TextAlignment="Center" FontSize ="12" />
@@ -115,7 +109,7 @@
 
         <Button Height="50" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="300" Grid.Row="7" CornerRadius="7" Content="OPRET RUTE" Foreground="White" VerticalAlignment="Center" Command="{Binding Ad, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6"/>
 
-        <TextBlock Text="Opret Rute" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1"/>
+        <TextBlock Text="Opret Ruter" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1"/>
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="5" />
 
 
@@ -123,3 +117,4 @@
 
     </Grid>
 </Page>
+

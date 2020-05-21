@@ -1,0 +1,121 @@
+﻿<Page
+    x:Class="ZealandDrive.View_En.SpecficRoutePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZealandDrive.View_En"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:VM="using:ZealandDrive.VM"
+    mc:Ignorable="d"
+    Background="#F6F6F6">
+
+    <Page.DataContext>
+        <VM:MainVM/>
+    </Page.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="2" Canvas.ZIndex="1">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverviewEN}">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
+
+            </Button>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum" Command="{Binding GoFoEN}" >
+
+            </Button>
+
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding SettingEN}">
+
+            </Button>
+        </StackPanel>
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
+        <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
+        </Button>
+
+        <Grid  Width="375" Height="881" Background="#fff7f7fa" Grid.Row="1" Grid.Column="1">
+            <StackPanel  Width="375" Height="308" Margin="0,-14,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <StackPanel.Background>
+
+                    <ImageBrush ImageSource="/View/Assets/valgtRuteBillede.png" Opacity="0.8"></ImageBrush>
+                </StackPanel.Background>
+
+                <StackPanel  Width="375" Height="308" Canvas.Left="0" Canvas.Top="0" >
+                    <Border  Width="375" Height="307" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                    <Border  Width="375" Height="308" BorderBrush="#ff707070" Canvas.Left="0" Canvas.Top="0"  />
+                </StackPanel>
+            </StackPanel>
+            <Canvas  Width="154" Height="97" Margin="182,82,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid  Width="132" Height="35" Canvas.Left="0" Canvas.Top="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="From" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" Canvas.ZIndex="2" />
+                    <TextBlock Text="{Binding SelectedRute.routeStart, Mode=TwoWay}" FontSize="20" Margin="30,15,30,15" Canvas.ZIndex="2"/>
+                </Grid>
+
+
+
+                <Grid  Width="132" Height="35" Canvas.Left="0" Canvas.Top="65">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="To" TextAlignment="right" FontFamily="Helvetica" FontSize="12" Foreground="#ffffffff" />
+                    <TextBlock  Text="{Binding SelectedRute.routeEnd}" TextAlignment="right" FontFamily="Helvetica"  FontSize="16" Foreground="#fff2df80" Grid.Column="0" Grid.Row="1" Canvas.ZIndex="3" TextDecorations="Underline" />
+                </Grid>
+
+            </Canvas>
+            <Grid Width="330" Height="90" Margin="20,186,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Canvas Grid.Column="0"  Width="68" Height="66" Margin="0,24,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border  Width="68" Height="66" Background="#ff92dd77" BorderBrush="#ff92dd77" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="MANDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="15" Canvas.Top="7"  />
+                    <TextBlock  Text="23" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+                <Canvas Grid.Column="1"  Width="68" Height="66" Margin="0,24,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border  Width="68" Height="66" Background="#ffd94141" BorderBrush="#ffd94141" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="TIRSDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="7"  />
+                    <TextBlock  Text="24" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+                <Canvas Grid.Column="2"  Width="68" Height="66" Margin="0,24,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Border  Width="68" Height="66" Background="#ffd94141" BorderBrush="#ffd94141" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="ONSDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="15" Canvas.Top="7"  />
+                    <TextBlock  Text="25" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+
+                <Canvas Grid.Column="3" Height="66" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="68">
+                    <Border  Width="68" Height="66" Background="#ffd94141" BorderBrush="#ffd94141" Canvas.Left="0" Canvas.Top="0"  />
+                    <TextBlock  Text="TORSDAG" TextAlignment="center" FontFamily="Helvetica"  FontSize="9" Foreground="#ffffffff" Canvas.Left="15" Canvas.Top="7"  />
+                    <TextBlock  Text="26" TextAlignment="center" FontFamily="Helvetica"  FontSize="31" Foreground="#ffffffff" Canvas.Left="18" Canvas.Top="18"  />
+                </Canvas>
+            </Grid>
+            <TextBlock  Text="Overskrift 2" TextAlignment="left" FontFamily="Helvetica"  FontSize="32" Width="303" Height="38" TextWrapping="Wrap" Foreground="#fff2df80" Margin="36,313,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBlock  Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu tempor nulla. Curabitur vel condimentum lacus, vel vestibulum metus. 
+Aliquam ut purus sapien. Phasellus cursus augue quis sem porta, eget rutrum sapien tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam lacinia, maximus lorem laoreet, tincidunt ex. 
+Phasellus viverra sem sed metus porta, et consequat sem lobortis. feugiat, vitae posuere quam tristique. Phasellus finibus enim suscipit dapibus ornare. Cras eu tellus eu turpis ultrices convallis.
+ Quisque vestibulum semper urna, ac volutpat massa porta a. Integer eget varius eros. Nam rhoncus nibh enim. Aliquam quis tortor ac sem scelerisque luctus id iaculis augue. Sed dolor ligula, faucibus id mauris eu, placerat lobortis ipsum. 
+Pellentesque interdum ante lectus, non lobortis risus ultricies in. Suspendisse sem lectus, sollicitudin ut malesuada eu, tristique in neque. Aliquam eu risus tortor. Ut tempus elementum interdum." TextAlignment="left" FontFamily="Helvetica"  FontSize="13" Width="302" Height="478" TextWrapping="Wrap" Foreground="#ff616161" Margin="36.5,365,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+        </Grid>
+        <Button Name="TilmeldKnap" Content="Sign Up" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
+    </Grid>
+</Page>

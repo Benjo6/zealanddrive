@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="ZealandDrive.View_En.CreateUser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZealandDrive.View_En"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:VM="using:ZealandDrive.VM"
+    mc:Ignorable="d">
+
+    <Page.Background>
+        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png"/>
+    </Page.Background>
+
+    <Page.DataContext>
+        <VM:UserVM/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Create User" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" TextAlignment="Center" FontWeight="Bold" Grid.Column="1"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" 
+                    Grid.RowSpan="5" Background="#F2DF80" Margin="0,0,0,0" Width="310" Height="620" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="First Name: "  FontSize="20" Margin="30,15,30,15"/>
+            <TextBox Text="{Binding UserToBeCreated.name, Mode=TwoWay}" PlaceholderText="Insert first name" FontSize="20" Margin="30,15,30,15"/>
+            <TextBlock Text="Surname: " FontSize="20" Margin="30,15,30,15"/>
+            <TextBox Text="{Binding UserToBeCreated.lastname, Mode=TwoWay}"  PlaceholderText="Insert surname" FontSize="20" Margin="30,15,30,15"/>
+            <TextBlock Text="Email: " FontSize="20" Margin="30,15,30,15"/>
+            <TextBox Text="{Binding UserToBeCreated.email, Mode=TwoWay}" PlaceholderText="Insert Email" FontSize="20" Margin="30,15,30,15"/>
+            <TextBlock Text="Password: " FontSize="20" Margin="30,15,30,15"/>
+            <TextBox Text="{Binding UserToBeCreated.password, Mode=TwoWay}" PlaceholderText="Insert password" FontSize="20" Margin="30,15,30,15"/>
+            <Button Content="Create" HorizontalAlignment="Center" Command="{Binding AddUser, Mode=TwoWay}" />
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -65,6 +65,11 @@ namespace ZealandDrive.VM
         public RelayCommand GoBack => p.Tilbage;
 
         public RelayCommand GoGemBiler => p.GemBiler;
+        public RelayCommand GoGemBilerEN => p.GemBilerEN;
+        public RelayCommand GoToOverview => p.GoOverviewPage;
+        public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
+        public RelayCommand Setting => p.SettingPage;
+        public RelayCommand SettingEN => p.SettingPageEN;
 
         public Car SelectedCar
             {

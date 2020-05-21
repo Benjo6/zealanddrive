@@ -31,6 +31,25 @@ namespace ZealandDrive.Model
         private RelayCommand fo;
         private RelayCommand foo;
 
+        //Engelsk
+        public RelayCommand _userTestEN;
+        public RelayCommand loginPageEN;
+        public RelayCommand oRutePageEN;
+        public RelayCommand overviewPageEN;
+        public RelayCommand tilbagePageEN;
+        public RelayCommand sRutePageEN;
+        public RelayCommand settingPageEN;
+        public RelayCommand opretBrugerEN;
+        private RelayCommand aOSEN;
+        private RelayCommand gemadresseEN;
+        private RelayCommand gemBilerEN;
+        private RelayCommand gemteadresserEN;
+        private RelayCommand gemteBilerEN;
+        private RelayCommand personligeinfEN;
+        private RelayCommand privatEN;
+        private RelayCommand sprogEN;
+        private RelayCommand foEN;
+        private RelayCommand fooEN;
 
         #endregion
 
@@ -57,6 +76,25 @@ namespace ZealandDrive.Model
             sprog = new RelayCommand(GoSprog);
             fo = new RelayCommand(GoFO);
             foo = new RelayCommand(GoFOO);
+
+            //Engelsk
+
+            loginPageEN = new RelayCommand(GotoLoginEN);
+            oRutePageEN = new RelayCommand(GotoOpretRuteEN);
+            overviewPageEN = new RelayCommand(GotoOverviewEn);
+            sRutePageEN = new RelayCommand(GotoSpecificRutePageEn);
+            settingPageEN = new RelayCommand(GoSettingEN);
+            opretBrugerEN = new RelayCommand(GotoOpretBrugerEN);
+            aOSEN = new RelayCommand(GOAOSEN);
+            gemadresseEN = new RelayCommand(GOGemAdresseEN);
+            gemBilerEN = new RelayCommand(GOGemBilEn);
+            gemteadresserEN = new RelayCommand(GOGemteAdresseEN);
+            gemteBilerEN = new RelayCommand(GOGemteBilEn);
+            personligeinfEN = new RelayCommand(GoPersonligeInformationEN);
+            privatEN = new RelayCommand(GoPrivatlivsindstillingerEN);
+            sprogEN = new RelayCommand(GoSprogEN);
+            foEN = new RelayCommand(GoFOEN);
+            fooEN = new RelayCommand(GoFOOEN);
 
         }
         #endregion
@@ -117,6 +155,61 @@ namespace ZealandDrive.Model
         public RelayCommand FOPage => fo;
         public RelayCommand FOOPage => foo;
         public RelayCommand UserTest => _userTest;
+
+        //Engelsk
+        public RelayCommand GemAdresseEN => gemadresseEN;
+        public RelayCommand GemteAdresseEN => gemteadresserEN;
+        public RelayCommand GemBilerEN => gemBilerEN;
+        public RelayCommand GemteBilerEN => gemteBilerEN;
+        public RelayCommand PIEN => personligeinfEN;
+        public RelayCommand PrivatEN => privatEN;
+        public RelayCommand SprogEN => sprogEN;
+
+        public RelayCommand LoginEN
+        {
+            get
+            {
+                return loginPage;
+            }
+        }
+
+        public RelayCommand OpretEN
+        {
+            get
+            {
+                return opretBruger;
+            }
+        }
+
+        public RelayCommand GoToSpecificRutePageEN
+        {
+            get
+            {
+                return sRutePage;
+            }
+        }
+        public RelayCommand AOSEN => aOSEN;
+
+        public RelayCommand OpretRuteEN => oRutePageEN;
+
+        public RelayCommand GoOverviewPageEN
+        {
+            get
+            {
+                return overviewPageEN;
+            }
+        }
+
+        public RelayCommand TilbageEN => tilbagePageEN;
+
+        //public RelayCommand test => sRutePage;
+
+        public RelayCommand SRutePageEN => GoToSpecificRutePageEN;
+
+        public RelayCommand SettingPageEN => settingPageEN;
+        public RelayCommand FOPageEN => foEN;
+        public RelayCommand FOOPageEN => fooEN;
+
         #endregion
 
 
@@ -229,6 +322,110 @@ namespace ZealandDrive.Model
                 navigationService.navigate(typeof(View.Sprog));
             }
         }
+
+        //Engelsk
+
+        public void GoSettingEN()
+        {
+            navigationService.navigate(typeof(View_En.Settings));
+
+        }
+        public void GoFOEN()
+        {
+            navigationService.navigate(typeof(View_En.ForumOverview));
+
+        }
+        public void GoFOOEN()
+        {
+            navigationService.navigate(typeof(View_En.CreateForum));
+
+        }
+
+
+        public void GotoLoginEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.LoginPage));
+            }
+        }
+        public void GotoOpretRuteEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.CreateRoutesPage));
+            }
+        }
+        public void GotoOverviewEn()
+        {
+            {
+                navigationService.navigate(typeof(View_En.OverviewPage));
+            }
+        }
+
+        public void GotoSpecificRutePageEn()
+        {
+            {
+                navigationService.navigate(typeof(View_En.SpecficRoutePage));
+            }
+        }
+
+        public void GotoOpretBrugerEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.CreateUser));
+            }
+        }
+        public void GOAOSEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.PasswordSecurity));
+            }
+        }
+        public void GOGemAdresseEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.SaveAddresse));
+            }
+        }
+        public void GOGemBilEn()
+        {
+            {
+                navigationService.navigate(typeof(View_En.SaveCars));
+            }
+        }
+        public void GOGemteBilEn()
+        {
+            {
+                navigationService.navigate(typeof(View_En.SavedCars));
+            }
+        }
+        public void GOGemteAdresseEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.SavedAddresses));
+            }
+        }
+        public void GoPersonligeInformationEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.PersonalInformation));
+            }
+        }
+        public void GoPrivatlivsindstillingerEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.PrivacySettings));
+            }
+        }
+        public void GoSprogEN()
+        {
+            {
+                navigationService.navigate(typeof(View_En.Language));
+            }
+        }
+
+
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         //[NotifyPropertyChangedInvocator]

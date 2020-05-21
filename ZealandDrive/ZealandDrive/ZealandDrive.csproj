@@ -140,63 +140,117 @@
     <Compile Include="Persistens\PersitenceFactory.cs" />
     <Compile Include="Common\Relaycommand.cs" />
     <Compile Include="Common\Singleton.cs" />
-    <Compile Include="View\AdgangskodeogSikkerhed.xaml.cs">
+    <Compile Include="View-Dk\AdgangskodeogSikkerhed.xaml.cs">
       <DependentUpon>AdgangskodeogSikkerhed.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ForumOverview.xaml.cs">
+    <Compile Include="View-Dk\ForumOverview.xaml.cs">
       <DependentUpon>ForumOverview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GemAdresse.xaml.cs">
+    <Compile Include="View-Dk\GemAdresse.xaml.cs">
       <DependentUpon>GemAdresse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GemBiler.xaml.cs">
+    <Compile Include="View-Dk\GemBiler.xaml.cs">
       <DependentUpon>GemBiler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GemteAdresser.xaml.cs">
+    <Compile Include="View-Dk\GemteAdresser.xaml.cs">
       <DependentUpon>GemteAdresser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GemteBiler.xaml.cs">
+    <Compile Include="View-Dk\GemteBiler.xaml.cs">
       <DependentUpon>GemteBiler.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginPage.xaml.cs">
+    <Compile Include="View-Dk\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainPage.xaml.cs">
+    <Compile Include="View-Dk\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\OpretBruger.xaml.cs">
+    <Compile Include="View-Dk\OpretBruger.xaml.cs">
       <DependentUpon>OpretBruger.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\OpretForum.xaml.cs">
+    <Compile Include="View-Dk\OpretForum.xaml.cs">
       <DependentUpon>OpretForum.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\OpretRutePage.xaml.cs">
+    <Compile Include="View-Dk\OpretRutePage.xaml.cs">
       <DependentUpon>OpretRutePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\OverviewPage.xaml.cs">
+    <Compile Include="View-Dk\OverviewPage.xaml.cs">
       <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PersonligeInformation.xaml.cs">
+    <Compile Include="View-Dk\PersonligeInformation.xaml.cs">
       <DependentUpon>PersonligeInformation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Privatlivsindstillinger.xaml.cs">
+    <Compile Include="View-Dk\Privatlivsindstillinger.xaml.cs">
       <DependentUpon>Privatlivsindstillinger.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Settings.xaml.cs">
+    <Compile Include="View-Dk\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SpecficForumPost.xaml.cs">
+    <Compile Include="View-Dk\SpecficForumPost.xaml.cs">
       <DependentUpon>SpecficForumPost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SpecificRoutePage.xaml.cs">
+    <Compile Include="View-Dk\SpecificRoutePage.xaml.cs">
       <DependentUpon>SpecificRoutePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Sprog.xaml.cs">
+    <Compile Include="View-Dk\Sprog.xaml.cs">
       <DependentUpon>Sprog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserTest.xaml.cs">
+    <Compile Include="View-Dk\UserTest.xaml.cs">
       <DependentUpon>UserTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\CreateForum.xaml.cs">
+      <DependentUpon>CreateForum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\CreateRoutesPage.xaml.cs">
+      <DependentUpon>CreateRoutesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\CreateUser.xaml.cs">
+      <DependentUpon>CreateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\ForumOverview.xaml.cs">
+      <DependentUpon>ForumOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\Language.xaml.cs">
+      <DependentUpon>Language.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\OverviewPage.xaml.cs">
+      <DependentUpon>OverviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\PasswordSecurity.xaml.cs">
+      <DependentUpon>PasswordSecurity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\PersonalInformation.xaml.cs">
+      <DependentUpon>PersonalInformation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\PrivacySettings.xaml.cs">
+      <DependentUpon>PrivacySettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\SaveAddresse.xaml.cs">
+      <DependentUpon>SaveAddresse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\SaveCars.xaml.cs">
+      <DependentUpon>SaveCars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\SavedAddresses.xaml.cs">
+      <DependentUpon>SavedAddresses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\SavedCars.xaml.cs">
+      <DependentUpon>SavedCars.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\SpecficForumPost.xaml.cs">
+      <DependentUpon>SpecficForumPost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-En\SpecficRoutePage.xaml.cs">
+      <DependentUpon>SpecficRoutePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="VM\CarVM.cs" />
     <Compile Include="VM\ForumVM.cs" />
@@ -213,94 +267,174 @@
   <ItemGroup>
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
-    <Content Include="View\Assets\close.svg" />
-    <Content Include="View\Assets\Menu.svg" />
-    <Content Include="View\Assets\new-icon.svg" />
-    <Content Include="View\Assets\Not_logget_in_%401x.png" />
-    <Content Include="View\Assets\SplashScreen.scale-200.png" />
-    <Content Include="View\Assets\valgtRuteBillede.png" />
-    <Content Include="View\Assets\zealand-DRIVE-NEW-logo%28hvid%29.png" />
-    <Content Include="View\Assets\zealand-DRIVE-NEW-logo.png" />
+    <Content Include="View-Dk\Assets\close.svg" />
+    <Content Include="View-Dk\Assets\Menu.svg" />
+    <Content Include="View-Dk\Assets\new-icon.svg" />
+    <Content Include="View-Dk\Assets\Not_logget_in_%401x.png" />
+    <Content Include="View-Dk\Assets\SplashScreen.scale-200.png" />
+    <Content Include="View-Dk\Assets\valgtRuteBillede.png" />
+    <Content Include="View-Dk\Assets\zealand-DRIVE-NEW-logo%28hvid%29.png" />
+    <Content Include="View-Dk\Assets\zealand-DRIVE-NEW-logo.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <Content Include="View-En\Assets\close.svg" />
+    <Content Include="View-En\Assets\Menu.svg" />
+    <Content Include="View-En\Assets\new-icon.svg" />
+    <Content Include="View-En\Assets\Not_logget_in_%401x.png" />
+    <Content Include="View-En\Assets\SplashScreen.scale-200.png" />
+    <Content Include="View-En\Assets\valgtRuteBillede.png" />
+    <Content Include="View-En\Assets\zealand-DRIVE-NEW-logo%28hvid%29.png" />
+    <Content Include="View-En\Assets\zealand-DRIVE-NEW-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\AdgangskodeogSikkerhed.xaml">
+    <Page Include="View-Dk\AdgangskodeogSikkerhed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ForumOverview.xaml">
+    <Page Include="View-Dk\ForumOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GemAdresse.xaml">
+    <Page Include="View-Dk\GemAdresse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GemBiler.xaml">
+    <Page Include="View-Dk\GemBiler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GemteAdresser.xaml">
+    <Page Include="View-Dk\GemteAdresser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GemteBiler.xaml">
+    <Page Include="View-Dk\GemteBiler.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LoginPage.xaml">
+    <Page Include="View-Dk\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainPage.xaml">
+    <Page Include="View-Dk\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\OpretBruger.xaml">
+    <Page Include="View-Dk\OpretBruger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\OpretForum.xaml">
+    <Page Include="View-Dk\OpretForum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\OpretRutePage.xaml">
+    <Page Include="View-Dk\OpretRutePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\OverviewPage.xaml">
+    <Page Include="View-Dk\OverviewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PersonligeInformation.xaml">
+    <Page Include="View-Dk\PersonligeInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Privatlivsindstillinger.xaml">
+    <Page Include="View-Dk\Privatlivsindstillinger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Settings.xaml">
+    <Page Include="View-Dk\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SpecficForumPost.xaml">
+    <Page Include="View-Dk\SpecficForumPost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SpecificRoutePage.xaml">
+    <Page Include="View-Dk\SpecificRoutePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Sprog.xaml">
+    <Page Include="View-Dk\Sprog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserTest.xaml">
+    <Page Include="View-Dk\UserTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\CreateForum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\CreateRoutesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\CreateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\ForumOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\Language.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\OverviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\PasswordSecurity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\PersonalInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\PrivacySettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\SaveAddresse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\SaveCars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\SavedAddresses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\SavedCars.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\SpecficForumPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\SpecficRoutePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <ImageBrush ImageSource="Assets\Not_logget_in_@1x.png"/>
+        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png"/>
     </Page.Background>
     <Page.DataContext>
         <local:UserVM/>

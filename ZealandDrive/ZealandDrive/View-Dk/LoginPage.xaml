@@ -12,7 +12,7 @@
     </Page.DataContext>
     
     <Page.Background>
-        <ImageBrush ImageSource="Assets\Not_logget_in_@1x.png"/>
+        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png"/>
     </Page.Background>
     <Grid>
         <Grid.RowDefinitions>
@@ -31,7 +31,7 @@
             <ColumnDefinition Width="400"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Image VerticalAlignment="Bottom" Grid.Row="0" Source="Assets\zealand-DRIVE-NEW-logo(hvid).png" Height="130" Grid.Column="1" />
+        <Image VerticalAlignment="Bottom" Grid.Row="0" Source="/View-En/Assets/zealand-DRIVE-NEW-logo(hvid).png" Height="130" Grid.Column="1" />
         <TextBlock Text="Email" Foreground="White" Grid.Row="1" HorizontalAlignment="Left" Margin="32,0,0,0" Grid.Column="1"/>
         <TextBox Grid.Row="1" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
 

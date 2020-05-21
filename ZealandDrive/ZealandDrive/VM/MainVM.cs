@@ -53,7 +53,18 @@ namespace ZealandDrive.VM
         public RelayCommand GoSprog => p.Sprog;
         public RelayCommand GoFo => p.FOPage;
         public RelayCommand GoFOO => p.FOOPage;
-       
+        public RelayCommand GoGemBilerEN => p.GemBilerEN;
+        public RelayCommand GoAOSEN => p.AOSEN;
+        public RelayCommand GoGemteBilerEN => p.GemteBilerEN;
+        public RelayCommand GoGemAdresseEN => p.GemAdresseEN;
+        public RelayCommand GoGemteAdresseEN => p.GemteAdresseEN;
+        public RelayCommand GoPIEN => p.PIEN;
+        public RelayCommand GoPrivatEN => p.PrivatEN;
+        public RelayCommand GoSprogEN => p.SprogEN;
+        public RelayCommand GoFoEN => p.FOPageEN;
+        public RelayCommand GoFOOEN => p.FOOPageEN;
+        public RelayCommand GoOverview => p.GoOverviewPage;
+        public RelayCommand GoOverviewEN => p.GoOverviewPage;
 
         public bool IsChecked
         {
@@ -97,7 +108,9 @@ namespace ZealandDrive.VM
         public Singleton Instance => x;
 
         public RelayCommand Setting => p.SettingPage;
-        
+        public RelayCommand SettingEN => p.SettingPageEN;
+
+
         public RCO NextCommand
         {
             get { return _nextCommand; }

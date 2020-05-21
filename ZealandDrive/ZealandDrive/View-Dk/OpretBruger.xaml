@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Page.Background>
-        <ImageBrush ImageSource="Assets\Not_logget_in_@1x.png"/>
+        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png"/>
     </Page.Background>
 
     <Page.DataContext>

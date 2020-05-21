@@ -5,43 +5,26 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
+using ZealandDrive.Common;
+using ZealandDrive.Model;
 
 namespace ZealandDrive.VM
 {
-    public class SprogVM : INotifyPropertyChanged
+    public class SprogVM
     {
-        static bool m_blnInitDanish = true;
+        private PageCommand p;
 
-        public void InitDanishOnce()
+        public SprogVM()
         {
-            if (m_blnInitDanish)
-            {
-                Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "da-dk";
-
-                Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
-                Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().Reset();
-                m_blnInitDanish = false;
-            }
-        }
-        public void ClickLanguage()
-        {
-            if (m_blnInitDanish)
-            {
-                Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "da-dk";
-                m_blnInitDanish = false;
-            }
-            else
-            {
-                Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = "en";
-                m_blnInitDanish = true;
-            }
-
-            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForViewIndependentUse().Reset();
-            Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().Reset();
-
+            p = new PageCommand();
         }
 
+
+        public ICommand Dansk => p.SettingPage;
+        public ICommand Engelsk => p.SettingPageEN;
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
