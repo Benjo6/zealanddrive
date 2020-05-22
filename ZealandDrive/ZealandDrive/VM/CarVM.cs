@@ -47,8 +47,18 @@ namespace ZealandDrive.VM
                 _persistenceCar = new DBPersistenceCar();
 
             }
-            #endregion
+        #endregion
         #region Properties
+        //page
+        public RelayCommand GoGemteBiler => p.GemteBiler;
+        public RelayCommand GoBack => p.Tilbage;
+
+        public RelayCommand GoGemteBilerEN => p.GemteBilerEN;
+        public RelayCommand GoToOverview => p.GoOverviewPage;
+        public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
+        public RelayCommand Setting => p.SettingPage;
+        public RelayCommand SettingEN => p.SettingPageEN;
+        //car
         public RelayCommand LoadCar => _loadCar;
 
         public RelayCommand SaveCar => _saveCar;
@@ -62,14 +72,6 @@ namespace ZealandDrive.VM
         public RelayCommand ClearCreateOneCar => _clearCreateOneCar;
         public ObservableCollection<Car> Cars => _cars;
 
-        public RelayCommand GoBack => p.Tilbage;
-
-        public RelayCommand GoGemBiler => p.GemBiler;
-        public RelayCommand GoGemBilerEN => p.GemBilerEN;
-        public RelayCommand GoToOverview => p.GoOverviewPage;
-        public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
-        public RelayCommand Setting => p.SettingPage;
-        public RelayCommand SettingEN => p.SettingPageEN;
 
         public Car SelectedCar
             {
@@ -102,7 +104,6 @@ namespace ZealandDrive.VM
 
                 Frame f = (Frame)Window.Current.Content;
                 f.Navigate(typeof(OverviewPage));
-
             }
             private void UpdateCar()
             {
