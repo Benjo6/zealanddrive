@@ -31,8 +31,9 @@ namespace ClassLibrary
 
         }
 
-        public Users(string name, string lastname, string email, string password, string tmpPassword, string token)
+        public Users(int id, string name, string lastname, string email, string password, string tmpPassword, string token)
         {
+            _id = id;
             _name = name;
             _lastName = lastname;
             _email = email;
@@ -51,7 +52,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"name is: {name}, lastname is: {lastname}, Email is: {email}, Password is: {password}";
+            return $"id is: {id}, name is: {name}, lastname is: {lastname}, Email is: {email}, Password is: {password}";
         }
     }
 }
