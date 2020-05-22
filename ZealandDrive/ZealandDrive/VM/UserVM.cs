@@ -44,8 +44,7 @@ namespace ZealandDrive.VM
         private string _userNow;
         private string _passNow;
         private RelayCommand _userLogin;
-        public RelayCommand GoFo => p.FOPage;
-        public RelayCommand Setting => p.SettingPage;
+       
         #endregion
 
         #region Constructor
@@ -80,6 +79,9 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOpretBrugerEN => p.OpretEN;
         public RelayCommand GoToLoginEN => p.LoginEN;
         public RelayCommand GoBack => p.Tilbage;
+        public RelayCommand GoFo => p.FOPage;
+        public RelayCommand Setting => p.SettingPage;
+        public RelayCommand GoOverview => p.GoOverviewPage;
 
         // user
         public ObservableCollection<Users> Users => _users;
