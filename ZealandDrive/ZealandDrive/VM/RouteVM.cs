@@ -44,6 +44,7 @@ namespace ZealandDrive.VM
         private RelayCommand _deleteOneRute;
         private RelayCommand _clearCreateOneRute;
         private ObservableCollection<Route> _ruter;
+        private RelayCommand _handleR;
 
         // passenger
         private IPersistens<Passenger> _persistencePassenger;
@@ -83,6 +84,7 @@ namespace ZealandDrive.VM
             _deleteOneRute = new RelayCommand(DeleteRute);
             _clearCreateOneRute = new RelayCommand(ClearCreateRute);
             _persistenceRoute = new DBPersistenceRute();
+            _handleR = new RelayCommand(HandleSelectedItem);
             // passenger
             _loadPassenger = new RelayCommand(LoadPassengers);
             _passengerToBeCreated = new Passenger();
@@ -118,11 +120,13 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOpretRuteEN => p.OpretRuteEN;
         public RelayCommand GoToSaveAddresse => p.GemAdresseEN;
         public RelayCommand GoToGemAdresse => p.GemAdresse;
+        public RelayCommand GoToSpecficRoute => p.GoToSpecificRutePage;
 
 
 
 
         // routes
+        public RelayCommand HandleSelectionRoute => _handleR;
         public ObservableCollection<Route> Ruter => _ruter;
         public RelayCommand LoadRute => _loadRute;
         public RelayCommand SaveRute => _saveRute;

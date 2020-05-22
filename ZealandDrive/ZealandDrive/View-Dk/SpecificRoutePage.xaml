@@ -25,11 +25,12 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="85"/>
             <RowDefinition/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="6" Canvas.ZIndex="1">
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="7" Canvas.ZIndex="1">
             <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverview}">
 
             </Button>
@@ -44,7 +45,7 @@
 
             </Button>
         </StackPanel>
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="3" />
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" Grid.ColumnSpan="3" />
         <Button Background="White"  Height="70" Width="70" Command="{Binding GoBack}" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
         </Button>
@@ -66,15 +67,20 @@
             <TextBlock FontSize="12" Text="Mærke:"/>
             <TextBlock Text="Farve:" FontSize="12"/>
         </StackPanel>
-        <Rectangle Fill="Black" Grid.Row="2" Grid.Column="1" Width="180" Height="70" VerticalAlignment="Top"  HorizontalAlignment="Right" Opacity="0.4" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+        <Rectangle Fill="Black" Grid.Row="2" Grid.Column="1" Width="180" Height="90" VerticalAlignment="Top"  HorizontalAlignment="Right" Opacity="0.4" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
 
-        <Rectangle Fill="Black" Grid.Row="2" Grid.Column="1" Width="180" Height="70" VerticalAlignment="Center"  HorizontalAlignment="Right" Opacity="0.4" Grid.ColumnSpan="2" Margin="0,50,20,0"/>
+        <Rectangle Fill="Black" Grid.Row="2" Grid.Column="1" Width="180" Height="90" VerticalAlignment="Center"  HorizontalAlignment="Right" Opacity="0.4" Grid.ColumnSpan="2" Margin="0,110,20,0"/>
 
         <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Grid.ColumnSpan="2">
             <TextBlock Text="Fra" Foreground="White" TextAlignment="Right" Margin="0,0,25,0"/>
             <TextBlock Text= "{Binding SelectedRute.routeStart}"  TextAlignment="Right" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Margin="0,20,22,0" VerticalAlignment="Stretch"  Foreground="#F2DF80" Width="178"/>
+            <StackPanel Margin="0,0,20,0" Orientation="Horizontal">
+                <TextBlock Text="{Binding SelectedRute.hour}"/>
+                <TextBlock Text="{Binding SelectedRute.minute}"/>
+            </StackPanel>
             <TextBlock Text="Til" Foreground="White" Margin="0,70,25,0" TextAlignment="Right" />
             <TextBlock Text="{Binding SelectedRute.routeEnd}" TextAlignment="Right" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Foreground="#F2DF80" Margin="0,20,22,0" Width="178"/>
+            
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
@@ -84,7 +90,7 @@
             <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}"/>
             <TextBlock Text="{Binding SelectedCar.color}" FontSize="12"/>
         </StackPanel>
-        <TextBox IsReadOnly="True" BorderBrush="LightGray" BorderThickness="1" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" Height="120" Text="{Binding SelectedRute.besked}" />
-        <Button CornerRadius="4" BorderBrush="LightGray" BorderThickness="1" Name="TilmeldKnap" Foreground="White" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50" Grid.Row="5" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" Margin="0,0,0,10"/>
+        <TextBox Header="Besked" IsReadOnly="True" BorderBrush="LightGray" BorderThickness="1" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Text="{Binding SelectedRute.besked}" Margin="0,0,0,0" Height="110" />
+        <Button CornerRadius="4" BorderBrush="LightGray" BorderThickness="1" Name="TilmeldKnap" Foreground="White" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50" Grid.Row="6" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" Margin="0,0,0,10"/>
     </Grid>
 </Page>
