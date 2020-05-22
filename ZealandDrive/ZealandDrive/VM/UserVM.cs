@@ -75,7 +75,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
         public RelayCommand GoToOpretBrugerEN => p.OpretEN;
         public RelayCommand GoToLoginEN => p.LoginEN;
-        public RelayCommand GoBack => p.GoBack;
+        public RelayCommand GoBack => p.Tilbage;
 
         // user
         public ObservableCollection<Users> Users => _users;
