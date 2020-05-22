@@ -23,6 +23,7 @@ namespace ZealandDrive.VM
         // page
         private PageCommand p;
 
+
         // users
         private IPersistens<Users> _persistence;
         private RelayCommand _createOne;
@@ -38,10 +39,13 @@ namespace ZealandDrive.VM
         private RelayCommand _checkBruger;
         private Users _userToBeCreated;
         private Users _selectedUser;
+        private Users _userTobeUpdated;
         private ObservableCollection<Users> _users;
         private string _userNow;
         private string _passNow;
         private RelayCommand _userLogin;
+        public RelayCommand GoFo => p.FOPage;
+        public RelayCommand Setting => p.SettingPage;
         #endregion
 
         #region Constructor
@@ -75,7 +79,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
         public RelayCommand GoToOpretBrugerEN => p.OpretEN;
         public RelayCommand GoToLoginEN => p.LoginEN;
-        public RelayCommand GoBack => p.GoBack;
+        public RelayCommand GoBack => p.Tilbage;
 
         // user
         public ObservableCollection<Users> Users => _users;
@@ -99,6 +103,19 @@ namespace ZealandDrive.VM
                 if (Equals(value, _userToBeCreated)) return;
                 _userToBeCreated = value;
                 OnPropertyChanged();
+            }
+        }
+
+        public Users UserToBeUpdated
+        {
+            get => _userToBeCreated;
+            set
+            {
+                if (Equals(value, _userTobeUpdated)) return;
+                {
+                    _userTobeUpdated = value;
+                    OnPropertyChanged();
+                }
             }
         }
 

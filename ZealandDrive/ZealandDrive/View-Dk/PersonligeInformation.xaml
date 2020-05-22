@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="#F6F6F6">
     <Page.DataContext>
-        <local:MainVM/>
+        <local:UserVM/>
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -28,10 +28,10 @@
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
 
         <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="300">
-            <TextBox Background="White" Width="200" Header="Navn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2"/>
-            <TextBox Background="White" Width="200" Header="Efternavn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2"/>
-            <TextBox Background="White" Width="200" Header="Email" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2"/>
-            <Button Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="7" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
+            <TextBox Background="White" Width="200" Header="Navn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding UserToBeUpdated.name, Mode=TwoWay}"/>
+            <TextBox Background="White" Width="200" Header="Efternavn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding UserToBeUpdated.lastname, Mode=TwoWay}"/>
+            <TextBox Background="White" Width="200" Header="Email" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding UserToBeUpdated.email, Mode=TwoWay}"/>
+            <Button Height="30" Command="{Binding UpdateOne, Mode=TwoWay}" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="7" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
         </StackPanel>
 
         <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Content="GoBack" Command="{Binding GoBack}">
