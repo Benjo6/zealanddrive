@@ -111,6 +111,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoFo => p.FOPage;
         public RelayCommand Setting => p.SettingPage;
+        public RelayCommand GoGemBiler => p.GemBiler;
 
         public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
         public RelayCommand GoFoEN => p.FOPageEN;

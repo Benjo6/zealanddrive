@@ -34,7 +34,10 @@
 
         <TextBlock Text="Biler" FontSize="36" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <ListView ItemsSource="{Binding LoadCar}" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" Height="500" VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="2">
+        <Button Grid.Column="1" Content="Load" Command="{Binding LoadCar}"/>
+
+
+        <ListView ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" Height="500" VerticalAlignment="Top" BorderBrush="LightGray" BorderThickness="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
