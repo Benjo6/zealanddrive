@@ -55,7 +55,7 @@
 
         <Button Grid.Column="1" Content="Load" Command="{Binding LoadRute}"/>
 
-        <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}" x:Name="Outerref"   Grid.Row="1" Grid.Column="1" >
+        <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}"   Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Background="Transparent" Canvas.ZIndex="4">

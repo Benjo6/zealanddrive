@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="350"/>
             <ColumnDefinition/>
 
         </Grid.ColumnDefinitions>
@@ -43,6 +43,10 @@
             <TextBox Text="{Binding UserToBeCreated.password, Mode=TwoWay}" PlaceholderText="Indtast Kodeord" FontSize="20" Margin="30,15,30,15"/>
             <Button Content="Opret" HorizontalAlignment="Center" Command="{Binding CreateOne, Mode=TwoWay}" />
         </StackPanel>
+
+        <Button Grid.Row="0" Grid.Column="0" Command="{Binding GoBack}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" >
+            <Image/>
+        </Button>
 
     </Grid>
 </Page>

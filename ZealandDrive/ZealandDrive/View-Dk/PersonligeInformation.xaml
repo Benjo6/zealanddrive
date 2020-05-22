@@ -29,8 +29,8 @@
 
         <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="300">
             <TextBox Background="White" Width="200" Header="Navn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2"/>
+            <TextBox Background="White" Width="200" Header="Efternavn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2"/>
             <TextBox Background="White" Width="200" Header="Email" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2"/>
-            <TextBox Background="White" Width="200" Header="Telefonnummer" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2"/>
             <Button Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="7" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
         </StackPanel>
 
