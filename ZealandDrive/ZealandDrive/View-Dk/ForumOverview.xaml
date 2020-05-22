@@ -2,7 +2,7 @@
     x:Class="ZealandDrive.View.ForumOverview"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ZealandDrive.View"
+    xmlns:local="using:ZealandDrive.VM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:VM="using:ZealandDrive.VM"
@@ -10,7 +10,7 @@
     Background="#F6F6F6">
     
     <Page.DataContext>
-        <VM:MainVM/>
+        <local:ForumVM/>
     </Page.DataContext>
 
     <Grid>
@@ -28,7 +28,7 @@
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
         <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4" Canvas.ZIndex="1">
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverview}">
 
             </Button>
             <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
@@ -55,12 +55,19 @@
 
         <TextBlock Text="Forum" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding Instance.SelectedForum, Mode=TwoWay}" x:Name="InnerRef"  Grid.Row="1" Grid.Column="1" >
+        <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding ElementName=InnerRef, Path=DataContext.Next1Command}" CommandParameter="{Binding Mode=TwoWay}" >
-                    
-                    </Button>
+                    <StackPanel Background="White">
+                        <Grid Height="180">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Header}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Besked}" Grid.Row="1"/>
+                        </Grid>
+                    </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>

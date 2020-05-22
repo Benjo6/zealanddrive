@@ -19,7 +19,8 @@ namespace ZealandDrive.VM
     class UserVM : INotifyPropertyChanged
     {
         #region Instance
-
+        // SingleTon
+        private Singleton x;
         // page
         private PageCommand p;
 
@@ -51,6 +52,7 @@ namespace ZealandDrive.VM
 
         public UserVM()
         {
+            x = Singleton.Instance;
             _userLogin = new RelayCommand(CheckBruger);
             _createOne2 = new RelayCommand(AddUser1);
             p = new PageCommand();
@@ -132,7 +134,7 @@ namespace ZealandDrive.VM
         public UserVM(string userNow)
         {
             _userNow = userNow;
-            UserCurrent = new Users();
+            x.UserCurrent = new Users();
         }
 
         public string PassNow
@@ -144,7 +146,7 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
-        public Users UserCurrent { get; set; }
+        public Users UserCurrent => x.UserCurrent;
         public string UserNow
         {
             get => _userNow;
@@ -207,7 +209,6 @@ namespace ZealandDrive.VM
             //_users.Add(_userToBeCreated);
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(LoginPage));
-
         }
         private async void AddUser1()
         {
@@ -249,7 +250,7 @@ namespace ZealandDrive.VM
             {
                 if (CheckList(i.email, _userNow) && (CheckList(i.password, _passNow)))
                 {
-                    UserCurrent = i;
+                    x.UserCurrent = i;
                     UserNow = "";
                     PassNow = "";
                     Frame f = (Frame)Window.Current.Content;

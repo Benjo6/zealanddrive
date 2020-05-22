@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
+using ZealandDrive.Model;
 using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.F;
 
@@ -28,6 +29,7 @@ namespace ZealandDrive.VM
         private RelayCommand _deleteOneForum;
         private RelayCommand _clearCreateOneForum;
         private ObservableCollection<Forum> _forum;
+        private PageCommand p;
         #endregion
         #region Constructor
         public ForumVM()
@@ -41,11 +43,22 @@ namespace ZealandDrive.VM
             _deleteOneForum = new RelayCommand(DeleteForum);
             _clearCreateOneForum = new RelayCommand(ClearCreateForum);
             _persistenceForum = new DBPersistenceForum();
+            p = new PageCommand();
 
 
         }
         #endregion
         #region Properties
+        public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
+        public RelayCommand GoToOverview => p.GoOverviewPage;
+        public RelayCommand ForumPage => p.FOPage;
+        public RelayCommand ForumPageEN => p.FOPageEN;
+        public RelayCommand OpretForum => p.FOOPage;
+        public RelayCommand CreateForum => p.FOOPageEN;
+        public RelayCommand Setting => p.SettingPage;
+        public RelayCommand SettingEN => p.SettingPageEN;
+        
+
         public ObservableCollection<Forum> Forum => _forum;
         public RelayCommand LoadForum => _loadForum;
         public RelayCommand SaveForum => _saveForum;

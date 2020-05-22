@@ -28,7 +28,7 @@
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
         <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4" Canvas.ZIndex="1">
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverviewEN}">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverviewEN}">
 
             </Button>
             <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
@@ -55,7 +55,7 @@
 
         <TextBlock Text="Forum" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding Instance.SelectedForum, Mode=TwoWay}" x:Name="InnerRef"  Grid.Row="1" Grid.Column="1" >
+        <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}"   Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Button Command="{Binding ElementName=InnerRef, Path=DataContext.Next1Command}" CommandParameter="{Binding Mode=TwoWay}" >

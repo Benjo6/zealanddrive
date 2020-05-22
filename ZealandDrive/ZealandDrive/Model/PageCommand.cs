@@ -77,9 +77,11 @@ namespace ZealandDrive.Model
             fo = new RelayCommand(GoFO);
             foo = new RelayCommand(GoFOO);
 
-            //Engelsk
+                    
 
-            loginPageEN = new RelayCommand(GotoLoginEN);
+        //Engelsk
+
+        loginPageEN = new RelayCommand(GotoLoginEN);
             oRutePageEN = new RelayCommand(GotoOpretRuteEN);
             overviewPageEN = new RelayCommand(GotoOverviewEn);
             sRutePageEN = new RelayCommand(GotoSpecificRutePageEn);
