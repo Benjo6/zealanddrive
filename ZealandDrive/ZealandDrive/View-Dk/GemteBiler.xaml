@@ -25,8 +25,12 @@
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3"  />
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
 
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Command="{Binding GoBack}"/>
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Background="Transparent" Command="{Binding GoGemBiler}"/>
+        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Command="{Binding GoBack}">
+            <Image Source="Assets\close.svg" VerticalAlignment="Bottom"/>
+        </Button>
+        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="2" Background="Transparent" Command="{Binding GoGemBiler}">
+            <Image Source="Assets\new-icon.svg"/>
+        </Button>
 
         <TextBlock Text="Biler" FontSize="36" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 

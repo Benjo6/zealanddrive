@@ -22,6 +22,7 @@ namespace ZealandDrive.Common
 
 
 
+
         private Singleton()
         {
             _nyRute = new Route();

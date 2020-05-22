@@ -190,7 +190,6 @@ namespace ZealandDrive.VM
             //_users.Add(_userToBeCreated);
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(LoginPage));
-
         }
         private async void AddUser1()
         {
