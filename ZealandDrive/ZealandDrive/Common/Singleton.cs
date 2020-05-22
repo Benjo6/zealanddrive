@@ -17,6 +17,8 @@ namespace ZealandDrive.Common
         private Route _nyRute;
         private Route _selectedRute;
         private Forum _selectedForum;
+        private Users _UserCurrent;
+
 
 
 
@@ -25,8 +27,15 @@ namespace ZealandDrive.Common
         {
             _nyRute = new Route();
             _rutes = new ObservableCollection<Route>();
+            _UserCurrent = new Users();
 
         }
+        public Users UserCurrent
+        {
+            get => _UserCurrent;
+            set => _UserCurrent = value;
+        }
+
         public Route SelectedRute
         {
             get { return _selectedRute; }

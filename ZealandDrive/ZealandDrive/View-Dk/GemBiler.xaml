@@ -18,7 +18,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="15"/>
-            <RowDefinition Height="160"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="55"/>
             <RowDefinition Height="55"/>
             <RowDefinition Height="50"/>
@@ -42,7 +42,6 @@
 
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  VerticalAlignment="Stretch" >
             <TextBox Header="Antal sæder til passagerer" Text="{Binding CarToBeCreated.seats, Mode=TwoWay}" Width="200" HorizontalAlignment="Center" Grid.ColumnSpan="3" Padding="0,0,0,0" VerticalAlignment="Top" FontSize="12"/>
-            <TextBox Header="UserId tidligt" Text="{Binding CarToBeCreated.userId, Mode=TwoWay}"  Width="200" FontSize="12" Padding="0,0,0,0"/>
             <TextBox Header="Nummerplade" Text="{Binding CarToBeCreated.nummerplade, Mode=TwoWay}" Width="200" FontSize="12" Padding="0,0,0,0" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="Auto">

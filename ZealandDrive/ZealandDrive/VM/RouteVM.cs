@@ -214,7 +214,7 @@ namespace ZealandDrive.VM
             //todo give error message
             await _persistenceRoute.Opret(_ruteToBeCreated);
 
-            //_users.Add(_userToBeCreated);
+            //_ruter.Add(_ruteToBeCreated);
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(OverviewPage));
         }

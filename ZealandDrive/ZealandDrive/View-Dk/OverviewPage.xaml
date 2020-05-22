@@ -58,7 +58,7 @@
         <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}"   Grid.Row="1" Grid.Column="1" >
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Background="Transparent" Canvas.ZIndex="4">
+                    <StackPanel Background="Transparent" Canvas.ZIndex="8">
                         <Grid Height="180">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="30"/>
@@ -90,7 +90,6 @@
                                 <TextBlock Text=":" FontSize="9" Grid.ColumnSpan="2"/>
                                 <TextBlock Text="{Binding minute}"  FontSize="9" Grid.ColumnSpan="2"/>
                             </StackPanel>
-                            <Button Background="Transparent"/>
                         </Grid>
                     </StackPanel>
                 </DataTemplate>
