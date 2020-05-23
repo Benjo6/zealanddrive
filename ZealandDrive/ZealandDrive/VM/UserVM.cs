@@ -23,39 +23,39 @@ namespace ZealandDrive.VM
         private Singleton x;
         // page
         private PageCommand p;
-
-
         // users
         private IPersistens<Users> _persistence;
-        private RelayCommand _createOne;
-        private RelayCommand _createOne2;
-
-
-        private RelayCommand _loadUser;
-
+        private ObservableCollection<Users> _users;
+        private Users _userToBeCreated;
+        private Users _selectedUser;
+        private Users _userTobeUpdated;
+        private string _userNow;
+        private string _passNow;
+       
+        //relay
         //private RelayCommand _saveUser;
         private RelayCommand _updateOneUser;
         private RelayCommand _deleteOneUser;
         private RelayCommand _clearCreateOneUser;
         private RelayCommand _checkBruger;
-        private Users _userToBeCreated;
-        private Users _selectedUser;
-        private Users _userTobeUpdated;
-        private ObservableCollection<Users> _users;
-        private string _userNow;
-        private string _passNow;
+        private RelayCommand _loadUser;
+        private RelayCommand _createOne;
+        private RelayCommand _createOne2;
         private RelayCommand _userLogin;
-       
+
         #endregion
 
         #region Constructor
 
         public UserVM()
         {
+            //Singleton
             x = Singleton.Instance;
+            //Page
+            p = new PageCommand();
+            //User
             _userLogin = new RelayCommand(CheckBruger);
             _createOne2 = new RelayCommand(AddUser1);
-            p = new PageCommand();
             _loadUser = new RelayCommand(LoadUsers);
             _userToBeCreated = new Users();
             _createOne = new RelayCommand(OpretUser);

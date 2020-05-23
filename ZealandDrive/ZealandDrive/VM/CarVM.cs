@@ -20,22 +20,29 @@ namespace ZealandDrive.VM
     class CarVM : INotifyPropertyChanged
     {
         #region Instance
+        //Singleton
+        private Singleton x;
+        //Page
+        private PageCommand p;
+        //Car
         private IPersistens<Car> _persistenceCar;
-        private RelayCommand _createOneCar;
-        private Car _selectedCar;
-        private RelayCommand _loadCar;
-        private Car _carToBeCreated;
         private ObservableCollection<Car> _cars;
+        private Car _selectedCar;
+        private Car _carToBeCreated;
+        //relay
         private RelayCommand _saveCar;
         private RelayCommand _updateOneCar;
         private RelayCommand _deleteOneCar;
         private RelayCommand _clearCreateOneCar;
-        private PageCommand p;
+        private RelayCommand _createOneCar;
+        private RelayCommand _loadCar;
 
         #endregion
         #region Constructor
         public CarVM()
         {
+            //Singleton
+            x = Singleton.Instance;
             // page
             p = new PageCommand();
             //car
@@ -66,7 +73,7 @@ namespace ZealandDrive.VM
 
         public RelayCommand SaveCar => _saveCar;
 
-        public RelayCommand UpdateOneCar => _updateOneCar;
+        public RelayCommand UpdateOne => _updateOneCar;
 
         public RelayCommand DeleteOneCar => _deleteOneCar;
 

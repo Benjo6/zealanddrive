@@ -27,11 +27,28 @@
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3"  />
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
 
-        <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="300">
-            <TextBox Background="White" Width="200" Header="Navn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding UserToBeUpdated.name, Mode=TwoWay}"/>
-            <TextBox Background="White" Width="200" Header="Efternavn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding UserToBeUpdated.lastname, Mode=TwoWay}"/>
-            <TextBox Background="White" Width="200" Header="Email" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding UserToBeUpdated.email, Mode=TwoWay}"/>
-            <Button Height="30" Command="{Binding UpdateOne, Mode=TwoWay}" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="7" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="15" Width="500" HorizontalAlignment="Left" Canvas.ZIndex="10">
+            <Button Content="Load" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding LoadUser}"/>
+            <TextBlock Text="Alle Brugere" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
+            <ListView ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding id}" Width="20"></TextBlock>
+                            <TextBlock Text="{Binding name}"  Width="40" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding lastname}"  Width="40" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding email}" Width="100" Margin="20,0,0,0"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="400">
+            <TextBox IsReadOnly="True" Background="LightGray" Width="200" Header="Id" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.id, Mode=TwoWay}"/>
+            <TextBox Background="White" Width="200" Header="Navn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.name, Mode=TwoWay}"/>
+            <TextBox Background="White" Width="200" Header="Efternavn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.lastname, Mode=TwoWay}"/>
+            <TextBox Background="White" Width="200" Header="Email" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.email, Mode=TwoWay}"/>
+            <Button Height="30" Command="{Binding UpdateOne, Mode=TwoWay}" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
         </StackPanel>
 
         <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Content="GoBack" Command="{Binding GoBack}">

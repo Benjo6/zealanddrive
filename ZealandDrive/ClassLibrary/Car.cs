@@ -19,11 +19,11 @@ namespace ClassLibrary
         private Singleton x;
 
 
-        public int userId
-        {
-            get => x.UserCurrent;
+        //public int userId
+        //{
+        //    get => x.UserCurrent;
             
-        }
+        //}
 
 
         public int id
