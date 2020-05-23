@@ -28,15 +28,15 @@
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
 
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="15" Width="500" HorizontalAlignment="Left" Canvas.ZIndex="10">
-            <Button Content="Load" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding LoadUser}"/>
+            <Button Content="Load" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding LoadCurrentUser}"/>
             <TextBlock Text="Alle Brugere" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
             <ListView ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding id}" Width="20"></TextBlock>
-                            <TextBlock Text="{Binding name}"  Width="40" Margin="20,0,0,0"></TextBlock>
-                            <TextBlock Text="{Binding lastname}"  Width="40" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding name}"  Width="100" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Text="{Binding lastname}"  Width="100" Margin="20,0,0,0"></TextBlock>
                             <TextBlock Text="{Binding email}" Width="100" Margin="20,0,0,0"></TextBlock>
                         </StackPanel>
                     </DataTemplate>

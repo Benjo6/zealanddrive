@@ -31,6 +31,9 @@ namespace ZealandDrive.VM
         private Users _userTobeUpdated;
         private string _userNow;
         private string _passNow;
+        private string _nameNow;
+        private string _lastNameNow;
+        private string _emailNow;
        
         //relay
         //private RelayCommand _saveUser;
@@ -42,6 +45,7 @@ namespace ZealandDrive.VM
         private RelayCommand _createOne;
         private RelayCommand _createOne2;
         private RelayCommand _userLogin;
+        private RelayCommand _loadCurrentUser;
 
         #endregion
 
@@ -54,6 +58,7 @@ namespace ZealandDrive.VM
             //Page
             p = new PageCommand();
             //User
+            _loadCurrentUser = new RelayCommand(LoadCurrentUsers);
             _userLogin = new RelayCommand(CheckBruger);
             _createOne2 = new RelayCommand(AddUser1);
             _loadUser = new RelayCommand(LoadUsers);
@@ -124,6 +129,7 @@ namespace ZealandDrive.VM
         }
 
         public RelayCommand LoadUser => _loadUser;
+        public RelayCommand LoadCurrentUser => _loadCurrentUser;
         public RelayCommand AddUser => _createOne2;
 
         public RelayCommand UserLogin
@@ -157,6 +163,33 @@ namespace ZealandDrive.VM
             }
         }
 
+        public string NameNow
+        {
+            get => _nameNow;
+            set
+            {
+                _nameNow = value;
+                OnPropertyChanged();
+            }
+        }
+        public string LastNameNow
+        {
+            get => _lastNameNow;
+            set
+            {
+                _lastNameNow = value;
+                OnPropertyChanged();
+            }
+        }
+        public string EmailNow
+        {
+            get => _emailNow;
+            set
+            {
+                _emailNow = value;
+                OnPropertyChanged();
+            }
+        }
         //public RelayCommand Save => _saveUser;
 
         public RelayCommand UpdateOne => _updateOneUser;
@@ -166,6 +199,7 @@ namespace ZealandDrive.VM
         public RelayCommand CreateOne => _createOne;
 
         public RelayCommand ClearCreateOneUser => _clearCreateOneUser;
+        
         #endregion
 
         #region Method
@@ -188,6 +222,20 @@ namespace ZealandDrive.VM
             {
                 //todo give error message
                 _persistence.Update(_selectedUser);
+            }
+        }
+
+        private async void LoadCurrentUsers()
+        {
+            _users.Clear();
+            var liste = await _persistence.Load();
+            foreach (Users u in liste)
+            {
+                if (UserCurrent.id == u.id )
+                {
+                    _users.Add(u);
+                }
+                
             }
         }
         private async void LoadUsers()
