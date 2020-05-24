@@ -250,7 +250,6 @@ namespace ZealandDrive.VM
 
         private async void OpretUser()
         {
-
             //todo give error message
             await _persistence.Opret(_userToBeCreated);
 

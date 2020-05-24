@@ -59,6 +59,8 @@ namespace ZealandDrive.VM
         }
         #endregion
         #region Properties
+        //
+        public Users UserCurrent => x.UserCurrent;
         //page
         public RelayCommand GoGemteBiler => p.GemBiler;
         public RelayCommand GoBack => p.Tilbage;
@@ -99,6 +101,7 @@ namespace ZealandDrive.VM
             get => _carToBeCreated;
             set
             {
+                
                 if (Equals(value, _carToBeCreated)) return;
                 _carToBeCreated = value;
                 OnPropertyChanged();
@@ -108,7 +111,7 @@ namespace ZealandDrive.VM
         #region Method
         private async void OpretCar()
         {
-
+            _carToBeCreated.userId = UserCurrent.id;
             //todo give error message
             await _persistenceCar.Opret(_carToBeCreated);
 
@@ -145,6 +148,8 @@ namespace ZealandDrive.VM
         {
             CarToBeCreated = new Car();
         }
+
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -63,6 +63,9 @@ namespace ZealandDrive.VM
         private ObservableCollection<Car> _cars;
         private RelayCommand _loadCars;
         private Car _selectedCar;
+
+        //user
+        private UserVM _uvm;
         #endregion
 
         #region Constructor
@@ -100,6 +103,8 @@ namespace ZealandDrive.VM
             _loadCars = new RelayCommand(LoadCars);
             _cars = new ObservableCollection<Car>();
             _persistenceCar = new DBPersistenceCar();
+            //user
+            _uvm = new UserVM();
         }
         #endregion
         #region Properties
@@ -122,9 +127,8 @@ namespace ZealandDrive.VM
         public RelayCommand GoToSaveAddresse => p.GemAdresseEN;
         public RelayCommand GoToGemAdresse => p.GemAdresse;
         public RelayCommand GoToSpecficRoute => p.GoToSpecificRutePage;
-
-
-
+        //user
+        public Users UserCurrent => _uvm.UserCurrent;
 
         // routes
         public RelayCommand HandleSelectionRoute => _handleR;
@@ -210,7 +214,7 @@ namespace ZealandDrive.VM
 
         private async void OpretRute1()
         {
-
+            
             //todo give error message
             await _persistenceRoute.Opret(_ruteToBeCreated);
 
@@ -300,7 +304,10 @@ namespace ZealandDrive.VM
             var liste = await _persistenceCar.Load();
             foreach (Car c in liste)
             {
-                _cars.Add(c);
+                if (c.userId == UserCurrent.id)
+                {
+                    _cars.Add(c);
+                }
             }
         }
 
