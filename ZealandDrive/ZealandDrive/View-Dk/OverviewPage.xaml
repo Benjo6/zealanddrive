@@ -69,8 +69,7 @@
                             <TextBlock Text="Overskrift på Ruten" FontSize="22" FontWeight="Bold" HorizontalAlignment="Left" Padding="15 15 0 5" Opacity="0.6"/>
                             <!--Laver en border sådan at man kan lave en shadow, kan ikke laves på grid.-->
 
-                            <Border CornerRadius="10" Padding="15" Background="#FFFFFF" Grid.Row="1" Grid.Column="0" BlurRadius="4.0" ShadowOpacity="0.70"
-                                    OffsetX="5.0" OffsetY="5.0" Color="Black">
+                            <Border CornerRadius="10" Padding="15" Background="#FFFFFF" Grid.Row="1" Grid.Column="0">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="40"/>
