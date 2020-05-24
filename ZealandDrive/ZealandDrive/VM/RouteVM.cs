@@ -25,6 +25,9 @@ namespace ZealandDrive.VM
         #region Instance
         //lister
         private Listerne lists;
+        private string _hour;
+        private string _minute;
+        private DateTime _startTime;
 
         //Singleton
         private Singleton x;
@@ -111,6 +114,17 @@ namespace ZealandDrive.VM
         //lister
         public ObservableCollection<string> H => lists.Timer;
         public ObservableCollection<string> M => lists.Minutter;
+
+        public string hour
+        {
+            get => _hour;
+            set => _hour = value;
+        }
+        public string minute
+        {
+            get => _minute;
+            set => _minute = value;
+        }
         // page
         public Singleton Instance => x;
         public RelayCommand GoToOverview => p.GoOverviewPage;
@@ -214,7 +228,10 @@ namespace ZealandDrive.VM
 
         private async void OpretRute1()
         {
-            
+            _ruteToBeCreated.carId = SelectedCar.id;
+            //TimeSpan ts = new TimeSpan(_hour, _minute,0)
+            //s = s.Date + ts;
+            //_ruteToBeCreated.routeStart = DateTime s = _startTime;
             //todo give error message
             await _persistenceRoute.Opret(_ruteToBeCreated);
 
@@ -262,11 +279,14 @@ namespace ZealandDrive.VM
 
         private async void OpretPassenger()
         {
+            _passengerToBeCreated.routeId = SelectedRute.id;
+            _passengerToBeCreated.userId = UserCurrent.id;
+            _passengerToBeCreated.status = "afventer accept";
 
-            //todo give error message
+
             await _persistencePassenger.Opret(_passengerToBeCreated);
-            //Frame f = (Frame)Window.Current.Content;
-            //f.Navigate(typeof(OverviewPage));
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(OverviewPage));
         }
         private async void LoadPassengers()
         {
@@ -308,6 +328,7 @@ namespace ZealandDrive.VM
                 {
                     _cars.Add(c);
                 }
+
             }
         }
 

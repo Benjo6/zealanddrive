@@ -91,6 +91,6 @@
             <TextBlock Text="{Binding SelectedCar.color}" FontSize="12"/>
         </StackPanel>
         <TextBox Header="Besked" IsReadOnly="True" BorderBrush="LightGray" BorderThickness="1" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Text="{Binding SelectedRute.besked}" Margin="0,0,0,0" Height="110" />
-        <Button CornerRadius="4" BorderBrush="LightGray" BorderThickness="1" Name="TilmeldKnap" Foreground="White" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50" Grid.Row="6" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" Margin="0,0,0,10"/>
+        <Button CornerRadius="4" BorderBrush="LightGray" BorderThickness="1" Name="TilmeldKnap" Foreground="White" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50" Grid.Row="6" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" Command="{Binding CreateOnePassenger}"/>
     </Grid>
 </Page>
