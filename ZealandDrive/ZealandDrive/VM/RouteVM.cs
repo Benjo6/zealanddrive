@@ -68,6 +68,7 @@ namespace ZealandDrive.VM
         private ObservableCollection<Car> _cars;
         private RelayCommand _loadCars;
         private Car _selectedCar;
+        private RelayCommand _loadIdCar;
 
         //user
         private UserVM _uvm;
@@ -111,6 +112,7 @@ namespace ZealandDrive.VM
             _loadCars = new RelayCommand(LoadCars);
             _cars = new ObservableCollection<Car>();
             _persistenceCar = new DBPersistenceCar();
+            _loadIdCar = new RelayCommand(LoadIdCars);
             //user
             _uvm = new UserVM();
         }
@@ -223,6 +225,7 @@ namespace ZealandDrive.VM
         }
 
         //cars
+        public RelayCommand LoadIdCar => _loadIdCar;
         public ObservableCollection<Car> Cars => _cars;
         public RelayCommand LoadCar => _loadCars;
         public Car SelectedCar
@@ -264,7 +267,7 @@ namespace ZealandDrive.VM
             {
                 _ruter.Add(r);
             }
-            LoadStuff();
+            //LoadStuff();
         }
         private void UpdateRute()
         {
@@ -340,6 +343,18 @@ namespace ZealandDrive.VM
             foreach (Car c in liste)
             {
                 if (c.userId == UserCurrent.id)
+                {
+                    _cars.Add(c);
+                }
+            }
+        }
+        private async void LoadIdCars()
+        {
+            _cars.Clear();
+            var liste = await _persistenceCar.Load();
+            foreach (Car c in liste)
+            {
+                if (c.id == SelectedRute.carId)
                 {
                     _cars.Add(c);
                 }
