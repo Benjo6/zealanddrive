@@ -11,21 +11,17 @@ using ZealandDrive.View;
 using Windows.Web.Http;
 using System.Windows.Input;
 using System.Collections.Generic;
-using ZealandDrive.Persistens;
 
 namespace ZealandDrive.VM
 {
     class MainVM : INotifyPropertyChanged
     {
         #region Instance
-        //Singleton
-        private readonly Singleton x;
-        //Page
         private readonly PageCommand p;
+        private readonly Singleton x;
         private readonly Listerne lists;
         private readonly RCO _nextCommand;
         private readonly RCO _next1Command;
-      
 
         #endregion
 
@@ -37,13 +33,14 @@ namespace ZealandDrive.VM
             p = new PageCommand();
             _nextCommand = new RCO(Next);
             _next1Command = new RCO(Next1);
-           
+
         }
 
         #endregion
 
         #region Properties
         public RelayCommand GoGemBiler => p.GemBiler;
+        public RelayCommand GOPasO => p.GOPasO;
         public RelayCommand GoAOS => p.AOS;
         public RelayCommand GoGemteBiler => p.GemteBiler;
         public RelayCommand GoGemAdresse => p.GemAdresse;
@@ -91,10 +88,6 @@ namespace ZealandDrive.VM
 
         public RCO Next1Command => _next1Command;
 
-     
-
-
-
         #endregion
 
         #region Method
@@ -110,8 +103,7 @@ namespace ZealandDrive.VM
         //    }
         //}
 
-   
-       
+
 
         private void Next(object obj)
         {
