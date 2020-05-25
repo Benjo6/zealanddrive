@@ -88,7 +88,7 @@ namespace ZealandDrive.VM
             //page
             p = new PageCommand();
             // routes
-            _loadRute = new RelayCommand(LoadRutes);
+           //_loadRute = new RelayCommand(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
             _createOneRute = new RelayCommand(OpretRute1);

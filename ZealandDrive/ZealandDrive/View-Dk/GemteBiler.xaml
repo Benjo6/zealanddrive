@@ -37,7 +37,7 @@
 
 
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="15" Width="500" HorizontalAlignment="Left" Canvas.ZIndex="10">
-            <Button Content="Load" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding LoadCar}"/>
+            <Button Content="Load" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding LoadOneCar}"/>
             <TextBlock Text="Biler" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
             <ListView ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar, Mode=TwoWay}">
                 <ListView.ItemTemplate>
