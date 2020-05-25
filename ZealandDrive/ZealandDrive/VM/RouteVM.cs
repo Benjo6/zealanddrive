@@ -62,6 +62,7 @@ namespace ZealandDrive.VM
         private RelayCommand _deleteOnePassenger;
         private RelayCommand _clearCreateOnePassenger;
         private ObservableCollection<Passenger> _passengers;
+        private RelayCommand _loadCurrentPassenger;
 
         // cars
         private IPersistens<Car> _persistenceCar;
@@ -106,6 +107,7 @@ namespace ZealandDrive.VM
             _deleteOnePassenger = new RelayCommand(DeletePassenger);
             _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
             _persistencePassenger = new DBPersistencePassenger();
+            _loadCurrentPassenger = new RelayCommand(LoadCurrentPassenger);
             // car
             _selectedCar = new Car();
             _loadCars = new RelayCommand(LoadCars);
@@ -158,6 +160,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoToSaveAddresse => p.GemAdresseEN;
         public RelayCommand GoToGemAdresse => p.GemAdresse;
         public RelayCommand GoToSpecficRoute => p.GoToSpecificRutePage;
+        public RelayCommand GOPasO => p.GOPasO;
         //user
         public Users UserCurrent => _uvm.UserCurrent;
 
@@ -188,8 +191,8 @@ namespace ZealandDrive.VM
             set
             {
                 _ruteToBeCreated = value;
-                if(_selectedRute != null)
-                OnPropertyChanged();
+                if (_selectedRute != null)
+                    OnPropertyChanged();
             }
         }
 
@@ -221,7 +224,7 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
-
+        public RelayCommand LoadCurrentPas => _loadCurrentPassenger;
         //cars
         public ObservableCollection<Car> Cars => _cars;
         public RelayCommand LoadCar => _loadCars;
@@ -245,7 +248,7 @@ namespace ZealandDrive.VM
 
         private async void OpretRute1()
         {
-            
+
             //todo give error message
             _ruteToBeCreated.starttime = $"{_ruteToBeCreated.hour} : {_ruteToBeCreated.minute}";
             _ruteToBeCreated.carId = _selectedCar.id;
@@ -266,6 +269,7 @@ namespace ZealandDrive.VM
             }
             LoadStuff();
         }
+
         private void UpdateRute()
         {
             if (_selectedRute != null)
@@ -345,7 +349,39 @@ namespace ZealandDrive.VM
                 }
             }
         }
+        private async void LoadCurrentPassenger()
+        {
+            var liste0 = await _persistenceCar.Load();
+            foreach (Car car in liste0)
+            {
+                if (UserCurrent.id == car.userId)
+                {
+                    _cars.Add(car);
+                //}
 
+                var liste1 = await _persistenceRoute.Load();
+                    foreach (Route rute in liste1)
+                    {
+                        if (car.id == rute.carId)
+                        {
+                            _ruter.Add(rute);
+                            //}
+
+                            _passengers.Clear();
+                            var liste = await _persistencePassenger.Load();
+                            foreach (Passenger passenger in liste)
+                            {
+                                if (rute.id == passenger.routeId)
+                                {
+                                    _passengers.Add(passenger);
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
         public async void LoadStuff()
         {
             DispatcherTimer timer = new DispatcherTimer();

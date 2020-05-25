@@ -182,6 +182,9 @@
     <Compile Include="View-Dk\OverviewPage.xaml.cs">
       <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View-Dk\PassagerOversigt.xaml.cs">
+      <DependentUpon>PassagerOversigt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View-Dk\PersonligeInformation.xaml.cs">
       <DependentUpon>PersonligeInformation.xaml</DependentUpon>
     </Compile>
@@ -352,6 +355,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View-Dk\OverviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-Dk\PassagerOversigt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
