@@ -64,7 +64,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"color = {_color}, brand = {_brand}, model = {_model}, nummerplade = {_nummerplade}, year = {_year}, seats = {_seats}, UserID={_userId}";
+            return $" Nummerplade: {_nummerplade} \n Årgang: {_year}  \n Model: {_model} \n Brand: {_brand} \n Farve = {_color} \n Sæder: {_seats} \n UserID={_userId}";
         }
     }
 }

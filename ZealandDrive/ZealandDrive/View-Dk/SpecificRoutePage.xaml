@@ -23,11 +23,13 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="279"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="85"/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
+
+        <Button Content="Load" Command="{Binding LoadIdCar}" Background="Gray" Grid.Row="3"/>
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="7" Canvas.ZIndex="1">
@@ -60,13 +62,7 @@
 
 
         <TextBlock Text="Bil Information" Grid.Row="3" Grid.Column="1" FontWeight="SemiBold" FontSize="18"/>
-        <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" >
-            <TextBlock FontSize="12" Text="Nummerplade:"/>
-            <TextBlock Text="Årgang:" FontSize="12"/>
-            <TextBlock Text="Model:" FontSize="12"/>
-            <TextBlock FontSize="12" Text="Mærke:"/>
-            <TextBlock Text="Farve:" FontSize="12"/>
-        </StackPanel>
+ 
         <Rectangle Fill="Black" Grid.Row="2" Grid.Column="1" Width="180" Height="90" VerticalAlignment="Top"  HorizontalAlignment="Right" Opacity="0.4" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
 
         <Rectangle Fill="Black" Grid.Row="2" Grid.Column="1" Width="180" Height="90" VerticalAlignment="Center"  HorizontalAlignment="Right" Opacity="0.4" Grid.ColumnSpan="2" Margin="0,110,20,0"/>
@@ -83,13 +79,16 @@
             
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
-            <TextBlock FontSize="12" Text="{Binding SelectedCar.nummerplade}" Canvas.ZIndex="2"/>
-            <TextBlock Text="{Binding SelectedRute.carId}" FontSize="12" Canvas.ZIndex="2"/>
-            <TextBlock Text="{Binding SelectedCar.model}" FontSize="12"/>
-            <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}"/>
-            <TextBlock Text="{Binding SelectedCar.color}" FontSize="12"/>
-        </StackPanel>
+        <GridView ItemsSource="{Binding Cars}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="12" Text="{Binding SelectedCar.nummerplade}" Canvas.ZIndex="2"/>
+                <TextBlock Text="{Binding SelectedCar.year}" FontSize="12" Canvas.ZIndex="2"/>
+                <TextBlock Text="{Binding SelectedCar.model}" FontSize="12"/>
+                <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}"/>
+                <TextBlock Text="{Binding SelectedCar.color}" FontSize="12"/>
+                <TextBlock Text="{Binding SelectedCar.seats}" FontSize="12"/>
+            </StackPanel>
+        </GridView>
         <TextBox Header="Besked" IsReadOnly="True" BorderBrush="LightGray" BorderThickness="1" Grid.Row="5" Grid.Column="1" VerticalAlignment="Bottom" Text="{Binding SelectedRute.besked}" Margin="0,0,0,0" Height="110" />
         <Button CornerRadius="4" BorderBrush="LightGray" BorderThickness="1" Name="TilmeldKnap" Foreground="White" Content="Tilmeld" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50" Grid.Row="6" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" Command="{Binding CreateOnePassenger}"/>
     </Grid>
