@@ -16,13 +16,14 @@ namespace ClassLibrary
         private int _year;
         private int _seats;
         private int _userId;
+
         //private Singleton x;
 
 
         //public int userId
         //{
         //    get => x.UserCurrent;
-            
+
         //}
 
 
@@ -39,10 +40,14 @@ namespace ClassLibrary
         public int year { get => _year; set => _year = value; }
         public int seats { get => _seats; set => _seats = value; }
         public int userId { get => _userId; set => _userId = value; }
+
+
+
         public Car()
         {
 
         }
+
 
         public Car(int id, string color, string brand, string model, string nummerplade, int year, int seats, int userId)
         {

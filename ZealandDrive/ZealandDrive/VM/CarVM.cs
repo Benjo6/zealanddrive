@@ -29,6 +29,7 @@ namespace ZealandDrive.VM
         private ObservableCollection<Car> _cars;
         private Car _selectedCar;
         private Car _carToBeCreated;
+        private Car _carTobeUpdated;
         //relay
         private RelayCommand _saveCar;
         private RelayCommand _updateOneCar;
@@ -75,7 +76,18 @@ namespace ZealandDrive.VM
         //car
         public RelayCommand LoadOneCar => _loadOneCar;
         public RelayCommand LoadCar => _loadCar;
-
+        public Car CarToBeUpdated
+        {
+            get => _carToBeCreated;
+            set
+            {
+                if (Equals(value, _carTobeUpdated)) return;
+                {
+                    _carTobeUpdated = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public RelayCommand SaveCar => _saveCar;
 
         public RelayCommand UpdateOne => _updateOneCar;
@@ -152,7 +164,7 @@ namespace ZealandDrive.VM
         {
             if (_selectedCar != null)
             {
-                //_selectedCar.userId = UserCurrent.id;
+                _selectedCar.userId = UserCurrent.id;
                 //todo give error message
                 _persistenceCar.Update(_selectedCar);
             }

@@ -248,6 +248,7 @@ namespace ZealandDrive.VM
             
             //todo give error message
             _ruteToBeCreated.starttime = $"{_ruteToBeCreated.hour} : {_ruteToBeCreated.minute}";
+            _ruteToBeCreated.carId = _selectedCar.id;
             // _ruteToBeCreated.date = $"{_ruteToBeCreated.";
             await _persistenceRoute.Opret(_ruteToBeCreated);
 

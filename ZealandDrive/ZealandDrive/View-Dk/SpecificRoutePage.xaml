@@ -85,7 +85,7 @@
 
         <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
             <TextBlock FontSize="12" Text="{Binding SelectedCar.nummerplade}" Canvas.ZIndex="2"/>
-            <TextBlock Text="{Binding SelectedCar.year}" FontSize="12" Canvas.ZIndex="2"/>
+            <TextBlock Text="{Binding SelectedRute.carId}" FontSize="12" Canvas.ZIndex="2"/>
             <TextBlock Text="{Binding SelectedCar.model}" FontSize="12"/>
             <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}"/>
             <TextBlock Text="{Binding SelectedCar.color}" FontSize="12"/>

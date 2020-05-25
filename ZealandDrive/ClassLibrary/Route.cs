@@ -17,6 +17,7 @@ namespace ClassLibrary
         private int _carId;
         private string _besked;
         private DateTime _datoValgt;
+        //private Car _selectedCar;
 
         //private string _xstr = $"{hour}:{minutte}";
 
@@ -75,7 +76,11 @@ namespace ClassLibrary
             get => _besked;
             set => _besked = value;
         }
-
+        //public Car SelectedCar
+        //{
+        //    get => _selectedCar;
+        //    set => _selectedCar = value;
+        //}
         public Route(int id, string routeStart, string routeEnd, string startTime, string date, string hours, string minute, int carId, string besked)
         {
             _id = id;
