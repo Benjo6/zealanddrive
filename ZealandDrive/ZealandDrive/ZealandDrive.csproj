@@ -125,6 +125,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\ralaycommand2.cs" />
     <Compile Include="Common\RCO.cs" />
     <Compile Include="Common\SharedKnowledge.cs" />
     <Compile Include="Lists\Listerne.cs" />
