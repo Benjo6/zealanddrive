@@ -40,6 +40,7 @@ namespace ZealandDrive.VM
 
         #region Properties
         public RelayCommand GoGemBiler => p.GemBiler;
+        public RelayCommand GOPasO => p.GOPasO;
         public RelayCommand GoAOS => p.AOS;
         public RelayCommand GoGemteBiler => p.GemteBiler;
         public RelayCommand GoGemAdresse => p.GemAdresse;
@@ -61,6 +62,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoFOOEN => p.FOOPageEN;
         public RelayCommand GoOverview => p.GoOverviewPage;
         public RelayCommand GoOverviewEN => p.GoOverviewPage;
+        public RelayCommand GoTilmeldteRuter => p.GoTilmeldteRuter;
 
         public ObservableCollection<string> H => lists.Timer;
 
@@ -86,10 +88,6 @@ namespace ZealandDrive.VM
         }
 
         public RCO Next1Command => _next1Command;
-
-
-
-
 
         #endregion
 

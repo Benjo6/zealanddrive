@@ -182,6 +182,9 @@
     <Compile Include="View-Dk\OverviewPage.xaml.cs">
       <DependentUpon>OverviewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View-Dk\PassagerOversigt.xaml.cs">
+      <DependentUpon>PassagerOversigt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View-Dk\PersonligeInformation.xaml.cs">
       <DependentUpon>PersonligeInformation.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,9 @@
     </Compile>
     <Compile Include="View-Dk\Sprog.xaml.cs">
       <DependentUpon>Sprog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View-Dk\TilmeldteRuter.xaml.cs">
+      <DependentUpon>TilmeldteRuter.xaml</DependentUpon>
     </Compile>
     <Compile Include="View-Dk\UserTest.xaml.cs">
       <DependentUpon>UserTest.xaml</DependentUpon>
@@ -355,6 +361,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View-Dk\PassagerOversigt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View-Dk\PersonligeInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -376,6 +386,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View-Dk\Sprog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-Dk\TilmeldteRuter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -30,6 +30,8 @@ namespace ZealandDrive.Model
         private RelayCommand sprog;
         private RelayCommand fo;
         private RelayCommand foo;
+        private RelayCommand GPO;
+        private RelayCommand _tilmeldteRuter;
 
         //Engelsk
         public RelayCommand _userTestEN;
@@ -76,7 +78,8 @@ namespace ZealandDrive.Model
             sprog = new RelayCommand(GoSprog);
             fo = new RelayCommand(GoFO);
             foo = new RelayCommand(GoFOO);
-
+            GPO = new RelayCommand(GoPasOversigt);
+            _tilmeldteRuter = new RelayCommand(GoTilmeldte);
                     
 
         //Engelsk
@@ -158,7 +161,8 @@ namespace ZealandDrive.Model
         public RelayCommand FOPage => fo;
         public RelayCommand FOOPage => foo;
         public RelayCommand UserTest => _userTest;
-
+        public RelayCommand GOPasO => GPO;
+        public RelayCommand GoTilmeldteRuter => _tilmeldteRuter;
         //Engelsk
         public RelayCommand GemAdresseEN => gemadresseEN;
         public RelayCommand GemteAdresseEN => gemteadresserEN;
@@ -221,7 +225,7 @@ namespace ZealandDrive.Model
         //Page Switch
         public void GoToUserTest()
         {
-            navigationService.navigate(typeof(View.UserTest));
+            navigationService.navigate(typeof(View_Dk.AdminPage));
         }
         public void GoSetting()
         {
@@ -326,6 +330,18 @@ namespace ZealandDrive.Model
             }
         }
 
+        public void GoPasOversigt()
+        {
+            {
+                navigationService.navigate(typeof(View_Dk.PassagerOversigt));
+            }
+        }
+        public void GoTilmeldte()
+        {
+            {
+                navigationService.navigate(typeof(View_Dk.TilmeldteRuter));
+            }
+        }
         //Engelsk
 
         public void GoSettingEN()

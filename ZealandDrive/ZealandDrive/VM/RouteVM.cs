@@ -50,18 +50,22 @@ namespace ZealandDrive.VM
         private RelayCommand _clearCreateOneRute;
         private ObservableCollection<Route> _ruter;
         private RelayCommand _handleR;
+        private RelayCommand _loadRoute;
 
         // passenger
         private IPersistens<Passenger> _persistencePassenger;
         private RelayCommand _createOnePassenger;
         private Passenger _selectedPassenger;
         private RelayCommand _loadPassenger;
+        private RelayCommand _loadTilmeldteRuter;
         private Passenger _passengerToBeCreated;
         private RelayCommand _savePassenger;
-        private RelayCommand _updateOnePassenger;
+        private RelayCommand _updateOnePassengerDec;
+        private RelayCommand _updateOnePassengerAcc;
         private RelayCommand _deleteOnePassenger;
         private RelayCommand _clearCreateOnePassenger;
         private ObservableCollection<Passenger> _passengers;
+        private RelayCommand _loadCurrentPassenger;
 
         // cars
         private IPersistens<Car> _persistenceCar;
@@ -87,6 +91,7 @@ namespace ZealandDrive.VM
             //page
             p = new PageCommand();
             // route
+            _loadRoute = new RelayCommand(LoadRoute);
             _loadRute = new ralaycommand2(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
@@ -103,10 +108,13 @@ namespace ZealandDrive.VM
             _passengers = new ObservableCollection<Passenger>();
             _createOnePassenger = new RelayCommand(OpretPassenger);
             _selectedPassenger = new Passenger();
-            _updateOnePassenger = new RelayCommand(UpdatePassenger);
+            _updateOnePassengerAcc = new RelayCommand(UpdatePassengerAccept);
+            _updateOnePassengerDec = new RelayCommand(UpdatePassengerDecline);
             _deleteOnePassenger = new RelayCommand(DeletePassenger);
             _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
             _persistencePassenger = new DBPersistencePassenger();
+            _loadCurrentPassenger = new RelayCommand(LoadCurrentPassenger);
+            _loadTilmeldteRuter = new RelayCommand(LoadTilmeldte);
             // car
             _selectedCar = new Car();
             _loadCars = new RelayCommand(LoadCars);
@@ -160,6 +168,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoToSaveAddresse => p.GemAdresseEN;
         public RelayCommand GoToGemAdresse => p.GemAdresse;
         public RelayCommand GoToSpecficRoute => p.GoToSpecificRutePage;
+        public RelayCommand GOPasO => p.GOPasO;
         //user
         public Users UserCurrent => _uvm.UserCurrent;
 
@@ -168,6 +177,7 @@ namespace ZealandDrive.VM
         public ObservableCollection<Route> Ruter => _ruter;
         public ralaycommand2 LoadRute => _loadRute;
         public RelayCommand SaveRute => _saveRute;
+        public RelayCommand LoadRoutes => _loadRoute;
         public RelayCommand UpdateOneRute => _updateOneRute;
         public RelayCommand DeleteOneRute => _deleteOneRute;
         public RelayCommand CreateOneRute => _createOneRute;
@@ -190,16 +200,18 @@ namespace ZealandDrive.VM
             set
             {
                 _ruteToBeCreated = value;
-                if(_selectedRute != null)
-                OnPropertyChanged();
+                if (_selectedRute != null)
+                    OnPropertyChanged();
             }
         }
 
         // passenger
         public ObservableCollection<Passenger> Passengers => _passengers;
         public RelayCommand LoadPassenger => _loadPassenger;
+        public RelayCommand LoadTilmeldteRuter => _loadTilmeldteRuter;
         public RelayCommand SavePassenger => _savePassenger;
-        public RelayCommand UpdateOnePassenger => _updateOnePassenger;
+        public RelayCommand UpdateOnePassengerAccept => _updateOnePassengerAcc;
+        public RelayCommand UpdateOnePassengerDecline => _updateOnePassengerDec;
         public RelayCommand DeleteOnePassenger => _deleteOnePassenger;
         public RelayCommand CreateOnePassenger => _createOnePassenger;
         public RelayCommand ClearCreateOnePassenger => _clearCreateOnePassenger;
@@ -223,7 +235,7 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
-
+        public RelayCommand LoadCurrentPas => _loadCurrentPassenger;
         //cars
         public RelayCommand LoadIdCar => _loadIdCar;
         public ObservableCollection<Car> Cars => _cars;
@@ -238,7 +250,9 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
-
+        //user 
+        public RelayCommand LoadUser => _uvm.LoadUser;
+        public ObservableCollection<Users> Users=> _uvm.Users;
         #endregion
 
         #region Method
@@ -248,7 +262,7 @@ namespace ZealandDrive.VM
 
         private async void OpretRute1()
         {
-            
+
             //todo give error message
             _ruteToBeCreated.starttime = $"{_ruteToBeCreated.hour} : {_ruteToBeCreated.minute}";
             _ruteToBeCreated.carId = _selectedCar.id;
@@ -258,6 +272,15 @@ namespace ZealandDrive.VM
             //_ruter.Add(_ruteToBeCreated);
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(OverviewPage));
+        }
+        private async void LoadRoute()
+        {
+            _ruter.Clear();
+            var liste = await _persistenceRoute.Load();
+            foreach (Route r in liste)
+            {
+                _ruter.Add(r);
+            }
         }
         private async void LoadRutes(object e, object s)
         {
@@ -269,6 +292,7 @@ namespace ZealandDrive.VM
             }
             //LoadStuff();
         }
+
         private void UpdateRute()
         {
             if (_selectedRute != null)
@@ -315,14 +339,26 @@ namespace ZealandDrive.VM
                 _passengers.Add(p);
             }
         }
-        private void UpdatePassenger()
+        private void UpdatePassengerAccept()
         {
             if (_selectedPassenger != null)
             {
+                SelectedPassenger.status = "Accepteret";
                 //todo give error message
                 _persistencePassenger.Update(_selectedPassenger);
             }
         }
+
+        private void UpdatePassengerDecline()
+        {
+            if (_selectedPassenger != null)
+            {
+                SelectedPassenger.status = "Afvist";
+                //todo give error message
+                _persistencePassenger.Update(_selectedPassenger);
+            }
+        }
+
         private void DeletePassenger()
         {
             if (_selectedPassenger != null)
@@ -357,6 +393,52 @@ namespace ZealandDrive.VM
                 if (c.id == SelectedRute.carId)
                 {
                     _cars.Add(c);
+                }
+            }
+        }
+        private async void LoadCurrentPassenger()
+        {
+            var liste0 = await _persistenceCar.Load();
+            foreach (Car car in liste0)
+            {
+                if (UserCurrent.id == car.userId)
+                {
+                    _cars.Add(car);
+                //}
+
+                var liste1 = await _persistenceRoute.Load();
+                    foreach (Route rute in liste1)
+                    {
+                        if (car.id == rute.carId)
+                        {
+                            _ruter.Add(rute);
+                            //}
+
+                            _passengers.Clear();
+                            var liste = await _persistencePassenger.Load();
+                            foreach (Passenger passenger in liste)
+                            {
+                                if (rute.id == passenger.routeId)
+                                {
+                                    _passengers.Add(passenger);
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private async void LoadTilmeldte()
+        {
+            _passengers.Clear();
+            var liste = await _persistencePassenger.Load();
+            foreach (Passenger pass in liste)
+            {
+                if (UserCurrent.id == pass.userId)
+                {
+                    _passengers.Add(pass);
                 }
             }
         }

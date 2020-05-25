@@ -41,7 +41,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="4" Canvas.ZIndex="1">
             <Canvas Margin="0 10" Width="400" VerticalAlignment="Center">
-                <Button Content="Load" Command="{Binding LoadRute}" VerticalAlignment="Bottom" Height="50" Width="400" Margin="0 0 0 0"></Button>
+                <Button Content="Load" Command="{Binding LoadRoutes}" VerticalAlignment="Bottom" Height="50" Width="400" Margin="0 0 0 0"></Button>
             </Canvas>
         </StackPanel>
         <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}" Margin="0 70 0 0"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
