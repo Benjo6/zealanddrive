@@ -11,11 +11,12 @@ namespace ClassLibrary
         private string _routeStart;
         private string _routeEnd;
         private string _starttime;
-        private DateTime _date;
+        private string _date;
         private string _hour;
         private string _minute;
         private int _carId;
         private string _besked;
+        private DateTime _datoValgt;
 
         //private string _xstr = $"{hour}:{minutte}";
 
@@ -37,7 +38,16 @@ namespace ClassLibrary
             set => _routeEnd = value;
         }
 
-        public DateTime date { get; set; }
+        public string date 
+        { get => _date;
+          set => _date = value; 
+        }
+
+        public DateTime datoValgt
+        {
+            get => _datoValgt;
+            set => _datoValgt = value;
+        }
 
         public string starttime
         {
@@ -66,7 +76,7 @@ namespace ClassLibrary
             set => _besked = value;
         }
 
-        public Route(int id, string routeStart, string routeEnd, string startTime, DateTime date, string hours, string minute, int carId, string besked)
+        public Route(int id, string routeStart, string routeEnd, string startTime, string date, string hours, string minute, int carId, string besked)
         {
             _id = id;
             _routeStart = routeStart;
