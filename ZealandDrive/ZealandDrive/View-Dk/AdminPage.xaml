@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
-        <vm:MainVM/>
+        <vm:RouteVM/>
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -34,18 +34,53 @@
             <Image Source="Assets\new-icon.svg"/>
         </Button>
         <TextBlock Text="Ruter" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
-        <Button Grid.Column="1" Content="Load" Command="{Binding LoadRute}" >
-        </Button>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Load brugere" Command="{Binding LoadUser}" />
+            <Button Grid.Column="1" Content="Load ruter" Command="{Binding LoadRoutes}" />
+            <Button Grid.Column="2" Content="Load anmeldelser" Command="{Binding loadanmeld}"/>
 
 
-        <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
-            <GridView.ItemTemplate >
-                <DataTemplate>
-                   
-                           
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+            <GridView ItemsSource="{Binding Users, Mode=TwoWay}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <GridView.ItemTemplate >
+                    <DataTemplate>
+                        <StackPanel Width="400" Margin="0,0,0,20">
+                            <TextBlock Text="{Binding name}"/>
+                            <TextBlock Text="{Binding lastname}"/>
+                            <TextBlock Text="{Binding email}" />
+                        </StackPanel>
+                        
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+            <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <GridView.ItemTemplate >
+                    <DataTemplate>
+                        <StackPanel Width="400" Margin="0,0,0,20">
+                            <TextBlock Text="{Binding routeStart}"/>
+                            <TextBlock Text="{Binding routeEnd}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+            <!--<GridView ItemsSource="{Binding , Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
+                <GridView.ItemTemplate >
+                    <DataTemplate>
+
+
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>-->
+        </Grid>
         <StackPanel Grid.Row="8" Grid.ColumnSpan="4" Canvas.ZIndex="1">
             <Canvas Width="400" VerticalAlignment="Center">
                 <Button Background="White" Width="100" Height="80" Command="{Binding GoToOverview}">

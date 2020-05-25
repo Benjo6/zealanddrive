@@ -11,17 +11,21 @@ using ZealandDrive.View;
 using Windows.Web.Http;
 using System.Windows.Input;
 using System.Collections.Generic;
+using ZealandDrive.Persistens;
 
 namespace ZealandDrive.VM
 {
     class MainVM : INotifyPropertyChanged
     {
         #region Instance
-        private readonly PageCommand p;
+        //Singleton
         private readonly Singleton x;
+        //Page
+        private readonly PageCommand p;
         private readonly Listerne lists;
         private readonly RCO _nextCommand;
         private readonly RCO _next1Command;
+      
 
         #endregion
 
@@ -33,7 +37,7 @@ namespace ZealandDrive.VM
             p = new PageCommand();
             _nextCommand = new RCO(Next);
             _next1Command = new RCO(Next1);
-
+           
         }
 
         #endregion
@@ -87,7 +91,7 @@ namespace ZealandDrive.VM
 
         public RCO Next1Command => _next1Command;
 
-
+     
 
 
 
@@ -106,7 +110,8 @@ namespace ZealandDrive.VM
         //    }
         //}
 
-
+   
+       
 
         private void Next(object obj)
         {

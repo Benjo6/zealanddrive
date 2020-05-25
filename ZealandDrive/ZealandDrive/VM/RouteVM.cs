@@ -50,6 +50,7 @@ namespace ZealandDrive.VM
         private RelayCommand _clearCreateOneRute;
         private ObservableCollection<Route> _ruter;
         private RelayCommand _handleR;
+        private RelayCommand _loadRoute;
 
         // passenger
         private IPersistens<Passenger> _persistencePassenger;
@@ -86,6 +87,7 @@ namespace ZealandDrive.VM
             //page
             p = new PageCommand();
             // route
+            _loadRoute = new RelayCommand(LoadRoute);
             _loadRute = new ralaycommand2(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
@@ -166,6 +168,7 @@ namespace ZealandDrive.VM
         public ObservableCollection<Route> Ruter => _ruter;
         public ralaycommand2 LoadRute => _loadRute;
         public RelayCommand SaveRute => _saveRute;
+        public RelayCommand LoadRoutes => _loadRoute;
         public RelayCommand UpdateOneRute => _updateOneRute;
         public RelayCommand DeleteOneRute => _deleteOneRute;
         public RelayCommand CreateOneRute => _createOneRute;
@@ -235,7 +238,9 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
-
+        //user 
+        public RelayCommand LoadUser => _uvm.LoadUser;
+        public ObservableCollection<Users> Users=> _uvm.Users;
         #endregion
 
         #region Method
@@ -255,6 +260,15 @@ namespace ZealandDrive.VM
             //_ruter.Add(_ruteToBeCreated);
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(OverviewPage));
+        }
+        private async void LoadRoute()
+        {
+            _ruter.Clear();
+            var liste = await _persistenceRoute.Load();
+            foreach (Route r in liste)
+            {
+                _ruter.Add(r);
+            }
         }
         private async void LoadRutes(object e, object s)
         {

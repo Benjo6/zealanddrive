@@ -221,7 +221,7 @@ namespace ZealandDrive.Model
         //Page Switch
         public void GoToUserTest()
         {
-            navigationService.navigate(typeof(View.UserTest));
+            navigationService.navigate(typeof(View_Dk.AdminPage));
         }
         public void GoSetting()
         {
