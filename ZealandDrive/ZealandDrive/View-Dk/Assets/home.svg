@@ -1,0 +1,17 @@
+<svg fill="red" id="home-icon" xmlns="http://www.w3.org/2000/svg" width="20.4" height="19.6" viewBox="0 0 20.4 19.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #f2df80;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <path id="path" class="cls-1" d="M17.5,8.1h2.4L10.2.5.5,8.1h2"/>
+  <path id="path-2" data-name="path" class="cls-1" d="M17.5,7.1"/>
+  <path id="path-3" data-name="path" class="cls-1" d="M2.5,8.1"/>
+  <path id="path-4" data-name="path" class="cls-1" d="M2.5,8.1v11h6v-6h3v6h6V8.1"/>
+</svg>

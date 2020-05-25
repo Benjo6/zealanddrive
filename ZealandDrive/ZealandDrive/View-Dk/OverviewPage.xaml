@@ -112,17 +112,17 @@
         </GridView>
         <StackPanel Grid.Row="8" Grid.ColumnSpan="4" Canvas.ZIndex="1">
             <Canvas Width="400" VerticalAlignment="Center">
-                <Button Width="100" Background="Transparent" Height="80" Command="{Binding GoToOverview}">
-                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                <Button Background="White" Width="100" Height="80" Command="{Binding GoToOverview}">
+                    <Image Source="Assets/menu-home.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
                 </Button>
                 <Button Margin="100 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding }">
-                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                    <Image Source="Assets\menu-anmodninger.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
                 </Button>
                 <Button Margin="200 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding GoFo}">
-                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                    <Image Source="Assets\menu-comment.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
                 </Button>
                 <Button Margin="300 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding Setting}">
-                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                    <Image Source="Assets\menu-settings.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
                 </Button>
             </Canvas>
         </StackPanel>
