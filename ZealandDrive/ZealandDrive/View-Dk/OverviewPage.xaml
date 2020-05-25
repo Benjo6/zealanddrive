@@ -28,14 +28,14 @@
         <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Canvas.ZIndex="1">
             <Canvas Width="400" VerticalAlignment="Center">
                 <!--Menu i venstre side-->
-                <Button Width="80" Height="80" Command="{Binding GoToOverview}">
-                    <Image Source="Assets\Menu.svg"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Width="80" Height="80" Background="Transparent" Command="{Binding GoToOverview}">
+                    <Image Source="Assets\header-menu-menu.png"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Button>
                 <!--Tekst i midten over hvilken side man er på-->
                 <TextBlock Margin="125 10 0 0" Text="Ruter" FontSize="42" Width="150" Height="80" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
                 <!--Opret rute-->
                 <Button HorizontalAlignment="Right"  Height="80" Width="80" Margin="320 0 0 0" Command="{Binding GoToOpretRute}">
-                    <Image Source="Assets\new-icon.svg"/>
+                    <Image Source="Assets\header-menu-opret.png"/>
                 </Button>
             </Canvas>
         </StackPanel>
