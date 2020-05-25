@@ -1,0 +1,66 @@
+﻿<Page
+    x:Class="ZealandDrive.View_Dk.AdminPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZealandDrive.View_Dk"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:ZealandDrive.VM"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:MainVM/>
+    </Page.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
+
+        <Button Background="White" Height="80" Width="80">
+            <Image Source="Assets\Menu.svg"/>
+        </Button>
+        <Button Background="White" Height="80" Width="80" Grid.Column="2" Command="{Binding GoToOpretRute}">
+            <Image Source="Assets\new-icon.svg"/>
+        </Button>
+        <TextBlock Text="Ruter" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
+        <Button Grid.Column="1" Content="Load" Command="{Binding LoadRute}" >
+        </Button>
+
+
+        <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
+            <GridView.ItemTemplate >
+                <DataTemplate>
+                   
+                           
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="4" Canvas.ZIndex="1">
+            <Canvas Width="400" VerticalAlignment="Center">
+                <Button Background="White" Width="100" Height="80" Command="{Binding GoToOverview}">
+                    <Image Source="Assets/menu-home.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+                <Button Margin="100 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding }">
+                    <Image Source="Assets\menu-anmodninger.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+                <Button Margin="200 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding GoFo}">
+                    <Image Source="Assets\menu-comment.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+                <Button Margin="300 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding Setting}">
+                    <Image Source="Assets\menu-settings.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+            </Canvas>
+        </StackPanel>
+    </Grid>
+</Page>
