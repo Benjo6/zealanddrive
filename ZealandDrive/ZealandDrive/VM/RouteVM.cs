@@ -27,6 +27,8 @@ namespace ZealandDrive.VM
         private Listerne lists;
         private static string _hour;
         private static string _minute;
+        private static DatePicker _datoValgt;
+        private string _date;
 
 
         //Singleton
@@ -79,6 +81,8 @@ namespace ZealandDrive.VM
             _hour = hour;
             _minute = minute;
             x = Singleton.Instance;
+            _datoValgt = datoValgt;
+            _date = date;
             //page
             p = new PageCommand();
             // route
@@ -126,6 +130,16 @@ namespace ZealandDrive.VM
             get => _minute;
             set => _minute = value;
 
+        }
+        public DatePicker datoValgt
+        {
+            get => _datoValgt;
+            set => _datoValgt = value;
+        }
+        public string date
+        {
+            get => _date;
+            set => _date = $"{_ruteToBeCreated.datoValgt}";
         }
 
         // page
@@ -234,6 +248,7 @@ namespace ZealandDrive.VM
             
             //todo give error message
             _ruteToBeCreated.starttime = $"{_ruteToBeCreated.hour} : {_ruteToBeCreated.minute}";
+            // _ruteToBeCreated.date = $"{_ruteToBeCreated.";
             await _persistenceRoute.Opret(_ruteToBeCreated);
 
             //_ruter.Add(_ruteToBeCreated);

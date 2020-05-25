@@ -88,7 +88,7 @@
       
 
 
-        <DatePicker Header="Hvilken dag kører du?" SelectedDate="{Binding RouteToBeCreated.startTime,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
+        <DatePicker Header="Hvilken dag kører du?" SelectedDate="{Binding RouteToBeCreated.date, Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />
 
 
         <TextBox Header="Besked til alle der vil køre med?" Text="{Binding RouteToBeCreated.besked , Mode=TwoWay}" CornerRadius="3" Background="#F6F6F6" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="130" VerticalAlignment="Top"/>

@@ -273,6 +273,8 @@
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-100.png" />
     <Content Include="View-Dk\Assets\close.svg" />
+    <Content Include="View-Dk\Assets\header-menu-menu.png" />
+    <Content Include="View-Dk\Assets\header-menu-opret.png" />
     <Content Include="View-Dk\Assets\home.svg" />
     <Content Include="View-Dk\Assets\menu-anmodninger.png" />
     <Content Include="View-Dk\Assets\menu-comment.png" />
@@ -286,6 +288,7 @@
     <Content Include="View-Dk\Assets\zealand-DRIVE-NEW-logo%28hvid%29.png" />
     <Content Include="View-Dk\Assets\zealand-DRIVE-NEW-logo.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <Content Include="View-Dk\header-menu-menu.png" />
     <Content Include="View-En\Assets\close.svg" />
     <Content Include="View-En\Assets\Menu.svg" />
     <Content Include="View-En\Assets\new-icon.svg" />

@@ -26,13 +26,14 @@ namespace RestServer.Model
         [StringLength(30)]
         public string routeend { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime date { get; set; }
+        public string date { get; set; }
 
         public string starttime { get; set; }
 
         [Column("fk_carId")]
         public int carId { get; set; }
+
+
 
         //public virtual Car Car { get; set; }
 

@@ -17,21 +17,17 @@ namespace ZealandDrive.VM
     class MainVM : INotifyPropertyChanged
     {
         #region Instance
-        private PageCommand p;
-        private Singleton x;
-        private Listerne lists;
-        private ObservableCollection<string> _adresseList;
-        private bool isChecked;
-        private ICommand checkCommand;
-        private RCO _nextCommand;
-        private RCO _next1Command;
+        private readonly PageCommand p;
+        private readonly Singleton x;
+        private readonly Listerne lists;
+        private readonly RCO _nextCommand;
+        private readonly RCO _next1Command;
 
         #endregion
 
         #region Constructor
         public MainVM()
         {
-            _adresseList = new ObservableCollection<string>();
             x = Singleton.Instance;
             lists = new Listerne();
             p = new PageCommand();
@@ -65,33 +61,6 @@ namespace ZealandDrive.VM
         public RelayCommand GoFOOEN => p.FOOPageEN;
         public RelayCommand GoOverview => p.GoOverviewPage;
         public RelayCommand GoOverviewEN => p.GoOverviewPage;
-
-        public bool IsChecked
-        {
-            get { return isChecked; }
-            set
-            {
-                isChecked = value;
-                OnPropertyChanged("IsChecked");
-            }
-        }
-
-        //public ICommand CheckCommand
-        //{
-        //    get
-        //    {
-        //        if (checkCommand == null)
-        //            checkCommand = new RelayCommand(Checkprocess(), null);
-        //        return checkCommand;
-        //    }
-        //    set
-        //    {
-        //        checkCommand = value;
-        //        OnPropertyChanged("CheckCommand");
-        //    }
-        //}
-
-       
 
         public ObservableCollection<string> H => lists.Timer;
 

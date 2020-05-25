@@ -152,7 +152,7 @@ namespace ZealandDrive.VM
         {
             if (_selectedCar != null)
             {
-                _selectedCar.userId = UserCurrent.id;
+                //_selectedCar.userId = UserCurrent.id;
                 //todo give error message
                 _persistenceCar.Update(_selectedCar);
             }

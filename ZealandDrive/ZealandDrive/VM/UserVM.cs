@@ -20,12 +20,12 @@ namespace ZealandDrive.VM
     {
         #region Instance
         // SingleTon
-        private Singleton x;
+        private readonly Singleton x;
         // page
-        private PageCommand p;
+        private readonly PageCommand p;
         // users
-        private IPersistens<Users> _persistence;
-        private ObservableCollection<Users> _users;
+        private readonly IPersistens<Users> _persistence;
+        private readonly ObservableCollection<Users> _users;
         private Users _userToBeCreated;
         private Users _selectedUser;
         private Users _userTobeUpdated;
@@ -37,15 +37,15 @@ namespace ZealandDrive.VM
        
         //relay
         //private RelayCommand _saveUser;
-        private RelayCommand _updateOneUser;
-        private RelayCommand _deleteOneUser;
-        private RelayCommand _clearCreateOneUser;
-        private RelayCommand _checkBruger;
-        private RelayCommand _loadUser;
-        private RelayCommand _createOne;
-        private RelayCommand _createOne2;
-        private RelayCommand _userLogin;
-        private RelayCommand _loadCurrentUser;
+        private readonly RelayCommand _updateOneUser;
+        private readonly RelayCommand _deleteOneUser;
+        private readonly RelayCommand _clearCreateOneUser;
+        private readonly RelayCommand _checkBruger;
+        private readonly RelayCommand _loadUser;
+        private readonly RelayCommand _createOne;
+        private readonly RelayCommand _createOne2;
+        private  RelayCommand _userLogin;
+        private readonly RelayCommand _loadCurrentUser;
 
         #endregion
 
