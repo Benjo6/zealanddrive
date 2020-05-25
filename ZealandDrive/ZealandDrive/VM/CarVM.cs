@@ -36,6 +36,7 @@ namespace ZealandDrive.VM
         private RelayCommand _clearCreateOneCar;
         private RelayCommand _createOneCar;
         private RelayCommand _loadCar;
+        private RelayCommand _loadOneCar;
 
         #endregion
         #region Constructor
@@ -55,6 +56,7 @@ namespace ZealandDrive.VM
             _deleteOneCar = new RelayCommand(DeleteCar);
             _clearCreateOneCar = new RelayCommand(ClearCreateCar);
             _persistenceCar = new DBPersistenceCar();
+            _loadOneCar = new RelayCommand(LoadOneCars);
 
         }
         #endregion
@@ -71,6 +73,7 @@ namespace ZealandDrive.VM
         public RelayCommand Setting => p.SettingPage;
         public RelayCommand SettingEN => p.SettingPageEN;
         //car
+        public RelayCommand LoadOneCar => _loadOneCar;
         public RelayCommand LoadCar => _loadCar;
 
         public RelayCommand SaveCar => _saveCar;
@@ -109,6 +112,20 @@ namespace ZealandDrive.VM
         }
         #endregion
         #region Method
+
+        private async void LoadOneCars()
+        {
+            _cars.Clear();
+            var liste = await _persistenceCar.Load();
+            foreach (Car c in liste)
+            {
+                if (c.userId == UserCurrent.id)
+                {
+                    _cars.Add(c);
+                }
+
+            }
+        }
         private async void OpretCar()
         {
             _carToBeCreated.userId = UserCurrent.id;
