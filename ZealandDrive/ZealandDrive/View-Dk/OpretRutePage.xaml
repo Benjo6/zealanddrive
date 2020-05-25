@@ -61,13 +61,10 @@
         </Button>
 
         <TextBox Header="Hvor starter ruten?"  Text="{Binding RouteToBeCreated.routeStart , Mode=TwoWay}" TextWrapping="Wrap" Background="White" Grid.Row="1" CornerRadius="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,0" Height="62"/>
-        <Button Content="Tilføje Ny Start" Grid.Row="1" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,2" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" />
 
 
         <TextBox Header="Hvor slutter ruten?" Text="{Binding RouteToBeCreated.routeEnd, Mode=TwoWay}" TextWrapping="Wrap" Background="White" CornerRadius="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Width="300" Height="62" VerticalAlignment="Top" Margin="0,0,0,0" HorizontalAlignment="Center"/>
-        <Button Content="Tilføje Ny Slut" Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,0" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" >
 
-        </Button>
 
         <ScrollViewer Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Width="300" Height="80" Canvas.ZIndex="10" Background="#F6F6F6" BorderBrush="#a6a6a6" BorderThickness="2" CornerRadius="3">
             <StackPanel>
@@ -88,9 +85,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Button Content="Tilføje Ny Bil" Grid.Row="3" VerticalAlignment="Bottom" Grid.Column="1" Width="50" Height="14" FontSize="7" Margin="18,0,0,0" Background="Transparent" HorizontalAlignment="Left" Padding="0,0,0,0" >
-
-        </Button>
+      
 
 
         <DatePicker Header="Hvilken dag kører du?" SelectedDate="{Binding RouteToBeCreated.startTime,Mode=TwoWay}"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,15" YearVisible="False" />

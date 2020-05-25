@@ -26,6 +26,8 @@ namespace ZealandDrive.VM
         //lister
         private Listerne lists;
 
+        //DispatcherTimer
+        private DispatcherTimer timer;
         //Singleton
         private Singleton x;
 
@@ -66,10 +68,15 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Constructor
+
+
         public RouteVM()
         {
             //lister
             lists = new Listerne();
+
+
+
             //Singleton
             x = Singleton.Instance;
             //page
@@ -218,7 +225,7 @@ namespace ZealandDrive.VM
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(OverviewPage));
         }
-        private async void LoadRutes()
+        private async void LoadRutes(object s, object e)
         {
             _ruter.Clear();
             var liste = await _persistenceRoute.Load();
@@ -226,6 +233,8 @@ namespace ZealandDrive.VM
             {
                 _ruter.Add(r);
             }
+            LoadStuff();
+            
         }
         private void UpdateRute()
         {
@@ -313,6 +322,27 @@ namespace ZealandDrive.VM
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public event EventHandler CanExecuteChanged;
+
+        public void RaiseCanExecuteChanged()
+        {
+            if (CanExecuteChanged != null)
+            {
+                CanExecuteChanged(this, new EventArgs());
+            }
+        }
+
+            public async void LoadStuff()
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 10);
+            timer.Tick += new EventHandler<object>(LoadRutes);
+            timer.Start();
+        }
+
+
+
+
         #endregion
     }
 }
