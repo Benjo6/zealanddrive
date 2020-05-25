@@ -25,39 +25,17 @@
         </Grid.ColumnDefinitions>
 
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
-        <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4" Canvas.ZIndex="1">
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum" Command="{Binding GoFo}" >
-
-            </Button>
-
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
-
-            </Button>
-        </StackPanel>
-        
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
 
         <Button Background="White" Height="80" Width="80">
             <Image Source="Assets\Menu.svg"/>
         </Button>
-
         <Button Background="White" Height="80" Width="80" Grid.Column="2" Command="{Binding GoToOpretRute}">
             <Image Source="Assets\new-icon.svg"/>
         </Button>
-
         <TextBlock Text="Ruter" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
-
         <Button Grid.Column="1" Content="Load" Command="{Binding LoadRute}" >
-            
         </Button>
-
-
         <GridView ItemsSource="{Binding Ruter, Mode=TwoWay}" SelectedItem="{Binding SelectedRute, Mode=TwoWay}"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Width="400">
             <GridView.ItemTemplate >
                 <DataTemplate>
@@ -127,11 +105,26 @@
                                     </Canvas>
                                 </Grid>
                             </Border>
-                            
                         </Grid>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <StackPanel Grid.Row="8" Grid.ColumnSpan="4" Canvas.ZIndex="1">
+            <Canvas Width="400" VerticalAlignment="Center">
+                <Button Width="100" Background="Transparent" Height="80" Command="{Binding GoToOverview}">
+                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+                <Button Margin="100 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding GoToOverview}">
+                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+                <Button Margin="200 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding GoToOverview}">
+                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+                <Button Margin="300 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding GoToOverview}">
+                    <Image Source="Assets\Menu.svg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                </Button>
+            </Canvas>
+        </StackPanel>
     </Grid>
 </Page>
