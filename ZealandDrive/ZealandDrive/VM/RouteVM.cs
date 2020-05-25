@@ -62,6 +62,7 @@ namespace ZealandDrive.VM
         private RelayCommand _savePassenger;
         private RelayCommand _updateOnePassengerDec;
         private RelayCommand _updateOnePassengerAcc;
+        private RelayCommand _updateOnePassengerCheckInd;
         private RelayCommand _deleteOnePassenger;
         private RelayCommand _clearCreateOnePassenger;
         private ObservableCollection<Passenger> _passengers;
@@ -109,11 +110,13 @@ namespace ZealandDrive.VM
             _selectedPassenger = new Passenger();
             _updateOnePassengerAcc = new RelayCommand(UpdatePassengerAccept);
             _updateOnePassengerDec = new RelayCommand(UpdatePassengerDecline);
+            _updateOnePassengerCheckInd = new RelayCommand(UpdateCheckInd);
             _deleteOnePassenger = new RelayCommand(DeletePassenger);
             _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
             _persistencePassenger = new DBPersistencePassenger();
             _loadCurrentPassenger = new RelayCommand(LoadCurrentPassenger);
             _loadTilmeldteRuter = new RelayCommand(LoadTilmeldte);
+
             // car
             _selectedCar = new Car();
             _loadCars = new RelayCommand(LoadCars);
@@ -210,6 +213,7 @@ namespace ZealandDrive.VM
         public RelayCommand SavePassenger => _savePassenger;
         public RelayCommand UpdateOnePassengerAccept => _updateOnePassengerAcc;
         public RelayCommand UpdateOnePassengerDecline => _updateOnePassengerDec;
+        public RelayCommand UpdateOnePassengerCheckInd => _updateOnePassengerCheckInd;
         public RelayCommand DeleteOnePassenger => _deleteOnePassenger;
         public RelayCommand CreateOnePassenger => _createOnePassenger;
         public RelayCommand ClearCreateOnePassenger => _clearCreateOnePassenger;
@@ -352,6 +356,15 @@ namespace ZealandDrive.VM
             {
                 SelectedPassenger.status = "Afvist";
                 //todo give error message
+                _persistencePassenger.Update(_selectedPassenger);
+            }
+        }
+
+        private void UpdateCheckInd()
+        {
+            if (_selectedPassenger != null && _selectedPassenger.status == "Accepteret")
+            {
+                SelectedPassenger.status = "Checked in";
                 _persistencePassenger.Update(_selectedPassenger);
             }
         }

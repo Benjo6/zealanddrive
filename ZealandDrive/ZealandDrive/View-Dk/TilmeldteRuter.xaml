@@ -44,7 +44,7 @@
             </ListView>
         </StackPanel>
 
-        <Button Grid.Row="3" Grid.Column="1" Content="Check ind" Width="500"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="Check ind" Width="500" Command="{Binding UpdateOnePassengerCheckInd}"/>
 
     </Grid>
 </Page>
