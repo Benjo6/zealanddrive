@@ -19,17 +19,17 @@ namespace ZealandDrive.VM
     class ForumVM : INotifyPropertyChanged
     {
         #region Instance
-        private IPersistens<Forum> _persistenceForum;
-        private RelayCommand _createOneForum;
+        private readonly IPersistens<Forum> _persistenceForum;
+        private readonly RelayCommand _createOneForum;
         private Forum _selectedForum;
-        private RelayCommand _loadForum;
+        private readonly RelayCommand _loadForum;
         private Forum _forumToBeCreated;
-        private RelayCommand _saveForum;
-        private RelayCommand _updateOneForum;
-        private RelayCommand _deleteOneForum;
-        private RelayCommand _clearCreateOneForum;
-        private ObservableCollection<Forum> _forum;
-        private PageCommand p;
+        private readonly RelayCommand _saveForum;
+        private readonly RelayCommand _updateOneForum;
+        private readonly RelayCommand _deleteOneForum;
+        private readonly RelayCommand _clearCreateOneForum;
+        private readonly ObservableCollection<Forum> _forum;
+        private readonly PageCommand p;
         #endregion
         #region Constructor
         public ForumVM()
