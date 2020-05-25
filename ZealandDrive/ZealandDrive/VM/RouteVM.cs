@@ -59,7 +59,8 @@ namespace ZealandDrive.VM
         private RelayCommand _loadPassenger;
         private Passenger _passengerToBeCreated;
         private RelayCommand _savePassenger;
-        private RelayCommand _updateOnePassenger;
+        private RelayCommand _updateOnePassengerDec;
+        private RelayCommand _updateOnePassengerAcc;
         private RelayCommand _deleteOnePassenger;
         private RelayCommand _clearCreateOnePassenger;
         private ObservableCollection<Passenger> _passengers;
@@ -105,7 +106,8 @@ namespace ZealandDrive.VM
             _passengers = new ObservableCollection<Passenger>();
             _createOnePassenger = new RelayCommand(OpretPassenger);
             _selectedPassenger = new Passenger();
-            _updateOnePassenger = new RelayCommand(UpdatePassenger);
+            _updateOnePassengerAcc = new RelayCommand(UpdatePassengerAccept);
+            _updateOnePassengerDec = new RelayCommand(UpdatePassengerDecline);
             _deleteOnePassenger = new RelayCommand(DeletePassenger);
             _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
             _persistencePassenger = new DBPersistencePassenger();
@@ -203,7 +205,8 @@ namespace ZealandDrive.VM
         public ObservableCollection<Passenger> Passengers => _passengers;
         public RelayCommand LoadPassenger => _loadPassenger;
         public RelayCommand SavePassenger => _savePassenger;
-        public RelayCommand UpdateOnePassenger => _updateOnePassenger;
+        public RelayCommand UpdateOnePassengerAccept => _updateOnePassengerAcc;
+        public RelayCommand UpdateOnePassengerDecline => _updateOnePassengerDec;
         public RelayCommand DeleteOnePassenger => _deleteOnePassenger;
         public RelayCommand CreateOnePassenger => _createOnePassenger;
         public RelayCommand ClearCreateOnePassenger => _clearCreateOnePassenger;
@@ -330,14 +333,26 @@ namespace ZealandDrive.VM
                 _passengers.Add(p);
             }
         }
-        private void UpdatePassenger()
+        private void UpdatePassengerAccept()
         {
             if (_selectedPassenger != null)
             {
+                SelectedPassenger.status = "Accepteret";
                 //todo give error message
                 _persistencePassenger.Update(_selectedPassenger);
             }
         }
+
+        private void UpdatePassengerDecline()
+        {
+            if (_selectedPassenger != null)
+            {
+                SelectedPassenger.status = "Afvist";
+                //todo give error message
+                _persistencePassenger.Update(_selectedPassenger);
+            }
+        }
+
         private void DeletePassenger()
         {
             if (_selectedPassenger != null)

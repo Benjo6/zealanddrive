@@ -44,7 +44,7 @@
             </ListView>
         </StackPanel>
         
-        <Button Grid.Row="3" Grid.Column="1" Content="Accepter" />
-        <Button Grid.Row="3" Grid.Column="1" Margin='100,10,1,10' Content="Afvis"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="Accepter" Command="{Binding UpdateOnePassengerAccept}" />
+        <Button Grid.Row="3" Grid.Column="1" Margin='100,10,1,10' Content="Afvis" Command="{Binding UpdateOnePassengerDecline}"/>
     </Grid>
 </Page>
