@@ -110,6 +110,19 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
+
+        //public Car CarToBeUpdated
+        //{
+        //    get => _carToBeCreated;
+        //    set
+        //    {
+        //        if (Equals(value, _carTobeUpdated)) return;
+        //        {
+        //            _carTobeUpdated = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+        //}
         #endregion
         #region Method
 
@@ -139,6 +152,7 @@ namespace ZealandDrive.VM
         {
             if (_selectedCar != null)
             {
+                _selectedCar.userId = UserCurrent.id;
                 //todo give error message
                 _persistenceCar.Update(_selectedCar);
             }

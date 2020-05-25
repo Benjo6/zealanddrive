@@ -16,7 +16,7 @@ namespace ClassLibrary
         private int _year;
         private int _seats;
         private int _userId;
-        private Singleton x;
+        //private Singleton x;
 
 
         //public int userId
@@ -46,7 +46,7 @@ namespace ClassLibrary
 
         public Car(int id, string color, string brand, string model, string nummerplade, int year, int seats, int userId)
         {
-            x = Singleton.Instance;
+            //x = Singleton.Instance;
             _id = id;
             _color = color;
             _brand = brand;
