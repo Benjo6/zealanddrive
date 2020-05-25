@@ -28,8 +28,7 @@ namespace ZealandDrive.VM
         private static string _hour;
         private static string _minute;
 
-        //DispatcherTimer
-        private DispatcherTimer timer;
+
         //Singleton
         private Singleton x;
 
@@ -41,7 +40,7 @@ namespace ZealandDrive.VM
         private IPersistens<Route> _persistenceRoute;
         private RelayCommand _createOneRute;
         private Route _selectedRute;
-        private RelayCommand _loadRute;
+        private ralaycommand2 _loadRute;
         private Route _ruteToBeCreated;
         private RelayCommand _saveRute;
         private RelayCommand _updateOneRute;
@@ -73,22 +72,17 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Constructor
-
-
         public RouteVM()
         {
             //lister
             lists = new Listerne();
             _hour = hour;
             _minute = minute;
-
-
-            //Singleton
             x = Singleton.Instance;
             //page
             p = new PageCommand();
-            // routes
-            //_loadRute = new RelayCommand(LoadRutes);
+            // route
+            _loadRute = new ralaycommand2(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
             _createOneRute = new RelayCommand(OpretRute1);
@@ -133,6 +127,7 @@ namespace ZealandDrive.VM
             set => _minute = value;
 
         }
+
         // page
         public Singleton Instance => x;
         public RelayCommand GoToOverview => p.GoOverviewPage;
@@ -155,7 +150,7 @@ namespace ZealandDrive.VM
         // routes
         public RelayCommand HandleSelectionRoute => _handleR;
         public ObservableCollection<Route> Ruter => _ruter;
-        public RelayCommand LoadRute => _loadRute;
+        public ralaycommand2 LoadRute => _loadRute;
         public RelayCommand SaveRute => _saveRute;
         public RelayCommand UpdateOneRute => _updateOneRute;
         public RelayCommand DeleteOneRute => _deleteOneRute;
@@ -236,19 +231,16 @@ namespace ZealandDrive.VM
 
         private async void OpretRute1()
         {
-            _ruteToBeCreated.carId = SelectedCar.id;
-            //TimeSpan ts = new TimeSpan(_hour, _minute,0)
-            //s = s.Date + ts;
-            //_ruteToBeCreated.routeStart = DateTime s = _startTime;
+            
             //todo give error message
-            _ruteToBeCreated.startTime = $"{_ruteToBeCreated.hour} : {_ruteToBeCreated.minute}";
+            _ruteToBeCreated.starttime = $"{_ruteToBeCreated.hour} : {_ruteToBeCreated.minute}";
             await _persistenceRoute.Opret(_ruteToBeCreated);
 
             //_ruter.Add(_ruteToBeCreated);
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(OverviewPage));
         }
-        private async void LoadRutes(object s, object e)
+        private async void LoadRutes(object e, object s)
         {
             _ruter.Clear();
             var liste = await _persistenceRoute.Load();
@@ -257,7 +249,6 @@ namespace ZealandDrive.VM
                 _ruter.Add(r);
             }
             LoadStuff();
-            
         }
         private void UpdateRute()
         {
@@ -290,14 +281,11 @@ namespace ZealandDrive.VM
 
         private async void OpretPassenger()
         {
-            _passengerToBeCreated.routeId = SelectedRute.id;
-            _passengerToBeCreated.userId = UserCurrent.id;
-            _passengerToBeCreated.status = "afventer accept";
 
-
+            //todo give error message
             await _persistencePassenger.Opret(_passengerToBeCreated);
-            Frame f = (Frame)Window.Current.Content;
-            f.Navigate(typeof(OverviewPage));
+            //Frame f = (Frame)Window.Current.Content;
+            //f.Navigate(typeof(OverviewPage));
         }
         private async void LoadPassengers()
         {
@@ -339,8 +327,15 @@ namespace ZealandDrive.VM
                 {
                     _cars.Add(c);
                 }
-
             }
+        }
+
+        public async void LoadStuff()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 10);
+            timer.Tick += new EventHandler<object>(LoadRutes);
+            timer.Start();
         }
 
         // onpropertychanged
@@ -352,27 +347,6 @@ namespace ZealandDrive.VM
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public event EventHandler CanExecuteChanged;
-
-        public void RaiseCanExecuteChanged()
-        {
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged(this, new EventArgs());
-            }
-        }
-
-            public async void LoadStuff()
-        {
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 0, 10);
-            timer.Tick += new EventHandler<object>(LoadRutes);
-            timer.Start();
-        }
-
-
-
-
         #endregion
     }
 }

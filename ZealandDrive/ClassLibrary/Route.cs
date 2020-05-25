@@ -10,7 +10,7 @@ namespace ClassLibrary
         private int _id;
         private string _routeStart;
         private string _routeEnd;
-        private string _startTime;
+        private string _starttime;
         private DateTime _date;
         private string _hour;
         private string _minute;
@@ -39,10 +39,10 @@ namespace ClassLibrary
 
         public DateTime date { get; set; }
 
-        public string startTime
+        public string starttime
         {
-            get => _startTime;
-            set => _startTime = value;
+            get => _starttime;
+            set => _starttime = value;
         }
 
         public int carId
@@ -71,7 +71,7 @@ namespace ClassLibrary
             _id = id;
             _routeStart = routeStart;
             _routeEnd = routeEnd;
-            _startTime = startTime;
+            _starttime = startTime;
             _date = date;
             _carId = carId;
             _besked = besked;
