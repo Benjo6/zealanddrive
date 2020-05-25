@@ -57,6 +57,7 @@ namespace ZealandDrive.VM
         private RelayCommand _createOnePassenger;
         private Passenger _selectedPassenger;
         private RelayCommand _loadPassenger;
+        private RelayCommand _loadTilmeldteRuter;
         private Passenger _passengerToBeCreated;
         private RelayCommand _savePassenger;
         private RelayCommand _updateOnePassengerDec;
@@ -112,6 +113,7 @@ namespace ZealandDrive.VM
             _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
             _persistencePassenger = new DBPersistencePassenger();
             _loadCurrentPassenger = new RelayCommand(LoadCurrentPassenger);
+            _loadTilmeldteRuter = new RelayCommand(LoadTilmeldte);
             // car
             _selectedCar = new Car();
             _loadCars = new RelayCommand(LoadCars);
@@ -204,6 +206,7 @@ namespace ZealandDrive.VM
         // passenger
         public ObservableCollection<Passenger> Passengers => _passengers;
         public RelayCommand LoadPassenger => _loadPassenger;
+        public RelayCommand LoadTilmeldteRuter => _loadTilmeldteRuter;
         public RelayCommand SavePassenger => _savePassenger;
         public RelayCommand UpdateOnePassengerAccept => _updateOnePassengerAcc;
         public RelayCommand UpdateOnePassengerDecline => _updateOnePassengerDec;
@@ -411,6 +414,20 @@ namespace ZealandDrive.VM
                 }
             }
         }
+
+        private async void LoadTilmeldte()
+        {
+            _passengers.Clear();
+            var liste = await _persistencePassenger.Load();
+            foreach (Passenger pass in liste)
+            {
+                if (UserCurrent.id == pass.userId)
+                {
+                    _passengers.Add(pass);
+                }
+            }
+        }
+
         public async void LoadStuff()
         {
             DispatcherTimer timer = new DispatcherTimer();

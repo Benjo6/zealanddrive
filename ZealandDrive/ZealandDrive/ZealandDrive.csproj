@@ -203,6 +203,9 @@
     <Compile Include="View-Dk\Sprog.xaml.cs">
       <DependentUpon>Sprog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View-Dk\TilmeldteRuter.xaml.cs">
+      <DependentUpon>TilmeldteRuter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View-Dk\UserTest.xaml.cs">
       <DependentUpon>UserTest.xaml</DependentUpon>
     </Compile>
@@ -383,6 +386,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View-Dk\Sprog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-Dk\TilmeldteRuter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
