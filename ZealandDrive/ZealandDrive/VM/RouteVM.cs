@@ -25,9 +25,8 @@ namespace ZealandDrive.VM
         #region Instance
         //lister
         private Listerne lists;
-        private string _hour;
-        private string _minute;
-        private DateTime _startTime;
+        private static string _hour;
+        private static string _minute;
 
         //DispatcherTimer
         private DispatcherTimer timer;
@@ -80,7 +79,8 @@ namespace ZealandDrive.VM
         {
             //lister
             lists = new Listerne();
-
+            _hour = hour;
+            _minute = minute;
 
 
             //Singleton
@@ -88,7 +88,7 @@ namespace ZealandDrive.VM
             //page
             p = new PageCommand();
             // routes
-            _loadRute = new RelayCommand(LoadRutes);
+            //_loadRute = new RelayCommand(LoadRutes);
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
             _createOneRute = new RelayCommand(OpretRute1);
@@ -131,6 +131,7 @@ namespace ZealandDrive.VM
         {
             get => _minute;
             set => _minute = value;
+
         }
         // page
         public Singleton Instance => x;
@@ -240,6 +241,7 @@ namespace ZealandDrive.VM
             //s = s.Date + ts;
             //_ruteToBeCreated.routeStart = DateTime s = _startTime;
             //todo give error message
+            _ruteToBeCreated.startTime = $"{_ruteToBeCreated.hour} : {_ruteToBeCreated.minute}";
             await _persistenceRoute.Opret(_ruteToBeCreated);
 
             //_ruter.Add(_ruteToBeCreated);

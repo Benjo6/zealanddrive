@@ -29,7 +29,7 @@ namespace RestServer.Model
         [Column(TypeName = "date")]
         public DateTime date { get; set; }
 
-        public DateTime starttime { get; set; }
+        public string starttime { get; set; }
 
         [Column("fk_carId")]
         public int carId { get; set; }

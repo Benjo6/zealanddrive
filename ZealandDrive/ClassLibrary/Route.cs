@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace ClassLibrary
 {
@@ -9,13 +10,14 @@ namespace ClassLibrary
         private int _id;
         private string _routeStart;
         private string _routeEnd;
-        private DateTime _startTime;
+        private string _startTime;
+        private DateTime _date;
         private string _hour;
         private string _minute;
         private int _carId;
         private string _besked;
 
-
+        //private string _xstr = $"{hour}:{minutte}";
 
         public int id
         {
@@ -35,7 +37,9 @@ namespace ClassLibrary
             set => _routeEnd = value;
         }
 
-        public DateTime startTime
+        public DateTime date { get; set; }
+
+        public string startTime
         {
             get => _startTime;
             set => _startTime = value;
@@ -62,19 +66,20 @@ namespace ClassLibrary
             set => _besked = value;
         }
 
-        public Route(int id, string routeStart, string routeEnd, DateTime startTime, string hours, string minute, int carId, string besked)
+        public Route(int id, string routeStart, string routeEnd, string startTime, DateTime date, string hours, string minute, int carId, string besked)
         {
             _id = id;
             _routeStart = routeStart;
             _routeEnd = routeEnd;
             _startTime = startTime;
+            _date = date;
             _carId = carId;
             _besked = besked;
             _hour = hours;
             _minute = minute;
         }
 
-        public Route() : this (0, "","",DateTime.Now,"","",0,"")
+        public Route() 
         {
         
         }
