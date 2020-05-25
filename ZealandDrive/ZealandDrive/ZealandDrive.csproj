@@ -145,6 +145,9 @@
     <Compile Include="View-Dk\AdgangskodeogSikkerhed.xaml.cs">
       <DependentUpon>AdgangskodeogSikkerhed.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View-Dk\AdminPage.xaml.cs">
+      <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View-Dk\ForumOverview.xaml.cs">
       <DependentUpon>ForumOverview.xaml</DependentUpon>
     </Compile>
@@ -298,6 +301,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="View-Dk\AdgangskodeogSikkerhed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-Dk\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
