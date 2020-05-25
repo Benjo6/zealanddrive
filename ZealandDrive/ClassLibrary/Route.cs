@@ -16,6 +16,7 @@ namespace ClassLibrary
         private string _besked;
 
 
+
         public int id
         {
             get => _id;

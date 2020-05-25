@@ -25,6 +25,9 @@ namespace ZealandDrive.VM
         #region Instance
         //lister
         private Listerne lists;
+        private string _hour;
+        private string _minute;
+        private DateTime _startTime;
 
         //DispatcherTimer
         private DispatcherTimer timer;
@@ -65,6 +68,9 @@ namespace ZealandDrive.VM
         private ObservableCollection<Car> _cars;
         private RelayCommand _loadCars;
         private Car _selectedCar;
+
+        //user
+        private UserVM _uvm;
         #endregion
 
         #region Constructor
@@ -107,12 +113,25 @@ namespace ZealandDrive.VM
             _loadCars = new RelayCommand(LoadCars);
             _cars = new ObservableCollection<Car>();
             _persistenceCar = new DBPersistenceCar();
+            //user
+            _uvm = new UserVM();
         }
         #endregion
         #region Properties
         //lister
         public ObservableCollection<string> H => lists.Timer;
         public ObservableCollection<string> M => lists.Minutter;
+
+        public string hour
+        {
+            get => _hour;
+            set => _hour = value;
+        }
+        public string minute
+        {
+            get => _minute;
+            set => _minute = value;
+        }
         // page
         public Singleton Instance => x;
         public RelayCommand GoToOverview => p.GoOverviewPage;
@@ -129,9 +148,8 @@ namespace ZealandDrive.VM
         public RelayCommand GoToSaveAddresse => p.GemAdresseEN;
         public RelayCommand GoToGemAdresse => p.GemAdresse;
         public RelayCommand GoToSpecficRoute => p.GoToSpecificRutePage;
-
-
-
+        //user
+        public Users UserCurrent => _uvm.UserCurrent;
 
         // routes
         public RelayCommand HandleSelectionRoute => _handleR;
@@ -217,7 +235,10 @@ namespace ZealandDrive.VM
 
         private async void OpretRute1()
         {
-
+            _ruteToBeCreated.carId = SelectedCar.id;
+            //TimeSpan ts = new TimeSpan(_hour, _minute,0)
+            //s = s.Date + ts;
+            //_ruteToBeCreated.routeStart = DateTime s = _startTime;
             //todo give error message
             await _persistenceRoute.Opret(_ruteToBeCreated);
 
@@ -267,11 +288,14 @@ namespace ZealandDrive.VM
 
         private async void OpretPassenger()
         {
+            _passengerToBeCreated.routeId = SelectedRute.id;
+            _passengerToBeCreated.userId = UserCurrent.id;
+            _passengerToBeCreated.status = "afventer accept";
 
-            //todo give error message
+
             await _persistencePassenger.Opret(_passengerToBeCreated);
-            //Frame f = (Frame)Window.Current.Content;
-            //f.Navigate(typeof(OverviewPage));
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(OverviewPage));
         }
         private async void LoadPassengers()
         {
@@ -309,7 +333,11 @@ namespace ZealandDrive.VM
             var liste = await _persistenceCar.Load();
             foreach (Car c in liste)
             {
-                _cars.Add(c);
+                if (c.userId == UserCurrent.id)
+                {
+                    _cars.Add(c);
+                }
+
             }
         }
 

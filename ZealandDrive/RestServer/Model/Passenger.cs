@@ -9,8 +9,8 @@ namespace RestServer.Model
     [Table("Passenger")]
     public partial class Passenger
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id { get; set; }
+
 
         [Column("fk_userId")]
         public int userId { get; set; }

@@ -38,7 +38,7 @@ namespace ClassLibrary
         public string nummerplade { get => _nummerplade; set => _nummerplade = value; }
         public int year { get => _year; set => _year = value; }
         public int seats { get => _seats; set => _seats = value; }
-
+        public int userId { get => _userId; set => _userId = value; }
         public Car()
         {
 
@@ -59,7 +59,7 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"color = {_color}, brand = {_brand}, model = {_model}, nummerplade = {_nummerplade}, year = {_year}, seats = {_seats}";
+            return $"color = {_color}, brand = {_brand}, model = {_model}, nummerplade = {_nummerplade}, year = {_year}, seats = {_seats}, UserID={_userId}";
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
-
+using System.ComponentModel;
 
 namespace ClassLibrary
 {
@@ -13,6 +13,7 @@ namespace ClassLibrary
         private string _lastName;
         private string _email;
         private string _password;
+
         //private string _tmpPassword;
         //private string _token;
 
@@ -20,6 +21,7 @@ namespace ClassLibrary
         public string lastname { get=> _lastName; set => _lastName = value; }
         public string email { get => _email; set => _email = value; }
         public string password { get => _password; set => _password = value; }
+
        // public string tmpPassword { get => _password; set => _password = value; }
        // public string token { get => _password; set => _password = value; }
 

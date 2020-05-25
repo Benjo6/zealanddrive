@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="#F6F6F6">
     <Page.DataContext>
-        <local1:MainVM/>
+        <local1:CarVM/>
     </Page.DataContext>
     <Grid>
 
@@ -53,7 +53,8 @@
             <TextBox Header="Model" Text="{Binding CarToBeCreated.model, Mode=TwoWay}" Margin="14,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11" Width="93"/>
         </StackPanel>
 
-            <Button Command="{Binding CreateOneCar, Mode=TwoWay}" Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="5" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,0,0,0" Padding="0,0,0,0" FontSize="14"/>
+            <Button Command="{Binding CreateOneCar, Mode=TwoWay}" Height="30" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" Grid.Row="5" CornerRadius="7"
+                    Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,0,0,0" Padding="0,0,0,0" FontSize="14"/>
 
 
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="7">
