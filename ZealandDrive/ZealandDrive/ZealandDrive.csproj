@@ -285,7 +285,9 @@
     <Content Include="View-Dk\Assets\menu-anmodninger.png" />
     <Content Include="View-Dk\Assets\menu-comment.png" />
     <Content Include="View-Dk\Assets\menu-home.png" />
+    <Content Include="View-Dk\Assets\menu-notifikation.png" />
     <Content Include="View-Dk\Assets\menu-settings.png" />
+    <Content Include="View-Dk\Assets\menu-statuser-telmeldt.png" />
     <Content Include="View-Dk\Assets\Menu.svg" />
     <Content Include="View-Dk\Assets\new-icon.svg" />
     <Content Include="View-Dk\Assets\Not_logget_in_%401x.png" />
