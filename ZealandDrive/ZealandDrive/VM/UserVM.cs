@@ -78,6 +78,8 @@ namespace ZealandDrive.VM
         #region Properties
 
         // page
+        public RelayCommand GOPasO => p.GOPasO;
+        public RelayCommand GoTilmeldteRuter => p.GoTilmeldteRuter;
         public RelayCommand UserTest => p.UserTest;
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoToOpretBruger => p.Opret;

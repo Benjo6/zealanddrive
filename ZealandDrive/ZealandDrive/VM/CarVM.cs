@@ -65,6 +65,9 @@ namespace ZealandDrive.VM
         //
         public Users UserCurrent => x.UserCurrent;
         //page
+        public RelayCommand GOPasO => p.GOPasO;
+        public RelayCommand GoTilmeldteRuter => p.GoTilmeldteRuter;
+        public RelayCommand GoFOO => p.FOOPage;
         public RelayCommand GoGemteBiler => p.GemBiler;
         public RelayCommand GoBack => p.Tilbage;
         public RelayCommand GoGemBiler => p.GemBiler;

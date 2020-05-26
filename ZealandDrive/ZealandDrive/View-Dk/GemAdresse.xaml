@@ -95,7 +95,7 @@
                     Width="80"
                     Height="80"
                     Background="Transparent"
-                    Command="{Binding GoToOverview}">
+                    Command="{Binding GoOverview}">
                     <Image
                         Width="50"
                         Height="50"
@@ -108,7 +108,7 @@
                     Height="80"
                     Margin="80,0,0,0"
                     Background="Transparent"
-                    Command="{Binding GoFo}">
+                    Command="{Binding GoFOO}">
                     <Image
                         Width="50"
                         Height="50"
