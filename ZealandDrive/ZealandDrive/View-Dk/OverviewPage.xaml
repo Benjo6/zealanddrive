@@ -129,10 +129,10 @@
                 <Button Margin="80 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding GoFo}">
                     <Image Source="Assets\menu-comment.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 </Button>
-                <Button Margin="160 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding Setting}">
+                <Button Margin="160 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding GoTilmeldteRuter}">
                     <Image Source="Assets\menu-statuser-telmeldt.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 </Button>
-                <Button Margin="240 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding Setting}">
+                <Button Margin="240 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding GOPasO}">
                     <Image Source="Assets\menu-notifikation.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 </Button>
                 <Button Margin="320 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding Setting}">
