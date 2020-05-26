@@ -12,7 +12,7 @@ namespace ZealandDrive.Persistens.F
 {
     class DBPersistenceForum : IPersistens<Forum>
     {
-        private string URI = @"https://restserver20200521122545.azurewebsites.net/api/Forums/";
+        private string URI = @"https://restserver20200521122545.azurewebsites.net/api/Fora/";
         public async Task<ICollection<Forum>> Load()
         {
             List<Forum> forums;
@@ -32,17 +32,16 @@ namespace ZealandDrive.Persistens.F
 
                 string json = JsonConvert.SerializeObject(ruter);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-                var x = await client.PutAsync(URI + ruter.ID, stringContent);
+                var x = await client.PutAsync(URI + ruter.id, stringContent);
                 return x.IsSuccessStatusCode;
             }
         }
 
-        public async Task<bool> Opret(Forum ruter)
+        public async Task<bool> Opret(Forum f)
         {
             using (HttpClient client = new HttpClient())
             {
-
-                string json = JsonConvert.SerializeObject(ruter);
+                string json = JsonConvert.SerializeObject(f);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
                 var x = await client.PostAsync(URI, stringContent);
                 return x.IsSuccessStatusCode;
@@ -53,7 +52,7 @@ namespace ZealandDrive.Persistens.F
         {
             using (HttpClient client = new HttpClient())
             {
-                var x = await client.DeleteAsync(URI + ruter.ID);
+                var x = await client.DeleteAsync(URI + ruter.id);
                 if (x.IsSuccessStatusCode)
                 {
                     string str = await x.Content.ReadAsStringAsync();

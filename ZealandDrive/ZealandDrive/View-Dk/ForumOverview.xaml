@@ -26,9 +26,11 @@
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
 
+        <Button Content="Load" Command="{Binding LoadForum}" VerticalAlignment="Bottom" Height="50" Width="400" Margin="0 0 0 0" Grid.Column="1" Grid.Row="0" Canvas.ZIndex="6"></Button>
+
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
-        <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4" Canvas.ZIndex="1">
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverview}">
+        <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4">
+            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
 
             </Button>
             <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
@@ -49,27 +51,24 @@
             <Image Source="Assets\Menu.svg"/>
         </Button>
 
-        <Button Background="White" Height="80" Width="80" Grid.Column="2" Command="{Binding GoFOO}">
+        <Button Background="White" Height="80" Width="80" Grid.Column="2" Command="{Binding OpretForum}">
             <Image Source="Assets\new-icon.svg"/>
         </Button>
-
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="15">
+            <TextBlock Text="Alle Tråde" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
+            <ListView ItemsSource="{Binding Forum, Mode=TwoWay}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Header, Mode=TwoWay}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Besked, Mode=TwoWay}" Grid.Row="1"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
         <TextBlock Text="Forum" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
 
-        <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" >
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Background="White">
-                        <Grid Height="180">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding Header}" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Besked}" Grid.Row="1"/>
-                        </Grid>
-                    </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+
     </Grid>
 </Page>
