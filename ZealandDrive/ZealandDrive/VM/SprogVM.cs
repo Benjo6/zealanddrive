@@ -24,7 +24,16 @@ namespace ZealandDrive.VM
 
         public ICommand Dansk => p.SettingPage;
         public ICommand Engelsk => p.SettingPageEN;
-        
+        public ICommand GoToOverview => p.GoOverviewPage;
+        public ICommand GotoOverviewEN => p.GoOverviewPageEN;
+        public ICommand GoFo => p.FOPage;
+        public ICommand GoFoEN => p.FOPageEN;
+        public ICommand GoTilmeldteRuter => p.GoTilmeldteRuter;
+        public ICommand GOPasO => p.GOPasO;
+
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
