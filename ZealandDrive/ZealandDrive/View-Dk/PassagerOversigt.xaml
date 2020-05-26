@@ -22,32 +22,18 @@
             <RowDefinition Height="80" />
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="2"
-                Grid.Column="1"
-                Width="370"
-                Margin="600,0,0,0"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Command="{Binding LoadCurrentPas}"
-                Content="Load" />
-        <StackPanel
-            Grid.Row="0"
-            Grid.ColumnSpan="4"
-            Background="White"
-        Canvas.ZIndex="1" />
         <StackPanel
             Grid.Row="1"
             Width="400"
             Margin="0,15"
-            Padding="15"
-            Canvas.ZIndex="3">
+            Padding="15">
             <StackPanel >
                 <TextBlock
                     Margin="0,15"
                     FontSize="14"
                     FontWeight="Bold"
                     Text="Alle Brugere" />
-                <ListView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}" Canvas.ZIndex="10">
+                <ListView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -78,6 +64,18 @@
                     Margin="400,15,0,0"
                     Command="{Binding UpdateOnePassengerDecline}"
                     Content="Afvis" />
+        <Button Grid.Row="2"
+                Grid.Column="1"
+                Width="370"
+                Margin="600,0,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Command="{Binding LoadCurrentPas}"
+                Content="Load" />
+        <StackPanel
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Background="White"/>
         <StackPanel
             Grid.Row="8"
             Grid.ColumnSpan="4"

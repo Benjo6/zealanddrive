@@ -428,7 +428,7 @@ namespace ZealandDrive.VM
                             _ruter.Add(rute);
                             //}
 
-                            _passengers.Clear();
+                            //_passengers.Clear();
                             var liste = await _persistencePassenger.Load();
                             foreach (Passenger passenger in liste)
                             {

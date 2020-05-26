@@ -67,12 +67,10 @@
         <StackPanel
             Grid.Row="0"
             Grid.ColumnSpan="4"
-            Background="White"
-            Canvas.ZIndex="1" />
+            Background="White"/>
         <StackPanel
             Grid.Row="8"
-            Grid.ColumnSpan="4"
-            Canvas.ZIndex="1">
+            Grid.ColumnSpan="4">
             <Canvas Width="435" VerticalAlignment="Center">
                 <Button
                     Width="80"
