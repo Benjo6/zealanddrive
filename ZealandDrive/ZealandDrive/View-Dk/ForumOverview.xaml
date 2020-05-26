@@ -25,134 +25,20 @@
             <ColumnDefinition />
             <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
-
-
-        <Button Content="Load" Command="{Binding LoadForum}" VerticalAlignment="Bottom" Height="50" Width="400" Margin="0 0 0 0" Grid.Column="1" Grid.Row="0" Canvas.ZIndex="6"></Button>
-
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
-        <StackPanel Grid.Row="8" Orientation="Horizontal" Grid.ColumnSpan="4"/>
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum" Command="{Binding GoFo}" >
-
-            </Button>
-
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}"/>
-            <StackPanel
-            Grid.Row="8"
-            Grid.ColumnSpan="4"
-            Canvas.ZIndex="1">
-                <Canvas Width="435" VerticalAlignment="Center">
-                    <Button
-                    Width="80"
-                    Height="80"
-                    Background="Transparent"
-                    Command="{Binding GoToOverview}">
-                        <Image
-                        Width="50"
-                        Height="50"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Source="Assets/menu-home.png" />
-                    </Button>
-
-                    <Button
-                    Width="80"
-                    Height="80"
-                    Margin="80,0,0,0"
-                    Background="Transparent"
-                    Command="{Binding GoFo}">
-                        <Image
-                        Width="50"
-                        Height="50"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Source="Assets\menu-comment-active.png" />
-                    </Button>
-                    <Button
-                    Width="80"
-                    Height="80"
-                    Margin="160,0,0,0"
-                    Background="Transparent"
-                    Command="{Binding GoTilmeldteRuter}">
-                        <Image
-                        Width="50"
-                        Height="50"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Source="Assets\menu-statuser-telmeldt.png" />
-                    </Button>
-                    <Button
-                    Width="80"
-                    Height="80"
-                    Margin="240,0,0,0"
-                    Background="Transparent"
-                    Command="{Binding GOPasO}">
-                        <Image
-                        Width="50"
-                        Height="50"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Source="Assets\menu-notifikation.png" />
-                    </Button>
-                    <Button
-                    Width="80"
-                    Height="80"
-                    Margin="320,0,0,0"
-                    Background="Transparent"
-                    Command="{Binding Setting}">
-                        <Image
-                        Width="50"
-                        Height="50"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Source="Assets\menu-settings.png" />
-                    </Button>
-                </Canvas>
-            </StackPanel>
-            <Rectangle
-            Grid.Row="2"
+        <Rectangle
             Grid.ColumnSpan="3"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Fill="White" />
-            <Button
-            Width="80"
-            Height="80"
-            Background="White">
-                <Image Source="Assets\Menu.svg" />
-            </Button>
-            <Button Background="White" Height="80" Width="80" Grid.Column="2" Command="{Binding OpretForum}">
-                <Image Source="Assets\new-icon.svg"/>
-            </Button>
-            <StackPanel Grid.Column="1" Grid.Row="1" Margin="15">
-                <TextBlock Text="Alle Tråde" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
-                <ListView ItemsSource="{Binding Forum, Mode=TwoWay}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Header, Mode=TwoWay}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Besked, Mode=TwoWay}" Grid.Row="1"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
-            <TextBlock Text="Forum" FontSize="42" Grid.Column="1" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
-            <Button
+        <Button
             Grid.Column="2"
             Width="80"
             Height="80"
             Background="White"
-            Command="{Binding GoFOO}">
-                <Image Source="Assets\new-icon.svg" />
-            </Button>
-
-            <TextBlock
+            Command="{Binding OpretForum}">
+            <Image Source="Assets\new-icon.svg" />
+        </Button>
+        <TextBlock
             Grid.Column="1"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
@@ -161,12 +47,40 @@
             Foreground="#F2DF80"
             Text="Forum"
             TextAlignment="Center" />
-
-            <GridView
+        <StackPanel
             Grid.Row="1"
             Grid.Column="1"
-            ItemsSource="{Binding Forum}"
-            SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
+            Width="400"
+            Margin="0,15">
+
+
+            <Button
+                Width="370"
+                Height="50"
+                Margin="15"
+                VerticalAlignment="Bottom"
+                Canvas.ZIndex="6"
+                Command="{Binding LoadForum}"
+                Content="Load" />
+
+            <StackPanel Margin="15">
+                <TextBlock
+                    Margin="50,0,0,0"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="Alle Tråde" />
+                <ListView ItemsSource="{Binding Forum, Mode=TwoWay}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontWeight="Bold" Text="{Binding Header, Mode=TwoWay}" />
+                                <TextBlock Text="{Binding Besked, Mode=TwoWay}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Background="White">
@@ -182,6 +96,79 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
-            
+        </StackPanel>
+        <StackPanel
+            Grid.Row="8"
+            Grid.ColumnSpan="4"
+            Background="White"
+            Canvas.ZIndex="1">
+            <Canvas Width="435" VerticalAlignment="Center">
+                <Button
+                    Width="80"
+                    Height="80"
+                    Background="Transparent"
+                    Command="{Binding GoToOverview}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets/menu-home.png" />
+                </Button>
+
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="80,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoFo}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-comment-active.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="160,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoTilmeldteRuter}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-statuser-telmeldt.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="240,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GOPasO}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-notifikation.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="320,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding Setting}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-settings.png" />
+                </Button>
+            </Canvas>
+        </StackPanel>
     </Grid>
 </Page>
