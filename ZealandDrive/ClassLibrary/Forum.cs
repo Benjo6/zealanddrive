@@ -9,9 +9,10 @@ namespace ClassLibrary
         private int _id;
         private string _header;
         private string _content;
+        private int _userId;
         // maybe private int userid;
 
-        public Forum() : this("","",0)
+        public Forum() 
         {
         }
 
@@ -22,13 +23,14 @@ namespace ClassLibrary
             _id = id;
         }
 
-        public string Header { get => _header; set => _header = value; }
-        public string Besked { get => _content; set => _content = value; }
-        public int ID { get => _id; set => _id = value; }
+        public string header { get => _header; set => _header = value; }
+        public string content { get => _content; set => _content = value; }
+        public int id { get => _id; set => _id = value; }
+        public int userId { get => _userId; set => _userId = value; }
 
         public override string ToString()
         {
-            return $"header = {_header}, content = {_content}, id = {_id}";
+            return $"header = {_header}, content = {_content}, id = {_id}, user id = {_userId}";
         }
     }
 }

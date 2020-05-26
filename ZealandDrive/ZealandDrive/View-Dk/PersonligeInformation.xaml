@@ -2,72 +2,226 @@
     x:Class="ZealandDrive.View.PersonligeInformation"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ZealandDrive.VM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ZealandDrive.VM"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="#F6F6F6">
+    Background="#F6F6F6"
+    mc:Ignorable="d">
     <Page.DataContext>
-        <local:UserVM/>
+        <local:UserVM />
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="80" />
+            <RowDefinition />
+            <RowDefinition Height="80" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Personlige Information" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1"/>
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3"  />
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
+        <TextBlock
+            Grid.Column="1"
+            Margin="20,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Canvas.ZIndex="1"
+            FontSize="20"
+            FontWeight="Bold"
+            Foreground="#F2DF80"
+            Text="Personlige Information" />
+        <Rectangle
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Fill="White" />
+        <Rectangle
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Fill="White" />
 
-        <StackPanel Grid.Column="1" Grid.Row="1" Margin="15" Width="500" HorizontalAlignment="Left" Canvas.ZIndex="10">
-            <Button Content="Load" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Command="{Binding LoadCurrentUser}"/>
-            <TextBlock Text="Alle Brugere" Margin="50,0,0,0" FontWeight="Bold" FontSize="14" ></TextBlock>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="500"
+            Margin="15"
+            HorizontalAlignment="Left"
+            Canvas.ZIndex="10">
+            <Button
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Command="{Binding LoadCurrentUser}"
+                Content="Load" />
+            <TextBlock
+                Margin="50,0,0,0"
+                FontSize="14"
+                FontWeight="Bold"
+                Text="Alle Brugere" />
             <ListView ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding id}" Width="20"></TextBlock>
-                            <TextBlock Text="{Binding name}"  Width="100" Margin="20,0,0,0"></TextBlock>
-                            <TextBlock Text="{Binding lastname}"  Width="100" Margin="20,0,0,0"></TextBlock>
-                            <TextBlock Text="{Binding email}" Width="100" Margin="20,0,0,0"></TextBlock>
+                            <TextBlock Width="20" Text="{Binding id}" />
+                            <TextBlock
+                                Width="100"
+                                Margin="20,0,0,0"
+                                Text="{Binding name}" />
+                            <TextBlock
+                                Width="100"
+                                Margin="20,0,0,0"
+                                Text="{Binding lastname}" />
+                            <TextBlock
+                                Width="100"
+                                Margin="20,0,0,0"
+                                Text="{Binding email}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-        <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="400">
-            <TextBox IsReadOnly="True" Background="LightGray" Width="200" Header="Id" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.id, Mode=TwoWay}"/>
-            <TextBox Background="White" Width="200" Header="Navn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.name, Mode=TwoWay}"/>
-            <TextBox Background="White" Width="200" Header="Efternavn" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.lastname, Mode=TwoWay}"/>
-            <TextBox Background="White" Width="200" Header="Email" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Text="{Binding SelectedUser.email, Mode=TwoWay}"/>
-            <Button Height="30" Command="{Binding UpdateOne, Mode=TwoWay}" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="200" CornerRadius="7" Content="Gem" Foreground="White" VerticalAlignment="Center"  Grid.Column="1" Grid.ColumnSpan="2" Canvas.ZIndex="6" Margin="0,20,0,0" Padding="0,0,0,0" FontSize="14"/>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="400"
+            Margin="0,15,0,0"
+            VerticalAlignment="Top"
+            Background="White"
+            BorderBrush="LightGray"
+            BorderThickness="1">
+            <TextBox
+                Width="200"
+                Margin="0,15,0,0"
+                Background="LightGray"
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Header="Id"
+                IsReadOnly="True"
+                Text="{Binding SelectedUser.id, Mode=TwoWay}" />
+            <TextBox
+                Width="200"
+                Margin="0,15,0,0"
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Header="Navn"
+                Text="{Binding SelectedUser.name, Mode=TwoWay}" />
+            <TextBox
+                Width="200"
+                Margin="0,15,0,0"
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Header="Efternavn"
+                Text="{Binding SelectedUser.lastname, Mode=TwoWay}" />
+            <TextBox
+                Width="200"
+                Margin="0,15,0,0"
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Header="Email"
+                Text="{Binding SelectedUser.email, Mode=TwoWay}" />
+            <Button
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Width="200"
+                Height="30"
+                Margin="0,20,0,0"
+                Padding="0,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#F2DF80"
+                Canvas.ZIndex="6"
+                Command="{Binding UpdateOne, Mode=TwoWay}"
+                Content="Gem"
+                CornerRadius="7"
+                FontSize="14"
+                FontWeight="Bold"
+                Foreground="White" />
         </StackPanel>
 
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Content="GoBack" Command="{Binding GoBack}">
-        </Button>
+        <Button
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Transparent"
+            Command="{Binding GoBack}"
+            Content="GoBack" />
 
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="2">
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverview}">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum" Command="{Binding GoFo}" >
-
-            </Button>
-
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
-
-            </Button>
+        <StackPanel
+            Grid.Row="8"
+            Grid.ColumnSpan="4"
+            Canvas.ZIndex="1">
+            <Canvas Width="435" VerticalAlignment="Center">
+                <Button
+                    Width="80"
+                    Height="80"
+                    Background="Transparent"
+                    Command="{Binding GoToOverview}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets/menu-home.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="80,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoFo}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-comment.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="160,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoTilmeldteRuter}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-statuser-telmeldt.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="240,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GOPasO}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-notifikation.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="320,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding Setting}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-settings-active.png" />
+                </Button>
+            </Canvas>
         </StackPanel>
     </Grid>
 </Page>

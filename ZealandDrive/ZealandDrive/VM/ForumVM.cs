@@ -28,8 +28,9 @@ namespace ZealandDrive.VM
         private readonly RelayCommand _updateOneForum;
         private readonly RelayCommand _deleteOneForum;
         private readonly RelayCommand _clearCreateOneForum;
-        private readonly ObservableCollection<Forum> _forum;
+        private ObservableCollection<Forum> _forum;
         private readonly PageCommand p;
+        private UserVM _uvm;
         #endregion
         #region Constructor
         public ForumVM()
@@ -44,11 +45,13 @@ namespace ZealandDrive.VM
             _clearCreateOneForum = new RelayCommand(ClearCreateForum);
             _persistenceForum = new DBPersistenceForum();
             p = new PageCommand();
+            _uvm = new UserVM();
 
 
         }
         #endregion
         #region Properties
+        public Users UserCurrent => _uvm.UserCurrent;
         public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand ForumPage => p.FOPage;
@@ -90,21 +93,20 @@ namespace ZealandDrive.VM
         #region Method
         private async void OpretForum1()
         {
-
+            _forumToBeCreated.userId = UserCurrent.id;
             //todo give error message
             await _persistenceForum.Opret(_forumToBeCreated);
 
-            //_users.Add(_userToBeCreated);
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(View.ForumOverview));
         }
         private async void LoadForum1()
         {
             _forum.Clear();
-            var liste = await _persistenceForum.Load();
-            foreach (Forum r in liste)
+            var listef = await _persistenceForum.Load();
+            foreach (Forum f in listef)
             {
-                _forum.Add(r);
+                _forum.Add(f);
             }
         }
         private void UpdateForum()
