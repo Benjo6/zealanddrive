@@ -51,6 +51,9 @@ namespace ZealandDrive.VM
         }
         #endregion
         #region Properties
+        public RelayCommand GoTilmeldteRuter => p.GoTilmeldteRuter;
+        public RelayCommand GOPasO => p.GOPasO;
+        public RelayCommand GoFOO => p.FOOPage;
         public Users UserCurrent => _uvm.UserCurrent;
         public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
         public RelayCommand GoToOverview => p.GoOverviewPage;
