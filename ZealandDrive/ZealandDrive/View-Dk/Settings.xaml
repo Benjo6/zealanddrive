@@ -237,7 +237,7 @@
                     Width="80"
                     Height="80"
                     Background="Transparent"
-                    Command="{Binding GoToOverview}">
+                    Command="{Binding GoOverview}">
                     <Image
                         Width="50"
                         Height="50"
