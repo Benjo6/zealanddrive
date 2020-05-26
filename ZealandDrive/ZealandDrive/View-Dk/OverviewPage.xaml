@@ -34,7 +34,7 @@
                 <!--Tekst i midten over hvilken side man er på-->
                 <TextBlock Margin="125 10 0 0" Text="Ruter" FontSize="42" Width="150" Height="80" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#F2DF80" FontWeight="Bold" />
                 <!--Opret rute-->
-                <Button HorizontalAlignment="Right"  Height="80" Width="80" Margin="320 0 0 0" Command="{Binding GoToOpretRute}">
+                <Button HorizontalAlignment="Right" Background="Transparent" Height="80" Width="80" Margin="320 0 0 0" Command="{Binding GoToOpretRute}">
                     <Image Source="Assets\header-menu-opret.png"/>
                 </Button>
             </Canvas>
@@ -122,18 +122,21 @@
         <!--Footer Menu-->
         <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" Grid.ColumnSpan="3" />
         <StackPanel Grid.Row="8" Grid.ColumnSpan="4" Canvas.ZIndex="1">
-            <Canvas Width="400" VerticalAlignment="Center">
-                <Button Background="White" Width="100" Height="80" Command="{Binding GoToOverview}">
-                    <Image Source="Assets/menu-home.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+            <Canvas Width="435" VerticalAlignment="Center">
+                <Button Width="80" Background="Transparent" Height="80" Command="{Binding GoToOverview}">
+                    <Image Source="Assets/menu-home.png"  VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 </Button>
-                <Button Margin="100 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding }">
-                    <Image Source="Assets\menu-anmodninger.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                <Button Margin="80 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding GoFo}">
+                    <Image Source="Assets\menu-comment.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 </Button>
-                <Button Margin="200 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding GoFo}">
-                    <Image Source="Assets\menu-comment.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                <Button Margin="160 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding Setting}">
+                    <Image Source="Assets\menu-statuser-telmeldt.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 </Button>
-                <Button Margin="300 0 0 0" Width="100" Background="Transparent" Height="80" Command="{Binding Setting}">
-                    <Image Source="Assets\menu-settings.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="100"/>
+                <Button Margin="240 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding Setting}">
+                    <Image Source="Assets\menu-notifikation.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
+                </Button>
+                <Button Margin="320 0 0 0" Width="80" Background="Transparent" Height="80" Command="{Binding Setting}">
+                    <Image Source="Assets\menu-settings.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 </Button>
             </Canvas>
         </StackPanel>
