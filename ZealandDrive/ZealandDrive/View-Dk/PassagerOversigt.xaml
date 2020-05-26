@@ -33,8 +33,7 @@
             Grid.Row="1"
             Width="400"
             Margin="0,15"
-            Padding="15"
-            Background="White">
+            Padding="15">
             <Button
                 Grid.Column="1"
                 Width="370"
@@ -42,10 +41,15 @@
                 VerticalContentAlignment="Center"
                 Command="{Binding LoadCurrentPas}"
                 Content="Load" />
-            <StackPanel
-                Grid.Row="1"
-                Grid.RowSpan="3"
-                Grid.Column="1">
+            <StackPanel>
+                <Button
+                    Margin="0"
+                    Command="{Binding UpdateOnePassengerAccept}"
+                    Content="Accepter" />
+                <Button
+                    Margin="0,15,0,0"
+                    Command="{Binding UpdateOnePassengerDecline}"
+                    Content="Afvis" />
                 <TextBlock
                     Margin="0,15"
                     FontSize="14"
@@ -58,15 +62,15 @@
                                 <TextBlock Width="20" Text="{Binding id}" />
                                 <TextBlock
                                     Width="20"
-                                    Margin="0,50,0,0"
+                                    Margin="0,20,0,0"
                                     Text="{Binding routeId}" />
                                 <TextBlock
                                     Width="20"
-                                    Margin="0,100,0,0"
+                                    Margin="0,40,0,0"
                                     Text="{Binding userId}" />
                                 <TextBlock
                                     Width="200"
-                                    Margin="0,150,0,0"
+                                    Margin="0,60,0,0"
                                     Text="{Binding status}" />
                             </StackPanel>
                         </DataTemplate>
@@ -74,14 +78,6 @@
                 </ListView>
             </StackPanel>
 
-            <Button
-                Margin="0"
-                Command="{Binding UpdateOnePassengerAccept}"
-                Content="Accepter" />
-            <Button
-                Margin="0,15,0,0"
-                Command="{Binding UpdateOnePassengerDecline}"
-                Content="Afvis" />
         </StackPanel>
         <StackPanel
             Grid.Row="8"
