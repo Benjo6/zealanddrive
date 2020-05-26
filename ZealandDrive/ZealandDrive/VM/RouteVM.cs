@@ -156,6 +156,7 @@ namespace ZealandDrive.VM
         }
 
         // page
+        public RelayCommand GoTilmeldteRuter => p.GoTilmeldteRuter;
         public Singleton Instance => x;
         public RelayCommand GoToOverview => p.GoOverviewPage;
         public RelayCommand GoFo => p.FOPage;
@@ -331,8 +332,8 @@ namespace ZealandDrive.VM
 
             //todo give error message
             await _persistencePassenger.Opret(_passengerToBeCreated);
-            //Frame f = (Frame)Window.Current.Content;
-            //f.Navigate(typeof(OverviewPage));
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(OverviewPage));
         }
         private async void LoadPassengers()
         {

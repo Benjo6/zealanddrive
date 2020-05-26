@@ -73,21 +73,21 @@
             <Rectangle Fill="Black" Grid.Row="0" Grid.Column="1" Width="180" Height="90" VerticalAlignment="Center"  HorizontalAlignment="Right" Opacity="0.4"  Margin="0,0,20,0"/>
             <StackPanel Grid.Row="0" Grid.Column="1">
                 <TextBlock Text="Fra" Foreground="White" TextAlignment="Right" Margin="0,30,25,0" FontSize="17"/>
-                <TextBlock Text= "{Binding SelectedRute.routeStart}"  TextAlignment="Right" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Margin="0,20,20,0" Foreground="#F2DF80" />
+                <TextBlock Text= "{Binding SelectedRute.routeStart}"  TextAlignment="Right" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Margin="0,20,0,0" VerticalAlignment="Stretch"  Foreground="#F2DF80" Width="178"/>
             </StackPanel>
             <Rectangle Fill="Black" Grid.Row="1" Grid.Column="1" Width="180" Height="90" VerticalAlignment="Center"  HorizontalAlignment="Right" Opacity="0.4"  Margin="0,0,20,0"/>
             <StackPanel Grid.Row="1" Grid.Column="1">
                 <TextBlock Text="Til" Foreground="White" Margin="0,30,25,0" TextAlignment="Right" FontSize="17"/>
-                <TextBlock Text="{Binding SelectedRute.routeEnd}" TextAlignment="Right" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Foreground="#F2DF80" Margin="0,20,20,0" />
+                <TextBlock Text="{Binding SelectedRute.routeEnd}" TextAlignment="Right" FontSize="18" FontWeight="Bold" TextDecorations="Underline" Foreground="#F2DF80" Margin="0,20,0,0" Width="178"/>
 
             </StackPanel>
         </Grid>
         <TextBlock Text="Valgt Rute" FontSize="42" Grid.Row="4" Grid.Column="2" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#F2DF80" FontWeight="Bold" />
-
+        
         <Button Content="Load" Command="{Binding LoadIdCar}" Background="Gray" Grid.Column="1" Grid.Row="3"/>
         <TextBlock Text="Bil Information" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="18" Grid.RowSpan="2"/>
-
-        <GridView ItemsSource="{Binding Cars}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch">
+        
+        <GridView ItemsSource="{Binding Cars}" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch">
             <StackPanel Orientation="Vertical">
                 <TextBlock FontSize="12" Text="{Binding SelectedCar.nummerplade}" Canvas.ZIndex="2"/>
                 <TextBlock Text="{Binding SelectedCar.year}" FontSize="12" Canvas.ZIndex="2"/>
@@ -98,27 +98,16 @@
             </StackPanel>
         </GridView>
 
+        <StackPanel Grid.Row="5" Grid.Column="2" >
+            <StackPanel Margin="50,0,50,0" Orientation="Horizontal" HorizontalAlignment="Right">
+                
+                <TextBlock Text="{Binding SelectedRute.hour}"/>
+                <TextBlock Text="{Binding SelectedRute.minute}"/>
+            </StackPanel>
 
-        <StackPanel Grid.Row="5" Grid.Column="2" Margin="0,0,50,0"  HorizontalAlignment="Right" VerticalAlignment="Top" Height="60">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/> 
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Jeg kører hjemme fra:"/>
-                <TextBlock Text="{Binding SelectedRute.hour}" Grid.Row="1" Grid.Column="0" />
-                <TextBlock Text="{Binding SelectedRute.minute}" Grid.Row="1" Grid.Column="1"/>
-            </Grid>
         </StackPanel>
-        <TextBlock Text="{Binding SelectedRute.besked}" Grid.Row="5" Grid.Column="2"/>
 
-
-
-        <TextBox Header="Besked" IsReadOnly="True" BorderBrush="LightGray" BorderThickness="1" Grid.Row="6" Grid.Column="2" VerticalAlignment="Top" Text="Skriv en kommentar" Margin="0,0,0,0" Height="110" />
+            <TextBox Header="Besked" IsReadOnly="True" BorderBrush="LightGray" BorderThickness="1" Grid.Row="6" Grid.Column="2" VerticalAlignment="Top" Text="{Binding SelectedRute.besked}" Margin="0,0,0,0" Height="110" />
         <Button CornerRadius="4" BorderBrush="LightGray" BorderThickness="1" Name="TilmeldKnap" Foreground="White" Content="Tilmeld" Grid.Column="2" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50" Grid.Row="6" VerticalAlignment="Bottom" FontSize="22" FontWeight="Bold" Margin="0,0,0,10" Command="{Binding CreateOnePassenger}"/>
     </Grid>
 
