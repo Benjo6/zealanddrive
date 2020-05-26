@@ -305,14 +305,6 @@ namespace ZealandDrive.VM
                     PassNow = "";
                     Frame f = (Frame)Window.Current.Content;
                     f.Navigate(typeof(OverviewPage));
-                    //UserCurrent = obj;
-                    //UserNow = "";
-                    //PassNow = "";
-
-                    //Frame login = (Frame)Window.Current.Content;
-                    //login.Navigate(typeof(lplplp.View.Kort));
-                    // LoginSuccess = "lplplp.Kort";
-                    //LoginPopUp();
                 }
                 else
                 {
