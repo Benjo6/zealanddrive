@@ -109,11 +109,6 @@
                 </Button>
             </Canvas>
         </StackPanel>
-
-
-
-
-
         <Rectangle
             Grid.Row="1"
             Grid.RowSpan="7"
@@ -214,13 +209,6 @@
                 </ListView>
             </StackPanel>
         </ScrollViewer>
-
-
-
-<<<<<<< HEAD
-        <TextBox Header="Besked?"  Text="{Binding RouteToBeCreated.besked , Mode=TwoWay}" TextWrapping="Wrap" Background="White" Grid.Row="6" CornerRadius="3" Grid.Column="1" Grid.ColumnSpan="2" Width="300" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,0" Height="100"/>
-=======
->>>>>>> 1f1a961a910fabfe8c1042ce128ae95613186d14
 
         <DatePicker
             Grid.Row="5"
