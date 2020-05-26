@@ -2,55 +2,165 @@
     x:Class="ZealandDrive.View.Sprog"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ZealandDrive.VM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ZealandDrive.VM"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="#F6F6F6">
+    Background="#F6F6F6"
+    mc:Ignorable="d">
     <Page.DataContext>
-        <local:SprogVM/>
+        <local:SprogVM />
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="80" />
+            <RowDefinition />
+            <RowDefinition Height="80" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Sprog" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1"/>
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3"  />
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
+        <TextBlock
+            Grid.Column="1"
+            Margin="20,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Canvas.ZIndex="1"
+            FontSize="20"
+            FontWeight="Bold"
+            Foreground="#F2DF80"
+            Text="Sprog" />
+        <Rectangle
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Fill="White" />
+        <Rectangle
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Fill="White" />
 
-        <StackPanel BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="0,15,0,0" Background="White" VerticalAlignment="Top" Height="300">
-            <TextBlock Text="Vælg Sprog" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="35,0,0,0" />
-            <Button Background="White" Width="200" Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="2" Content="ENGLISH" HorizontalAlignment="Center" Height="80" Command="{Binding Engelsk}"/>
-            <Button Background="White" Width="200" Margin="0,10,0,0" BorderBrush="Gray" BorderThickness="2" Content="DANSK" HorizontalAlignment="Center" Height="80" Command='{Binding Dansk}'/>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="1"
+            Height="300"
+            Margin="0,15,0,0"
+            VerticalAlignment="Top"
+            Background="White"
+            BorderBrush="LightGray"
+            BorderThickness="1">
+            <TextBlock
+                Margin="35,0,0,0"
+                HorizontalAlignment="Left"
+                FontWeight="Bold"
+                Foreground="Black"
+                Text="Vælg Sprog" />
+            <Button
+                Width="200"
+                Height="80"
+                Margin="0,15,0,0"
+                HorizontalAlignment="Center"
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Command="{Binding Engelsk}"
+                Content="ENGLISH" />
+            <Button
+                Width="200"
+                Height="80"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Center"
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Command="{Binding Dansk}"
+                Content="DANSK" />
         </StackPanel>
 
-        <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Content="GoBack" Command="{Binding GoBack}">
-        </Button>
+        <Button
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="Transparent"
+            Command="{Binding GoBack}"
+            Content="GoBack" />
 
 
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="2">
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoToOverview}">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum" Command="{Binding GoFo}" >
-
-            </Button>
-
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding Setting}">
-
-            </Button>
+        <StackPanel
+            Grid.Row="8"
+            Grid.ColumnSpan="4"
+            Background="White"
+            Canvas.ZIndex="1">
+            <Canvas Width="435" VerticalAlignment="Center">
+                <Button
+                    Width="80"
+                    Height="80"
+                    Background="Transparent"
+                    Command="{Binding GoToOverview}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets/menu-home.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="80,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoFo}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-comment.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="160,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoTilmeldteRuter}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-statuser-telmeldt.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="240,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GOPasO}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-notifikation.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="320,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding Setting}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-settings-active.png" />
+                </Button>
+            </Canvas>
         </StackPanel>
     </Grid>
 </Page>
