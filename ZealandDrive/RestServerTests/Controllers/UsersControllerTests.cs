@@ -12,7 +12,8 @@ namespace RestServer.Controllers.Tests
     [TestClass()]
     public class UsersControllerTests
     {
-       private UsersController uc  = new UsersController(); 
+       private UsersController uc  = new UsersController();
+
         [TestMethod()]
         public void GetUsersTest()
         {
@@ -30,11 +31,11 @@ namespace RestServer.Controllers.Tests
         //    Assert.Fail();
         //}
 
-        //[TestMethod()]
-        //public void PutUserTest()
-        //{
-        //    Assert.Fail();
-        //}
+        [TestMethod()]
+        public void PutUserTest()
+        {
+           
+        }
 
         //[TestMethod()]
         //public void PostUserTest()

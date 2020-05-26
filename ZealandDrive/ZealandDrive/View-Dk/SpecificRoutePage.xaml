@@ -119,6 +119,16 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Fill="White" />
+        <TextBlock
+            Grid.Row="0"
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="42"
+            FontWeight="Bold"
+            Foreground="#F2DF80"
+            Text="Valgt Rute"
+            TextAlignment="Center" />
         <Button
             Grid.Row="0"
             Grid.Column="4"
@@ -214,7 +224,7 @@
             FontSize="42"
             FontWeight="Bold"
             Foreground="#F2DF80"
-            Text="Valgt Rute"
+            Text="Navn på valgte rute"
             TextAlignment="Center" />
 
         <Button

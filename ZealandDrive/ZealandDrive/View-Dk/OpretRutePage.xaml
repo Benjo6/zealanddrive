@@ -191,18 +191,6 @@
                                     Width="100"
                                     Margin="20,0,0,0"
                                     Text="{Binding nummerplade}" />
-                                <TextBlock
-                                    Width="40"
-                                    Margin="20,0,0,0"
-                                    Text="{Binding color}" />
-                                <TextBlock
-                                    Width="40"
-                                    Margin="20,0,0,0"
-                                    Text="{Binding seats}" />
-                                <TextBlock
-                                    Width="40"
-                                    Margin="20,0,0,0"
-                                    Text="{Binding brand}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
