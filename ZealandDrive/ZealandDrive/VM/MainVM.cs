@@ -39,6 +39,7 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Properties
+
         public RelayCommand GoGemBiler => p.GemBiler;
         public RelayCommand GOPasO => p.GOPasO;
         public RelayCommand GoAOS => p.AOS;

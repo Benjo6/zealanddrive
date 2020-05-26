@@ -9,7 +9,7 @@
     Background="#F6F6F6"
     mc:Ignorable="d">
     <Page.DataContext>
-        <local1:MainVM />
+        <local1:ForumVM/>
     </Page.DataContext>
 
 
@@ -140,6 +140,9 @@
             <Image VerticalAlignment="Bottom" Source="Assets\close.svg" />
         </Button>
 
+
+        <TextBlock Text="Opret Debatindlæg" FontWeight="Bold" Foreground="#F2DF80" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0" Canvas.ZIndex="1" Grid.ColumnSpan="2"/>
+        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="5" />
         <TextBox
             Grid.Row="1"
             Grid.Column="1"
@@ -152,7 +155,7 @@
             Background="White"
             CornerRadius="3"
             Header="Overskift?"
-            Text="{Binding ForumToBeCreated.Header, Mode=TwoWay}"
+            Text="{Binding ForumToBeCreated.header, Mode=TwoWay}"
             TextWrapping="Wrap" />
         <TextBox
             Grid.Row="2"
@@ -165,7 +168,7 @@
             Background="#F6F6F6"
             CornerRadius="3"
             Header="Besked til alle?"
-            Text="{Binding ForumToBeCreated.besked, Mode=TwoWay}" />
+            Text="{Binding ForumToBeCreated.content, Mode=TwoWay}" />
         <Button
             Grid.Row="3"
             Grid.Column="1"

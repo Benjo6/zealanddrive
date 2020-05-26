@@ -159,7 +159,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoTilmeldteRuter => p.GoTilmeldteRuter;
         public Singleton Instance => x;
         public RelayCommand GoToOverview => p.GoOverviewPage;
-        public RelayCommand GoFo => p.FOPage;
+        public RelayCommand GoFOO => p.FOOPage;
         public RelayCommand Setting => p.SettingPage;
         public RelayCommand GoGemBiler => p.GemBiler;
 

@@ -138,7 +138,7 @@
                         Height="50"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="Assets\menu-notifikation.png" />
+                        Source="Assets\menu-notifikation-active.png" />
                 </Button>
                 <Button
                     Width="80"
@@ -151,7 +151,7 @@
                         Height="50"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="Assets\menu-settings-active.png" />
+                        Source="Assets\menu-settings.png" />
                 </Button>
             </Canvas>
         </StackPanel>
