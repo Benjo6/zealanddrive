@@ -87,7 +87,7 @@
         <Button Content="Load" Command="{Binding LoadIdCar}" Background="Gray" Grid.Column="1" Grid.Row="3"/>
         <TextBlock Text="Bil Information" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="18" Grid.RowSpan="2"/>
         
-        <GridView ItemsSource="{Binding Cars}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch">
+        <GridView ItemsSource="{Binding Cars}" Grid.Row="4" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" VerticalAlignment="Stretch">
             <StackPanel Orientation="Vertical">
                 <TextBlock FontSize="12" Text="{Binding SelectedCar.nummerplade}" Canvas.ZIndex="2"/>
                 <TextBlock Text="{Binding SelectedCar.year}" FontSize="12" Canvas.ZIndex="2"/>
