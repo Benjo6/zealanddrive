@@ -10,7 +10,7 @@
     Background="#F6F6F6">
 
     <Page.DataContext>
-        <VM:MainVM/>
+        <VM:RouteVM/>
     </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -110,12 +110,8 @@
                 </Canvas>
             </Grid>
             <TextBlock  Text="Overskrift 2" TextAlignment="left" FontFamily="Helvetica"  FontSize="32" Width="303" Height="38" TextWrapping="Wrap" Foreground="#fff2df80" Margin="36,313,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
-            <TextBlock  Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu tempor nulla. Curabitur vel condimentum lacus, vel vestibulum metus. 
-Aliquam ut purus sapien. Phasellus cursus augue quis sem porta, eget rutrum sapien tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae diam lacinia, maximus lorem laoreet, tincidunt ex. 
-Phasellus viverra sem sed metus porta, et consequat sem lobortis. feugiat, vitae posuere quam tristique. Phasellus finibus enim suscipit dapibus ornare. Cras eu tellus eu turpis ultrices convallis.
- Quisque vestibulum semper urna, ac volutpat massa porta a. Integer eget varius eros. Nam rhoncus nibh enim. Aliquam quis tortor ac sem scelerisque luctus id iaculis augue. Sed dolor ligula, faucibus id mauris eu, placerat lobortis ipsum. 
-Pellentesque interdum ante lectus, non lobortis risus ultricies in. Suspendisse sem lectus, sollicitudin ut malesuada eu, tristique in neque. Aliquam eu risus tortor. Ut tempus elementum interdum." TextAlignment="left" FontFamily="Helvetica"  FontSize="13" Width="302" Height="478" TextWrapping="Wrap" Foreground="#ff616161" Margin="36.5,365,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
+            <TextBlock  Text="{Binding SelectedRute.besked}" TextAlignment="left" FontFamily="Helvetica"  FontSize="13" Width="302" Height="478" TextWrapping="Wrap" Foreground="#ff616161" Margin="36.5,365,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"  />
         </Grid>
-        <Button Name="TilmeldKnap" Content="Sign Up" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
+        <Button Name="TilmeldKnap" Content="Sign Up" Command="{Binding CreateOnePassenger}" Grid.Column="1" HorizontalAlignment="Center" Background="#F2DF80" Width="250" Height="50"/>
     </Grid>
 </Page>
