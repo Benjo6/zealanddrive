@@ -17,6 +17,7 @@ using ZealandDrive.Persistens.Rute;
 using ZealandDrive.View;
 using ZealandDrive.Persistens.Bil;
 using ZealandDrive.Lists;
+using ZealandDrive.View_Dk;
 
 namespace ZealandDrive.VM
 {
@@ -329,11 +330,13 @@ namespace ZealandDrive.VM
 
         private async void OpretPassenger()
         {
-
+            _passengerToBeCreated.userId = UserCurrent.id;
+            _passengerToBeCreated.routeId = SelectedRute.id;
+            _passengerToBeCreated.status = "Afventer Accept";
             //todo give error message
             await _persistencePassenger.Opret(_passengerToBeCreated);
             Frame f = (Frame)Window.Current.Content;
-            f.Navigate(typeof(OverviewPage));
+            f.Navigate(typeof(TilmeldteRuter));
         }
         private async void LoadPassengers()
         {

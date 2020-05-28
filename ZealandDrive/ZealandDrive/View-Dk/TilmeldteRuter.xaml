@@ -31,7 +31,8 @@
             Grid.Row="1"
             Width="100"
             Command="{Binding LoadTilmeldteRuter}"
-            Content="Load Tilmeldte Ruter" />
+            Content="Load Tilmeldte Ruter"
+            />
         <StackPanel
             Grid.Row="1"
             Grid.RowSpan="3"
@@ -41,7 +42,7 @@
                 Margin="50,0,0,0"
                 FontSize="14"
                 FontWeight="Bold"
-                Text="Alle Brugere" />
+                Text="Alle Tilmeldte Ruter" />
             <ListView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -144,7 +145,7 @@
             Width="500"
             Command="{Binding UpdateOnePassengerCheckInd}"
             Content="Check ind" />
-        <StackPanel
+        <!--<StackPanel
             Grid.Row="8"
             Grid.ColumnSpan="4"
             Background="White"
@@ -215,6 +216,6 @@
                         Source="Assets\menu-settings.png" />
                 </Button>
             </Canvas>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>
