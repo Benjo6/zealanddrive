@@ -56,7 +56,8 @@
             Grid.Column="1"
             Width="400"
             Margin="0,15"
-            Background="White">
+            Background="White"
+            Grid.RowSpan="3">
             <Button
                 Width="370"
                 Height="50"
@@ -75,14 +76,14 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock FontWeight="Bold" Text="{Binding Header, Mode=TwoWay}" />
+                                <TextBlock FontWeight="Bold" Text="{Binding header, Mode=TwoWay}" />
                                 <TextBlock Text="{Binding Besked, Mode=TwoWay}" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackPanel>
-            <GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
+            <!--<GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Background="White">
@@ -97,7 +98,7 @@
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
-            </GridView>
+            </GridView>-->
         </StackPanel>
         <StackPanel
             Grid.Row="8"
