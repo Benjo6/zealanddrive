@@ -304,6 +304,7 @@
     <Content Include="View-Dk\Assets\zealand-DRIVE-NEW-logo%28hvid%29.png" />
     <Content Include="View-Dk\Assets\zealand-DRIVE-NEW-logo.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <Content Include="View-Dk\Assets\zealand-rute-single.png" />
     <Content Include="View-Dk\header-menu-menu.png" />
     <Content Include="View-En\Assets\close.svg" />
     <Content Include="View-En\Assets\Menu.svg" />

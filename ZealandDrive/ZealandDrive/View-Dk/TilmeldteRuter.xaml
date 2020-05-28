@@ -119,8 +119,11 @@
                                 Margin="0,15,0,0"
                                 VerticalAlignment="Bottom"
                                 Background="#f2df80"
+                                BorderBrush="#e2d073"
+                                BorderThickness="2"
                                 Command="{Binding UpdateOnePassengerCheckInd}"
                                 Content="Check ind"
+                                CornerRadius="2"
                                 FontSize="20"
                                 FontWeight="Bold"
                                 Foreground="#ffffff" />

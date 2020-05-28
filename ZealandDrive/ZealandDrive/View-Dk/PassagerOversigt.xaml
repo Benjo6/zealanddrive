@@ -120,12 +120,12 @@
                                 Width="365"
                                 Height="2"
                                 Background="#e2e2e2" />
-                            <Canvas Height="30" Margin="0,15,0,0">
+                            <Canvas Height="30" Margin="0,15,0,10">
                                 <Button
                                     Width="180"
                                     VerticalAlignment="Bottom"
                                     Background="#92DD77"
-                                    BorderBrush="#68a452"
+                                    BorderBrush="#84cc6a"
                                     BorderThickness="3"
                                     Command="{Binding UpdateOnePassengerAccept}"
                                     Content="Accepter"
@@ -139,7 +139,7 @@
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Bottom"
                                     Background="#D94141"
-                                    BorderBrush="#c33030"
+                                    BorderBrush="#b52a2a"
                                     BorderThickness="3"
                                     Command="{Binding UpdateOnePassengerDecline}"
                                     Content="Afvis"
@@ -176,7 +176,7 @@
                     Height="80"
                     Margin="80,0,0,0"
                     Background="Transparent"
-                    Command="{Binding GoFOO}">
+                    Command="{Binding GoFo}">
                     <Image
                         Width="50"
                         Height="50"

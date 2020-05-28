@@ -13,38 +13,227 @@
         <VM:RouteVM />
     </Page.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80" />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition Width="80" />
-        </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
-            <RowDefinition Height="20" />
-            <RowDefinition Height="280" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="200" />
+            <RowDefinition />
             <RowDefinition Height="80" />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition Height="70" />
         </Grid.RowDefinitions>
-
-
-
-        <Rectangle
+        <Image
             Grid.Row="0"
-            Grid.Column="0"
-            Grid.ColumnSpan="5"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            Fill="White" />
+            Grid.RowSpan="3"
+            VerticalAlignment="Top"
+            Source="Assets/zealand-rute-single.png" />
+        <StackPanel Grid.Row="0">
+            <StackPanel
+                Width="400"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Button
+                    Width="50"
+                    Height="50"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Left"
+                    Background="Transparent"
+                    BorderBrush="#f2df80"
+                    Command="{Binding GoBack}"
+                    CornerRadius="2"
+                    Foreground="#f2df80">
+                    <TextBlock
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="50"
+                        LineHeight="0"
+                        Text="x" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
         <StackPanel
-            Grid.Row="8"
+            Grid.Row="1"
+            Width="400"
+            Margin="0,30,0,0">
+            <GridView
+                Width="130"
+                HorizontalAlignment="Left"
+                Background="Transparent"
+                ItemsSource="{Binding Cars}">
+                <TextBlock
+                    Canvas.ZIndex="2"
+                    FontSize="12"
+                    Text="{Binding SelectedCar.nummerplade}" />
+                <TextBlock
+                    Canvas.ZIndex="2"
+                    FontSize="12"
+                    Text="{Binding SelectedCar.year}" />
+                <TextBlock FontSize="12" Text="{Binding SelectedCar.model}" />
+                <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}" />
+                <TextBlock FontSize="12" Text="{Binding SelectedCar.color}" />
+                <TextBlock FontSize="12" Text="{Binding SelectedCar.seats}" />
+            </GridView>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Width="400">
+            <Canvas
+                Width="400"
+                Margin="0,50,20,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Width="400"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="#F2DF80"
+                    Text="{Binding SelectedRute.routeEnd}"
+                    TextAlignment="Right" />
+            </Canvas>
+            <Canvas
+                Width="15"
+                Height="85 "
+                Margin="0,8,0,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom">
+                <!--  Stor ting ting  -->
+                <Border
+                    Width="15"
+                    Height="15"
+                    Margin="0,0,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="15" />
+                <!--  Mange små  -->
+                <Border
+                    Width="5"
+                    Height="5"
+                    Margin="5,25,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="5" />
+                <Border
+                    Width="5"
+                    Height="5"
+                    Margin="5,35,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="5" />
+                <Border
+                    Width="5"
+                    Height="5"
+                    Margin="5,45,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="5" />
+                <Border
+                    Width="5"
+                    Height="5"
+                    Margin="5,55,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="5" />
+                <Border
+                    Width="5"
+                    Height="5"
+                    Margin="5,65,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="5" />
+                <Border
+                    Width="5"
+                    Height="5"
+                    Margin="5,75,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="5" />
+                <!--  Stor ting ting  -->
+                <Border
+                    Width="15"
+                    Height="15"
+                    Margin="0,90,0,0"
+                    Background="#F2DF80"
+                    CornerRadius="15" />
+                <!--  Brugernavn og Dato  -->
+            </Canvas>
+            <Canvas
+                Width="400"
+                Height="30"
+                Margin="0,0,20,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+                <TextBlock
+                    Width="400"
+                    FontSize="18"
+                    Foreground="#F2DF80"
+                    Text="{Binding SelectedRute.routeEnd}"
+                    TextAlignment="Right" />
+            </Canvas>
+        </StackPanel>
+        <ListBox
+            Grid.Row="2"
+            Margin="0,150,0,0"
+            HorizontalContentAlignment="Stretch"
+            Background="#F6F6F6" />
+        <StackPanel
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Width="400"
+            Margin="0,15,0,15"
+            Padding="15"
+            Background="White"
+            CornerRadius="5">
+            <TextBlock
+                Margin="0,7,0,0"
+                FontSize="32"
+                FontWeight="Bold"
+                Foreground="#f2df80"
+                Text="Navn på valgte rute" />
+            <StackPanel VerticalAlignment="Top">
+                <Grid>
+                    <TextBlock Text="Jeg kører hjemmefra:" />
+                    <TextBlock Text="{Binding SelectedRute.hour}" />
+                    <TextBlock Text="{Binding SelectedRute.minute}" />
+                </Grid>
+            </StackPanel>
+            <Canvas Height="160">
+                <TextBlock
+                    Height="30"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    Text="Send en besked" />
+                <TextBox
+                    Width="370"
+                    Height="110"
+                    Margin="0,40,0,0"
+                    VerticalAlignment="Top"
+                    BorderBrush="LightGray"
+                    BorderThickness="1"
+                    FontSize="16"
+                    Text="Skriv en kommentar" />
+            </Canvas>
+            <Button
+                Width="364"
+                Height="50"
+                VerticalAlignment="Bottom"
+                Background="#17a2b8"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding LoadIdCar}"
+                Content="Indlæs indlæg"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Width="364"
+                Height="50"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding CreateOnePassenger}"
+                Content="Tilmeld dig ruten"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="4"
             Grid.ColumnSpan="4"
-            Canvas.ZIndex="1">
+            Background="White"
+            BorderBrush="#F6F6F6"
+            BorderThickness="0,10,0,0">
             <Canvas Width="435" VerticalAlignment="Center">
                 <Button
                     Width="80"
@@ -63,7 +252,7 @@
                     Height="80"
                     Margin="80,0,0,0"
                     Background="Transparent"
-                    Command="{Binding GoFOO}">
+                    Command="{Binding GoFo}">
                     <Image
                         Width="50"
                         Height="50"
@@ -82,7 +271,7 @@
                         Height="50"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Source="Assets\menu-statuser-telmeldt.png" />
+                        Source="Assets\menu-statuser-telmeldt-active.png" />
                 </Button>
                 <Button
                     Width="80"
@@ -112,223 +301,10 @@
                 </Button>
             </Canvas>
         </StackPanel>
-        <Rectangle
-            Grid.Row="7"
-            Grid.Column="0"
-            Grid.ColumnSpan="5"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            Fill="White" />
-        <TextBlock
-            Grid.Row="0"
-            Grid.Column="2"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            FontSize="42"
-            FontWeight="Bold"
-            Foreground="#F2DF80"
-            Text="Valgt Rute"
-            TextAlignment="Center" />
-        <Button
-            Grid.Row="0"
-            Grid.Column="4"
-            Width="70"
-            Height="70"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Background="White"
-            Command="{Binding GoBack}">
-            <Image VerticalAlignment="Bottom" Source="Assets\close.svg" />
-        </Button>
 
 
 
-        <StackPanel
-            Grid.Row="2"
-            Grid.Column="2"
-            Height="300"
-            Margin="0,0,0,0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Top">
-            <StackPanel.Background>
-                <ImageBrush ImageSource="Assets/valgtRuteBillede.png" Opacity="0.8" />
-            </StackPanel.Background>
-        </StackPanel>
-        <Grid Grid.Row="2" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Rectangle
-                Grid.Row="0"
-                Grid.Column="1"
-                Width="180"
-                Height="90"
-                Margin="0,0,20,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Fill="Black"
-                Opacity="0.4" />
-            <StackPanel Grid.Row="0" Grid.Column="1">
-                <TextBlock
-                    Margin="0,30,25,0"
-                    FontSize="17"
-                    Foreground="White"
-                    Text="Fra"
-                    TextAlignment="Right" />
-                <TextBlock
-                    Margin="0,20,20,0"
-                    FontSize="18"
-                    FontWeight="Bold"
-                    Foreground="#F2DF80"
-                    Text="{Binding SelectedRute.routeStart}"
-                    TextAlignment="Right"
-                    TextDecorations="Underline" />
-            </StackPanel>
-            <Rectangle
-                Grid.Row="1"
-                Grid.Column="1"
-                Width="180"
-                Height="90"
-                Margin="0,0,20,0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Fill="Black"
-                Opacity="0.4" />
-            <StackPanel Grid.Row="1" Grid.Column="1">
-                <TextBlock
-                    Margin="0,30,25,0"
-                    FontSize="17"
-                    Foreground="White"
-                    Text="Til"
-                    TextAlignment="Right" />
-                <TextBlock
-                    Margin="0,20,20,0"
-                    FontSize="18"
-                    FontWeight="Bold"
-                    Foreground="#F2DF80"
-                    Text="{Binding SelectedRute.routeEnd}"
-                    TextAlignment="Right"
-                    TextDecorations="Underline" />
-            </StackPanel>
-        </Grid>
-        <TextBlock
-            Grid.Row="4"
-            Grid.Column="2"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            FontSize="42"
-            FontWeight="Bold"
-            Foreground="#F2DF80"
-            Text="Navn på valgte rute"
-            TextAlignment="Center" />
 
-        <Button
-            Grid.Row="3"
-            Grid.Column="1"
-            Background="Gray"
-            Command="{Binding LoadIdCar}"
-            Content="Load" />
-        <TextBlock
-            Grid.Row="3"
-            Grid.RowSpan="2"
-            Grid.Column="1"
-            HorizontalAlignment="Center"
-            FontSize="18"
-            FontWeight="SemiBold"
-            Text="Bil Information" />
 
-        <GridView
-            Grid.Row="4"
-            Grid.RowSpan="2"
-            Grid.Column="1"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            HorizontalContentAlignment="Left"
-            VerticalContentAlignment="Top"
-            ItemsSource="{Binding Cars}">
-            <StackPanel Orientation="Vertical">
-                <TextBlock
-                    Canvas.ZIndex="2"
-                    FontSize="12"
-                    Text="{Binding SelectedCar.nummerplade}" />
-                <TextBlock
-                    Canvas.ZIndex="2"
-                    FontSize="12"
-                    Text="{Binding SelectedCar.year}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.model}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.color}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.seats}" />
-            </StackPanel>
-        </GridView>
-        <StackPanel
-            Grid.Row="5"
-            Grid.Column="2"
-            Width="350"
-            Height="60"
-            Margin="10,0,10,0"
-            VerticalAlignment="Top">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25" />
-
-                </Grid.RowDefinitions>
-                <TextBlock Text="Jeg kører hjemmefra:" />
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Text="{Binding SelectedRute.hour}" />
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="2"
-                    Text="{Binding SelectedRute.minute}" />
-            </Grid>
-        </StackPanel>
-
-        <TextBlock
-            Grid.Row="5"
-            Grid.Column="2"
-            Margin="50,25,50,0"
-            Text="Binding til en beskrivende tekst om ruten" />
-        <TextBox
-            Grid.Row="6"
-            Grid.Column="2"
-            Height="110"
-            Margin="50,0,50,0"
-            VerticalAlignment="Top"
-            BorderBrush="LightGray"
-            BorderThickness="1"
-            Header="Besked"
-            IsReadOnly="True"
-            Text="Skriv en kommentar" />
-        <Button
-            Name="TilmeldKnap"
-            Grid.Row="6"
-            Grid.Column="2"
-            Width="250"
-            Height="50"
-            Margin="0,0,0,10"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Background="#F2DF80"
-            BorderBrush="LightGray"
-            BorderThickness="1"
-            Command="{Binding CreateOnePassenger}"
-            Content="Tilmeld"
-            CornerRadius="4"
-            FontSize="22"
-            FontWeight="Bold"
-            Foreground="White" />
     </Grid>
-
 </Page>
