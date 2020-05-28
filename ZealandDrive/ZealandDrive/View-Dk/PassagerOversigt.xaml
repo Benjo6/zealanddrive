@@ -5,79 +5,156 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:ZealandDrive.VM"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="#F6F6F6"
     mc:Ignorable="d">
 
     <Page.DataContext>
         <local:RouteVM />
     </Page.DataContext>
-    
-    <Grid Background="#F6F6F6">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
-            <RowDefinition Height="500" />
+            <RowDefinition />
             <RowDefinition Height="80" />
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel
-            Grid.Row="1"
-            Width="400"
-            Margin="0,15"
-            Padding="15">
-            <StackPanel >
-                <TextBlock
-                    Margin="0,15"
-                    FontSize="14"
-                    FontWeight="Bold"
-                    Text="Alle Brugere" />
-                <ListView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="20" Text="{Binding id}" />
-                                <TextBlock
-                                    Width="20"
-                                    Margin="0,20,0,0"
-                                    Text="{Binding routeId}" />
-                                <TextBlock
-                                    Width="20"
-                                    Margin="0,40,0,0"
-                                    Text="{Binding userId}" />
-                                <TextBlock
-                                    Width="200"
-                                    Margin="0,60,0,0"
-                                    Text="{Binding status}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
-        </StackPanel>
-        <Button Grid.Row="2"
-                    Margin="0"
-                    Command="{Binding UpdateOnePassengerAccept}"
-                    Content="Accepter" />
-        <Button Grid.Row="2"
-                    Margin="400,15,0,0"
-                    Command="{Binding UpdateOnePassengerDecline}"
-                    Content="Afvis" />
-        <Button Grid.Row="2"
-                Grid.Column="1"
-                Width="370"
-                Margin="600,0,0,0"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Command="{Binding LoadCurrentPas}"
-                Content="Load" />
         <StackPanel
             Grid.Row="0"
             Grid.ColumnSpan="4"
-            Background="White"/>
+            Background="White" />
         <StackPanel
-            Grid.Row="8"
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Height="80">
+            <StackPanel
+                Width="400"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <!--  Tekst i midten over hvilken side man er på  -->
+                <Canvas VerticalAlignment="Bottom">
+                    <TextBlock
+                        Margin="0,7,0,0"
+                        FontSize="42"
+                        FontWeight="Bold"
+                        Foreground="#f2df80"
+                        Text="Passager Oversigt" />
+                </Canvas>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4">
+            <Canvas
+                Width="400"
+                Margin="0,10"
+                VerticalAlignment="Center">
+                <Button
+                    Width="400"
+                    Height="50"
+                    VerticalAlignment="Bottom"
+                    Background="#f2df80"
+                    BorderBrush="White"
+                    BorderThickness="3"
+                    Command="{Binding LoadCurrentPas}"
+                    Content="Load dine Passagerer"
+                    CornerRadius="2"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="White" />
+            </Canvas>
+        </StackPanel>
+        <ScrollViewer
+            Grid.Row="1"
+            Width="400"
+            Margin="0,65,0,15">
+            <GridView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Margin="0,5"
+                            Padding="15"
+                            Background="White"
+                            BorderBrush="#e2e2e2"
+                            BorderThickness="2"
+                            CornerRadius="2">
+                            <Canvas Width="365" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="Status på rute =" />
+                                <TextBlock
+                                    Margin="110,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding status}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#e2e2e2" />
+                            <Canvas Width="365" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="ID =" />
+                                <TextBlock
+                                    Margin="35,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding id}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#e2e2e2" />
+                            <Canvas Width="400" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="Route ID =" />
+                                <TextBlock
+                                    Margin="75,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding routeId}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#e2e2e2" />
+                            <Canvas Width="400" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="User ID =" />
+                                <TextBlock
+                                    Margin="65,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding userId}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#e2e2e2" />
+                            <Canvas Height="30" Margin="0,15,0,0">
+                                <Button
+                                    Width="180"
+                                    VerticalAlignment="Bottom"
+                                    Background="#92DD77"
+                                    BorderBrush="#68a452"
+                                    BorderThickness="3"
+                                    Command="{Binding UpdateOnePassengerAccept}"
+                                    Content="Accepter"
+                                    CornerRadius="2"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Foreground="White" />
+                                <Button
+                                    Width="180"
+                                    Margin="185,0,0,0"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Background="#D94141"
+                                    BorderBrush="#c33030"
+                                    BorderThickness="3"
+                                    Command="{Binding UpdateOnePassengerDecline}"
+                                    Content="Afvis"
+                                    CornerRadius="2"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Foreground="White" />
+                            </Canvas>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </ScrollViewer>
+        <StackPanel
+            Grid.Row="2"
             Grid.ColumnSpan="4"
             Background="White"
             Canvas.ZIndex="1">

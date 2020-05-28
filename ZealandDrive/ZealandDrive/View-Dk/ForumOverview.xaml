@@ -78,7 +78,7 @@
                     BorderBrush="White"
                     BorderThickness="3"
                     Command="{Binding LoadForum}"
-                    Content="Load"
+                    Content="Indlæs indlæg"
                     CornerRadius="2"
                     FontSize="18"
                     FontWeight="Bold"
