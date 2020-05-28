@@ -206,13 +206,14 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Method
-        private void DeleteUser()
+        private async void DeleteUser()
         {
-            if (_selectedUser != null)
+            if (UserCurrent != null)
             {
                 //todo give error message
-                _persistence.Delete(_selectedUser);
-                _users.Remove(_selectedUser);
+                await _persistence.Delete(UserCurrent);
+                Frame f = (Frame)Window.Current.Content;
+                f.Navigate(typeof(LoginPage));
             }
         }
         private void ClearCreateUser()
