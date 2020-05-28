@@ -32,47 +32,43 @@
         <StackPanel
             Grid.Row="0"
             Grid.ColumnSpan="4"
-            Canvas.ZIndex="1">
-            <Canvas Width="400" VerticalAlignment="Center">
-                <!--  Menu i venstre side  -->
-                <Button
-                    Width="80"
-                    Height="80"
-                    Background="Transparent"
-                    Command="{Binding GoToOverview}">
-                    <Image
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Source="Assets\header-menu-menu.png" />
-                </Button>
+            Height="80">
+            <StackPanel
+                Width="400"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
                 <!--  Tekst i midten over hvilken side man er på  -->
-                <TextBlock
-                    Width="150"
-                    Height="80"
-                    Margin="125,10,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="42"
-                    FontWeight="Bold"
-                    Foreground="#F2DF80"
-                    Text="Ruter"
-                    TextAlignment="Center" />
+                <Canvas VerticalAlignment="Bottom">
+                    <TextBlock
+                        Margin="0,7,0,0"
+                        FontSize="42"
+                        FontWeight="Bold"
+                        Foreground="#f2df80"
+                        Text="Ruter" />
+                </Canvas>
                 <!--  Opret rute  -->
                 <Button
-                    Width="80"
-                    Height="80"
-                    Margin="320,0,0,0"
+                    Width="50"
+                    Height="50"
+                    Margin="0,15,0,0"
                     HorizontalAlignment="Right"
                     Background="Transparent"
-                    Command="{Binding GoToOpretRute}">
-                    <Image Source="Assets\header-menu-opret.png" />
+                    BorderBrush="#f2df80"
+                    Command="{Binding GoToOpretRute}"
+                    CornerRadius="2"
+                    Foreground="#f2df80">
+                    <TextBlock
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="50"
+                        LineHeight="0"
+                        Text="+" />
                 </Button>
-            </Canvas>
+            </StackPanel>
         </StackPanel>
-        <StackPanel
-            Grid.Row="1"
-            Grid.ColumnSpan="4"
-            Canvas.ZIndex="1">
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4">
             <Canvas
                 Width="400"
                 Margin="0,10"
@@ -80,10 +76,16 @@
                 <Button
                     Width="400"
                     Height="50"
-                    Margin="0,0,0,0"
                     VerticalAlignment="Bottom"
+                    Background="#f2df80"
+                    BorderBrush="White"
+                    BorderThickness="3"
                     Command="{Binding LoadRoutes}"
-                    Content="Load" />
+                    Content="Load"
+                    CornerRadius="2"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="White" />
             </Canvas>
         </StackPanel>
         <GridView

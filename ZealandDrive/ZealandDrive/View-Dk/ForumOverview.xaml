@@ -27,62 +27,96 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Fill="White" />
-        <Canvas
-            Grid.Row="0"
-            Grid.Column="1"
-            Width="400"
-            Height="80"
-            VerticalAlignment="Center">
-            <Button
-                Width="80"
-                Height="80"
-                Margin="320,0,0,0"
-                HorizontalAlignment="Right"
-                Background="White"
-                Command="{Binding OpretForum}">
-                <Image Source="Assets\new-icon.svg" />
-            </Button>
-            <TextBlock
-                Margin="0,12"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="42"
-                FontWeight="Bold"
-                Foreground="#F2DF80"
-                Text="Forum" />
-        </Canvas>
         <StackPanel
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Height="80">
+            <StackPanel
+                Width="400"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Canvas VerticalAlignment="Bottom">
+                    <TextBlock
+                        Margin="0,7,0,0"
+                        FontSize="42"
+                        FontWeight="Bold"
+                        Foreground="#f2df80"
+                        Text="Forum" />
+                </Canvas>
+                <!--  Opret Forum indlæg  -->
+                <Button
+                    Width="50"
+                    Height="50"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderBrush="#f2df80"
+                    Command="{Binding OpretForum}"
+                    CornerRadius="2"
+                    Foreground="#f2df80">
+                    <TextBlock
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="50"
+                        LineHeight="0"
+                        Text="+" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="4">
+            <Canvas
+                Width="400"
+                Margin="0,10"
+                VerticalAlignment="Center">
+                <Button
+                    Width="400"
+                    Height="50"
+                    VerticalAlignment="Bottom"
+                    Background="#f2df80"
+                    BorderBrush="White"
+                    BorderThickness="3"
+                    Command="{Binding LoadForum}"
+                    Content="Load"
+                    CornerRadius="2"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="White" />
+            </Canvas>
+        </StackPanel>
+        <ScrollViewer
             Grid.Row="1"
             Grid.Column="1"
             Width="400"
-            Margin="0,15"
-            Background="White"
-            Grid.RowSpan="3">
-            <Button
-                Width="370"
-                Height="50"
-                Margin="15"
-                VerticalAlignment="Bottom"
-                Canvas.ZIndex="6"
-                Command="{Binding LoadForum}"
-                Content="Load" />
-            <StackPanel Margin="15">
-                <TextBlock
-                    Margin="50,0,0,0"
-                    FontSize="14"
-                    FontWeight="Bold"
-                    Text="Alle Tråde" />
-                <ListView ItemsSource="{Binding Forum, Mode=TwoWay}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock FontWeight="Bold" Text="{Binding header, Mode=TwoWay}" />
-                                <TextBlock Text="{Binding Besked, Mode=TwoWay}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
+            Margin="0,70,0,15"
+            Padding="15"
+            Background="#ffffff">
+            <GridView
+                HorizontalAlignment="Left"
+                ItemsSource="{Binding Forum, Mode=TwoWay}"
+                SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel
+                            Width="366"
+                            Margin="0"
+                            Padding="15"
+                            BorderBrush="Aqua"
+                            BorderThickness="2"
+                            CornerRadius="2">
+                            <TextBlock FontWeight="Bold" Text="{Binding header, Mode=TwoWay}" />
+                            <TextBlock Text="{Binding Besked, Mode=TwoWay}" />
+                            <TextBlock
+                                Margin="0,10,0,0"
+                                Foreground="#007bff"
+                                Text="Læs mere"
+                                TextDecorations="Underline"
+                                TextLineBounds="Full" />
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
             <!--<GridView ItemsSource="{Binding Forum}" SelectedItem="{Binding SelectedForum, Mode=TwoWay}">
                 <GridView.ItemTemplate>
                     <DataTemplate>
@@ -99,7 +133,7 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>-->
-        </StackPanel>
+        </ScrollViewer>
         <StackPanel
             Grid.Row="8"
             Grid.ColumnSpan="4"
