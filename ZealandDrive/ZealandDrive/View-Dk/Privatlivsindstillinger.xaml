@@ -8,7 +8,7 @@
     Background="#F6F6F6"
     mc:Ignorable="d">
     <Page.DataContext>
-        <local:MainVM />
+        <local:UserVM/>
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -117,7 +117,8 @@
                 CornerRadius="7"
                 FontSize="14"
                 FontWeight="Bold"
-                Foreground="White" />
+                Foreground="White" 
+                Command="{Binding DeleteOne}"/>
         </StackPanel>
 
         <Button
