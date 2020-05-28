@@ -8,7 +8,7 @@
     Background="#F6F6F6"
     mc:Ignorable="d">
     <Page.DataContext>
-        <local:MainVM />
+        <local:UserVM />
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -20,12 +20,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80" />
             <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
             <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
         <TextBlock
-            Grid.Column="1"
+            Grid.Column="2"
             Margin="20,0,0,0"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Canvas.ZIndex="1"
             FontSize="20"
@@ -33,22 +35,22 @@
             Foreground="#F2DF80"
             Text="Kodeord" />
         <Rectangle
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="5"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Fill="White" />
         <Rectangle
             Grid.Row="2"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="5"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Fill="White" />
 
         <StackPanel
             Grid.Row="1"
-            Grid.Column="1"
+            Grid.Column="2"
             Height="300"
-            Margin="0,15,0,0"
+            Margin="0,5,0,0"
             VerticalAlignment="Top"
             Background="White"
             BorderBrush="LightGray"
@@ -73,11 +75,9 @@
                 Background="White"
                 BorderBrush="Gray"
                 BorderThickness="2"
-                Header="Gentag Ny Adgangskode" />
+                Header="Gentag Ny Adgangskode"
+                Text="" />
             <Button
-                Grid.Row="7"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
                 Width="200"
                 Height="30"
                 Margin="0,20,0,0"
@@ -86,6 +86,7 @@
                 VerticalAlignment="Center"
                 Background="#F2DF80"
                 Canvas.ZIndex="6"
+                Command="{Binding UpdateOne, Mode=TwoWay}"
                 Content="Gem"
                 CornerRadius="7"
                 FontSize="14"
@@ -97,8 +98,9 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="Transparent"
-            Command="{Binding GoBack}"
-            Content="GoBack" />
+            Command="{Binding GoBack}">
+            <Image Source="Assets/close.svg" />
+        </Button>
 
         <StackPanel
             Grid.Row="8"
