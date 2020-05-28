@@ -16,7 +16,6 @@
             <RowDefinition Height="80" />
             <RowDefinition Height="65" />
             <RowDefinition />
-            <RowDefinition Height="65" />
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
         <StackPanel
@@ -46,69 +45,87 @@
             <Button
                 Width="400"
                 Height="50"
-                Command="{Binding LoadTilmeldteRuter}"
-                Content="Load Tilmeldte Ruter"
                 VerticalAlignment="Bottom"
                 Background="#f2df80"
                 BorderBrush="White"
                 BorderThickness="3"
+                Command="{Binding LoadTilmeldteRuter}"
+                Content="Load Tilmeldte Ruter"
                 CornerRadius="2"
                 FontSize="18"
                 FontWeight="Bold"
                 Foreground="White" />
         </StackPanel>
-        <StackPanel
+        <ScrollViewer
             Grid.Row="2"
             Width="400"
-            Margin="0,15,0,0"
-            Padding="15"
-            Background="White">
-            <TextBlock
-                Margin="0,0,0,15"
-                FontSize="23"
-                FontWeight="Bold"
-                Text="Alle Tilmeldte Ruter" />
-            <ListView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}">
-                <ListView.ItemTemplate>
+            Margin="0,15,0,15">
+            <GridView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}">
+                <GridView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="20" Text="{Binding id}" />
-                            <TextBlock
-                                Width="20"
-                                Margin="20,0,0,0"
-                                Text="{Binding routeId}" />
-                            <TextBlock
-                                Width="20"
-                                Margin="20,0,0,0"
-                                Text="{Binding userId}" />
-                            <TextBlock
-                                Width="200"
-                                Margin="20,0,0,0"
-                                Text="{Binding status}" />
+                        <StackPanel
+                            Margin="0,5"
+                            Padding="15"
+                            Background="White">
+                            <Canvas Width="365" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="Status på rute =" />
+                                <TextBlock
+                                    Margin="110,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding status}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#f2df80" />
+                            <Canvas Width="365" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="ID =" />
+                                <TextBlock
+                                    Margin="35,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding id}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#f2df80" />
+                            <Canvas Width="400" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="Route ID =" />
+                                <TextBlock
+                                    Margin="75,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding routeId}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#f2df80" />
+                            <Canvas Width="400" Height="30">
+                                <TextBlock Margin="5,5,0,0" Text="User ID =" />
+                                <TextBlock
+                                    Margin="65,5,0,0"
+                                    FontWeight="Bold"
+                                    Text="{Binding userId}" />
+                            </Canvas>
+                            <Border
+                                Width="365"
+                                Height="2"
+                                Background="#f2df80" />
+                            <Button
+                                Width="365"
+                                Margin="0,15,0,0"
+                                VerticalAlignment="Bottom"
+                                Background="#28a745"
+                                Command="{Binding UpdateOnePassengerCheckInd}"
+                                Content="Check ind"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Foreground="#ffffff" />
                         </StackPanel>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-        <StackPanel
-            Grid.Row="3"
-            Width="400"
-            Height="50"
-            Margin="0,0,0,15"
-            Padding="15,0,15,15"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Background="White">
-            <Button
-                Width="370"
-                VerticalAlignment="Bottom"
-                Background="#28a745"
-                Command="{Binding UpdateOnePassengerCheckInd}"
-                Content="Check ind"
-                FontSize="20"
-                FontWeight="Bold"
-                Foreground="#ffffff" />
-        </StackPanel>
+                </GridView.ItemTemplate>
+            </GridView>
+        </ScrollViewer>
         <StackPanel
             Grid.Row="4"
             Grid.ColumnSpan="4"
