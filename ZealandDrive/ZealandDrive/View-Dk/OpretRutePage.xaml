@@ -186,7 +186,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Width="20" Text="{Binding model}" />
+                                <TextBlock Width="100" Text="{Binding model}" />
                                 <TextBlock
                                     Width="100"
                                     Margin="20,0,0,0"
