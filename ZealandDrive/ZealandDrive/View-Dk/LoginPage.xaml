@@ -2,47 +2,130 @@
     x:Class="ZealandDrive.View.LoginPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ZealandDrive.VM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ZealandDrive.VM"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Page.DataContext>
-        <local:UserVM/>
+        <local:UserVM />
     </Page.DataContext>
-    
+
     <Page.Background>
-        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png"/>
+        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png" />
     </Page.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="180"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition/>
+            <RowDefinition Height="200" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="180" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="25" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="400"/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Image VerticalAlignment="Bottom" Grid.Row="0" Source="/View-En/Assets/zealand-DRIVE-NEW-logo(hvid).png" Height="130" Grid.Column="1" />
-        <TextBlock Text="Email" Foreground="White" Grid.Row="1" HorizontalAlignment="Left" Margin="32,0,0,0" Grid.Column="1"/>
-        <TextBox Text="{Binding UserNow, Mode=TwoWay}" Grid.Row="1" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+        <Image
+            Grid.Row="0"
+            Grid.Column="1"
+            Height="130"
+            VerticalAlignment="Bottom"
+            Source="/View-En/Assets/zealand-DRIVE-NEW-logo(hvid).png" />
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="32,0,0,0"
+            HorizontalAlignment="Left"
+            Foreground="White"
+            Text="Email" />
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="360"
+            Height="60"
+            VerticalAlignment="Center"
+            Background="White"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Text="{Binding UserNow, Mode=TwoWay}" />
 
-        <TextBlock Text="Password" Foreground="White" Grid.Row="2" HorizontalAlignment="Left" Margin="32,0,0,0" Grid.Column="1"/>
-        <PasswordBox MaxLength="14" Password="{Binding PassNow, Mode=TwoWay}" Grid.Row="2" Height="60" VerticalAlignment="Center" Width="360" Background="White" BorderBrush="Black" BorderThickness="1" Grid.Column="1"/>
+        <TextBlock
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="32,0,0,0"
+            HorizontalAlignment="Left"
+            Foreground="White"
+            Text="Password" />
+        <PasswordBox
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="360"
+            Height="60"
+            VerticalAlignment="Center"
+            Background="White"
+            BorderBrush="Black"
+            BorderThickness="1"
+            MaxLength="14"
+            Password="{Binding PassNow, Mode=TwoWay}" />
 
-        <CheckBox Content="Husk mit password til næste gang" x:Name="RememberMe" Grid.Row="3"  HorizontalAlignment="Center" Margin="0,0,0,0" Foreground="White" Grid.Column="1"  Command="{Binding CheckCommand, Mode=TwoWay}" CommandParameter="{Binding IsChecked}"/>
+        <CheckBox
+            x:Name="RememberMe"
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Center"
+            Command="{Binding CheckCommand, Mode=TwoWay}"
+            CommandParameter="{Binding IsChecked}"
+            Content="Husk mit password til næste gang"
+            Foreground="White" />
 
-        <Button Height="50" FontWeight="Bold" HorizontalAlignment="Center" Background="#F2DF80" Width="260" Grid.Row="5" CornerRadius="7" Content="LOGIN" Foreground="White" VerticalAlignment="Top" Command="{Binding UserLogin}" Grid.Column="1"/>
-        <TextBlock Text="Har du ikke en bruger i nu?" FontSize="14" Foreground="White" Grid.Row="6" HorizontalAlignment="Center" Grid.Column="1"/>
-        <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Command="{Binding GoToOpretBruger}" Grid.Column="1"/>
-        <HyperlinkButton FontSize="14" Content="Opret Bruger" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding GoToOpretBruger}" Foreground="White" Grid.Column="1" />
+        <Button
+            Margin="0 0 0 15"
+            Grid.Row="5"
+            Grid.Column="1"
+            Width="400"
+            Height="50"
+            VerticalAlignment="Bottom"
+            Background="#f2df80"
+            BorderBrush="White"
+            BorderThickness="3"
+            CornerRadius="2"
+            FontSize="18"
+            FontWeight="Bold"
+            Foreground="White"
+            Command="{Binding UserLogin}"
+            Content="LOGIN"
+            />
+        <TextBlock
+            Grid.Row="6"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            FontSize="14"
+            Foreground="White"
+            Text="Har du ikke en bruger i nu?" />
+        <HyperlinkButton
+            Grid.Row="7"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Command="{Binding GoToOpretBruger}"
+            Content="Opret Bruger"
+            FontSize="14"
+            Foreground="White" />
+        <HyperlinkButton
+            Grid.Row="7"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Command="{Binding GoToOpretBruger}"
+            Content="Opret Bruger"
+            FontSize="14"
+            Foreground="White" />
     </Grid>
 </Page>

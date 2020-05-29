@@ -2,34 +2,141 @@
     x:Class="ZealandDrive.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ZealandDrive.VM"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ZealandDrive.VM"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Background>
-        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png"/>
+        <ImageBrush ImageSource="/View-En/Assets/Not_logget_in_@1x.png" />
     </Page.Background>
     <Page.DataContext>
-        <local:UserVM/>
+        <local:UserVM />
     </Page.DataContext>
-    
+
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="65"/>
+
             <RowDefinition />
+
         </Grid.RowDefinitions>
-        <TextBlock Text="Velkommen til" FontSize="50" Grid.Row="1" HorizontalTextAlignment="Center" Foreground="White" HorizontalAlignment="Center" Width="316"/>
-        <TextBlock Text="LOGIN ELLER OPRET EN PROFIL" FontSize="18" FontWeight="SemiBold" Grid.Row="4" Foreground="White" HorizontalTextAlignment="Center" HorizontalAlignment="Center" Width="257" />
+        <StackPanel
+            Width="400"
+            Margin="0,0,0,120"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Image
+                Height="100"
+                VerticalAlignment="Bottom"
+                Source="Assets\zealand-DRIVE-NEW-logo(hvid).png" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontSize="50"
+                Foreground="White"
+                HorizontalTextAlignment="Center"
+                Text="Velkommen til" />
+            <TextBlock
+                Height="64"
+                Margin="26,0,26,0"
+                VerticalAlignment="Center"
+                FontSize="16"
+                Foreground="White"
+                HorizontalTextAlignment="Center"
+                Text="Hvorfor køre alene, når du kan køre med andre? Opret din bruger i dag, og kør sammen med dine klassekammerater allerede i morgen."
+                TextWrapping="WrapWholeWords" />
+        </StackPanel>
+        <StackPanel Margin="0,0,0,80" VerticalAlignment="Bottom">
+            <TextBlock
+                Width="400"
+                Margin="0,0,0,15"
+                HorizontalAlignment="Center"
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="White"
+                HorizontalTextAlignment="Center"
+                Text="LOGIN ELLER OPRET EN PROFIL" />
+            <Button
+                Width="400"
+                Height="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoToLogin}"
+                Content="LOGIN"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Margin="0,30,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Command="{Binding GoToOpretBruger}"
+                Content="OPRET BRUGER"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+        </StackPanel>
+        <!--<TextBlock
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                FontSize="50"
+                Foreground="White"
+                HorizontalTextAlignment="Center"
+                Text="Velkommen til" />
+            <TextBlock
+                Grid.Row="4"
+                Width="257"
+                HorizontalAlignment="Center"
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="White"
+                HorizontalTextAlignment="Center"
+                Text="LOGIN ELLER OPRET EN PROFIL" />
 
-        <TextBlock VerticalAlignment="Center" FontSize="16" Foreground="White" HorizontalTextAlignment="Center" TextWrapping="WrapWholeWords"  Grid.Row="2" Text="Hvorfor køre alene, når du kan køre med andre? Opret din bruger i dag, og kør sammen med dine klassekammerater allerede i morgen." Height="64" Margin="26,0,26,0" />
-        <Image VerticalAlignment="Bottom" Grid.Row="0" Source="Assets\zealand-DRIVE-NEW-logo(hvid).png"  Height="100"/>
-        <Button Height="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#F2DF80" Width="260" Grid.Row="5" CornerRadius="7" Content="LOGIN" Foreground="White" Command="{Binding GoToLogin}"/>
-        <Button Grid.Row="6" FontSize="18" HorizontalAlignment="Center" Background="Transparent" Content="OPRET BRUGER" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Command="{Binding GoToOpretBruger}"/>
-
+            <TextBlock
+                Grid.Row="2"
+                Height="64"
+                Margin="26,0,26,0"
+                VerticalAlignment="Center"
+                FontSize="16"
+                Foreground="White"
+                HorizontalTextAlignment="Center"
+                Text="Hvorfor køre alene, når du kan køre med andre? Opret din bruger i dag, og kør sammen med dine klassekammerater allerede i morgen."
+                TextWrapping="WrapWholeWords" />
+            <Image
+                Grid.Row="0"
+                Height="100"
+                VerticalAlignment="Bottom"
+                Source="Assets\zealand-DRIVE-NEW-logo(hvid).png" />
+            <Button
+                Grid.Row="5"
+                Width="260"
+                Height="50"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#F2DF80"
+                Command="{Binding GoToLogin}"
+                Content="LOGIN"
+                CornerRadius="7"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Grid.Row="6"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Command="{Binding GoToOpretBruger}"
+                Content="OPRET BRUGER"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />-->
     </Grid>
 </Page>

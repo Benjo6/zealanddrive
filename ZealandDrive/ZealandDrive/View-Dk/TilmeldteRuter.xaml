@@ -49,12 +49,13 @@
                 Background="#f2df80"
                 BorderBrush="White"
                 BorderThickness="3"
-                Command="{Binding LoadTilmeldteRuter}"
-                Content="Load Tilmeldte Ruter"
                 CornerRadius="2"
                 FontSize="18"
                 FontWeight="Bold"
-                Foreground="White" />
+                Foreground="White"
+                Command="{Binding LoadTilmeldteRuter}"
+                Content="Load Tilmeldte Ruter"
+                 />
         </StackPanel>
         <ScrollViewer
             Grid.Row="2"

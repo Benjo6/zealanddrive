@@ -49,205 +49,116 @@
             Grid.Column="2"
             Width="400"
             Margin="0,15"
-            Padding="15,0"
-            VerticalAlignment="Top"
-            Background="White">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200" />
-                    <ColumnDefinition Width="200" />
-                </Grid.ColumnDefinitions>
+            VerticalAlignment="Top">
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoGemteAdresse}"
+                Content="Gemte Adresse"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoGemteBiler}"
+                Content="Gemte Biler"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
 
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Foreground="Black"
-                    Text="Gemte Adresser" />
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Width="170"
-                    HorizontalAlignment="left"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Command="{Binding GoGemteAdresse}"
-                    Content="Vælg"
-                    CornerRadius="3" />
-                <Border
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Width="370"
-                    Height="1"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Background="Black" />
-                <TextBlock
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Foreground="Black"
-                    Text="Biler" />
-                <Button
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Width="170"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Command="{Binding GoGemteBiler}"
-                    Content="Vælg"
-                    CornerRadius="3" />
-                <Border
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Width="370"
-                    Height="1"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Background="Black" />
-                <TextBlock
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Foreground="Black"
-                    Text="Personlige Information" />
-                <Button
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Width="170"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Command="{Binding GoPI}"
-                    Content="Vælg"
-                    CornerRadius="3" />
-                <Border
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Width="370"
-                    Height="1"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Background="Black" />
-                <TextBlock
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Foreground="Black"
-                    Text="Adgangskode og Sikkerhed" />
-                <Button
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    Width="170"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Command="{Binding GoAOS}"
-                    Content="Vælg"
-                    CornerRadius="3" />
-                <Border
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Width="370"
-                    Height="1"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Background="Black" />
-                <TextBlock
-                    Grid.Row="4"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Foreground="Black"
-                    Text="Sprog" />
-                <Button
-                    Grid.Row="4"
-                    Grid.Column="1"
-                    Width="170"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Command="{Binding GoSprog}"
-                    Content="Vælg"
-                    CornerRadius="3" />
-                <Border
-                    Grid.Row="4"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Width="370"
-                    Height="1"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Background="Black" />
-                <TextBlock
-                    Grid.Row="5"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Foreground="Black"
-                    Text="Privatlivsindstillinger" />
-                <Button
-                    Grid.Row="5"
-                    Grid.Column="1"
-                    Width="170"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Command="{Binding GoPrivat}"
-                    Content="Vælg"
-                    CornerRadius="3" />
-                <Border
-                    Grid.Row="5"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    Width="370"
-                    Height="1"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Background="Black" />
-                <TextBlock
-                    Grid.Row="6"
-                    Grid.Column="0"
-                    VerticalAlignment="Center"
-                    Foreground="Black"
-                    Text="Log ud" />
-                <Button
-                    Grid.Row="6"
-                    Grid.Column="1"
-                    Width="170"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    BorderBrush="Gray"
-                    BorderThickness="1"
-                    Command="{Binding GoToLogin}"
-                    Content="Vælg"
-                    CornerRadius="3" />
-            </Grid>
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoPI}"
+                Content="Personlige informationer"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+
+
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoAOS}"
+                Content="Adgangskode"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoSprog}"
+                Content="Skift af sprog"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+
+
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoPrivat}"
+                Content="Bliv Privat?"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Width="400"
+            Margin="0,0,0,15"
+            VerticalAlignment="Bottom">
+            <Button
+                Width="400"
+                Height="50"
+                VerticalAlignment="Bottom"
+                Background="#dc3545"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoToLogin}"
+                Content="Log ud"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
         </StackPanel>
         <Rectangle
             Grid.Row="2"
