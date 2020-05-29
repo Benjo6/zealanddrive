@@ -127,7 +127,10 @@ namespace ZealandDrive.VM
             _loadIdCar = new RelayCommand(LoadIdCars);
             //user
             _uvm = new UserVM();
+            LoadRoute();
+            LoadCars();
         }
+
         #endregion
         #region Properties
         //lister
@@ -289,6 +292,7 @@ namespace ZealandDrive.VM
                 _ruter.Add(r);
             }
         }
+
         private async void LoadRutes(object e, object s)
         {
             _ruter.Clear();
