@@ -81,7 +81,7 @@
                     BorderBrush="White"
                     BorderThickness="3"
                     Command="{Binding LoadRoutes}"
-                    Content="Load"
+                    Content="Load Ruter"
                     CornerRadius="2"
                     FontSize="18"
                     FontWeight="Bold"
