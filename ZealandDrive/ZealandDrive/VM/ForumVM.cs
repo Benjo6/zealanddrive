@@ -19,6 +19,7 @@ namespace ZealandDrive.VM
     class ForumVM : INotifyPropertyChanged
     {
         #region Instance
+        private Singleton x;
         private readonly IPersistens<Forum> _persistenceForum;
         private readonly RelayCommand _createOneForum;
         private Forum _selectedForum;
@@ -46,6 +47,8 @@ namespace ZealandDrive.VM
             _persistenceForum = new DBPersistenceForum();
             p = new PageCommand();
             _uvm = new UserVM();
+            x = Singleton.Instance;
+            LoadForum1();
 
 
         }
@@ -74,12 +77,12 @@ namespace ZealandDrive.VM
         public RelayCommand ClearCreateOneForum => _clearCreateOneForum;
         public Forum SelectedForum
         {
-            get => _selectedForum;
+            get { return x.SelectedForum; }
             set
             {
-                if (Equals(value, _selectedForum)) return;
-                _selectedForum = value;
-                OnPropertyChanged();
+                if (x.SelectedForum != value)
+                    x.SelectedForum = value;
+                HandleSelectedItem();
             }
         }
         public Forum ForumToBeCreated
@@ -133,7 +136,12 @@ namespace ZealandDrive.VM
         {
             ForumToBeCreated = new Forum();
         }
-
+        
+        private void HandleSelectedItem()
+        {
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(View.SpecficForumPost));
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

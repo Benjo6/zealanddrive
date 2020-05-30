@@ -5,9 +5,177 @@
     xmlns:local="using:ZealandDrive.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local1="using:ZealandDrive.VM"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.DataContext>
+        <local1:ForumVM/>
+    </Page.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0">
+            <StackPanel
+                Width="400"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Button
+                    Width="50"
+                    Height="50"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Left"
+                    Background="Transparent"
+                    BorderBrush="#f2df80"
+                    Command="{Binding GoBack}"
+                    CornerRadius="2"
+                    Foreground="#f2df80">
+                    <TextBlock
+                        Height="80"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="50"
+                        LineHeight="0"
+                        Text="x" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        <ListBox
+            Grid.Row="1"
+            Margin="0,150,0,0"
+            HorizontalContentAlignment="Stretch"
+            Background="#F6F6F6" />
+        <StackPanel
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Width="400"
+            Margin="0,15,0,15"
+            Padding="15"
+            Background="White"
+            CornerRadius="5">
+            <TextBlock
+                Margin="0,7,0,0"
+                FontSize="32"
+                FontWeight="Bold"
+                Foreground="#f2df80"
+                Text="{Binding SelectedForum.header}" />
+            <StackPanel VerticalAlignment="Top">
+                <Grid>
+                    <TextBlock Text="{Binding SelectedForum.content}" FontSize="14" />
+                </Grid>
+            </StackPanel>
+            <Canvas Height="160">
+                <TextBlock
+                    Height="30"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    Text="Skriv en kommentar" />
+                <TextBox
+                    Width="370"
+                    Height="110"
+                    Margin="0,40,0,0"
+                    VerticalAlignment="Top"
+                    BorderBrush="LightGray"
+                    BorderThickness="1"
+                    FontSize="16"
+                    Text="Skriv en kommentar" />
+            </Canvas>
+           
+            <Button
+                Width="364"
+                Height="50"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Content="Send"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="4"
+            Grid.ColumnSpan="4"
+            Background="White"
+            BorderBrush="#F6F6F6"
+            BorderThickness="0,10,0,0">
+            <Canvas Width="435" VerticalAlignment="Center">
+                <Button
+                    Width="80"
+                    Height="80"
+                    Background="Transparent"
+                    Command="{Binding GoToOverview}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets/menu-home.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="80,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoFo}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-comment.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="160,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoTilmeldteRuter}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-statuser-telmeldt-active.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="240,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GOPasO}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-notifikation.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="320,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding Setting}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-settings.png" />
+                </Button>
+            </Canvas>
+        </StackPanel>
+
+
+
+
+
     </Grid>
 </Page>

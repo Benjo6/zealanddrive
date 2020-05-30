@@ -42,20 +42,7 @@
             Margin="0,15,0,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
-            <Button
-                Width="400"
-                Height="50"
-                VerticalAlignment="Bottom"
-                Background="#f2df80"
-                BorderBrush="White"
-                BorderThickness="3"
-                CornerRadius="2"
-                FontSize="18"
-                FontWeight="Bold"
-                Foreground="White"
-                Command="{Binding LoadTilmeldteRuter}"
-                Content="Load Tilmeldte Ruter"
-                 />
+            
         </StackPanel>
         <ScrollViewer
             Grid.Row="2"

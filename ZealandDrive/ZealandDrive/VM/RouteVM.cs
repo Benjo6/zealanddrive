@@ -129,6 +129,8 @@ namespace ZealandDrive.VM
             _uvm = new UserVM();
             LoadRoute();
             LoadCars();
+            LoadTilmeldte();
+            LoadCurrentPassenger();
         }
 
         #endregion
