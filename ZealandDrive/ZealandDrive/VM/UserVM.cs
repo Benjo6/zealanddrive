@@ -91,6 +91,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoFo => p.FOPage;
         public RelayCommand Setting => p.SettingPage;
         public RelayCommand GoOverview => p.GoOverviewPage;
+        public RelayCommand DeleteOne => _deleteOneUser;
 
 
         // user
@@ -196,8 +197,6 @@ namespace ZealandDrive.VM
         //public RelayCommand Save => _saveUser;
 
         public RelayCommand UpdateOne => _updateOneUser;
-
-        public RelayCommand DeleteOne => _deleteOneUser;
 
         public RelayCommand CreateOne => _createOne;
 

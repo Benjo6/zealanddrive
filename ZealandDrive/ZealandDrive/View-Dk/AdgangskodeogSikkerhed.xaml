@@ -48,9 +48,10 @@
 
         <StackPanel
             Grid.Row="1"
-            Grid.Column="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
             Height="300"
-            Margin="0,5,0,0"
+            Margin="0,15,0,0"
             VerticalAlignment="Top"
             Background="White"
             BorderBrush="LightGray"
@@ -68,7 +69,8 @@
                 Background="White"
                 BorderBrush="Gray"
                 BorderThickness="2"
-                Header="Ny Adgangskode" />
+                Header="Ny Adgangskode" 
+                />
             <TextBox
                 Width="200"
                 Margin="0,15,0,0"
