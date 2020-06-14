@@ -58,7 +58,7 @@ namespace ZealandDrive.VM
             _clearCreateOneCar = new RelayCommand(ClearCreateCar);
             _persistenceCar = new DBPersistenceCar();
             _loadOneCar = new RelayCommand(LoadOneCars);
-            LoadCars();
+            LoadOneCars();
 
         }
         #endregion
