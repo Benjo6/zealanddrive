@@ -164,13 +164,14 @@ namespace ZealandDrive.VM
             Frame f = (Frame)Window.Current.Content;
             f.Navigate(typeof(OverviewPage));
         }
-        private void UpdateCar()
+        private async void UpdateCar()
         {
             if (_selectedCar != null)
             {
                 _selectedCar.userId = UserCurrent.id;
                 //todo give error message
-                _persistenceCar.Update(_selectedCar);
+                await _persistenceCar.Update(_selectedCar);
+                LoadOneCars();
             }
         }
         private async void LoadCars()

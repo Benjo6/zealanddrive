@@ -30,7 +30,7 @@
                     HorizontalAlignment="Left"
                     Background="Transparent"
                     BorderBrush="#f2df80"
-                    Command="{Binding GoBack}"
+                    Command="{Binding GoFOO}"
                     CornerRadius="2"
                     Foreground="#f2df80">
                     <TextBlock
@@ -123,7 +123,7 @@
                     Height="80"
                     Margin="80,0,0,0"
                     Background="Transparent"
-                    Command="{Binding GoFo}">
+                    Command="{Binding GoFOO}">
                     <Image
                         Width="50"
                         Height="50"

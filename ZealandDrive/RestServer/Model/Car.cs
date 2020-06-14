@@ -29,7 +29,7 @@ namespace RestServer.Model
         [StringLength(30)]
         public string model { get; set; }
 
-        [StringLength(7)]
+        [StringLength(30)]
         public string nummerplade { get; set; }
 
         public int year { get; set; }

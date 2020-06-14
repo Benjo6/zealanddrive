@@ -76,9 +76,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="20" Text="{Binding id}" />
+                            <!--<TextBlock Width="20" Text="{Binding id}" />-->
                             <TextBlock
-                                Width="40"
+                                Width="80"
                                 Margin="20,0,0,0"
                                 Text="{Binding nummerplade}" />
                             <TextBlock
