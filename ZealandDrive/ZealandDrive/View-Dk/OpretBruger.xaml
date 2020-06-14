@@ -80,11 +80,11 @@
                 Margin="30,15,30,15"
                 FontSize="20"
                 Text="Kodeord: " />
-            <TextBox
+            <PasswordBox
                 Margin="30,15,30,15"
                 FontSize="20"
                 PlaceholderText="Indtast Kodeord"
-                Text="{Binding UserToBeCreated.password, Mode=TwoWay}" />
+                Password="{Binding UserToBeCreated.password, Mode=TwoWay}" />
             <Button
                 HorizontalAlignment="Center"
                 Command="{Binding CreateOne, Mode=TwoWay}"
