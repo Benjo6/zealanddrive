@@ -49,29 +49,7 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <StackPanel
-            Grid.Row="1"
-            Width="400"
-            Margin="0,30,0,0">
-            <GridView
-                Width="130"
-                HorizontalAlignment="Left"
-                Background="Transparent"
-                ItemsSource="{Binding Cars}">
-                <TextBlock
-                    Canvas.ZIndex="2"
-                    FontSize="12"
-                    Text="{Binding SelectedCar.nummerplade}" />
-                <TextBlock
-                    Canvas.ZIndex="2"
-                    FontSize="12"
-                    Text="{Binding SelectedCar.year}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.model}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.color}" />
-                <TextBlock FontSize="12" Text="{Binding SelectedCar.seats}" />
-            </GridView>
-        </StackPanel>
+
         <StackPanel Grid.Row="1" Width="400">
             <Canvas
                 Width="400"
@@ -184,6 +162,29 @@
                     <TextBlock Text="{Binding SelectedRute.hour}" />
                     <TextBlock Text="{Binding SelectedRute.minute}" />
                 </Grid>
+            </StackPanel>
+            <StackPanel
+                Grid.Row="1"
+                Width="400"
+                Margin="0,30,0,0">
+                <GridView
+                    Width="130"
+                    HorizontalAlignment="Left"
+                    Background="Transparent"
+                    ItemsSource="{Binding Cars}">
+                    <TextBlock
+                        Canvas.ZIndex="2"
+                        FontSize="12"
+                        Text="{Binding SelectedCar.nummerplade}" />
+                    <TextBlock
+                        Canvas.ZIndex="2"
+                        FontSize="12"
+                        Text="{Binding SelectedCar.year}" />
+                    <TextBlock FontSize="12" Text="{Binding SelectedCar.model}" />
+                    <TextBlock FontSize="12" Text="{Binding SelectedCar.brand}" />
+                    <TextBlock FontSize="12" Text="{Binding SelectedCar.color}" />
+                    <TextBlock FontSize="12" Text="{Binding SelectedCar.seats}" />
+                </GridView>
             </StackPanel>
             <Canvas Height="160">
                 <TextBlock

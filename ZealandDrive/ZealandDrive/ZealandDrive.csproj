@@ -266,6 +266,7 @@
     <Compile Include="VM\CarVM.cs" />
     <Compile Include="VM\ForumVM.cs" />
     <Compile Include="VM\MainVM.cs" />
+    <Compile Include="VM\PassengerVM.cs" />
     <Compile Include="VM\RouteVM.cs" />
     <Compile Include="VM\SprogVM.cs" />
     <Compile Include="VM\UserVM.cs" />

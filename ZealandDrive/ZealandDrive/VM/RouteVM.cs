@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Google.Protobuf.WellKnownTypes;
+using Org.BouncyCastle.Asn1.Ocsp;
 using ZealandDrive.Common;
 using ZealandDrive.Model;
 using ZealandDrive.Persistens;
@@ -127,10 +128,13 @@ namespace ZealandDrive.VM
             _loadIdCar = new RelayCommand(LoadIdCars);
             //user
             _uvm = new UserVM();
-            LoadRoute();
-            //LoadCars();
-            LoadTilmeldte();
-            LoadCurrentPassenger();
+          
+                LoadCars();
+           
+            //LoadRoute();
+            
+            //LoadTilmeldte();
+            //LoadCurrentPassenger();
         }
 
         #endregion
