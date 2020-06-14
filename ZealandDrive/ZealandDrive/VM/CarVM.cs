@@ -63,9 +63,9 @@ namespace ZealandDrive.VM
             _loadIdCar = new RelayCommand(LoadIdCars);
             _loadCars = new RelayCommand(LoadCars);
             //viewmodels
-            _rvm = new RouteVM();
+            //_rvm = new RouteVM();
             //load
-            LoadOneCars();
+            //LoadOneCars();
 
         }
         #endregion
