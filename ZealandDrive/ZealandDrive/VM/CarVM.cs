@@ -30,14 +30,17 @@ namespace ZealandDrive.VM
         private Car _selectedCar;
         private Car _carToBeCreated;
         private Car _carTobeUpdated;
-        //relay
+        private RelayCommand _loadCars;
+        private RelayCommand _loadIdCar;
         private RelayCommand _saveCar;
         private RelayCommand _updateOneCar;
         private RelayCommand _deleteOneCar;
         private RelayCommand _clearCreateOneCar;
         private RelayCommand _createOneCar;
-        private RelayCommand _loadCar;
+
         private RelayCommand _loadOneCar;
+        //route
+        private RouteVM _rvm;
 
         #endregion
         #region Constructor
@@ -48,7 +51,6 @@ namespace ZealandDrive.VM
             // page
             p = new PageCommand();
             //car
-            _loadCar = new RelayCommand(LoadCars);
             _carToBeCreated = new Car();
             _cars = new ObservableCollection<Car>();
             _createOneCar = new RelayCommand(OpretCar);
@@ -58,11 +60,18 @@ namespace ZealandDrive.VM
             _clearCreateOneCar = new RelayCommand(ClearCreateCar);
             _persistenceCar = new DBPersistenceCar();
             _loadOneCar = new RelayCommand(LoadOneCars);
+            _loadIdCar = new RelayCommand(LoadIdCars);
+            _loadCars = new RelayCommand(LoadCars);
+            //viewmodels
+            _rvm = new RouteVM();
+            //load
             LoadOneCars();
 
         }
         #endregion
         #region Properties
+        //route
+        public Route SelectedRoute => _rvm.SelectedRute;
         //
         public Users UserCurrent => x.UserCurrent;
         //page
@@ -79,7 +88,8 @@ namespace ZealandDrive.VM
         public RelayCommand SettingEN => p.SettingPageEN;
         //car
         public RelayCommand LoadOneCar => _loadOneCar;
-        public RelayCommand LoadCar => _loadCar;
+        public RelayCommand LoadCar => _loadCars;
+
         public Car CarToBeUpdated
         {
             get => _carToBeCreated;
@@ -102,6 +112,7 @@ namespace ZealandDrive.VM
 
         public RelayCommand ClearCreateOneCar => _clearCreateOneCar;
         public ObservableCollection<Car> Cars => _cars;
+        public RelayCommand LoadIdCar => _loadIdCar;
 
 
         public Car SelectedCar
@@ -153,6 +164,19 @@ namespace ZealandDrive.VM
                     _cars.Add(c);
                 }
 
+            }
+        }
+
+        private async void LoadIdCars()
+        {
+            _cars.Clear();
+            var liste = await _persistenceCar.Load();
+            foreach (Car c in liste)
+            {
+                if (c.id == SelectedRoute.carId)
+                {
+                    _cars.Add(c);
+                }
             }
         }
         private async void OpretCar()
