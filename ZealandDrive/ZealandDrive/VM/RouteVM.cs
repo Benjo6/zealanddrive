@@ -105,7 +105,7 @@ namespace ZealandDrive.VM
         #region Properties
         //cars 
         public Car SelectedCar => _cvm.SelectedCar;
-        public RelayCommand LoadCar => _cvm.LoadCar;
+        public RelayCommand LoadCar => _cvm.LoadIdCar;
         //lister
         public ObservableCollection<string> H => lists.Timer;
         public ObservableCollection<string> M => lists.Minutter;
