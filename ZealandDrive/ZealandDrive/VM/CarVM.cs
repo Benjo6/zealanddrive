@@ -31,7 +31,7 @@ namespace ZealandDrive.VM
         private Car _carToBeCreated;
         private Car _carTobeUpdated;
         private RelayCommand _loadCars;
-        private RelayCommand _loadIdCar;
+
         private RelayCommand _saveCar;
         private RelayCommand _updateOneCar;
         private RelayCommand _deleteOneCar;
@@ -60,7 +60,7 @@ namespace ZealandDrive.VM
             _clearCreateOneCar = new RelayCommand(ClearCreateCar);
             _persistenceCar = new DBPersistenceCar();
             _loadOneCar = new RelayCommand(LoadOneCars);
-            _loadIdCar = new RelayCommand(LoadIdCars);
+
             _loadCars = new RelayCommand(LoadCars);
             //viewmodels
             //_rvm = new RouteVM();
@@ -112,7 +112,7 @@ namespace ZealandDrive.VM
 
         public RelayCommand ClearCreateOneCar => _clearCreateOneCar;
         public ObservableCollection<Car> Cars => _cars;
-        public RelayCommand LoadIdCar => _loadIdCar;
+
 
 
         public Car SelectedCar
@@ -175,18 +175,7 @@ namespace ZealandDrive.VM
                 _cars.Add(c);
             }
         }
-        private async void LoadIdCars()
-        {
-            _cars.Clear();
-            var liste = await _persistenceCar.Load();
-            foreach (Car c in liste)
-            {
-                if (c.id == SelectedRoute.carId)
-                {
-                    _cars.Add(c);
-                }
-            }
-        }
+
         private async void OpretCar()
         {
             _carToBeCreated.userId = UserCurrent.id;
