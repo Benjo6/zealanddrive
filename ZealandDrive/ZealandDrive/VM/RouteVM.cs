@@ -97,18 +97,15 @@ namespace ZealandDrive.VM
 
             //load
             
-            //_cvm.LoadCar;
+            LoadRoute();
 
-            //LoadRoute();
-            
-            //LoadTilmeldte();
-            //LoadCurrentPassenger();
         }
 
         #endregion
         #region Properties
         //cars 
         public Car SelectedCar => _cvm.SelectedCar;
+        public RelayCommand LoadCar => _cvm.LoadCar;
         //lister
         public ObservableCollection<string> H => lists.Timer;
         public ObservableCollection<string> M => lists.Minutter;

@@ -25,9 +25,9 @@ namespace ZealandDrive.VM
         private UserVM _uvm;
         private RouteVM _rvm;
         private CarVM _cvm;
-        private ForumVM _fvm;
-        private SprogVM _svm;
-        private MainVM _mvm;
+        //private ForumVM _fvm;
+        //private SprogVM _svm;
+        //private MainVM _mvm;
 
         // passenger
         private IPersistens<Passenger> _persistencePassenger;
@@ -60,9 +60,9 @@ namespace ZealandDrive.VM
             _uvm = new UserVM();
             _rvm = new RouteVM();
             _cvm = new CarVM();
-            _fvm = new ForumVM();
-            _svm = new SprogVM();
-            _mvm = new MainVM();
+            //_fvm = new ForumVM();
+            //_svm = new SprogVM();
+            //_mvm = new MainVM();
 
             //persistens
             _persistenceCar = new DBPersistenceCar();
@@ -83,6 +83,11 @@ namespace ZealandDrive.VM
             _clearCreateOnePassenger = new RelayCommand(ClearCreatePassenger);
             _loadCurrentPassenger = new RelayCommand(LoadCurrentPassenger);
             _loadTilmeldteRuter = new RelayCommand(LoadTilmeldte);
+
+            //load
+
+            LoadTilmeldte();
+            LoadCurrentPassenger();
 
         }
 

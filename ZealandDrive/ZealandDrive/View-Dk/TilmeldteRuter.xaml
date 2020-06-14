@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <local:RouteVM/>
+        <local:PassengerVM/>
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
