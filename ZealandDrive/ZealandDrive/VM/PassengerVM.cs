@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ZealandDrive.Common;
+using ZealandDrive.Model;
 using ZealandDrive.Persistens;
 using ZealandDrive.Persistens.Bil;
 using ZealandDrive.Persistens.Bruger;
@@ -22,9 +23,11 @@ namespace ZealandDrive.VM
     {
         //instance fields
         #region Instancefields
+        private readonly PageCommand p;
         private UserVM _uvm;
         private RouteVM _rvm;
         private CarVM _cvm;
+
         //private ForumVM _fvm;
         //private SprogVM _svm;
         //private MainVM _mvm;
@@ -60,6 +63,7 @@ namespace ZealandDrive.VM
             _uvm = new UserVM();
             _rvm = new RouteVM();
             _cvm = new CarVM();
+            p = new PageCommand();
             //_fvm = new ForumVM();
             //_svm = new SprogVM();
             //_mvm = new MainVM();
@@ -95,6 +99,24 @@ namespace ZealandDrive.VM
 
         //Properties
         #region Properties
+        //page
+        public RelayCommand GoFo => p.FOPage;
+        public RelayCommand GoTilmeldteRuter => p.GoTilmeldteRuter;
+        public RelayCommand GoToOverview => p.GoOverviewPage;
+        public RelayCommand GoFOO => p.FOOPage;
+        public RelayCommand Setting => p.SettingPage;
+        public RelayCommand GoGemBiler => p.GemBiler;
+
+        public RelayCommand GoToOverviewEN => p.GoOverviewPageEN;
+        public RelayCommand GoFoEN => p.FOPageEN;
+        public RelayCommand SettingEN => p.SettingPageEN;
+        public RelayCommand GoBack => p.Tilbage;
+        public RelayCommand GoToOpretRute => p.OpretRute;
+        public RelayCommand GoToOpretRuteEN => p.OpretRuteEN;
+        public RelayCommand GoToSaveAddresse => p.GemAdresseEN;
+        public RelayCommand GoToGemAdresse => p.GemAdresse;
+        public RelayCommand GoToSpecficRoute => p.GoToSpecificRutePage;
+        public RelayCommand GOPasO => p.GOPasO;
         //user
         public Users CurrentUser => _uvm.UserCurrent;
         //ruter
@@ -161,32 +183,36 @@ namespace ZealandDrive.VM
                 _passengers.Add(p);
             }
         }
-        private void UpdatePassengerAccept()
+        private async void UpdatePassengerAccept()
         {
             if (_selectedPassenger != null)
             {
                 SelectedPassenger.status = "Accepteret";
                 //todo give error message
-                _persistencePassenger.Update(_selectedPassenger);
+                await _persistencePassenger.Update(_selectedPassenger);
+                await _persistencePassenger.Load();
+
             }
         }
 
-        private void UpdatePassengerDecline()
+        private async void UpdatePassengerDecline()
         {
             if (_selectedPassenger != null)
             {
                 SelectedPassenger.status = "Afvist";
                 //todo give error message
-                _persistencePassenger.Update(_selectedPassenger);
+                await _persistencePassenger.Update(_selectedPassenger);
+                await _persistencePassenger.Load();
             }
         }
 
-        private void UpdateCheckInd()
+        private async void UpdateCheckInd()
         {
             if (_selectedPassenger != null && _selectedPassenger.status == "Accepteret")
             {
                 SelectedPassenger.status = "Checked in";
-                _persistencePassenger.Update(_selectedPassenger);
+                await _persistencePassenger.Update(_selectedPassenger);
+                await _persistencePassenger.Load();
             }
         }
 
