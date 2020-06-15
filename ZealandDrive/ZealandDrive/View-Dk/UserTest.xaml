@@ -24,9 +24,7 @@
             <ColumnDefinition />
             <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
-
-        <Button Style="{StaticResource GoBackButton}" />
-
+        <Button Style="{StaticResource GoBackButton}" HorizontalAlignment="Stretch" />
 
 
 

@@ -266,6 +266,9 @@
     <Compile Include="View-En\SpecficRoutePage.xaml.cs">
       <DependentUpon>SpecficRoutePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View-En\TilmeldEN.xaml.cs">
+      <DependentUpon>TilmeldEN.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VM\CarVM.cs" />
     <Compile Include="VM\ForumVM.cs" />
     <Compile Include="VM\MainVM.cs" />
@@ -311,6 +314,11 @@
     <Content Include="View-Dk\Assets\zealand-rute-single.png" />
     <Content Include="View-Dk\header-menu-menu.png" />
     <Content Include="View-En\Assets\close.svg" />
+    <Content Include="View-En\Assets\menu-comment.png" />
+    <Content Include="View-En\Assets\menu-home.png" />
+    <Content Include="View-En\Assets\menu-notifikation.png" />
+    <Content Include="View-En\Assets\menu-settings.png" />
+    <Content Include="View-En\Assets\menu-statuser-telmeldt-active.png" />
     <Content Include="View-En\Assets\Menu.svg" />
     <Content Include="View-En\Assets\new-icon.svg" />
     <Content Include="View-En\Assets\Not_logget_in_%401x.png" />
@@ -485,6 +493,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View-En\SpecficRoutePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-En\TilmeldEN.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
