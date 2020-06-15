@@ -183,7 +183,7 @@ namespace ZealandDrive.VM
             await _persistenceCar.Opret(_carToBeCreated);
 
             Frame f = (Frame)Window.Current.Content;
-            f.Navigate(typeof(OverviewPage));
+            f.Navigate(typeof(GemteBiler));
         }
         private async void UpdateCar()
         {
