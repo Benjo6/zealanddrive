@@ -163,6 +163,9 @@
     <Compile Include="View-Dk\GemteBiler.xaml.cs">
       <DependentUpon>GemteBiler.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View-Dk\GridTest.xaml.cs">
+      <DependentUpon>GridTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View-Dk\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -346,6 +349,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View-Dk\GemteBiler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View-Dk\GridTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
