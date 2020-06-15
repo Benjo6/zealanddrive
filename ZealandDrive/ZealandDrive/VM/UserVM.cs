@@ -31,6 +31,8 @@ namespace ZealandDrive.VM
         private Users _userTobeUpdated;
         private string _userNow;
         private string _passNow;
+        private string _passNew;
+        private string _passNewCheck;
         private string _nameNow;
         private string _lastNameNow;
         private string _emailNow;
@@ -156,6 +158,25 @@ namespace ZealandDrive.VM
                 OnPropertyChanged();
             }
         }
+
+        public string PassNew
+        {
+            get => _passNew;
+            set
+            {
+                _passNew = value;
+                OnPropertyChanged();
+            }
+        }
+        public string PassNewCheck
+        {
+            get => _passNewCheck;
+            set
+            {
+                _passNewCheck = value;
+                OnPropertyChanged();
+            }
+        }
         public Users UserCurrent => x.UserCurrent;
         public string UserNow
         {
@@ -271,7 +292,25 @@ namespace ZealandDrive.VM
             f.Navigate(typeof(LoginPage));
 
         }
+        public async void CheckBrugerKode()
+        {
 
+            //await _persistence.Load();
+            foreach (Users i in await _persistence.Load())
+            {
+                if (CheckList(i.email, _userNow) && (CheckList(i.password, _passNow)))
+                {
+                    x.UserCurrent = i;
+                    UserNow = "";
+                    PassNow = "";
+                    Frame f = (Frame)Window.Current.Content;
+                    f.Navigate(typeof(OverviewPage));
+                }
+                else
+                {
+                }
+            }
+        }
 
         //private void SaveMethod()
         //{
