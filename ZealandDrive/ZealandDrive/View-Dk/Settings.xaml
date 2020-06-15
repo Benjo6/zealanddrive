@@ -37,7 +37,7 @@
                         FontSize="42"
                         FontWeight="Bold"
                         Foreground="#f2df80"
-                        Text="Forum" />
+                        Text="Indstillinger" />
                 </Canvas>
             </StackPanel>
         </StackPanel>

@@ -63,7 +63,7 @@ namespace ZealandDrive.VM
         public RelayCommand GoFoEN => p.FOPageEN;
         public RelayCommand GoFOOEN => p.FOOPageEN;
         public RelayCommand GoOverview => p.GoOverviewPage;
-        public RelayCommand GoOverviewEN => p.GoOverviewPage;
+        public RelayCommand GoOverviewEN => p.GoOverviewPageEN;
         
 
         public ObservableCollection<string> H => lists.Timer;
