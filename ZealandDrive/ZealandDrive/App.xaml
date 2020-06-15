@@ -5,6 +5,14 @@
     xmlns:local="using:ZealandDrive"
     RequestedTheme="Light">
     <Application.Resources>
+        <!--  asdasd  -->
+        <!-- <Image
+            Width="50"
+            Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Source="Assets/menu-home.png" />-->
+
 
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Foreground" Value="Black" />
@@ -26,24 +34,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <!--<Style x:Key="MainGrid" TargetType="Grid">
-            <Setter Property="Grid.ColumnDefination">
-                <Setter.Value>
-                    <ColumnDefinitionCollection>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
-                    </ColumnDefinitionCollection>
-                </Setter.Value>
-            </Setter>
-        </Style>-->
-        <!--<Grid x:Key="MainGridTest">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-        </Grid>-->
-
         <Style x:Key="GridItemsStyle" TargetType="ItemsControl">
             <Setter Property="ItemsPanel">
                 <Setter.Value>
