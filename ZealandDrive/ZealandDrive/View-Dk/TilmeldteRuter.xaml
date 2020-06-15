@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <local:PassengerVM/>
+        <local:PassengerVM />
     </Page.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -37,29 +37,26 @@
             </Canvas>
         </StackPanel>
         <Button
-                    Width="400"
-                    Height="50"
-                    Background="#f2df80"
-                    BorderBrush="White"
-                    BorderThickness="3"
-                    Command="{Binding LoadTilmeldteRuter}"
-                    Content="Load Tilmeldte Ruter"
-                    CornerRadius="2"
-                    FontSize="18"
-                    FontWeight="Bold"
-                    Grid.Row="1"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Foreground="White"
-                    />
+            Grid.Row="1"
+            Width="400"
+            Height="50"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="#f2df80"
+            BorderBrush="White"
+            BorderThickness="3"
+            Command="{Binding LoadTilmeldteRuter}"
+            Content="Load Tilmeldte Ruter"
+            CornerRadius="2"
+            FontSize="18"
+            FontWeight="Bold"
+            Foreground="White" />
         <StackPanel
             Grid.Row="1"
             Width="400"
             Margin="0,15,0,0"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-            
-        </StackPanel>
+            VerticalAlignment="Center" />
         <ScrollViewer
             Grid.Row="2"
             Width="400"
