@@ -11,8 +11,24 @@
 
 
 
-    <Grid Style="{StaticResource GridStyle}">
-        <TextBlock Grid.Row="1" Text="Hej" />
+    <Grid>
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>-->
+        <ItemsControl Style="{StaticResource GridItemsStyle}">
+            <Button Style="{StaticResource GoBackButton}" />
+        </ItemsControl>
+
+
 
     </Grid>
 </Page>

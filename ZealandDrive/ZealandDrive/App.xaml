@@ -11,7 +11,62 @@
             <Setter Property="Background" Value="#DE4EAA" />
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
-        <Style x:Key="GridStyle" TargetType="Grid" />
+        <Style x:Key="ButtonMenu" TargetType="Button">
+            <Setter Property="Height" Value="80" />
+            <Setter Property="Width" Value="80" />
+        </Style>
+        <Style x:Key="GoBackButton" TargetType="Button">
+            <Setter Property="Height" Value="80" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Grid.Row" Value="0" />
+            <Setter Property="Grid.Column" Value="4" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="View-Dk/Assets/close.svg" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--<Style x:Key="MainGrid" TargetType="Grid">
+            <Setter Property="Grid.ColumnDefination">
+                <Setter.Value>
+                    <ColumnDefinitionCollection>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </ColumnDefinitionCollection>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+        <!--<Grid x:Key="MainGridTest">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+        </Grid>-->
+
+        <Style x:Key="GridItemsStyle" TargetType="ItemsControl">
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition />
+                                <RowDefinition Height="80" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="400" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
 
 
     </Application.Resources>
