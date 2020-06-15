@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
             <RowDefinition />
-            <RowDefinition Height="70" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
         <StackPanel
@@ -101,22 +101,20 @@
         </ScrollViewer>
         <StackPanel Grid.Row="2">
             <StackPanel
-                Width="400"
-                Height="70"
-                VerticalAlignment="Center">
+                Width="400">
                 <Button
-                    Width="362"
-                    Margin="0,15,0,0"
+                    Command="{Binding UpdateOnePassengerCheckInd}"
+                    Width="400"
+                    Height="50"
                     VerticalAlignment="Bottom"
                     Background="#f2df80"
-                    BorderBrush="#e2d073"
-                    BorderThickness="2"
-                    Command="{Binding UpdateOnePassengerCheckInd}"
-                    Content="Check ind"
+                    BorderBrush="White"
+                    BorderThickness="3"
+                    Content="Check in"
                     CornerRadius="2"
-                    FontSize="20"
+                    FontSize="18"
                     FontWeight="Bold"
-                    Foreground="#ffffff" />
+                    Foreground="White" />
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="3" Background="White">
