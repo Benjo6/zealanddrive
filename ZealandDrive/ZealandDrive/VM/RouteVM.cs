@@ -44,7 +44,7 @@ namespace ZealandDrive.VM
         private IPersistens<Route> _persistenceRoute;
         private RelayCommand _createOneRute;
         private Route _selectedRute;
-        private ralaycommand2 _loadRute;
+        
         private Route _ruteToBeCreated;
         private RelayCommand _saveRute;
         private RelayCommand _updateOneRute;
@@ -80,7 +80,7 @@ namespace ZealandDrive.VM
             p = new PageCommand();
             // route
             _loadRoute = new RelayCommand(LoadRoute);
-            _loadRute = new ralaycommand2(LoadRutes);
+            
             _ruteToBeCreated = new Route();
             _ruter = new ObservableCollection<Route>();
             _createOneRute = new RelayCommand(OpretRute1);
@@ -166,7 +166,7 @@ namespace ZealandDrive.VM
         // routes
         public RelayCommand HandleSelectionRoute => _handleR;
         public ObservableCollection<Route> Ruter => _ruter;
-        public ralaycommand2 LoadRute => _loadRute;
+        
         public RelayCommand SaveRute => _saveRute;
         public RelayCommand LoadRoutes => _loadRoute;
         public RelayCommand UpdateOneRute => _updateOneRute;
