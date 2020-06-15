@@ -305,7 +305,7 @@ namespace ZealandDrive.VM
         private async void OpretPassenger()
         {
             _passengerToBeCreated.userId = UserCurrent.id;
-            _passengerToBeCreated.routeId = _selectedRute.id;
+            _passengerToBeCreated.routeId = SelectedRute.id;
             _passengerToBeCreated.status = "Afventer Accept";
             //todo give error message
             await _persistencePassenger.Opret(_passengerToBeCreated);
