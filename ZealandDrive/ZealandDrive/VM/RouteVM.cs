@@ -60,6 +60,10 @@ namespace ZealandDrive.VM
         private RelayCommand _loadIdCar;
         //user
         private UserVM _uvm;
+        //passenger
+        private Passenger _passengerToBeCreated;
+        private RelayCommand _createOnePassenger;
+        private IPersistens<Passenger> _persistencePassenger;
         #endregion
 
         #region Constructor
@@ -95,8 +99,12 @@ namespace ZealandDrive.VM
             //user
             _uvm = new UserVM();
 
+            //passenger
+            _createOnePassenger = new RelayCommand(OpretPassenger);
+            _passengerToBeCreated = new Passenger();
+            _persistencePassenger = new DBPersistencePassenger();
             //load
-            
+
             LoadRoute();
 
         }
@@ -188,6 +196,18 @@ namespace ZealandDrive.VM
             }
         }
 
+        //passenger
+        public Passenger PassengerToBeCreated
+        {
+            get => _passengerToBeCreated;
+            set
+            {
+                if (Equals(value, _passengerToBeCreated)) return;
+                _passengerToBeCreated = value;
+                OnPropertyChanged();
+            }
+        }
+        public RelayCommand CreateOnePassenger => _createOnePassenger;
 
 
 
@@ -281,6 +301,18 @@ namespace ZealandDrive.VM
             timer.Tick += new EventHandler<object>(LoadRutes);
             timer.Start();
         }
+        //passager
+        private async void OpretPassenger()
+        {
+            _passengerToBeCreated.userId = UserCurrent.id;
+            _passengerToBeCreated.routeId = _selectedRute.id;
+            _passengerToBeCreated.status = "Afventer Accept";
+            //todo give error message
+            await _persistencePassenger.Opret(_passengerToBeCreated);
+            Frame f = (Frame)Window.Current.Content;
+            f.Navigate(typeof(TilmeldteRuter));
+        }
+
 
         // onpropertychanged
 

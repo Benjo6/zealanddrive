@@ -34,7 +34,7 @@ namespace ZealandDrive.VM
 
         // passenger
         private IPersistens<Passenger> _persistencePassenger;
-        private RelayCommand _createOnePassenger;
+        //private RelayCommand _createOnePassenger;
         private Passenger _selectedPassenger;
         private RelayCommand _loadPassenger;
         private RelayCommand _loadTilmeldteRuter;
@@ -78,7 +78,7 @@ namespace ZealandDrive.VM
             _loadPassenger = new RelayCommand(LoadPassengers);
             _passengerToBeCreated = new Passenger();
             _passengers = new ObservableCollection<Passenger>();
-            _createOnePassenger = new RelayCommand(OpretPassenger);
+            //_createOnePassenger = new RelayCommand(OpretPassenger);
             _selectedPassenger = new Passenger();
             _updateOnePassengerAcc = new RelayCommand(UpdatePassengerAccept);
             _updateOnePassengerDec = new RelayCommand(UpdatePassengerDecline);
@@ -133,7 +133,7 @@ namespace ZealandDrive.VM
         public RelayCommand UpdateOnePassengerDecline => _updateOnePassengerDec;
         public RelayCommand UpdateOnePassengerCheckInd => _updateOnePassengerCheckInd;
         public RelayCommand DeleteOnePassenger => _deleteOnePassenger;
-        public RelayCommand CreateOnePassenger => _createOnePassenger;
+        //public RelayCommand CreateOnePassenger => _createOnePassenger;
         public RelayCommand ClearCreateOnePassenger => _clearCreateOnePassenger;
         public Passenger SelectedPassenger
         {
@@ -164,16 +164,16 @@ namespace ZealandDrive.VM
         #region Method
         // passenger
 
-        private async void OpretPassenger()
-        {
-            _passengerToBeCreated.userId = CurrentUser.id;
-            _passengerToBeCreated.routeId = SelectedRoute.id;
-            _passengerToBeCreated.status = "Afventer Accept";
-            //todo give error message
-            await _persistencePassenger.Opret(_passengerToBeCreated);
-            Frame f = (Frame)Window.Current.Content;
-            f.Navigate(typeof(TilmeldteRuter));
-        }
+        //private async void OpretPassenger()
+        //{
+        //    _passengerToBeCreated.userId = CurrentUser.id;
+        //    _passengerToBeCreated.routeId = SelectedRoute.id;
+        //    _passengerToBeCreated.status = "Afventer Accept";
+        //    //todo give error message
+        //    await _persistencePassenger.Opret(_passengerToBeCreated);
+        //    Frame f = (Frame)Window.Current.Content;
+        //    f.Navigate(typeof(TilmeldteRuter));
+        //}
         private async void LoadPassengers()
         {
             _passengers.Clear();
