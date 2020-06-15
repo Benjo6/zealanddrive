@@ -8,61 +8,227 @@
     xmlns:VM="using:ZealandDrive.VM"
     mc:Ignorable="d"
     Background="#F6F6F6">
-
     <Page.DataContext>
-        <VM:MainVM/>
+        <VM:MainVM />
     </Page.DataContext>
-
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="80" />
+            <RowDefinition />
+            <RowDefinition Height="80" />
         </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="80"/>
-        </Grid.ColumnDefinitions>
-
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" />
-        <Rectangle Fill="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Grid.Row="2" />
-
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4" Grid.Row="2">
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Oversigt" Command="{Binding GoOverviewEN}">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Map">
-
-            </Button>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="108" Background="Transparent" Content="Forum" Command="{Binding GoFoEN}" >
-
-            </Button>
-
-            <Button HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="108" Background="Transparent" Content="Indstilling" Command="{Binding SettingEN}">
-
-            </Button>
+        <Rectangle
+            Grid.Row="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Fill="White" />
+        <StackPanel
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Height="80">
+            <StackPanel
+                Width="400"
+                Height="80"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Canvas VerticalAlignment="Bottom">
+                    <TextBlock
+                        Margin="0,7,0,0"
+                        FontSize="42"
+                        FontWeight="Bold"
+                        Foreground="#f2df80"
+                        Text="Forum" />
+                </Canvas>
+            </StackPanel>
         </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="2"
+            Width="400"
+            Margin="0,15"
+            VerticalAlignment="Top">
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoGemteAdresse}"
+                Content="Saved Address"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoGemteBiler}"
+                Content="Saved Cars"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoPI}"
+                Content="Personal Information"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoAOS}"
+                Content="Password"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoSprog}"
+                Content="Change Language"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Background="White" Margin="0,18,0,0">
-            <TextBlock Text="Saved Addresses" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Choose" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoGemteAdresseEN}" />
-            <TextBlock Text="Cars" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Choose" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoGemBilerEN}" />
 
-            <TextBlock Text="Personal Information" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Choose" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoPIEN}"/>
-            <TextBlock Text="Password and Security" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Choose" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoAOSEN}" />
-
-            <TextBlock Text="Language" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Choose" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoSprogEN}"/>
-
-            <TextBlock Text="Privacy Settings" Foreground="Black" HorizontalAlignment="Left" Margin="35,15,0,0"/>
-            <Button Content="Choose" Background="White" BorderBrush="Gray" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Command="{Binding GoPrivatEN}"/>
-
+            <Button
+                Width="400"
+                Height="50"
+                Margin="0,0,0,5"
+                VerticalAlignment="Bottom"
+                Background="#f2df80"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoPrivat}"
+                Content="Stay Anonymous?"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
         </StackPanel>
-
+        <StackPanel
+            Grid.Row="1"
+            Width="400"
+            Margin="0,0,0,15"
+            VerticalAlignment="Bottom">
+            <Button
+                Width="400"
+                Height="50"
+                VerticalAlignment="Bottom"
+                Background="#dc3545"
+                BorderBrush="White"
+                BorderThickness="3"
+                Command="{Binding GoToLogin}"
+                Content="Log out"
+                CornerRadius="2"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White" />
+        </StackPanel>
+        <Rectangle
+            Grid.Row="2"
+            Grid.ColumnSpan="5"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Fill="White" />
+        <StackPanel
+            Grid.Row="2"
+            Grid.ColumnSpan="6"
+            Canvas.ZIndex="1">
+            <Canvas Width="435" VerticalAlignment="Center">
+                <Button
+                    Width="80"
+                    Height="80"
+                    Background="Transparent"
+                    Command="{Binding GoOverviewEN}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets/menu-home.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="80,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoFoEN}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="Assets\menu-comment.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="160,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GoTilmeldteRuter}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="/View-Dk/Assets/menu-statuser-telmeldt.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="240,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding GOPasO}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="/View-En/Assets/menu-notifikation.png" />
+                </Button>
+                <Button
+                    Width="80"
+                    Height="80"
+                    Margin="320,0,0,0"
+                    Background="Transparent"
+                    Command="{Binding Setting}">
+                    <Image
+                        Width="50"
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Source="/View-Dk/Assets/menu-statuser-telmeldt-active.png" />
+                </Button>
+            </Canvas>
+        </StackPanel>
     </Grid>
 </Page>
