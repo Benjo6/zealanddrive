@@ -16,24 +16,27 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
             <RowDefinition />
+            <RowDefinition Height="60" />
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
         <Button
-                    Width="400"
-                    Height="50"
-                    Background="#f2df80"
-                    BorderBrush="White"
-                    BorderThickness="3"
-                    Command="{Binding LoadTilmeldteRuter}"
-                    Content="Load Tilmeldte Ruter"
-                    CornerRadius="2"
-                    FontSize="18"
-                    FontWeight="Bold"
-                    Grid.Row="1"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Foreground="White"
-                    />
+            Grid.Row="1"
+            Width="400"
+            Height="50"
+            Margin="0,10,0,0"
+            HorizontalAlignment="center"
+            VerticalAlignment="Top"
+            Background="#f2df80"
+            BorderBrush="White"
+            BorderThickness="3"
+            Canvas.ZIndex="-1"
+            Command="{Binding LoadTilmeldteRuter}"
+            Content="Load Tilmeldte Ruter"
+            CornerRadius="2"
+            FontSize="18"
+            FontWeight="Bold"
+            Foreground="White"
+            Opacity="0" />
         <StackPanel
             Grid.Row="0"
             Grid.ColumnSpan="4"
@@ -50,12 +53,12 @@
                 VerticalAlignment="Center">
                 <!--  Tekst i midten over hvilken side man er på  -->
                 <!--<Canvas VerticalAlignment="Bottom">-->
-                    <TextBlock
-                        Margin="0,7,0,0"
-                        FontSize="42"
-                        FontWeight="Bold"
-                        Foreground="#f2df80"
-                        Text="Passager Oversigt" />
+                <TextBlock
+                    Margin="0,7,0,0"
+                    FontSize="42"
+                    FontWeight="Bold"
+                    Foreground="#f2df80"
+                    Text="Passager Oversigt" />
                 <!--</Canvas>-->
             </StackPanel>
         </StackPanel>
@@ -63,14 +66,12 @@
             <Canvas
                 Width="400"
                 Margin="0,10"
-                VerticalAlignment="Center">
-                
-            </Canvas>
+                VerticalAlignment="Center" />
         </StackPanel>
         <ScrollViewer
             Grid.Row="1"
             Width="400"
-            Margin="0,65,0,15">
+            Margin="0,15,0,15">
             <GridView ItemsSource="{Binding Passengers}" SelectedItem="{Binding SelectedPassenger, Mode=TwoWay}">
                 <GridView.ItemTemplate>
                     <DataTemplate>
@@ -121,80 +122,58 @@
                                     FontWeight="Bold"
                                     Text="{Binding userId}" />
                             </Canvas>
-                            <Border
-                                Width="365"
-                                Height="2"
-                                Background="#e2e2e2" />
-                            <Canvas Height="30" Margin="0,15,0,10">
-                                <Button
-                                    Width="180"
-                                    VerticalAlignment="Bottom"
-                                    Background="#92DD77"
-                                    BorderBrush="#84cc6a"
-                                    BorderThickness="3"
-                                    Command="{Binding }"
-                                    Content="Accepter"
-                                    CornerRadius="2"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White" />
-                                <Button
-                                    Width="180"
-                                    Margin="185,0,0,0"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
-                                    Background="#D94141"
-                                    BorderBrush="#b52a2a"
-                                    BorderThickness="3"
-                                    Command="{Binding UpdateOnePassengerDecline}"
-                                    Content="Afvis"
-                                    CornerRadius="2"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White" />
-                            </Canvas>
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
         </ScrollViewer>
-        <Button
-                                    Width="180"
-                                    Margin="0,0,0,0"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Bottom"
-                                    Background="#D94141"
-                                    BorderBrush="#b52a2a"
-                                    BorderThickness="3"
-                                    Command="{Binding UpdateOnePassengerDecline}"
-                                    Content="Afvis"
-                                    CornerRadius="2"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White" />
-        <Button
-                                    Width="180"
-                                    VerticalAlignment="Bottom"
-                                    Background="#92DD77"
-            Grid.Row="1"
-            
-                                    BorderBrush="#84cc6a"
-                                    BorderThickness="3"
-                                    Command="{Binding UpdateOnePassengerAccept}"
-                                    Content="Accepter"
-                                    CornerRadius="2"
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Foreground="White" />
-        <StackPanel
-            Grid.Row="2"
-            Grid.ColumnSpan="4"
-            Background="White"
-            Canvas.ZIndex="1">
-            <Canvas Width="435" VerticalAlignment="Center">
+        <StackPanel Grid.Row="2">
+            <StackPanel
+                Width="400"
+                Height="50"
+                VerticalAlignment="Center">
+                <Canvas Width="195" HorizontalAlignment="Right">
+                    <Button
+                        Grid.Row="1"
+                        Width="195"
+                        Height="50"
+                        Background="#92DD77"
+                        BorderBrush="#84cc6a"
+                        BorderThickness="3"
+                        Command="{Binding UpdateOnePassengerAccept}"
+                        Content="Accepter"
+                        CornerRadius="2"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White" />
+                </Canvas>
+                <Canvas Width="190" HorizontalAlignment="Left">
+                    <Button
+                        Width="195"
+                        Height="50"
+                        Background="#D94141"
+                        BorderBrush="#b52a2a"
+                        BorderThickness="3"
+                        Command="{Binding UpdateOnePassengerDecline}"
+                        Content="Afvis"
+                        CornerRadius="2"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White" />
+                </Canvas>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Background="White">
+            <Grid Width="400" Height="80">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
                 <Button
-                    Width="80"
-                    Height="80"
+                    Grid.Column="0"
                     Background="Transparent"
                     Command="{Binding GoToOverview}">
                     <Image
@@ -205,9 +184,9 @@
                         Source="Assets/menu-home.png" />
                 </Button>
                 <Button
+                    Grid.Column="1"
                     Width="80"
                     Height="80"
-                    Margin="80,0,0,0"
                     Background="Transparent"
                     Command="{Binding GoFo}">
                     <Image
@@ -218,9 +197,9 @@
                         Source="Assets\menu-comment.png" />
                 </Button>
                 <Button
+                    Grid.Column="2"
                     Width="80"
                     Height="80"
-                    Margin="160,0,0,0"
                     Background="Transparent"
                     Command="{Binding GoTilmeldteRuter}">
                     <Image
@@ -231,9 +210,9 @@
                         Source="Assets\menu-statuser-telmeldt.png" />
                 </Button>
                 <Button
+                    Grid.Column="3"
                     Width="80"
                     Height="80"
-                    Margin="240,0,0,0"
                     Background="Transparent"
                     Command="{Binding GOPasO}">
                     <Image
@@ -244,9 +223,9 @@
                         Source="Assets\menu-notifikation-active.png" />
                 </Button>
                 <Button
+                    Grid.Column="4"
                     Width="80"
                     Height="80"
-                    Margin="320,0,0,0"
                     Background="Transparent"
                     Command="{Binding Setting}">
                     <Image
@@ -256,7 +235,7 @@
                         VerticalAlignment="Center"
                         Source="Assets\menu-settings.png" />
                 </Button>
-            </Canvas>
+            </Grid>
         </StackPanel>
     </Grid>
 </Page>
