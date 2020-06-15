@@ -57,7 +57,7 @@ namespace ZealandDrive.VM
         // cars
         private IPersistens<Car> _persistenceCar;
         private CarVM _cvm;
-
+        private RelayCommand _loadIdCar;
         //user
         private UserVM _uvm;
         #endregion
@@ -91,7 +91,7 @@ namespace ZealandDrive.VM
             // car
             _cvm = new CarVM();
             _persistenceCar = new DBPersistenceCar();
-
+            _loadIdCar = new RelayCommand(LoadIdCars);
             //user
             _uvm = new UserVM();
 
@@ -105,7 +105,8 @@ namespace ZealandDrive.VM
         #region Properties
         //cars 
         public Car SelectedCar => _cvm.SelectedCar;
-        public RelayCommand LoadCar => _cvm.LoadIdCar;
+        public ObservableCollection<Car> Cars => _cvm.Cars;
+        public RelayCommand LoadIdCar => _loadIdCar;
         //lister
         public ObservableCollection<string> H => lists.Timer;
         public ObservableCollection<string> M => lists.Minutter;
@@ -188,8 +189,7 @@ namespace ZealandDrive.VM
         }
 
 
-        //cars
-        public RelayCommand LoadIdCar => _cvm.LoadIdCar;
+
 
         //user 
         public RelayCommand LoadUser => _uvm.LoadUser;
@@ -197,7 +197,19 @@ namespace ZealandDrive.VM
         #endregion
 
         #region Method
-
+        //cars
+        private async void LoadIdCars()
+        {
+            Cars.Clear();
+            var liste = await _persistenceCar.Load();
+            foreach (Car c in liste)
+            {
+                if (c.id == SelectedRute.carId)
+                {
+                    Cars.Add(c);
+                }
+            }
+        }
         // routes
 
 
