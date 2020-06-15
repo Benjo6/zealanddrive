@@ -15,6 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
             <RowDefinition />
+            <RowDefinition Height="70" />
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
         <StackPanel
@@ -93,25 +94,32 @@
                                 Width="365"
                                 Height="2"
                                 Background="#e2e2e2" />
-                            <Button
-                                Width="362"
-                                Margin="0,15,0,0"
-                                VerticalAlignment="Bottom"
-                                Background="#f2df80"
-                                BorderBrush="#e2d073"
-                                BorderThickness="2"
-                                Command="{Binding UpdateOnePassengerCheckInd}"
-                                Content="Check ind"
-                                CornerRadius="2"
-                                FontSize="20"
-                                FontWeight="Bold"
-                                Foreground="#ffffff" />
                         </StackPanel>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
         </ScrollViewer>
-        <StackPanel Grid.Row="2" Background="White">
+        <StackPanel Grid.Row="2">
+            <StackPanel
+                Width="400"
+                Height="70"
+                VerticalAlignment="Center">
+                <Button
+                    Width="362"
+                    Margin="0,15,0,0"
+                    VerticalAlignment="Bottom"
+                    Background="#f2df80"
+                    BorderBrush="#e2d073"
+                    BorderThickness="2"
+                    Command="{Binding UpdateOnePassengerCheckInd}"
+                    Content="Check ind"
+                    CornerRadius="2"
+                    FontSize="20"
+                    FontWeight="Bold"
+                    Foreground="#ffffff" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Background="White">
             <Grid Width="400" Height="80">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />

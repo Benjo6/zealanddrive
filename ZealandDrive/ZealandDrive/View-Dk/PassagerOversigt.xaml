@@ -16,7 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
             <RowDefinition />
-            <RowDefinition Height="70" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="80" />
         </Grid.RowDefinitions>
         <Button
@@ -130,13 +130,13 @@
         <StackPanel Grid.Row="2">
             <StackPanel
                 Width="400"
-                Height="70"
+                Height="50"
                 VerticalAlignment="Center">
                 <Canvas Width="195" HorizontalAlignment="Right">
                     <Button
                         Grid.Row="1"
                         Width="195"
-                        Height="60"
+                        Height="50"
                         Background="#92DD77"
                         BorderBrush="#84cc6a"
                         BorderThickness="3"
@@ -150,7 +150,7 @@
                 <Canvas Width="190" HorizontalAlignment="Left">
                     <Button
                         Width="195"
-                        Height="60"
+                        Height="50"
                         Background="#D94141"
                         BorderBrush="#b52a2a"
                         BorderThickness="3"
