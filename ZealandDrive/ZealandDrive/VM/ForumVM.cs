@@ -66,7 +66,8 @@ namespace ZealandDrive.VM
         public RelayCommand CreateForum => p.FOOPageEN;
         public RelayCommand Setting => p.SettingPage;
         public RelayCommand SettingEN => p.SettingPageEN;
-        
+        public RelayCommand GoBack => p.Tilbage;
+        public RelayCommand GoFo => p.FOPage;
 
         public ObservableCollection<Forum> Forum => _forum;
         public RelayCommand LoadForum => _loadForum;
