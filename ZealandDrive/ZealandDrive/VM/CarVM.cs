@@ -65,7 +65,7 @@ namespace ZealandDrive.VM
             //viewmodels
             //_rvm = new RouteVM();
             //load
-            //LoadOneCars();
+            LoadOneCars();
 
         }
         #endregion
