@@ -11,8 +11,6 @@
     <Page.DataContext>
         <local1:ForumVM />
     </Page.DataContext>
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -45,16 +43,18 @@
                         LineHeight="0"
                         Text="x" />
                 </Button>
-                <TextBlock
+            </Canvas>
+        </StackPanel>
+        <StackPanel Grid.Row="0">
+            <TextBlock
                     Margin="0,18,0,0"
-                    HorizontalAlignment="Right"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
                     FontSize="42"
                     FontWeight="Bold"
                     Foreground="#f2df80"
                     LineHeight="20"
                     Text="Opret indlæg" />
-            </Canvas>
         </StackPanel>
         <StackPanel
             Grid.Row="1"
@@ -96,19 +96,6 @@
                 FontWeight="Bold"
                 Foreground="White" />
         </StackPanel>
-        <Button
-            Grid.Column="2"
-            Grid.ColumnSpan="2"
-            Width="70"
-            Height="70"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            Background="White"
-            Canvas.ZIndex="1"
-            Command="{Binding GoBack}">
-            <Image VerticalAlignment="Bottom" Source="Assets\close.svg" />
-        </Button>
-
         <StackPanel
             Grid.Row="4"
             Grid.ColumnSpan="4"
