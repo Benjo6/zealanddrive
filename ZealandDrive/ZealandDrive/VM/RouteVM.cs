@@ -58,6 +58,7 @@ namespace ZealandDrive.VM
         private IPersistens<Car> _persistenceCar;
         private CarVM _cvm;
         private RelayCommand _loadIdCar;
+        private Car _selectedCar;
         //user
         private UserVM _uvm;
         //passenger
@@ -96,6 +97,7 @@ namespace ZealandDrive.VM
             _cvm = new CarVM();
             _persistenceCar = new DBPersistenceCar();
             _loadIdCar = new RelayCommand(LoadIdCars);
+            _selectedCar = new Car();
             //user
             _uvm = new UserVM();
 
@@ -112,7 +114,18 @@ namespace ZealandDrive.VM
         #endregion
         #region Properties
         //cars 
-        public Car SelectedCar => _cvm.SelectedCar;
+        public Car SelectedCar
+        {
+            get => _selectedCar;
+            set
+            {
+                if (Equals(value, _selectedCar)) return;
+                _selectedCar = value;
+                OnPropertyChanged();
+            }
+        }
+
+        //public Car SelectedCar => _cvm.SelectedCar;
         public ObservableCollection<Car> Cars => _cvm.Cars;
         public RelayCommand LoadIdCar => _loadIdCar;
         //lister
